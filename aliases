@@ -24,3 +24,6 @@ alias gs='git status'
 alias gc='git checkout'
 alias gp='git pull'
 alias gd='git diff'
+
+alias vimrc='vim ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
