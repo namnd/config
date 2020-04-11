@@ -36,3 +36,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7a7a7a"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" 2> /dev/null'
+
+source ~/.config/go/env

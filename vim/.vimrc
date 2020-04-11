@@ -23,3 +23,21 @@ set mouse=a                     " select text using mouse to enable visual mode
 
 colorscheme gruvbox
 set background=dark
+
+let mapleader=" "
+
+" fzf
+set rtp+=/home/nam/dotfiles/fzf
+let g:fzf_layout = { 'window': {
+                    \ 'width': 0.9,
+                    \ 'height': 0.7,
+                    \ 'highlight': 'Comment',
+                    \ 'rounded': v:false }}
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>e :History<cr>
+nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>r :Rg<cr>
+command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+    \   fzf#vim#with_preview(), <bang>0)
