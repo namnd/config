@@ -2,9 +2,14 @@ HISTFILE=~/.cache/zsh/history
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt AUTO_CD          # auto cd into path
-setopt SHARE_HISTORY    # share history file across the sessions
-setopt APPEND_HISTORY   # and append to it rather overwrite
+setopt AUTO_CD                  # auto cd into path
+setopt SHARE_HISTORY            # share history file across the sessions
+setopt APPEND_HISTORY           # and append to it rather overwrite
+setopt HIST_EXPIRE_DUPS_FIRST   # expire duplicate first
+setopt HIST_IGNORE_DUPS         # do not store duplications
+setopt HIST_FIND_NO_DUPS        # ignore duplicate when searching
+setopt HIST_REDUCE_BLANKS       # remove blank lines from histody
+
 
 bindkey -v
 autoload -U edit-command-line
@@ -26,4 +31,5 @@ export LS_COLORS
 
 ZSH_PATH=$HOME/dotfiles/zsh
 
-
+source $ZSH_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7a7a7a"

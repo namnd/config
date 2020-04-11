@@ -1,3 +1,6 @@
 [submodule "vim/.vim/pack/default/start/gruvbox"]
 	path = vim/.vim/pack/default/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "zsh/zsh-autosuggestions"]
+	path = zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
