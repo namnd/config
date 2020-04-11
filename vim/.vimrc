@@ -24,7 +24,24 @@ set mouse=a                     " select text using mouse to enable visual mode
 colorscheme gruvbox
 set background=dark
 
+set laststatus=2
+set statusline= " reset statusline
+set statusline+=\ %n            " buffer number
+set statusline+=%m              " modified flag
+set statusline+=%r              " read only flag
+" set statusline+=\ %{statusline#filepath()}
+set statusline+=\ %f              " tail of filename
+set statusline+=\ %{statusline#classname()}
+set statusline+=%=              " left/right separator
+set statusline+=[%{statusline#filetype()}]
+set statusline+=\%{statusline#fileencoding()}
+set statusline+=\[%{&ff}\]      " file format
+set statusline+=\ %c,           " cursor column
+set statusline+=\ %l/%L         " cursor line/total lines
+
+" basic mapping
 let mapleader=" "
+inoremap {<Enter> {<cr>}<C-c>O
 
 " fzf
 set rtp+=/home/nam/dotfiles/fzf
@@ -42,3 +59,33 @@ command! -bang -nargs=* Rg
     \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
     \   fzf#vim#with_preview(), <bang>0)
 
+" coc.nvim - autocompletion only
+set hidden                      " TextEdit might fail if hidden is not set
+set nobackup                    " some servers have issues with backup files
+set nowritebackup
+set cmdheight=2                 " give more spaces for displaying messages
+set updatetime=100              " default is 4000ms = 4s
+set shortmess+=c                " don't pass messages to ins-completion-menu
+set signcolumn=yes              " always show the signcolumn
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+if exists('*complete_info')
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction

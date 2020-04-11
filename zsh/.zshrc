@@ -39,3 +39,4 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{n
 
 source ~/.config/go/env
 export PATH="$PATH:$HOME/.go/bin"
+export PATH="$PATH:$HOME/.local/bin"
