@@ -1,0 +1,11 @@
+"/usr/bin/slock"
+    Control+Alt + l
+
+"/usr/bin/amixer set Master 5%+"
+    XF86AudioRaiseVolume
+
+"/usr/bin/amixer set Master 5%-"
+    XF86AudioLowerVolume
+
+"/usr/bin/amixer set Master toggle"
+    XF86AudioMute
