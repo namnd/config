@@ -9,3 +9,9 @@
 
 "/usr/bin/amixer set Master toggle"
     XF86AudioMute
+
+"/usr/bin/xbacklight -inc 10"
+    XF86MonBrightnessUp
+
+"/usr/bin/xbacklight -dec 10"
+    XF86MonBrightnessDown
