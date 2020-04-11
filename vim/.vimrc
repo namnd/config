@@ -42,27 +42,3 @@ command! -bang -nargs=* Rg
     \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
     \   fzf#vim#with_preview(), <bang>0)
 
-
-" coc.nvim
-set hidden          " TextEdit might fail if hidden is not set
-set nobackup        " some servers have issues with backup files
-set nowritebackup
-set cmdheight=2     " give more space for displaying messages
-set updatetime=100  " default is 4000 ms = 4s
-set shortmess+=c    " don't pass messages to ins-completion-menu
-set signcolumn=yes  " show signcolumn
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-function! GoCoc()
-    " use tab for trigger completion with characters ahead and navigate
-    inoremap <buffer> <silent><expr> <TAB>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<TAB>" :
-          \ coc#refresh()
-    inoremap <buffer> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-    inoremap <buffer> <silent><expr> <C-space> coc#refresh()
-endfunction
-
-autocmd FileType go :call GoCoc()
