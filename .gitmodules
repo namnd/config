@@ -16,3 +16,6 @@
 [submodule "vim/.vim/pack/tpope/start/vim-commentary"]
 	path = vim/.vim/pack/tpope/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/.vim/pack/plugins/start/quick-scope"]
+	path = vim/.vim/pack/plugins/start/quick-scope
+	url = https://github.com/unblevable/quick-scope
