@@ -19,3 +19,6 @@
 [submodule "vim/.vim/pack/plugins/start/quick-scope"]
 	path = vim/.vim/pack/plugins/start/quick-scope
 	url = https://github.com/unblevable/quick-scope
+[submodule "vim/.vim/pack/tpope/start/surround"]
+	path = vim/.vim/pack/tpope/start/surround
+	url = https://tpope.io/vim/surround.git
