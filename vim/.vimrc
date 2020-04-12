@@ -1,6 +1,7 @@
 syntax on
 
 filetype plugin indent on       " filetype detection[ON] plugin[ON] indent[ON]
+set clipboard=unnamedplus
 set backspace=indent,eol,start  " make backspace works
 set listchars=tab:>~,nbsp:_,trail:.
 set list
@@ -92,3 +93,7 @@ endfunction
 
 " go lang
 let g:go_template_autocreate = 0
+
+" closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
