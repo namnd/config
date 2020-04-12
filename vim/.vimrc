@@ -44,7 +44,7 @@ let mapleader=" "
 inoremap {<Enter> {<cr>}<C-c>O
 
 " fzf
-set rtp+=/home/nam/dotfiles/fzf
+set rtp+=~/dotfiles/fzf
 let g:fzf_layout = { 'window': {
                     \ 'width': 0.9,
                     \ 'height': 0.7,
