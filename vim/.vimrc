@@ -1,7 +1,13 @@
+let uname = substitute(system('uname'), '\n', '', '') " OS type
+if uname == 'Darwin'
+    set clipboard=unnamed
+endif
+if uname == 'Linux'
+    set clipboard=unnamedplus
+endif
 syntax on
 
 filetype plugin indent on       " filetype detection[ON] plugin[ON] indent[ON]
-set clipboard=unnamedplus
 set backspace=indent,eol,start  " make backspace works
 set listchars=tab:>~,nbsp:_,trail:.
 set list
