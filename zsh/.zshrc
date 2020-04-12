@@ -10,13 +10,28 @@ setopt HIST_IGNORE_DUPS         # do not store duplications
 setopt HIST_FIND_NO_DUPS        # ignore duplicate when searching
 setopt HIST_REDUCE_BLANKS       # remove blank lines from histody
 
+export KEYTIMEOUT=1             # make Vi mode transition faster
 
+# key binding
 bindkey -v
 autoload -U edit-command-line
 zle -N edit-command-line
+export VISUAL=vim
 bindkey -M vicmd v edit-command-line
+VIMODE='[I]'
+function zle-keymap-select {
+    VIMODE="${${KEYMAP/vicmd/[N]}/(main|viins)/[I]}"
+    zle reset-prompt
+}
+zle -N zle-keymap-select
 
-autoload -U promptinit; promptinit
+# prompt
+autoload -Uz vcs_info
+precmd() { vcs_info }
+setopt prompt_subst
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats $'%r %F{248}\ue725 %b'
+PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~ %F{255}${VIMODE} %f%(!.#.$) '
 
 # auto/tab complete
 autoload -U compinit
