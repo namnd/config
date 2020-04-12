@@ -89,3 +89,6 @@ function! s:show_documentation()
         call CocAction('doHover')
     endif
 endfunction
+
+" go lang
+let g:go_template_autocreate = 0
