@@ -99,7 +99,13 @@ endfunction
 
 " go lang
 let g:go_template_autocreate = 0
+function! Golang()
+    nmap <buffer> <silent> <leader>tt :GoTest<cr>
+    nmap <buffer> <silent> <leader>tn :GoTestFunc<cr>
+endfunction
 
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+autocmd FileType go :call Golang()
