@@ -1,6 +1,11 @@
 #!/bin/sh
 
-alias ls='ls --color'
+if [[ $OSTYPE == "linux-gnu" ]]; then
+    alias ls='ls --color=auto'
+else;
+    export CLICOLOR=1
+fi
+
 alias ll='ls -l'
 alias all='ls -al'
 alias .2='cd ../..'
