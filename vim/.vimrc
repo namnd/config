@@ -33,6 +33,7 @@ set background=dark
 set laststatus=2
 set statusline= " reset statusline
 set statusline+=\ %n            " buffer number
+set statusline+=\ %{statusline#git()}
 set statusline+=%m              " modified flag
 set statusline+=%r              " read only flag
 " set statusline+=\ %{statusline#filepath()}
