@@ -38,7 +38,7 @@ PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~ %F{255}${VIMODE} %f%(!.#.${ARROW}) '
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit -D ~/.cache/zsh/zcompdump-$ZSH_VERSION
+compinit -D $HOME/.cache/zsh/zcompdump-$ZSH_VERSION
 
 [ -f $HOME/dotfiles/aliases ] && source $HOME/dotfiles/aliases
 LS_COLORS='di=94:ex=92:ln=36'
