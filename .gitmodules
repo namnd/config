@@ -22,3 +22,6 @@
 [submodule "vim/.vim/pack/tpope/start/surround"]
 	path = vim/.vim/pack/tpope/start/surround
 	url = https://tpope.io/vim/surround.git
+[submodule "vim/.vim/pack/tpope/start/fugitive"]
+	path = vim/.vim/pack/tpope/start/fugitive
+	url = https://tpope.io/vim/fugitive.git
