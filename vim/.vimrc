@@ -97,6 +97,11 @@ function! s:show_documentation()
     endif
 endfunction
 
+" Coc goto navigation
+function! GoCoc()
+    nmap <silent> gd <Plug>(coc-definition)
+endfunction
+
 " go lang
 let g:go_template_autocreate = 0
 function! Golang()
@@ -109,3 +114,4 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 
 autocmd FileType go :call Golang()
+autocmd FileType ts :call GoCoc()
