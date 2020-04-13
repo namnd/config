@@ -18,7 +18,6 @@ set smarttab                    " use tabs at the start of the line
 set smartindent
 set showmatch                   " show match bracket
 set number relativenumber       " show both line number and relative
-set nowrap                      " disable wrapping
 set incsearch                   " highlight as you type your search
 set encoding=utf-8              " how vim represents characters on the screen
 set fileencoding=utf-8          " set the encoding of files written
