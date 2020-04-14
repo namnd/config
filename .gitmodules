@@ -25,3 +25,6 @@
 [submodule "vim/.vim/pack/tpope/start/fugitive"]
 	path = vim/.vim/pack/tpope/start/fugitive
 	url = https://tpope.io/vim/fugitive.git
+[submodule "vim/.vim/pack/plugins/start/vim-jsx-improve"]
+	path = vim/.vim/pack/plugins/start/vim-jsx-improve
+	url = https://github.com/neoclide/vim-jsx-improve.git
