@@ -26,6 +26,10 @@ set noswapfile
 set cursorline                  " highlight cursor line
 set cursorcolumn                " highlight cursor column
 set mouse=a                     " select text using mouse to enable visual mode
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable            " disable auto folding
+set foldlevel=2
 
 colorscheme gruvbox
 set background=dark
