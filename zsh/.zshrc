@@ -32,7 +32,7 @@ setopt prompt_subst
 RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats $'%r %F{248}\ue725 %b'
 if [ -n "$TMUX" ]; then ARROW='%F{green}$%f'; else ARROW='%F{240}$%f'; fi
-PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~ %F{255}${VIMODE} %f%(!.#.${ARROW}) '
+PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~\n%F{255}${VIMODE} %f%(!.#.${ARROW}) '
 
 # auto/tab complete
 autoload -U compinit
