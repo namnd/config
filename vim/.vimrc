@@ -25,7 +25,8 @@ set noerrorbells visualbell     " flash screen instead of beep sound
 set noswapfile
 set cursorline                  " highlight cursor line
 set cursorcolumn                " highlight cursor column
-set mouse=a                     " select text using mouse to enable visual mode
+set mouse=                      " select text using mouse to enable visual mode
+set ttymouse=
 
 colorscheme gruvbox
 set background=dark
