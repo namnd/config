@@ -1,0 +1,140 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+# Standard javascript
+snippet if "if" b
+if ($1) {
+	$2
+}
+endsnippet
+snippet ifel "if else" b
+if ($1) {
+	$2
+} else {
+	$3
+}
+endsnippet
+snippet try "try catch" b
+try {
+	$1
+} catch($2) {
+	$3
+}
+endsnippet
+
+snippet "\.(map|filter|forEach|reduce)" "Array method with an arrow function" r
+.`!p snip.rv = match.group(1)`(${1:(c, i)} => {
+	return $2
+})
+endsnippet
+
+snippet "\.(map|filter|forEach|reduce)=" "Array method with an arrow function inline" rA
+.`!p snip.rv = match.group(1)`(${1:(c, i)} => $2)
+endsnippet
+
+snippet => "Arrow function"
+(${1:args}) => {
+	return $3;
+}${2:;}
+endsnippet
+
+snippet =>> "Inline arrow function" A
+(${1:args}) => ($2);
+endsnippet
+
+# JavaScript versions -- from the TextMate bundle + some additions
+# for jasmine-jquery matchers
+#
+
+snippet desc "Describe (js)" b
+describe('${1:description}', () => {
+	$0
+});
+endsnippet
+
+snippet it "it (js)" b
+it('${1:description}', () => {
+	$0
+});
+endsnippet
+
+snippet bef "before each (js)" b
+beforeEach(() => {
+	$0
+});
+endsnippet
+
+snippet aft "after each (js)" b
+afterEach(() => {
+	$0
+});
+endsnippet
+
+snippet befa "before all (js)" b
+beforeAll(() => {
+	$0
+});
+endsnippet
+
+snippet afta "after all (js)" b
+afterAll(() => {
+	$0
+});
+endsnippet
+
+snippet ru "runs (js)" b
+runs(() => {
+	$0
+});
+endsnippet
+
+# ===========================================
+# ReactJS
+#
+snippet react "react class" b
+class ${1:`!v expand('%:t:r')`} extends React.Component {
+	render() {
+		return (
+			$2
+		)
+	}
+}
+endsnippet
+
+# ===========================================
+# Testing
+#
+snippet desc; "Describe" b
+describe('$1', () => {
+	$2
+});
+endsnippet
+
+snippet it; "It" b
+it('should $1', () => {
+	$2
+});
+endsnippet

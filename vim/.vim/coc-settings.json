@@ -1,4 +1,9 @@
 {
+    "snippets": {
+        // directories that search for snippets
+        "ultisnips.directories": [],
+        "userSnippetsDirectory": "~/dotfiles/vim/UltiSnips"
+    },
     "languageserver": {
         "golang": {
             "command": "gopls",
