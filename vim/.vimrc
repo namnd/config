@@ -27,6 +27,10 @@ set cursorline                  " highlight cursor line
 set cursorcolumn                " highlight cursor column
 set mouse=                      " select text using mouse to enable visual mode
 set ttymouse=
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable            " disable auto folding
+set foldlevel=2
 
 colorscheme gruvbox
 set background=dark
