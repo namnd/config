@@ -130,11 +130,32 @@ endsnippet
 snippet desc; "Describe" b
 describe('$1', () => {
 	$2
-});
+})
 endsnippet
 
 snippet it; "It" b
 it('should $1', () => {
 	$2
-});
+})
+endsnippet
+
+# Importing
+snippet imp "import {} from 'package'" b
+import { $2 } from "$1"
+endsnippet
+
+snippet impd "import Module from 'package'" b
+import $2 from "$1"
+endsnippet
+
+snippet impf "import File from './File'" b
+import $2 from "./$1"
+endsnippet
+
+snippet impa "import all from a package" b
+import * as $1 from "$2"
+endsnippet
+
+snippet impp "import file without a declaration" b
+import "$1"
 endsnippet
