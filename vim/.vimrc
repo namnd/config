@@ -57,6 +57,12 @@ inoremap {<Enter> {<cr>}<C-c>O
 vnoremap <C-r> y<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap Y y$
 
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+nnoremap <silent> <leader>n :Explore<cr>
+
 " fzf
 set rtp+=~/dotfiles/fzf
 let g:fzf_layout = { 'window': {
