@@ -54,6 +54,8 @@ set statusline+=\ %l/%L         " cursor line/total lines
 " basic mapping
 let mapleader=" "
 inoremap {<Enter> {<cr>}<C-c>O
+vnoremap <C-r> y<esc>:%s/<C-r>+//gc<left><left><left>
+nnoremap Y y$
 
 " fzf
 set rtp+=~/dotfiles/fzf
