@@ -1,15 +1,22 @@
 {
-    "snippets": {
-        // directories that search for snippets
-        "ultisnips.directories": [],
-        "userSnippetsDirectory": "~/dotfiles/vim/UltiSnips"
-    },
-    "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod"],
-            "disableWorkspaceFolders": true,
-            "filetypes": ["go"]
-        }
+  "snippets": {
+    // directories that search for snippets
+    "ultisnips.directories": [],
+    "userSnippetsDirectory": "~/dotfiles/vim/UltiSnips"
+  },
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "disableWorkspaceFolders": true,
+      "filetypes": ["go"]
     }
+  },
+  "javascript": {
+    "suggestionActions.enabled": false
+  },
+  "eslint": {
+    "enable": true,
+    "autoFixOnSave": true
+  }
 }
