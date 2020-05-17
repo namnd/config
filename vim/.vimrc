@@ -63,6 +63,24 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 nnoremap <silent> <leader>n :Explore<cr>
 
+" split & navigation
+set splitbelow splitright
+nmap <silent> zh :wincmd h<cr>
+nmap <silent> zj :wincmd j<cr>
+nmap <silent> zk :wincmd k<cr>
+nmap <silent> zl :wincmd l<cr>
+nmap <silent> zv :wincmd v<cr>
+nmap <silent> zs :wincmd s<cr>
+nmap <silent> zx :wincmd x<cr>
+nmap <silent> zr :wincmd r<cr>
+nmap <silent> zo :wincmd o<cr>
+nmap <silent> zf :vertical wincmd f<cr>
+nnoremap <silent> z= :vertical resize +10<cr>
+nnoremap <silent> z- :vertical resize -10<cr>
+nnoremap <silent> z+ :resize +5<cr>
+nnoremap <silent> z_ :resize -5<cr>
+
+
 " fzf
 set rtp+=~/dotfiles/fzf
 let g:fzf_layout = { 'window': {
