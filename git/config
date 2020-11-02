@@ -3,3 +3,5 @@
 	name = Nam Nguyen
 [core]
     excludesfile = /home/nam/dotfiles/git/ignore
+[pull]
+	rebase = true
