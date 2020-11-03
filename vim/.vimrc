@@ -91,6 +91,17 @@ command! -bang -nargs=* Rg
     \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
     \   fzf#vim#with_preview(), <bang>0)
 
+" nnn
+let g:nnn#set_default_mappings = 0
+nnoremap <silent> <leader>nn :NnnPicker<CR>
+let g:nnn#layout = {'window': {'width': 0.9, 'height': 0.7, 'highlight': 'Debug' } }
+let g:nnn#command = 'nnn -H'
+let g:nnn#action = {
+    \ '<c-x>': 'split',
+    \ '<c-v>': 'vsplit',
+    \ '<c-t>': 'tab split' }
+
+
 " coc.nvim - autocompletion only
 set hidden                      " TextEdit might fail if hidden is not set
 set nobackup                    " some servers have issues with backup files
