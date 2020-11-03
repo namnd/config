@@ -44,10 +44,6 @@ compinit -D $HOME/.cache/zsh/zcompdump-$ZSH_VERSION
 LS_COLORS='di=94:ex=92:ln=36'
 export LS_COLORS
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
-
 ZSH_PATH=$HOME/dotfiles/zsh
 
 source $ZSH_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh
