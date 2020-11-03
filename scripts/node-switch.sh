@@ -19,6 +19,7 @@ install() {
     url=https://nodejs.org/download/release/v$version/$package
     wget $url -P $directory
     tar -xf $directory/$package -C $directory
+    rm -rf $directory/$package
     switch $1
 }
 
@@ -34,5 +35,8 @@ case "$1" in
         ;;
     switch)
         switch $2
+        ;;
+    ls)
+        ls -l $directory
         ;;
 esac
