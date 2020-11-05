@@ -27,7 +27,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
-Plug 'https://github.com/ycm-core/YouCompleteMe'
 Plug 'mbbill/undotree'
 
 Plug 'mcchrish/nnn.vim'
@@ -37,6 +36,18 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
+
+set splitbelow splitright
+nmap <silent> zs :wincmd s<cr>
+nmap <silent> zv :wincmd v<cr>
+nmap <silent> zx :wincmd x<cr>
+nmap <silent> zo :wincmd o<cr>
+
+nmap <silent> zh :wincmd h<cr>
+nmap <silent> zj :wincmd j<cr>
+nmap <silent> zl :wincmd l<cr>
+nmap <silent> zk :wincmd k<cr>
+
 let mapleader=" "
 
 " fzf
@@ -45,10 +56,6 @@ nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>e :History<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>r :Rg<cr>
-
-" YouCompleteMe
-nnoremap <silent> <leader>gd :YcmCompleter GoTo<cr>
-nnoremap <silent> <leader>gf :YcmCompleter FixIt<cr>
 
 " nnn
 let g:nnn#set_default_mappings = 0
