@@ -7,4 +7,3 @@ tags
 **/.netrwhist
 *.swp
 .python-version
-**/.vim/plugged
