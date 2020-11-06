@@ -26,6 +26,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'leafgarland/typescript-vim'
 Plug 'mbbill/undotree'
@@ -54,10 +55,14 @@ let mapleader=" "
 
 " fzf
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+let $FZF_DEFAULT_OPTS='--reverse'
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>e :History<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>r :Rg<cr>
+
+" fzf checkout
+nnoremap <leader>gc :GCheckout<cr>
 
 " nnn
 let g:nnn#set_default_mappings = 0
