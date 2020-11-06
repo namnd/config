@@ -5,7 +5,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set nu
+set nu relativenumber
 set nowrap
 set smartcase
 set noswapfile
@@ -23,6 +23,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -30,6 +31,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mbbill/undotree'
 
 Plug 'mcchrish/nnn.vim'
+
 call plug#end()
 
 
@@ -66,3 +68,7 @@ let g:nnn#action = {
     \ '<c-v>': 'vsplit',
     \ '<c-t>': 'tab split' }
 nnoremap <silent> <leader>nn :NnnPicker<CR>
+
+" git
+nmap <leader>gh :diffget //3<cr>
+nmap <leader>gf :diffget //2<cr>
