@@ -33,6 +33,8 @@ Plug 'mbbill/undotree'
 
 Plug 'mcchrish/nnn.vim'
 
+Plug 'neoclide/coc.nvim'
+
 call plug#end()
 
 
@@ -52,6 +54,8 @@ nmap <silent> zl :wincmd l<cr>
 nmap <silent> zk :wincmd k<cr>
 
 let mapleader=" "
+
+nnoremap <F5> :UndotreeToggle<cr>
 
 " fzf
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
