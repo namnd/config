@@ -23,7 +23,7 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
@@ -37,10 +37,12 @@ Plug 'neoclide/coc.nvim'
 
 call plug#end()
 
-
+" gruvbox
 colorscheme gruvbox
 set background=dark
 
+" lightline
+set laststatus=2
 
 set splitbelow splitright
 nmap <silent> zs :wincmd s<cr>
