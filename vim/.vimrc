@@ -59,7 +59,7 @@ nmap <silent> zk :wincmd k<cr>
 
 let mapleader=" "
 
-nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <leader>u :UndotreeToggle<cr>
 
 " fzf
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
