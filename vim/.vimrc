@@ -32,10 +32,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'leafgarland/typescript-vim'
 Plug 'mbbill/undotree'
-
 Plug 'mcchrish/nnn.vim'
-
 Plug 'neoclide/coc.nvim'
+Plug 'kshenoy/vim-signature'
 
 call plug#end()
 
