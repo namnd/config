@@ -14,6 +14,8 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set cursorline
+set mouse=
+set ttymouse=
 
 set backspace=indent,eol,start
 
