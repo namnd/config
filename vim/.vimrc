@@ -18,6 +18,8 @@ set mouse=
 set ttymouse=
 
 set backspace=indent,eol,start
+set foldmethod=indent
+set nofoldenable
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -47,6 +49,9 @@ set background=dark
 " lightline
 set laststatus=2
 
+imap jj <esc>
+vmap jj <esc>
+
 set splitbelow splitright
 nmap <silent> zs :wincmd s<cr>
 nmap <silent> zv :wincmd v<cr>
@@ -60,6 +65,8 @@ nmap <silent> zk :wincmd k<cr>
 
 let mapleader=" "
 
+nnoremap <leader>ve :e $MYVIMRC<cr>
+nnoremap <leader>vr :source $MYVIMRC<cr>
 nnoremap <leader>u :UndotreeToggle<cr>
 
 " fzf
