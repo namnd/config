@@ -38,9 +38,10 @@ Plug 'tpope/vim-commentary'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mbbill/undotree'
-Plug 'mcchrish/nnn.vim'
 Plug 'neoclide/coc.nvim'
 Plug 'kshenoy/vim-signature'
+Plug 'preservim/nerdtree'
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 
@@ -94,16 +95,6 @@ nnoremap <silent> <leader>r :Rg<cr>
 " fzf checkout
 nnoremap <leader>gc :GCheckout<cr>
 
-" nnn
-let g:nnn#set_default_mappings = 0
-let g:nnn#layout = {'window': {'width': 0.9, 'height': 0.7, 'highlight': 'Debug' } }
-let g:nnn#command = 'nnn -H'
-let g:nnn#action = {
-    \ '<c-x>': 'split',
-    \ '<c-v>': 'vsplit',
-    \ '<c-t>': 'tab split' }
-nnoremap <silent> <leader>nn :NnnPicker<CR>
-
 " git
 nmap <leader>gh :diffget //3<cr>
 nmap <leader>gf :diffget //2<cr>
@@ -135,4 +126,13 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>qf <Plug>(coc-fix-current)
 
+" NERDTree
+nmap ,m :NERDTreeToggle<cr>
+nmap ,n :NERDTreeFind<cr>
+
+" closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+inoremap {<Enter> {<cr>}<C-c>O
