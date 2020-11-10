@@ -50,21 +50,20 @@ colorscheme gruvbox
 set background=dark
 
 set laststatus=2
-set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]%{FugitiveStatusline()}
-"              | | | | |  |   |      |  |     |    |
-"              | | | | |  |   |      |  |     |    + current
-"              | | | | |  |   |      |  |     |       column
-"              | | | | |  |   |      |  |     +-- current line
-"              | | | | |  |   |      |  +-- current % into file
-"              | | | | |  |   |      +-- current syntax in
-"              | | | | |  |   |          square brackets
-"              | | | | |  |   +-- current fileformat
-"              | | | | |  +-- number of lines
-"              | | | | +-- preview flag in square brackets
-"              | | | +-- help flag in square brackets
-"              | | +-- readonly flag in square brackets
-"              | +-- rodified flag in square brackets
-"              +-- full path to file in the buffer
+set statusline=%F                       " full path to file in the buffer
+set statusline+=\ (%n)                  " buffer number
+set statusline+=\ %m                    " modified flag in square brackets
+set statusline+=%r                      " readonly flag in square brackets
+set statusline+=%{FugitiveStatusline()}
+set statusline+=%=                      " left/right separator
+set statusline+=%h                      " help flag in square brackets
+set statusline+=%w
+set statusline+=%y                      " syntax in square brackets
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&ff}]              " file format
+set statusline+=\ %p%%                  " cursor line/total lines
+set statusline+=\ %l                    " cursor lines
+set statusline+=:%c                     " cursor column
 
 
 set splitbelow splitright
