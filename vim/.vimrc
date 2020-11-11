@@ -129,8 +129,9 @@ nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>qf <Plug>(coc-fix-current)
 
 " NERDTree
-nmap ,m :NERDTreeToggle<cr>
-nmap ,n :NERDTreeFind<cr>
+let NERDTreeShowHidden=1
+nmap <C-n> :NERDTreeToggle<cr>
+nmap <C-m> :NERDTreeFind<cr>
 
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
