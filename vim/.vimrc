@@ -86,10 +86,11 @@ nnoremap <leader>u :UndotreeToggle<cr>
 " fzf
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 let $FZF_DEFAULT_OPTS='--reverse'
-nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>e :History<cr>
-nnoremap <silent> <leader>b :Buffers<cr>
-nnoremap <silent> <leader>r :Rg<cr>
+nmap <C-p> :Files<cr>
+nmap <C-e> :History<cr>
+nmap <C-f> :Rg<cr>
+nmap <C-b> :Buffers<cr>
+
 
 " fzf checkout
 nnoremap <leader>gc :GCheckout<cr>
