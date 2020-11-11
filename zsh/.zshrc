@@ -11,6 +11,7 @@ setopt HIST_FIND_NO_DUPS        # ignore duplicate when searching
 setopt HIST_REDUCE_BLANKS       # remove blank lines from histody
 
 export KEYTIMEOUT=1             # make Vi mode transition faster
+export EDITOR='vim'
 
 # key binding
 bindkey -v
