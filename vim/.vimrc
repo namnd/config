@@ -18,6 +18,8 @@ set incsearch
 set cursorline
 set mouse=
 set ttymouse=
+set listchars=tab:>~,nbsp:_,trail:.
+set list
 
 set backspace=indent,eol,start
 set foldmethod=indent
