@@ -96,7 +96,7 @@ nmap <silent> zf :wincmd F<cr> :wincmd H<cr>
 let mapleader=" "
 
 nnoremap <leader>ve :e $MYVIMRC<cr>
-nnoremap <leader>vr :source $MYVIMRC<cr>
+nnoremap <leader>vr :source $MYVIMRC<cr> :e<cr>
 nnoremap <leader>u :UndotreeToggle<cr>
 
 " fzf
