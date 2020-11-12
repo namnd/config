@@ -137,6 +137,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gsd :split<cr><Plug>(coc-definition)
+nmap <silent> gvd :vsplit<cr><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -153,4 +155,9 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 inoremap {<Enter> {<cr>}<C-c>O
 
+" vim-test
 let test#strategy = 'dispatch'
+nmap <silent> ttn :TestNearest<cr>
+nmap <silent> ttf :TestFile<cr>
+nmap <silent> tts :TestSuite<cr>
+nmap <silent> ttl :TestLast<cr>
