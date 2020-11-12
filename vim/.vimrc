@@ -54,6 +54,7 @@ Plug 'neoclide/coc.nvim'
 Plug 'kshenoy/vim-signature'
 Plug 'preservim/nerdtree'
 Plug 'alvan/vim-closetag'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
@@ -162,3 +163,5 @@ nmap <silent> ttn :TestNearest<cr>
 nmap <silent> ttf :TestFile<cr>
 nmap <silent> tts :TestSuite<cr>
 nmap <silent> ttl :TestLast<cr>
+
+let g:highlightedyank_highlight_duration = 50
