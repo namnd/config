@@ -52,4 +52,4 @@ xcompmgr & # alpha
 
 exec dwm
 
-xset r rate 200 30 # xset r rate [delay] [rate]
+xset r rate 200 50 # xset r rate [delay] [rate]
