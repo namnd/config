@@ -1,7 +1,14 @@
 syntax on
 
+let uname = substitute(system('uname'), '\n', '', '') " OS type
+if uname == 'Darwin'
+  set clipboard=unnamed
+endif
+if uname == 'Linux'
+  set clipboard=unnamedplus
+endif
+
 set report=0
-set clipboard=unnamed
 set noerrorbells
 set tabstop=2 softtabstop=2
 set shiftwidth=2
