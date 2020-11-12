@@ -75,6 +75,8 @@ set statusline+=\ %p%%                  " cursor line/total lines
 set statusline+=\ %l                    " cursor lines
 set statusline+=:%c                     " cursor column
 
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
 
 set splitbelow splitright
 nmap <silent> zs :wincmd s<cr>
