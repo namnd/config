@@ -105,7 +105,8 @@ nmap <C-p> :Files<cr>
 nmap <C-e> :History<cr>
 nmap <C-f> :Rg<cr>
 nmap <C-b> :Buffers<cr>
-
+nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<cr><cr>
+nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<cr><cr>
 
 " fzf checkout
 nnoremap <leader>gc :GCheckout<cr>
