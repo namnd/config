@@ -45,6 +45,8 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'vim-test/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mbbill/undotree'
@@ -88,6 +90,7 @@ nmap <silent> zh :wincmd h<cr>
 nmap <silent> zj :wincmd j<cr>
 nmap <silent> zl :wincmd l<cr>
 nmap <silent> zk :wincmd k<cr>
+nmap <silent> zf :wincmd F<cr> :wincmd H<cr>
 
 let mapleader=" "
 
@@ -149,3 +152,5 @@ nmap <C-m> :NERDTreeFind<cr>
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 inoremap {<Enter> {<cr>}<C-c>O
+
+let test#strategy = 'dispatch'
