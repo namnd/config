@@ -64,20 +64,20 @@ colorscheme gruvbox
 set background=dark
 
 set laststatus=2
-set statusline=%F                       " full path to file in the buffer
-set statusline+=\ (%n)                  " buffer number
+set statusline=\(%n)                  " buffer number
+set statusline+=\ %F                       " full path to file in the buffer
 set statusline+=\ %m                    " modified flag in square brackets
 set statusline+=%r                      " readonly flag in square brackets
+set statusline+=%y                      " syntax in square brackets
 set statusline+=%{FugitiveStatusline()}
 set statusline+=%=                      " left/right separator
 set statusline+=%h                      " help flag in square brackets
 set statusline+=%w
-set statusline+=%y                      " syntax in square brackets
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&ff}]              " file format
-set statusline+=\ %p%%                  " cursor line/total lines
+" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" set statusline+=\[%{&ff}]              " file format
+" set statusline+=\ %p%%                  " cursor line/total lines
 set statusline+=\ %l                    " cursor lines
-set statusline+=:%c                     " cursor column
+set statusline+=,%-15.c                    " cursor column
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
