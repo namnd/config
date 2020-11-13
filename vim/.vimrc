@@ -23,6 +23,7 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set cursorline
+set cursorcolumn
 set mouse=
 set ttymouse=
 set listchars=tab:>~,nbsp:_,trail:.,eol:$
@@ -56,6 +57,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'preservim/nerdtree'
 Plug 'alvan/vim-closetag'
 Plug 'machakann/vim-highlightedyank'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -172,3 +174,4 @@ nmap <silent> tts :TestSuite<cr>
 nmap <silent> ttl :TestLast<cr>
 
 let g:highlightedyank_highlight_duration = 50
+let g:indentLine_color_term = 239
