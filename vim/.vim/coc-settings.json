@@ -1,3 +1,11 @@
 {
-  "snippets.userSnippetsDirectory": "~/.vim/snippets"
+  "snippets.userSnippetsDirectory": "~/.vim/snippets",
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.disableSuccessMessage": true
 }

@@ -155,6 +155,16 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>qf <Plug>(coc-fix-current)
 
+let g:coc_global_extension = [
+      \ 'coc-tsserver'
+      \]
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extension += ['coc-eslint']
+endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extension += ['coc-prettier']
+endif
+
 " NERDTree
 let NERDTreeShowHidden=1
 nmap <C-n> :NERDTreeToggle<cr>
