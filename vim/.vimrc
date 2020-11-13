@@ -41,6 +41,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'pbogut/fzf-mru.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -106,9 +107,10 @@ nnoremap <leader>u :UndotreeToggle<cr>
 
 " fzf
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-let $FZF_DEFAULT_OPTS='--reverse'
+let $FZF_DEFAULT_OPTS = '--reverse'
+let g:fzf_mru_relative = 1
 nmap <C-p> :Files<cr>
-nmap <C-e> :History<cr>
+nmap <C-e> :FZFMru<cr>
 nmap <C-f> :Rg<cr>
 nmap <C-b> :Buffers<cr>
 nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<cr><cr>
