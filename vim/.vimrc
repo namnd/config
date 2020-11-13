@@ -23,7 +23,6 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set cursorline
-set cursorcolumn
 set mouse=
 set ttymouse=
 set listchars=tab:>~,nbsp:_,trail:.,eol:$
