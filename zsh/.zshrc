@@ -58,3 +58,8 @@ export PATH="$PATH:$HOME/dotfiles/scripts"
 export PATH="$PATH:$HOME/.go/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+
+# vn telex keyboard
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
