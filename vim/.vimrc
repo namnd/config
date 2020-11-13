@@ -78,6 +78,11 @@ set statusline+=\ %p%%                  " cursor line/total lines
 set statusline+=\ %l                    " cursor lines
 set statusline+=:%c                     " cursor column
 
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
 
