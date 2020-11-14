@@ -54,7 +54,6 @@ Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim'
 Plug 'kshenoy/vim-signature'
 Plug 'lambdalisue/fern.vim'
-Plug 'alvan/vim-closetag'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
@@ -171,12 +170,8 @@ endif
 autocmd FileType python let b:coc_root_patterns = ['manage.py']
 
 " fern tree
-nmap <C-n> :Fern . -drawer -keep -toggle<cr>
+nmap <C-n> :Fern . -drawer -keep -toggle -width=35<cr>
 nmap <C-m> :Fern . -drawer -keep -toggle -reveal=%<cr>
-
-" closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
 
 " vim-test
 let test#strategy = 'dispatch'
