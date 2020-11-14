@@ -55,8 +55,8 @@ feh --bg-scale $X_PATH/bg.jpg # Set wallpaper
 
 xcompmgr & # alpha
 
-exec dwm
-
-xset r rate 200 45 # xset r rate [delay] [rate]
+xset r rate 200 40 # xset r rate [delay] [rate]
 
 ibus-daemon -drx # ibus daemon for keyboard
+
+exec dwm
