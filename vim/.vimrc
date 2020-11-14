@@ -71,6 +71,7 @@ set statusline+=\ %m                    " modified flag in square brackets
 set statusline+=%r                      " readonly flag in square brackets
 set statusline+=%y                      " syntax in square brackets
 set statusline+=%{FugitiveStatusline()}
+set statusline+=%{coc#status()}
 set statusline+=%=                      " left/right separator
 set statusline+=%h                      " help flag in square brackets
 set statusline+=%w
@@ -164,6 +165,8 @@ endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extension += ['coc-prettier']
 endif
+" resolve workspace for Django
+autocmd FileType python let b:coc_root_patterns = ['manage.py']
 
 " NERDTree
 let NERDTreeShowHidden=1

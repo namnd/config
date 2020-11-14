@@ -7,5 +7,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "prettier.disableSuccessMessage": true
+  "prettier.disableSuccessMessage": true,
+  "python.jediEnabled": false
 }
