@@ -57,6 +57,7 @@ Plug 'lambdalisue/fern.vim'
 Plug 'alvan/vim-closetag'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Yggdroot/indentLine'
+Plug 'rhysd/clever-f.vim'
 
 call plug#end()
 
