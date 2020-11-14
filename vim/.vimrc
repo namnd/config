@@ -58,6 +58,7 @@ Plug 'alvan/vim-closetag'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
+Plug 'tmsvg/pear-tree'
 
 call plug#end()
 
@@ -176,7 +177,6 @@ nmap <C-m> :Fern . -drawer -keep -toggle -reveal=%<cr>
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-inoremap {<Enter> {<cr>}<C-c>O
 
 " vim-test
 let test#strategy = 'dispatch'
