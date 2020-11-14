@@ -53,7 +53,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim'
 Plug 'kshenoy/vim-signature'
-Plug 'preservim/nerdtree'
+Plug 'lambdalisue/fern.vim'
 Plug 'alvan/vim-closetag'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Yggdroot/indentLine'
@@ -168,10 +168,9 @@ endif
 " resolve workspace for Django
 autocmd FileType python let b:coc_root_patterns = ['manage.py']
 
-" NERDTree
-let NERDTreeShowHidden=1
-nmap <C-n> :NERDTreeToggle<cr>
-nmap <C-m> :NERDTreeFind<cr>
+" fern tree
+nmap <C-n> :Fern . -drawer -keep -toggle<cr>
+nmap <C-m> :Fern . -drawer -keep -toggle -reveal=%<cr>
 
 " closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
