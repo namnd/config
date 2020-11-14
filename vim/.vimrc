@@ -170,8 +170,8 @@ endif
 autocmd FileType python let b:coc_root_patterns = ['manage.py']
 
 " fern tree
-nmap <C-n> :Fern . -drawer -keep -toggle -width=35<cr>
-nmap <C-m> :Fern . -drawer -keep -toggle -reveal=%<cr>
+nmap <C-n> :Fern . -drawer -keep -toggle -width=35<cr><C-w>=
+nmap <C-m> :Fern . -drawer -keep -toggle -reveal=%<cr><C-w>=
 
 " vim-test
 let test#strategy = 'dispatch'
