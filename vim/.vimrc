@@ -172,6 +172,16 @@ autocmd FileType python let b:coc_root_patterns = ['manage.py']
 " fern tree
 nmap <C-n> :Fern . -drawer -keep -toggle -width=35<cr><C-w>=
 nmap <C-m> :Fern . -drawer -keep -toggle -reveal=%<cr><C-w>=
+function! s:init_fern() abort
+  nmap <buffer> e <Plug>(fern-action-open:select)
+  nmap <buffer> s <Plug>(fern-action-open:split)
+  nmap <buffer> v <Plug>(fern-action-open:vsplit)
+endfunction
+
+augroup fern-custom
+  autocmd!
+  autocmd FileType fern call s:init_fern()
+augroup END
 
 " vim-test
 let test#strategy = 'dispatch'
