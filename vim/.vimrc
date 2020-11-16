@@ -58,6 +58,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
 Plug 'tmsvg/pear-tree'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -192,3 +193,4 @@ nmap <silent> ttl :TestLast<cr>
 
 let g:highlightedyank_highlight_duration = 50
 let g:indentLine_color_term = 239
+let g:vim_json_conceal = 0
