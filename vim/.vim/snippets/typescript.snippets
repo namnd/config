@@ -23,17 +23,26 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
-extends typescript
+snippet sdesc "describe(name, fn)" b
+describe("$1", () => {
+	$2
+});
+endsnippet
 
-snippet imr "Import React" b
-import React from "react";
+snippet sit "it(description)" b
+it("$1", () => {
+	$2
+});
+endsnippet
 
-const ${1:`!v expand('%:t:r')`} = ({}): JSX.Element => {
-	return (
-		<div>
-		</div>
-	);
-}
+snippet sbea "beforeAll(fn)" b
+beforeAll(() => {
+	$1
+})
+endsnippet
 
-export default ${1};
+snippet sbee "beforeEach(fn)" b
+beforeEach(() => {
+	$1
+})
 endsnippet

@@ -23,17 +23,3 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
-extends typescript
-
-snippet imr "Import React" b
-import React from "react";
-
-const ${1:`!v expand('%:t:r')`} = ({}): JSX.Element => {
-	return (
-		<div>
-		</div>
-	);
-}
-
-export default ${1};
-endsnippet
