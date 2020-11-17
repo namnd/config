@@ -37,11 +37,7 @@ for f in $X_PATH/?*.sh ; do
 done
 unset f
 
-# Set some defaults
-export BROWSER=chromium &
-export EDITOR=vim &
-
-slstatus &
+goblocks &!
 
 setxkbmap -option caps:escape
 
@@ -55,8 +51,8 @@ feh --bg-scale $X_PATH/bg.jpg # Set wallpaper
 
 xcompmgr & # alpha
 
-xset r rate 200 40 # xset r rate [delay] [rate]
+# ibus-daemon -drx # ibus daemn for keyboard
 
-ibus-daemon -drx # ibus daemon for keyboard
+xset r rate 200 45 # xset r rate [delay] [rate]
 
 exec dwm

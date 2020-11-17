@@ -1,13 +1,13 @@
 "/usr/bin/slock"
     Control+Alt + l
 
-"/usr/bin/amixer set Master 5%+"
+"amixer set Master 5%+; pkill -RTMIN+2 goblocks"
     XF86AudioRaiseVolume
 
-"/usr/bin/amixer set Master 5%-"
+"amixer set Master 5%-; pkill -RTMIN+2 goblocks"
     XF86AudioLowerVolume
 
-"/usr/bin/amixer set Master toggle"
+"amixer set Master toggle; pkill -RTMIN+2 goblocks"
     XF86AudioMute
 
 "/usr/bin/xbacklight -inc 10"
