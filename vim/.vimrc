@@ -172,7 +172,7 @@ endif
 autocmd FileType python let b:coc_root_patterns = ['manage.py']
 
 " fern tree
-nmap <C-n> :Fern . -drawer -keep -toggle -width=35<cr><C-w>=
+nmap <C-n> :Fern . -drawer -keep -toggle -width=40<cr><C-w>=
 nmap <C-m> :Fern . -drawer -keep -toggle -reveal=%<cr><C-w>=
 function! s:init_fern() abort
   nmap <buffer> e <Plug>(fern-action-open:select)
