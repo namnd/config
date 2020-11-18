@@ -186,3 +186,8 @@ augroup END
 let g:highlightedyank_highlight_duration = 50
 let g:indentLine_color_term = 239
 let g:vim_json_conceal = 0
+
+function! s:init_ts() abort
+  nmap <silent> tt :vert terminal npm test<cr>
+endfunction
+autocmd FileType typescript,typescript.tsx :call s:init_ts()
