@@ -47,8 +47,6 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'vim-test/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mbbill/undotree'
@@ -184,13 +182,6 @@ augroup fern-custom
   autocmd!
   autocmd FileType fern call s:init_fern()
 augroup END
-
-" vim-test
-let test#strategy = 'dispatch'
-nmap <silent> ttn :TestNearest<cr>
-nmap <silent> ttf :TestFile<cr>
-nmap <silent> tts :TestSuite<cr>
-nmap <silent> ttl :TestLast<cr>
 
 let g:highlightedyank_highlight_duration = 50
 let g:indentLine_color_term = 239
