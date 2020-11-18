@@ -27,6 +27,7 @@ set mouse=
 set ttymouse=
 set listchars=tab:>~,nbsp:_,trail:.,eol:$
 set list
+set showcmd
 
 set backspace=indent,eol,start
 set foldmethod=indent
