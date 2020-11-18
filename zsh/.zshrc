@@ -52,6 +52,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7a7a7a"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" 2> /dev/null'
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --preview "cat {}"'
 
 export PATH="$PATH:$HOME/dotfiles/scripts"
 [ -f ~/.config/go/env ] && source ~/.config/go/env
