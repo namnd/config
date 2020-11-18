@@ -189,5 +189,6 @@ let g:vim_json_conceal = 0
 
 function! s:init_ts() abort
   nmap <silent> tt :vert terminal npm test<cr>
+  nmap <silent> ll :vert terminal npm run lint<cr>
 endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
