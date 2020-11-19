@@ -70,7 +70,7 @@ set statusline=\(%n)                    " buffer number
 set statusline+=\ %F                    " full path to file in the buffer
 set statusline+=\ %m                    " modified flag in square brackets
 set statusline+=%r                      " readonly flag in square brackets
-set statusline+=%y                      " syntax in square brackets
+set statusline+=%y                      " syntax(filetype) in square brackets
 set statusline+=%{FugitiveStatusline()}
 set statusline+=%{coc#status()}
 set statusline+=%=                      " left/right separator
@@ -93,6 +93,7 @@ set splitbelow splitright
 nmap <silent> zs :wincmd s<cr>
 nmap <silent> zv :wincmd v<cr>
 nmap <silent> zx :wincmd x<cr>
+nmap <silent> zr :wincmd r<cr>
 nmap <silent> zo :wincmd o<cr>
 
 nmap <silent> zh :wincmd h<cr>
@@ -120,7 +121,7 @@ nnoremap <leader>prw :CocSearch <C-R>=expand("<cword>")<cr><cr>
 nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<cr><cr>
 
 " fzf checkout
-nnoremap <leader>gc :GCheckout<cr>
+nnoremap <leader>gb :GBranches<cr>
 
 " git
 nmap <leader>gh :diffget //3<cr>
@@ -188,7 +189,7 @@ let g:indentLine_color_term = 239
 let g:vim_json_conceal = 0
 
 function! s:init_ts() abort
-  nmap <silent> tt :vert terminal npm test<cr>
-  nmap <silent> ll :vert terminal npm run lint<cr>
+  nmap <leader>tt :vert terminal npm test<cr>
+  nmap <leader>ll :vert terminal npm run lint<cr>
 endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
