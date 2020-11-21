@@ -178,3 +178,10 @@ function! s:init_ts() abort
   nmap <leader>ll :vert terminal npm run lint<cr>
 endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
+
+" netrw
+let g:netrw_liststyle = 3     " tree view
+let g:netrw_banner = 0        " remove banner
+let g:netrw_browse_split = 4  " open files in previous window
+nmap <C-n> :15Lexplore<cr>
+nmap <C-m> :let @/=expand("%:t") <bar> execute '15Lexplore' expand("%:h") <bar> normal n<cr>
