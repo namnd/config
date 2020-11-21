@@ -52,7 +52,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim'
 Plug 'kshenoy/vim-signature'
-Plug 'lambdalisue/fern.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
@@ -169,20 +168,6 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
 endif
 " resolve workspace for Django
 autocmd FileType python let b:coc_root_patterns = ['manage.py']
-
-" fern tree
-nmap <C-n> :Fern . -drawer -keep -toggle -width=40<cr><C-w>=
-nmap <C-m> :Fern . -drawer -keep -toggle -reveal=%<cr><C-w>=
-function! s:init_fern() abort
-  nmap <buffer> e <Plug>(fern-action-open:select)
-  nmap <buffer> s <Plug>(fern-action-open:split)
-  nmap <buffer> v <Plug>(fern-action-open:vsplit)
-endfunction
-
-augroup fern-custom
-  autocmd!
-  autocmd FileType fern call s:init_fern()
-augroup END
 
 let g:highlightedyank_highlight_duration = 50
 let g:indentLine_color_term = 239
