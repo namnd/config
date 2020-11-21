@@ -96,10 +96,10 @@ nmap <silent> zx :wincmd x<cr>
 nmap <silent> zr :wincmd r<cr>
 nmap <silent> zo :wincmd o<cr>
 
-nmap <silent> zh :wincmd h<cr>
-nmap <silent> zj :wincmd j<cr>
-nmap <silent> zl :wincmd l<cr>
-nmap <silent> zk :wincmd k<cr>
+nnoremap <C-h> :wincmd h<cr>
+nnoremap <C-j> :wincmd j<cr>
+nnoremap <C-l> :wincmd l<cr>
+nnoremap <C-k> :wincmd k<cr>
 nmap <silent> zf :wincmd F<cr> :wincmd H<cr>
 
 let mapleader=" "
