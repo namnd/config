@@ -38,6 +38,7 @@ done
 unset f
 
 goblocks &!
+clipmenud &!
 
 setxkbmap -option caps:escape
 
