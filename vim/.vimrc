@@ -57,6 +57,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
 Plug 'tmsvg/pear-tree'
 Plug 'fatih/vim-go'
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 
@@ -107,6 +108,7 @@ nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap <leader>ve :e $MYVIMRC<cr>
 nnoremap <leader>vr :source $MYVIMRC<cr> :e<cr>
 nnoremap <leader>u :UndotreeToggle<cr>
+nnoremap <leader>m :MaximizerToggle!<cr>
 
 " fzf
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
@@ -156,6 +158,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>qf <Plug>(coc-fix-current)
+nmap <leader>do <Plug>(coc-codeaction)
 
 let g:coc_global_extension = [
       \ 'coc-tsserver'
