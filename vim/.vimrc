@@ -28,7 +28,6 @@ set ttymouse=
 set listchars=tab:>~,nbsp:_,trail:.,eol:$
 set list
 set showcmd
-
 set backspace=indent,eol,start
 set foldmethod=indent
 set nofoldenable
@@ -58,6 +57,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'tmsvg/pear-tree'
 Plug 'fatih/vim-go'
 Plug 'szw/vim-maximizer'
+Plug 'justinmk/vim-dirvish'
 
 call plug#end()
 
@@ -76,8 +76,6 @@ set statusline+=%{coc#status()}
 set statusline+=%=                      " left/right separator
 set statusline+=%h                      " help flag in square brackets
 set statusline+=%w
-" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-" set statusline+=\[%{&ff}]             " file format
 set statusline+=C:%-10.c                " cursor column
 set statusline+=\ L:%l/%L\              " cursor lines
 
@@ -86,21 +84,16 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-vnoremap J :m '>+1<cr>gv=gv
-vnoremap K :m '<-2<cr>gv=gv
-
 set splitbelow splitright
-nmap <silent> zs :wincmd s<cr>
-nmap <silent> zv :wincmd v<cr>
+nmap <silent> zo :wincmd o<cr>
 nmap <silent> zx :wincmd x<cr>
 nmap <silent> zr :wincmd r<cr>
-nmap <silent> zo :wincmd o<cr>
+nmap <silent> zf :wincmd F<cr> :wincmd H<cr>
 
 nnoremap <C-h> :wincmd h<cr>
 nnoremap <C-j> :wincmd j<cr>
 nnoremap <C-l> :wincmd l<cr>
 nnoremap <C-k> :wincmd k<cr>
-nmap <silent> zf :wincmd F<cr> :wincmd H<cr>
 
 let mapleader=" "
 
@@ -132,7 +125,7 @@ nmap <leader>gf :diffget //2<cr>
 set hidden
 set nowritebackup
 set cmdheight=2
-set updatetime=300
+set updatetime=50
 set shortmess+=c
 set signcolumn=yes
 
@@ -182,9 +175,5 @@ function! s:init_ts() abort
 endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
 
-" netrw
-let g:netrw_liststyle = 3     " tree view
-let g:netrw_banner = 0        " remove banner
-let g:netrw_browse_split = 4  " open files in previous window
-nmap <C-n> :15Lexplore<cr>
-nmap <C-m> :let @/=expand("%:t") <bar> execute '15Lexplore' expand("%:h") <bar> normal n<cr>
+nmap <C-n> <Plug>(dirvish_vsplit_up)
+let g:dirvish_mode = ':sort ,^.*[\/],'   " sort folders at the top
