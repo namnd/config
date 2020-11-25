@@ -97,7 +97,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
-nnoremap <leader>do :lua vim.lsp.buf.code_action()<cr>
+nnoremap <leader>ca :lua vim.lsp.buf.code_action()<cr>
+nnoremap <leader>ft :lua vim.lsp.buf.formatting()<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 
 augroup highlight_yank
@@ -110,3 +111,4 @@ function! s:init_ts() abort
   nmap <leader>ll :vsplit term://npm run lint<cr>
 endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
+autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
