@@ -2,10 +2,12 @@ set clipboard=unnamedplus
 set mouse=nv
 set nu relativenumber
 set tabstop=2 softtabstop=2 shiftwidth=2
+set expandtab
 set smartindent
 set listchars=tab:>~,nbsp:_,trail:.,eol:$
 set list
 set incsearch
+set nowrap
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
@@ -15,6 +17,8 @@ set colorcolumn=80
 set signcolumn=yes
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
+set foldmethod=indent
+set nofoldenable
 
 call plug#begin()
 
@@ -35,9 +39,12 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 call plug#end()
 
-" set termguicolors
+set termguicolors
 colorscheme gruvbox8
 set background=dark
 
@@ -45,6 +52,8 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+let mapleader=" "
 
 set splitbelow splitright
 nmap <C-h> :wincmd h<cr>
@@ -66,8 +75,6 @@ nmap <C-b> :Buffers<cr>
 nmap <C-n> <Plug>(dirvish_vsplit_up)
 let g:dirvish_mode = ':sort ,^.*[\/],'	" sort folders at top
 
-let mapleader=" "
-
 nnoremap <leader>1 :e $MYVIMRC<cr>
 nnoremap <leader>2 :so %<cr>
 nnoremap <leader>9 :PlugInstall<cr>
@@ -82,9 +89,24 @@ nnoremap <leader>n :noh<cr>
 END
 
 nmap <silent> gd :lua vim.lsp.buf.definition()<cr>
-nmap <silent> gr :lua vim.lsp.buf.references()<cr>
-nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
-nnoremap <leader>do :lua vim.lsp.buf.code_action()<cr>
+nmap <silent> gsd :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
+nmap <silent> gvd :wincmd v<cr> :lua vim.lsp.buf.definition()<cr>
+nmap <silent> gr :lua vim.lsp.buf.references()<cr> :wincmd j<cr>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
+nnoremap <leader>do :lua vim.lsp.buf.code_action()<cr>
+nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
+augroup END
+
+function! s:init_ts() abort
+  nmap <leader>tt :vsplit term://npm test<cr>
+  nmap <leader>ll :vsplit term://npm run lint<cr>
+endfunction
+autocmd FileType typescript,typescript.tsx :call s:init_ts()
