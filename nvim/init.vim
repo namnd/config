@@ -52,7 +52,14 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-
+nnoremap ; :
+inoremap jj <esc>
+" selects til end of line (exclude newline)
+vnoremap v $h 
+nnoremap Y y$
+" swap highlighted text with last deleted text
+xnoremap <C-x> <Esc>`.``gvP``P
+ 
 let mapleader=" "
 
 set splitbelow splitright
@@ -80,19 +87,18 @@ nnoremap <leader>12 :vs $MYVIMRC<cr>
 nnoremap <leader>2 :so %<cr>
 nnoremap <leader>9 :PlugInstall<cr>
 nnoremap <leader>0 :PlugClean<cr>
-nnoremap <leader>m :MaximizerToggle!<cr>
-nnoremap <leader>u :UndotreeToggle<cr>
-nnoremap <leader>n :noh<cr>
+nnoremap <leader>mm :MaximizerToggle!<cr>
+nnoremap <leader>uu :UndotreeToggle<cr>
+nnoremap <leader>nn :noh<cr>
 
 " lsp config
-:lua << END
-  require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
-END
+lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
 
-nmap <silent> gd :lua vim.lsp.buf.definition()<cr>
-nmap <silent> gsd :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
-nmap <silent> gvd :wincmd v<cr> :lua vim.lsp.buf.definition()<cr>
-nmap <silent> gr :lua vim.lsp.buf.references()<cr> :wincmd j<cr>
+nmap <silent> gF :wincmd F<cr> :wincmd H<cr>
+nmap <silent> gd :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
+nmap <silent> gD :wincmd v<cr> :lua vim.lsp.buf.definition()<cr>
+nmap <silent> gr :lua vim.lsp.buf.references()<cr>
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -102,8 +108,8 @@ nnoremap <leader>ca :lua vim.lsp.buf.code_action()<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 
 augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
 augroup END
 
 function! s:init_ts() abort
@@ -112,4 +118,4 @@ function! s:init_ts() abort
 endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
-autocmd BufWritePost * lua vim.lsp.buf.formatting()
+autocmd BufWritePost *.ts,*.tsx lua vim.lsp.buf.formatting()
