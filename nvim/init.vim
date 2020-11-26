@@ -13,7 +13,7 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set cursorline
-set colorcolumn=80
+set colorcolumn=81
 set signcolumn=yes
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
@@ -75,7 +75,8 @@ nmap <C-b> :Buffers<cr>
 nmap <C-n> <Plug>(dirvish_vsplit_up)
 let g:dirvish_mode = ':sort ,^.*[\/],'	" sort folders at top
 
-nnoremap <leader>1 :e $MYVIMRC<cr>
+nnoremap <leader>11 :e $MYVIMRC<cr>
+nnoremap <leader>12 :vs $MYVIMRC<cr>
 nnoremap <leader>2 :so %<cr>
 nnoremap <leader>9 :PlugInstall<cr>
 nnoremap <leader>0 :PlugClean<cr>
@@ -98,7 +99,6 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>ca :lua vim.lsp.buf.code_action()<cr>
-nnoremap <leader>ft :lua vim.lsp.buf.formatting()<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 
 augroup highlight_yank
@@ -112,3 +112,4 @@ function! s:init_ts() abort
 endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
+autocmd BufWritePost * lua vim.lsp.buf.formatting()
