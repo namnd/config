@@ -84,6 +84,7 @@ let g:dirvish_mode = ':sort ,^.*[\/],'	" sort folders at top
 
 nnoremap <leader>11 :e $MYVIMRC<cr>
 nnoremap <leader>12 :vs $MYVIMRC<cr>
+nnoremap <leader>13 :tab sp $MYVIMRC<cr>
 nnoremap <leader>2 :so %<cr>
 nnoremap <leader>9 :PlugInstall<cr>
 nnoremap <leader>0 :PlugClean<cr>
@@ -106,6 +107,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>ca :lua vim.lsp.buf.code_action()<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
+nnoremap <leader>ss :<C-U>execute "Rg ".expand('<cword>') \| cw<cr>
 
 augroup highlight_yank
   autocmd!
