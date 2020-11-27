@@ -35,6 +35,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'justinmk/vim-dirvish'
 Plug 'tmsvg/pear-tree'
 Plug 'tweekmonster/startuptime.vim'
+Plug 'wellle/targets.vim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
@@ -104,10 +105,10 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>ca :lua vim.lsp.buf.code_action()<cr>
+nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
-nnoremap <leader>ss :<C-U>execute "Rg ".expand('<cword>') \| cw<cr>
+nnoremap <leader>rg :Rg <C-R>=expand('<cword>')<cr><cr>
 
 augroup highlight_yank
   autocmd!
