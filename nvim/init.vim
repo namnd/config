@@ -68,6 +68,9 @@ nmap <C-h> :wincmd h<cr>
 nmap <C-j> :wincmd j<cr>
 nmap <C-l> :wincmd l<cr>
 nmap <C-k> :wincmd k<cr>
+nmap <C-s> <C-^>
+nmap <C-x> :wincmd x<cr>
+nmap <C-c> :wincmd o<cr>
 
 " fzf
 let g:fzf_mru_relative = 1
@@ -122,3 +125,4 @@ endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
 autocmd BufWritePost *.ts,*.tsx lua vim.lsp.buf.formatting()
+autocmd VimResized * :wincmd =
