@@ -36,6 +36,8 @@ Plug 'justinmk/vim-dirvish'
 Plug 'tmsvg/pear-tree'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'wellle/targets.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
@@ -89,7 +91,7 @@ let g:dirvish_mode = ':sort ,^.*[\/],'	" sort folders at top
 nnoremap <leader>11 :e $MYVIMRC<cr>
 nnoremap <leader>12 :vs $MYVIMRC<cr>
 nnoremap <leader>13 :tab sp $MYVIMRC<cr>
-nnoremap <leader>2 :so %<cr>
+nnoremap <leader>2 :so $MYVIMRC<cr>
 nnoremap <leader>9 :PlugInstall<cr>
 nnoremap <leader>0 :PlugClean<cr>
 nnoremap <leader>mm :MaximizerToggle!<cr>
