@@ -1,0 +1,11 @@
+#!/bin/sh
+
+vol=$(pamixer --get-volume)
+mute=$(pamixer --get-mute)
+if ( ( $mute ) )
+then
+  status="off"
+else
+  status="on"
+fi
+echo "["$vol"% "$status"]"
