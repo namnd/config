@@ -100,6 +100,7 @@ nnoremap <leader>nn :noh<cr>
 
 " lsp config
 lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
 
 nmap <silent> gF :wincmd F<cr> :wincmd H<cr>
 nmap <silent> gd :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
@@ -128,3 +129,9 @@ autocmd FileType typescript,typescript.tsx :call s:init_ts()
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
 autocmd BufWritePost *.ts,*.tsx lua vim.lsp.buf.formatting()
 autocmd VimResized * :wincmd =
+
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set colorcolumn=81
+    autocmd WinLeave * set colorcolumn=0
+augroup END
