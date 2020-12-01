@@ -9,7 +9,11 @@ set list
 set incsearch
 set nowrap
 set noswapfile
+set hidden
 set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=50
 set undodir=~/.vim/undodir
 set undofile
 set cursorline
@@ -39,8 +43,10 @@ Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -99,30 +105,60 @@ nnoremap <leader>uu :UndotreeToggle<cr>
 nnoremap <leader>nn :noh<cr>
 
 " lsp config
-lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
-lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
+" lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+" lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
 
 nmap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
 nmap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
 
-nmap <silent> gd :lua vim.lsp.buf.definition()<cr>
-nmap <silent> g1d :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
-nmap <silent> g2d :wincmd v<cr> :lua vim.lsp.buf.definition()<cr>
-nmap <silent> gr :lua vim.lsp.buf.references()<cr>
+" nmap <silent> gd :lua vim.lsp.buf.definition()<cr>
+" nmap <silent> g1d :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
+" nmap <silent> g2d :wincmd v<cr> :lua vim.lsp.buf.definition()<cr>
+" nmap <silent> gr :lua vim.lsp.buf.references()<cr>
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-nnoremap <leader>ca :lua vim.lsp.buf.code_action()<cr>
-nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
+" nnoremap <leader>ca :lua vim.lsp.buf.code_action()<cr>
+" nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap <leader>rg :Rg <C-R>=expand('<cword>')<cr><cr>
 
-augroup highlight_yank
-  autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
-augroup END
+" coc
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> g1d :sp<cr> <Plug>(coc-definition)
+nmap <silent> g2d :vs<cr> <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>ca <Plug>(coc-codeaction)
+nmap <leader>qf <Plug>(coc-fix-current)
+
+let g:coc_global_extension = [
+      \ 'coc-tsserver'
+      \]
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extension += ['coc-eslint']
+endif
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extension += ['coc-prettier']
+endif
 
 function! s:init_ts() abort
   nmap <leader>tt :vsplit term://npm test<cr>
@@ -130,7 +166,7 @@ function! s:init_ts() abort
 endfunction
 autocmd FileType typescript,typescript.tsx :call s:init_ts()
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
-autocmd BufWritePost *.ts,*.tsx lua vim.lsp.buf.formatting()
+" autocmd BufWritePost *.ts,*.tsx lua vim.lsp.buf.formatting()
 autocmd VimResized * :wincmd =
 autocmd Filetype json let g:indentLine_enabled = 0
 
@@ -138,4 +174,9 @@ augroup BgHighlight
     autocmd!
     autocmd WinEnter * set colorcolumn=81
     autocmd WinLeave * set colorcolumn=0
+augroup END
+
+augroup HighlightYank
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
 augroup END
