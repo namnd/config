@@ -26,7 +26,8 @@ set nofoldenable
 
 call plug#begin()
 
-Plug 'lifepillar/vim-gruvbox8'
+" Plug 'lifepillar/vim-gruvbox8'
+Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
@@ -55,7 +56,7 @@ Plug 'jparise/vim-graphql'
 call plug#end()
 
 set termguicolors
-colorscheme gruvbox8
+colorscheme gruvbox
 set background=dark
 
 noremap <Up> <Nop>
