@@ -139,7 +139,7 @@ endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> g1d :sp<cr> <Plug>(coc-definition)
 nmap <silent> g2d :vs<cr> <Plug>(coc-definition)
@@ -171,9 +171,9 @@ autocmd VimResized * :wincmd =
 autocmd Filetype json let g:indentLine_enabled = 0
 
 augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set colorcolumn=81
-    autocmd WinLeave * set colorcolumn=0
+  autocmd!
+  autocmd WinEnter * set colorcolumn=81
+  autocmd WinLeave * set colorcolumn=0
 augroup END
 
 augroup HighlightYank
