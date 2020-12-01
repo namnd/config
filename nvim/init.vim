@@ -44,6 +44,7 @@ Plug 'nvim-lua/completion-nvim'
 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
@@ -55,7 +56,6 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-nnoremap ; :
 inoremap jj <esc>
 " selects til end of line (exclude newline)
 vnoremap v $h 
@@ -70,7 +70,7 @@ nmap <C-h> :wincmd h<cr>
 nmap <C-j> :wincmd j<cr>
 nmap <C-l> :wincmd l<cr>
 nmap <C-k> :wincmd k<cr>
-nmap <C-s> <C-^>
+nmap <C-s> :w<cr>
 nmap <C-x> :wincmd x<cr>
 nmap <C-c> :wincmd o<cr>
 
@@ -129,6 +129,7 @@ autocmd FileType typescript,typescript.tsx :call s:init_ts()
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
 autocmd BufWritePost *.ts,*.tsx lua vim.lsp.buf.formatting()
 autocmd VimResized * :wincmd =
+autocmd Filetype json let g:indentLine_enabled = 0
 
 augroup BgHighlight
     autocmd!
