@@ -102,9 +102,12 @@ nnoremap <leader>nn :noh<cr>
 lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
 
-nmap <silent> gF :wincmd F<cr> :wincmd H<cr>
-nmap <silent> gd :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
-nmap <silent> gD :wincmd v<cr> :lua vim.lsp.buf.definition()<cr>
+nmap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
+nmap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
+
+nmap <silent> gd :lua vim.lsp.buf.definition()<cr>
+nmap <silent> g1d :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
+nmap <silent> g2d :wincmd v<cr> :lua vim.lsp.buf.definition()<cr>
 nmap <silent> gr :lua vim.lsp.buf.references()<cr>
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
