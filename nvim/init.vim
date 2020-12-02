@@ -54,37 +54,34 @@ call plug#end()
 set termguicolors
 set background=dark
 colorscheme gruvbox
+let mapleader=" "
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 inoremap jj <esc>
-" selects til end of line (exclude newline)
 vnoremap v $h
 nnoremap Y y$
-" swap highlighted text with last deleted text
 xnoremap <C-x> <Esc>`.``gvP``P
- 
-let mapleader=" "
 
 set splitbelow splitright
 nmap <C-h> :wincmd h<cr>
 nmap <C-j> :wincmd j<cr>
 nmap <C-l> :wincmd l<cr>
 nmap <C-k> :wincmd k<cr>
-nmap <C-s> :w<cr>
+nmap <C-s> :wincmd r<cr>
 nmap <C-c> :wincmd o<cr>
 
 " fzf
-let g:fzf_mru_relative = 1
-let g:fzf_layout = {'down': '~40%'}
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-let $FZF_DEFAULT_OPTS = '--reverse'
 nmap <C-p> :Files<cr>
 nmap <C-e> :FZFMru<cr>
 nmap <C-f> :Rg<cr>
 nmap <C-b> :Buffers<cr>
+let g:fzf_mru_relative = 1
+let g:fzf_layout = {'down': '~40%'}
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+let $FZF_DEFAULT_OPTS = '--reverse'
 
 " dirvish - project drawer
 nmap <C-n> <Plug>(dirvish_vsplit_up)
@@ -101,6 +98,7 @@ nnoremap <leader>uu :UndotreeToggle<cr>
 nnoremap <leader>nn :noh<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap <leader>rg :Rg <C-R>=expand('<cword>')<cr><cr>
+nnoremap <leader>gs :tab G<cr>
 
 nmap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
 nmap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
@@ -129,9 +127,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>ca <Plug>(coc-codeaction)
 nmap <leader>qf <Plug>(coc-fix-current)
-xmap <leader>ff  <Plug>(coc-format-selected)
+xmap <leader>ff <Plug>(coc-format-selected)
 
-" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -157,11 +154,14 @@ function! s:init_ts() abort
   nmap <leader>tt :vsplit term://npm test<cr>
   nmap <leader>ll :vsplit term://npm run lint<cr>
 endfunction
-autocmd FileType typescript,typescript.tsx :call s:init_ts()
-autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
-" autocmd BufWritePost *.ts,*.tsx lua vim.lsp.buf.formatting()
-autocmd VimResized * :wincmd =
-autocmd Filetype json let g:indentLine_enabled = 0
+
+augroup Nam
+  autocmd!
+  autocmd FileType typescript,typescript.tsx :call s:init_ts()
+  autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
+  autocmd Filetype json let g:indentLine_enabled = 0
+  autocmd VimResized * :wincmd =
+augroup END
 
 augroup BgHighlight
   autocmd!
