@@ -52,8 +52,8 @@ Plug 'jparise/vim-graphql'
 call plug#end()
 
 set termguicolors
-colorscheme gruvbox
 set background=dark
+colorscheme gruvbox
 
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -61,7 +61,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 inoremap jj <esc>
 " selects til end of line (exclude newline)
-vnoremap v $h 
+vnoremap v $h
 nnoremap Y y$
 " swap highlighted text with last deleted text
 xnoremap <C-x> <Esc>`.``gvP``P
@@ -74,7 +74,6 @@ nmap <C-j> :wincmd j<cr>
 nmap <C-l> :wincmd l<cr>
 nmap <C-k> :wincmd k<cr>
 nmap <C-s> :w<cr>
-nmap <C-x> :wincmd x<cr>
 nmap <C-c> :wincmd o<cr>
 
 " fzf
@@ -89,7 +88,7 @@ nmap <C-b> :Buffers<cr>
 
 " dirvish - project drawer
 nmap <C-n> <Plug>(dirvish_vsplit_up)
-let g:dirvish_mode = ':sort ,^.*[\/],'	" sort folders at top
+let g:dirvish_mode = ':sort ,^.*[\/],'
 
 nnoremap <leader>11 :e $MYVIMRC<cr>
 nnoremap <leader>12 :vs $MYVIMRC<cr>
@@ -100,12 +99,11 @@ nnoremap <leader>0 :PlugClean<cr>
 nnoremap <leader>mm :MaximizerToggle!<cr>
 nnoremap <leader>uu :UndotreeToggle<cr>
 nnoremap <leader>nn :noh<cr>
+nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
+nnoremap <leader>rg :Rg <C-R>=expand('<cword>')<cr><cr>
 
 nmap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
 nmap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
-
-nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
-nnoremap <leader>rg :Rg <C-R>=expand('<cword>')<cr><cr>
 
 " coc
 inoremap <silent><expr> <TAB>
