@@ -26,7 +26,6 @@ set nofoldenable
 
 call plug#begin()
 
-" Plug 'lifepillar/vim-gruvbox8'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -43,9 +42,6 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'wellle/targets.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
-
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -105,24 +101,9 @@ nnoremap <leader>mm :MaximizerToggle!<cr>
 nnoremap <leader>uu :UndotreeToggle<cr>
 nnoremap <leader>nn :noh<cr>
 
-" lsp config
-" lua require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
-" lua require'lspconfig'.gopls.setup{on_attach=require'completion'.on_attach}
-
 nmap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
 nmap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
 
-" nmap <silent> gd :lua vim.lsp.buf.definition()<cr>
-" nmap <silent> g1d :wincmd s<cr> :lua vim.lsp.buf.definition()<cr>
-" nmap <silent> g2d :wincmd v<cr> :lua vim.lsp.buf.definition()<cr>
-" nmap <silent> gr :lua vim.lsp.buf.references()<cr>
-
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
-" nnoremap <leader>ca :lua vim.lsp.buf.code_action()<cr>
-" nnoremap <leader>rn :lua vim.lsp.buf.rename()<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap <leader>rg :Rg <C-R>=expand('<cword>')<cr><cr>
 
