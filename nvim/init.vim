@@ -37,6 +37,7 @@ Plug 'szw/vim-maximizer'
 Plug 'mbbill/undotree'
 Plug 'kshenoy/vim-signature'
 Plug 'justinmk/vim-dirvish'
+Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'tmsvg/pear-tree'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'wellle/targets.vim'
@@ -100,6 +101,7 @@ nnoremap <leader>nn :noh<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap <leader>rg :Rg <C-R>=expand('<cword>')<cr><cr>
 nnoremap <leader>gs :tab G<cr>
+nnoremap <leader>ta :Vista finder coc<cr>
 
 nmap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
 nmap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
