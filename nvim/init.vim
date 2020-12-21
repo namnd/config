@@ -51,6 +51,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'jparise/vim-graphql'
 
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
 set termguicolors
@@ -84,6 +86,10 @@ let g:fzf_mru_relative = 1
 let g:fzf_layout = {'down': '~40%'}
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 let $FZF_DEFAULT_OPTS = '--reverse'
+
+" go
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
 
 " dirvish - project drawer
 nmap <C-n> <Plug>(dirvish_vsplit_up)
@@ -121,6 +127,7 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> g1d :sp<cr> <Plug>(coc-definition)
 nmap <silent> g2d :vs<cr> <Plug>(coc-definition)
@@ -176,3 +183,6 @@ augroup HighlightYank
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
 augroup END
+
+set laststatus=2
+set statusline=\%n%m\ %t\ %r%y%{FugitiveStatusline()}%=%w%L,%-10.c
