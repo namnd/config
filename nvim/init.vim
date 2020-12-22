@@ -160,14 +160,8 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extension += ['coc-prettier']
 endif
 
-function! s:init_ts() abort
-  nmap <leader>tt :vsplit term://npm test<cr>
-  nmap <leader>ll :vsplit term://npm run lint<cr>
-endfunction
-
 augroup Nam
   autocmd!
-  autocmd FileType typescript,typescript.tsx :call s:init_ts()
   autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
   autocmd Filetype json let g:indentLine_enabled = 0
   autocmd VimResized * :wincmd =
@@ -177,11 +171,6 @@ augroup BgHighlight
   autocmd!
   autocmd WinEnter * set colorcolumn=81
   autocmd WinLeave * set colorcolumn=0
-augroup END
-
-augroup HighlightYank
-  autocmd!
-  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
 augroup END
 
 set laststatus=2
