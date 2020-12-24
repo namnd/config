@@ -104,20 +104,6 @@ nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>cc <Plug>(coc-codeaction)
 xmap <leader>ff <Plug>(coc-format-selected)
 
-" let g:coc_global_extension = [
-"       \ 'coc-tsserver'
-"       \]
-" if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-"   let g:coc_global_extension += ['coc-eslint']
-" endif
-" if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-"   let g:coc_global_extension += ['coc-prettier']
-" endif
-
-" " go
-" let g:go_fmt_autosave = 1
-" let g:go_fmt_command = "goimports"
-
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
 autocmd WinEnter * set colorcolumn=81
 autocmd WinLeave * set colorcolumn=0
