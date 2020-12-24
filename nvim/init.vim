@@ -9,7 +9,7 @@ set undodir=~/.vim/undodir undofile
 set splitbelow splitright
 set foldmethod=indent nofoldenable
 set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%L,%-10.c
-" set expandtab
+set expandtab
 " set smartindent
 " set incsearch
 " set nowrap
@@ -131,5 +131,5 @@ autocmd WinLeave * set colorcolumn=0
 autocmd VimResized * :wincmd =
 
 if has('nvim-0.5')
-	autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
 endif
