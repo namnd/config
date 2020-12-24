@@ -10,13 +10,12 @@ set splitbelow splitright
 set foldmethod=indent nofoldenable
 set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%L,%-10.c
 set expandtab
-" set smartindent
+set smartindent
 " set incsearch
-" set nowrap
 " set hidden
 " set cmdheight=2
 " set updatetime=50
-" " set completeopt=menuone,noinsert,noselect
+" set completeopt=menuone,noinsert,noselect
 " set shortmess+=c
 
 call plug#begin()
@@ -35,14 +34,11 @@ Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 " Plug 'mbbill/undotree'
 " Plug 'kshenoy/vim-signature'
 " Plug 'tmsvg/pear-tree'
-" Plug 'Yggdroot/indentLine'
-" Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'liuchengxu/vista.vim'
-" Plug 'jparise/vim-graphql'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 if has('nvim-0.5')
-	" Plug 'nvim-treesitter/nvim-treesitter'
+	Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
 call plug#end()
@@ -76,6 +72,7 @@ nnoremap <leader>0 :PlugClean<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap <leader>nn :noh<cr>
 nnoremap <leader>gs :tab G<cr>
+nnoremap <leader>gc :tabc<cr>
 " nnoremap <leader>mm :MaximizerToggle!<cr>
 " nnoremap <leader>uu :UndotreeToggle<cr>
 " nnoremap <leader>ta :Vista finder coc<cr>
@@ -119,11 +116,6 @@ xmap <leader>ff <Plug>(coc-format-selected)
 " " go
 " let g:go_fmt_autosave = 1
 " let g:go_fmt_command = "goimports"
-
-" augroup Nam
-"   autocmd!
-"   autocmd Filetype json let g:indentLine_enabled = 0
-" augroup END
 
 autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
 autocmd WinEnter * set colorcolumn=81
