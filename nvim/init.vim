@@ -38,8 +38,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'liuchengxu/vista.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 if has('nvim-0.5')
-	Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter'
 endif
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
