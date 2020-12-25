@@ -30,7 +30,6 @@ Plug 'pbogut/fzf-mru.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 " Plug 'szw/vim-maximizer'
-" Plug 'mbbill/undotree'
 " Plug 'kshenoy/vim-signature'
 " Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -83,7 +82,6 @@ nnoremap <leader>gc :tabc<cr>
 nnoremap <leader>tt :sp<cr>:term<cr>A
 nnoremap <leader>te :sp<cr>:term<cr> :wincmd H<cr> :wincmd r<cr>A
 " nnoremap <leader>mm :MaximizerToggle!<cr>
-" nnoremap <leader>uu :UndotreeToggle<cr>
 " nnoremap <leader>ta :Vista finder coc<cr>
 
 " fzf
