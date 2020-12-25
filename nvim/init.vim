@@ -11,7 +11,6 @@ set foldmethod=indent nofoldenable
 set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%L,%-10.c
 set expandtab
 set smartindent
-" set incsearch
 " set hidden
 " set cmdheight=2
 " set updatetime=50
@@ -44,6 +43,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
+set statusline+=%{FugitiveStatusline()}
 colorscheme tender
 
 vnoremap v $h
@@ -61,6 +61,12 @@ nnoremap <C-c> :wincmd o<cr>
 nnoremap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
 nnoremap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
 xnoremap <C-x> <esc>`.``gvP``P
+inoremap {<cr> {<cr>}<esc>O
+inoremap (<cr> (<cr>)<esc>O
+inoremap [<cr> [<cr>]<esc>O
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ` ``<left>
 
 let mapleader=" "
 
