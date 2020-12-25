@@ -14,15 +14,6 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 chpwd() { ll }                          # always list upon pwd changed
 mcd () { mkdir -p "$1" && cd "$1"; }    # make new dir and cd into it
-rmf () {
-	DO_NOT_DELETE=("$HOME")
-	file=$(realpath $1)
-	if [[ " ${DO_NOT_DELETE[@]} " =~ " ${file} " ]]; then
-		echo "Remove $file is dangerous!!!"
-	else
-		rm -rf $1
-	fi
-}
 
 # git aliases
 alias gs='git status'
@@ -32,10 +23,6 @@ alias gd='git diff'
 alias gb='git branch'
 alias gl='git log'
 
-alias vrc='vim ~/.vimrc'
-alias zrc='vim ~/.zshrc'
 alias ns='node-switch.sh'
-alias tfs='tmuxinator-fzf-start.sh'
 alias ta='tmux attach'
 alias tl='tmux ls'
-alias tx='tmuxinator'
