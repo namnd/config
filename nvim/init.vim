@@ -66,6 +66,7 @@ inoremap [<cr> [<cr>]<esc>O
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ` ``<left>
+tnoremap <Esc> <C-\><C-n>
 
 let mapleader=" "
 
@@ -79,6 +80,8 @@ nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap <leader>nn :noh<cr>
 nnoremap <leader>gs :tab G<cr>
 nnoremap <leader>gc :tabc<cr>
+nnoremap <leader>tt :sp<cr>:term<cr>A
+nnoremap <leader>te :sp<cr>:term<cr> :wincmd H<cr> :wincmd r<cr>A
 " nnoremap <leader>mm :MaximizerToggle!<cr>
 " nnoremap <leader>uu :UndotreeToggle<cr>
 " nnoremap <leader>ta :Vista finder coc<cr>
