@@ -65,7 +65,7 @@ inoremap [<cr> [<cr>]<esc>O
 inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ` ``<left>
-tnoremap <Esc> <C-\><C-n>
+tnoremap <C-q> <C-\><C-n>
 
 let mapleader=" "
 
