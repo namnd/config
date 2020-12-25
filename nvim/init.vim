@@ -110,7 +110,6 @@ nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>cc <Plug>(coc-codeaction)
 xmap <leader>ff <Plug>(coc-format-selected)
 
-autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <c-r><c-g><cr>
 autocmd WinEnter * set colorcolumn=81
 autocmd WinLeave * set colorcolumn=0
 autocmd VimResized * :wincmd =
