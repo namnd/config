@@ -32,9 +32,8 @@ Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 " Plug 'szw/vim-maximizer'
 " Plug 'mbbill/undotree'
 " Plug 'kshenoy/vim-signature'
-" Plug 'tmsvg/pear-tree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'liuchengxu/vista.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 if has('nvim-0.5')
     Plug 'nvim-treesitter/nvim-treesitter'
@@ -94,7 +93,7 @@ let g:fzf_mru_relative = 1
 let g:fzf_layout = {'down': '~40%'}
 let $FZF_DEFAULT_OPTS = '--reverse'
 
-" dirvish - project drawer
+" dirvish
 nmap <C-n> <Plug>(dirvish_vsplit_up)
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
