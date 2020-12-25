@@ -42,7 +42,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
-set statusline+=%{FugitiveStatusline()}
+set statusline+=%{FugitiveStatusline()}%{coc#status()}
 colorscheme tender
 
 vnoremap v $h
@@ -108,6 +108,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>cc <Plug>(coc-codeaction)
 xmap <leader>ff <Plug>(coc-format-selected)
+nnoremap <leader>cs :CocSearch <C-R>=expand('<cword>')<cr><cr>
 
 autocmd WinEnter * set colorcolumn=81
 autocmd WinLeave * set colorcolumn=0
