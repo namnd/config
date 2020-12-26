@@ -29,7 +29,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
-" Plug 'szw/vim-maximizer'
 " Plug 'kshenoy/vim-signature'
 " Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -47,9 +46,6 @@ colorscheme tender
 
 vnoremap v $h
 nnoremap Y y$
-nnoremap vw vaw
-nnoremap yw yaw
-nnoremap dw daw
 nnoremap cw caw
 nnoremap <C-h> :wincmd h<cr>
 nnoremap <C-j> :wincmd j<cr>
@@ -82,7 +78,6 @@ nnoremap <leader>gs :tab G<cr>
 nnoremap <leader>gc :tabc<cr>
 nnoremap <leader>tt :sp<cr>:term<cr>A
 nnoremap <leader>te :sp<cr>:term<cr> :wincmd H<cr> :wincmd r<cr>A
-" nnoremap <leader>mm :MaximizerToggle!<cr>
 " nnoremap <leader>ta :Vista finder coc<cr>
 
 " fzf
