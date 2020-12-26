@@ -112,6 +112,10 @@ nmap <leader>cc <Plug>(coc-codeaction)
 xmap <leader>ff <Plug>(coc-format-selected)
 nnoremap <leader>cs :CocSearch <C-R>=expand('<cword>')<cr><cr>
 
+" go
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+
 autocmd WinEnter * set colorcolumn=81
 autocmd WinLeave * set colorcolumn=0
 autocmd VimResized * :wincmd =
