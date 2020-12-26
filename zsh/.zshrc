@@ -54,8 +54,10 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7a7a7a"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" 2> /dev/null'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --preview "cat {}"'
 
+export GOPATH=/home/nam/dev/go
+export GOBIN=$GOPATH/bin
+export PATH="$PATH:$GOBIN"
 export PATH="$PATH:$HOME/dotfiles/scripts"
-[ -f ~/.config/go/env ] && source ~/.config/go/env
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 

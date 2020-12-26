@@ -34,6 +34,7 @@ Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 " Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'sebdah/vim-delve'
 if has('nvim-0.5')
     Plug 'nvim-treesitter/nvim-treesitter'
 endif
