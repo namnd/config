@@ -9,5 +9,7 @@
       }
     }
   },
-  "suggest.noselect": false
+  "suggest.noselect": false,
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+  "eslint.autoFixOnSave": true
 }

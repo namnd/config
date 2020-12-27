@@ -1,3 +1,4 @@
+filetype plugin on
 set clipboard=unnamedplus
 set mouse=nv
 set number relativenumber
@@ -63,6 +64,8 @@ inoremap " ""<left>
 inoremap ' ''<left>
 inoremap ` ``<left>
 tnoremap <C-q> <C-\><C-n>
+tnoremap <C-h> <C-\><C-n> :wincmd h<cr>
+tnoremap <C-k> <C-\><C-n> :wincmd k<cr>
 
 let mapleader=" "
 
