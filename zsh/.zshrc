@@ -57,6 +57,7 @@ export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --preview "cat {}"'
 export GOPATH=/home/nam/dev/go
 export GOBIN=$GOPATH/bin
 export PATH="$PATH:$GOBIN"
+export PATH="$PATH:$HOME/.go/bin"
 export PATH="$PATH:$HOME/dotfiles/scripts"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
