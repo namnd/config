@@ -27,20 +27,21 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'wellle/targets.vim'
+Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'justinmk/vim-dirvish'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
-Plug 'kshenoy/vim-signature'
-" Plug 'liuchengxu/vista.vim'
+" Plug 'kshenoy/vim-signature'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jparise/vim-graphql'
-Plug 'sebdah/vim-delve'
-if has('nvim-0.5')
-    Plug 'nvim-treesitter/nvim-treesitter'
-endif
+" Plug 'sebdah/vim-delve'
+" if has('nvim-0.5')
+"     Plug 'nvim-treesitter/nvim-treesitter'
+" endif
 Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
@@ -65,7 +66,7 @@ inoremap {<cr> {<cr>}<esc>O
 inoremap (<cr> (<cr>)<esc>O
 inoremap [<cr> [<cr>]<esc>O
 inoremap ({<cr> ({<cr>})<esc>O
-inoremap => => {<cr>})<esc>O
+inoremap =>{ => {<cr>})<esc>O
 " inoremap " ""<left>
 " inoremap ' ''<left>
 " inoremap ` ``<left>
@@ -87,7 +88,6 @@ nnoremap <leader>gs :tab G<cr>
 nnoremap <leader>gc :tabc<cr>
 nnoremap <leader>tt :sp<cr>:term<cr>
 nnoremap <leader>te :sp<cr>:wincmd H<cr> :wincmd r<cr>:term<cr>
-" nnoremap <leader>ta :Vista finder coc<cr>
 
 " fzf
 nnoremap <C-p> :Files<cr>
@@ -102,6 +102,8 @@ let $FZF_DEFAULT_OPTS = '--reverse'
 " dirvish
 nmap <C-n> <Plug>(dirvish_vsplit_up)
 let g:dirvish_mode = ':sort ,^.*[\/],'
+
+let g:sneak#label = 1
 
 " coc
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
