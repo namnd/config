@@ -1,13 +1,13 @@
 "/usr/bin/slock"
     Control+Alt + l
 
-"pamixer -i 5; pkill -RTMIN+2 goblocks"
+"pamixer -i 5; sigdwmblocks 2"
     XF86AudioRaiseVolume
 
-"pamixer -d 5; pkill -RTMIN+2 goblocks"
+"pamixer -d 5; sigdwmblocks 2"
     XF86AudioLowerVolume
 
-"mute=$(pamixer --get-mute); if ($mute); then pamixer -u; else pamixer -m; fi; pkill -RTMIN+2 goblocks"
+"mute=$(pamixer --get-mute); if ($mute); then pamixer -u; else pamixer -m; fi; sigdwmblocks 2"
     XF86AudioMute
 
 "/usr/bin/xbacklight -inc 10"

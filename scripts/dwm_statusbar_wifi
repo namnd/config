@@ -1,7 +1,0 @@
-#!/bin/sh
-
-status=$(cat /sys/class/net/w*/operstate)
-strength=$(awk '/^\s*w/ { print int($3 * 100/70) "% "}' /proc/net/wireless)
-ssid=$(nmcli connection show --active | grep wifi | awk '{print $1}')
-
-printf "[%s %s %s]\n" $ssid $strength $status 

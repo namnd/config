@@ -37,8 +37,9 @@ for f in $X_PATH/?*.sh ; do
 done
 unset f
 
-goblocks &!
 clipmenud &!
+
+dunst &!
 
 setxkbmap -option caps:escape
 

@@ -31,7 +31,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
-Plug 'voldikss/vim-floaterm'
 Plug 'justinmk/vim-dirvish'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 " Plug 'kshenoy/vim-signature'

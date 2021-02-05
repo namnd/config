@@ -26,6 +26,13 @@ function zle-keymap-select {
 }
 zle -N zle-keymap-select
 
+function expand-alias() {
+    zle _expand_alias
+    zle self-insert
+}
+zle -N expand-alias
+bindkey -M main ' ' expand-alias
+
 # prompt
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -66,3 +73,4 @@ export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+export _JAVA_AWT_WM_NONREPARENTING=1

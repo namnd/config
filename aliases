@@ -25,5 +25,6 @@ alias gl='git log'
 
 alias ns='node-switch.sh'
 alias ta='tmux attach'
+alias tat='tmux attach -t'
 alias tl='tmux ls'
 alias tn='tmux new -s'
