@@ -24,7 +24,13 @@ alias gb='git branch'
 alias gl='git log'
 
 alias ns='node-switch.sh'
+
 alias ta='tmux attach'
 alias tat='tmux attach -t'
 alias tl='tmux ls'
 alias tn='tmux new -s'
+
+alias dps='docker ps'
+alias dpa='docker ps -a'
+alias dcd='docker-compose down'
+alias dcu='docker-compose up -d --build'

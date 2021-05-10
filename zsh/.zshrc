@@ -74,3 +74,5 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+source <(kubectl completion zsh)
