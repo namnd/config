@@ -38,9 +38,9 @@ autoload -Uz vcs_info # make sure vcs_info function is available
 precmd() { vcs_info } # update each time new prompt is rendered
 setopt prompt_subst # allow dynamic command prompt
 RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} ●%{%b%f%}' # unsubmitted changes
-zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} ●%{%b%f%}'
+zstyle ':vcs_info:*' check-for-changes true # unsubmitted changes
+zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} ●%{%b%f%}' # staged changes
+zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} ●%{%b%f%}' # unstaged changes
 zstyle ':vcs_info:*' formats '%{%F{green}%}%25>…>%b%<<%{%f%}%{%f%}%c%u'
 # zstyle ':vcs_info:*' actionformats '%{%F{cyan}%}%45<…<%R%<</%{%f%}%{%F{red}%}(%a|%m)%{%f%}%{%F{cyan}%}%S%{%f%}%c%u'
 # zstyle ':vcs_info:git:*' patch-format '%10>…>%p%<< (%n applied)'
