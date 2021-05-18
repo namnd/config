@@ -34,11 +34,18 @@ bindkey -M main ' ' expand-alias
 compinit -D ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 # prompt
-autoload -Uz vcs_info
-precmd() { vcs_info }
-setopt prompt_subst
+autoload -Uz vcs_info # make sure vcs_info function is available
+precmd() { vcs_info } # update each time new prompt is rendered
+setopt prompt_subst # allow dynamic command prompt
 RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats $'%r %F{248}● %b'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} ●%{%b%f%}' # unsubmitted changes
+zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} ●%{%b%f%}'
+zstyle ':vcs_info:*' formats '%{%F{green}%}%25>…>%b%<<%{%f%}%{%F{cyan}%}%S%{%f%}%c%u'
+zstyle ':vcs_info:*' actionformats '%{%F{cyan}%}%45<…<%R%<</%{%f%}%{%F{red}%}(%a|%m)%{%f%}%{%F{cyan}%}%S%{%f%}%c%u'
+zstyle ':vcs_info:git:*' patch-format '%10>…>%p%<< (%n applied)'
+# zstyle ':vcs_info:git:*' formats $'%r %F{248}● %b'
+
 if [ -n "$TMUX" ]; then ARROW='%F{green}$%f'; else ARROW='%F{240}$%f'; fi
 PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~\n%F{255}${VIMODE} %f%(!.#.${ARROW}) '
 
