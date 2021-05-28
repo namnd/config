@@ -2,13 +2,13 @@ filetype plugin on
 set clipboard=unnamed
 set mouse=nv
 set number relativenumber
-set tabstop=4 softtabstop=4 shiftwidth=4
+set tabstop=2 softtabstop=2 shiftwidth=2
 set list listchars=tab:\|_,trail:·,eol:¶
 set cursorline cursorcolumn colorcolumn=81 signcolumn=yes
 set noswapfile nobackup nowritebackup
 set undodir=~/.vim/undodir undofile
 set splitbelow splitright
-set foldmethod=indent nofoldenable
+set foldmethod=syntax nofoldenable
 set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%l,%-10.c
 set expandtab
 set smartindent
@@ -28,6 +28,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}
@@ -37,6 +38,7 @@ vnoremap v $h
 nnoremap Y y$
 nnoremap cw caw
 nnoremap E ea
+nnoremap <C-t> :tabnew<cr>
 nnoremap <C-h> :wincmd h<cr>
 nnoremap <C-j> :wincmd j<cr>
 nnoremap <C-l> :wincmd l<cr>
