@@ -1,0 +1,20 @@
+# open terminal, blazingly fast compared to iTerm/Hyper
+cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+# display focus
+hyper - d : yabai -m display --focus recent
+
+# window focus
+hyper - w : yabai -m window --focus recent
+hyper - h : yabai -m window --focus west
+hyper - l : yabai -m window --focus east
+hyper - j : yabai -m window --focus south
+hyper - k : yabai -m window --focus north
+
+# window toggle
+hyper - z : yabai -m window --toggle zoom-parent
+hyper - s : yabai -m window --toggle split
+hyper - f : yabai -m window --toggle float
+
+# swap window
+hyper - p : yabai -m window --swap first
