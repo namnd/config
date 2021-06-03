@@ -18,5 +18,10 @@ yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Spotify$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Slack$" sticky=on layer=above manage=off
 yabai -m rule --add app="^zoom.us$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
+yabai -m rule --add app="^MongoDB Compass$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Mail$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Calendar$" sticky=on layer=above manage=off
 
 # display

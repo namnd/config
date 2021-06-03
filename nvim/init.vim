@@ -29,6 +29,7 @@ Plug 'pbogut/fzf-mru.vim'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jparise/vim-graphql'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}
