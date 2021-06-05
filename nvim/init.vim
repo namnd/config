@@ -28,7 +28,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jparise/vim-graphql'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
