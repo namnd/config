@@ -30,6 +30,7 @@ Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jparise/vim-graphql'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}
@@ -95,3 +96,5 @@ autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70}
 autocmd WinEnter * set colorcolumn=81 cursorline cursorcolumn
 autocmd WinLeave * set colorcolumn=0 nocursorline nocursorcolumn
 autocmd VimResized * :wincmd =
+
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true, } }
