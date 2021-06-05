@@ -8,7 +8,8 @@ set cursorline cursorcolumn colorcolumn=81 signcolumn=yes
 set noswapfile nobackup nowritebackup
 set undodir=~/.vim/undodir undofile
 set splitbelow splitright
-set foldmethod=syntax nofoldenable
+set foldmethod=expr nofoldenable
+set foldexpr=nvim_treesitter#foldexpr()
 set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%l,%-10.c
 set expandtab
 set smartindent
@@ -96,4 +97,9 @@ autocmd WinEnter * set colorcolumn=81 cursorline cursorcolumn
 autocmd WinLeave * set colorcolumn=0 nocursorline nocursorcolumn
 autocmd VimResized * :wincmd =
 
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true, } }
+lua <<EOF
+require'nvim-treesitter.configs'.setup { 
+  highlight = { enable = true },
+  indent = { enable = true },
+}
+EOF
