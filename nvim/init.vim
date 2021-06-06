@@ -3,7 +3,7 @@ set clipboard=unnamed
 set mouse=nv
 set number relativenumber
 set tabstop=2 softtabstop=2 shiftwidth=2
-set list listchars=tab:\|_,trail:·,eol:¶
+set list listchars=tab:\|_,trail:·,eol:$
 set cursorline cursorcolumn colorcolumn=81 signcolumn=yes
 set noswapfile nobackup nowritebackup
 set undodir=~/.vim/undodir undofile
@@ -90,7 +90,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>cc <Plug>(coc-codeaction)
 xmap <leader>ff <Plug>(coc-format-selected)
-" nnoremap <leader>cs :CocSearch <C-R>=expand('<cword>')<cr><cr>
+nnoremap <leader>cs :CocSearch <C-R>=expand('<cword>')<cr><cr>
 
 autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
 autocmd WinEnter * set colorcolumn=81 cursorline cursorcolumn
