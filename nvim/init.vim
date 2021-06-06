@@ -24,13 +24,14 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'justinmk/vim-dirvish'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'pbogut/fzf-mru.vim'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}
@@ -66,14 +67,13 @@ nnoremap <leader>nn :noh<cr>
 nnoremap <leader>gs :tab G<cr>
 nnoremap <leader>gc :tabc<cr>
 
-" fzf
-nnoremap <C-p> :Files<cr>
-nnoremap <C-e> :FZFMru<cr>
-nnoremap <C-b> :Buffers<cr>
-nnoremap <C-f> :Rg<cr>
-let g:fzf_mru_relative = 1
-let g:fzf_layout = {'down': '~40%'}
-let $FZF_DEFAULT_OPTS = '--reverse'
+" telescope
+nnoremap <C-p> <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <C-f> <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <C-e> <cmd>lua require('telescope.builtin').oldfiles()<cr>
+nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ee <cmd>lua require('telescope.builtin').grep_string()<cr>
 
 " dirvish
 nmap <C-n> <Plug>(dirvish_vsplit_up)
@@ -90,7 +90,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>cc <Plug>(coc-codeaction)
 xmap <leader>ff <Plug>(coc-format-selected)
-nnoremap <leader>cs :CocSearch <C-R>=expand('<cword>')<cr><cr>
+" nnoremap <leader>cs :CocSearch <C-R>=expand('<cword>')<cr><cr>
 
 autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
 autocmd WinEnter * set colorcolumn=81 cursorline cursorcolumn
@@ -101,5 +101,17 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup { 
   highlight = { enable = true },
   indent = { enable = true },
-}
+  }
+require('telescope').setup {
+  defaults = {
+    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    },
+  extensions = {
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
+      }
+    }
+  }
+require('telescope').load_extension('fzy_native')
 EOF
