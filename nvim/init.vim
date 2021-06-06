@@ -32,6 +32,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}
@@ -74,6 +75,7 @@ nnoremap <C-e> <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>ee <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <leader>pp <cmd>lua require('telescope').extensions.project.project{}<cr>
 
 " dirvish
 nmap <C-n> <Plug>(dirvish_vsplit_up)
@@ -114,4 +116,5 @@ require('telescope').setup {
     }
   }
 require('telescope').load_extension('fzy_native')
+require('telescope').load_extension('project')
 EOF
