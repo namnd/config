@@ -33,22 +33,29 @@ function expand-alias() {
 zle -N expand-alias
 bindkey -M main ' ' expand-alias
 
-# prompt
-autoload -Uz vcs_info
-precmd() { vcs_info }
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' formats $'%r %F{248}\ue725 %b'
-if [ -n "$TMUX" ]; then ARROW='%F{green}$%f'; else ARROW='%F{240}$%f'; fi
-PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~\n%F{255}${VIMODE} %f%(!.#.${ARROW}) '
-
 # auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit -D $HOME/.cache/zsh/zcompdump-$ZSH_VERSION
 
-[ -f $HOME/dotfiles/aliases ] && source $HOME/dotfiles/aliases
+# prompt
+autoload -Uz vcs_info # make sure vcs_info function is available
+precmd() { vcs_info } # update each time new prompt is rendered
+setopt prompt_subst # allow dynamic command prompt
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:*' check-for-changes true # unsubmitted changes
+zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} ●%{%b%f%}' # staged changes
+zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} ●%{%b%f%}' # unstaged changes
+zstyle ':vcs_info:*' formats '%{%F{green}%}%25>…>%b%<<%{%f%}%{%f%}%c%u'
+# zstyle ':vcs_info:*' actionformats '%{%F{cyan}%}%45<…<%R%<</%{%f%}%{%F{red}%}(%a|%m)%{%f%}%{%F{cyan}%}%S%{%f%}%c%u'
+# zstyle ':vcs_info:git:*' patch-format '%10>…>%p%<< (%n applied)'
+
+if [ -n "$TMUX" ]; then ARROW='%F{green}$%f'; else ARROW='%F{240}$%f'; fi
+PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~\n%F{255}${VIMODE} %f%(!.#.${ARROW}) '
+
+[ -f ~/dotfiles/zsh/aliases ] && source ~/dotfiles/zsh/aliases
+
 LS_COLORS='di=94:ex=92:ln=36'
 export LS_COLORS
 
@@ -57,7 +64,8 @@ ZSH_PATH=$HOME/dotfiles/zsh
 source $ZSH_PATH/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7a7a7a"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" 2> /dev/null'
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --preview "cat {}"'
 
@@ -75,4 +83,4 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
