@@ -55,6 +55,6 @@ xcompmgr & # alpha
 
 # ibus-daemon -drx # ibus daemn for keyboard
 
-xset r rate 200 45 # xset r rate [delay] [rate]
+xset r rate 200 50 # xset r rate [delay] [rate]
 
 exec dwm
