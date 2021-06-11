@@ -3,7 +3,7 @@ set clipboard=unnamedplus
 set mouse=nv
 set number relativenumber
 set tabstop=4 softtabstop=4 shiftwidth=4
-set list listchars=tab:\|_,trail:·,eol:¶
+set list listchars=tab:\|_,trail:·,eol:$
 set cursorline cursorcolumn colorcolumn=81 signcolumn=yes
 set noswapfile nobackup nowritebackup
 set undodir=~/.vim/undodir undofile
@@ -15,10 +15,6 @@ set smartindent
 set hidden
 set updatetime=50
 set scrolloff=8
-" set backspace=indent,eol,start
-" set cmdheight=2
-" set completeopt=menuone,noinsert,noselect
-" set shortmess+=c
 
 call plug#begin()
 Plug 'tweekmonster/startuptime.vim'
@@ -26,23 +22,15 @@ Plug 'jacoborus/tender.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'wellle/targets.vim'
-Plug 'justinmk/vim-sneak'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'pbogut/fzf-mru.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'roginfarrer/vim-dirvish-dovish', {'branch': 'main'}
-" Plug 'kshenoy/vim-signature'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'jparise/vim-graphql'
-" Plug 'sebdah/vim-delve'
-" if has('nvim-0.5')
-"     Plug 'nvim-treesitter/nvim-treesitter'
-" endif
-Plug 'editorconfig/editorconfig-vim'
-
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}
@@ -88,21 +76,9 @@ nnoremap <leader>gc :tabc<cr>
 nnoremap <leader>tt :sp<cr>:term<cr>
 nnoremap <leader>te :sp<cr>:wincmd H<cr> :wincmd r<cr>:term<cr>
 
-" fzf
-nnoremap <C-p> :Files<cr>
-nnoremap <C-e> :FZFMru<cr>
-nnoremap <C-b> :Buffers<cr>
-nnoremap <C-f> :Rg<cr>
-nnoremap <leader>rg :Rg <C-R>=expand('<cword>')<cr><cr>
-let g:fzf_mru_relative = 1
-let g:fzf_layout = {'down': '~40%'}
-let $FZF_DEFAULT_OPTS = '--reverse'
-
 " dirvish
 nmap <C-n> <Plug>(dirvish_vsplit_up)
 let g:dirvish_mode = ':sort ,^.*[\/],'
-
-let g:sneak#label = 1
 
 " coc
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -121,6 +97,4 @@ autocmd WinEnter * set colorcolumn=81 cursorline cursorcolumn
 autocmd WinLeave * set colorcolumn=0 nocursorline nocursorcolumn
 autocmd VimResized * :wincmd =
 autocmd TermOpen * startinsert
-if has('nvim-0.5')
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
-endif
+autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 100})
