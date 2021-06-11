@@ -8,7 +8,7 @@ set cursorline cursorcolumn colorcolumn=81 signcolumn=yes
 set noswapfile nobackup nowritebackup
 set undodir=~/.vim/undodir undofile
 set splitbelow splitright
-set foldmethod=expr nofoldenable
+set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%l,%-10.c
 set expandtab
@@ -49,6 +49,7 @@ nnoremap <C-l> :wincmd l<cr>
 nnoremap <C-k> :wincmd k<cr>
 nnoremap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
 nnoremap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
+nnoremap <silent> g3f :wincmd F<cr> :wincmd T<cr>
 inoremap {<cr> {<cr>}<esc>O
 inoremap (<cr> (<cr>)<esc>O
 inoremap [<cr> [<cr>]<esc>O
