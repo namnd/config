@@ -1,4 +1,0 @@
-vim/.vim/plugged
-vim/.vim/undodir/*
-!vim/.vim/undodir/.gitkeep
-nvim/plugged
