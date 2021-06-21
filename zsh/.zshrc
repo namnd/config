@@ -58,3 +58,6 @@ PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~\n%F{255}${VIMODE} %f%(!.#.${ARROW}) '
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --preview "cat {}"'
 
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
