@@ -33,6 +33,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}

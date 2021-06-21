@@ -1,3 +1,5 @@
+#!/bin/sh
+
 export CLICOLOR=1
 
 alias ll='ls -l'
@@ -26,3 +28,5 @@ alias dps='docker ps'
 alias dpa='docker ps -a'
 alias dcd='docker-compose down'
 alias dcu='docker-compose up -d --build'
+
+alias tf='terraform'
