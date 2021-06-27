@@ -24,8 +24,9 @@ alias tat='tmux attach -t'
 alias tl='tmux ls'
 alias tn='tmux new -s'
 
-alias dps='docker ps'
+alias dp='docker ps'
 alias dpa='docker ps -a'
+alias dr='docker restart'
 alias dcd='docker-compose down'
 alias dcu='docker-compose up -d --build'
 
