@@ -3,7 +3,7 @@ set clipboard=unnamed
 set mouse=nv
 set number relativenumber
 set tabstop=2 softtabstop=2 shiftwidth=2
-set list listchars=tab:\|_,trail:·,eol:$
+set list listchars=tab:\|_,trail:·,eol:↵
 set cursorline cursorcolumn colorcolumn=81 signcolumn=yes
 set noswapfile nobackup nowritebackup
 set undodir=~/.vim/undodir undofile
@@ -33,6 +33,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'fannheyward/telescope-coc.nvim'
 Plug 'hashivim/vim-terraform'
 call plug#end()
 
@@ -59,25 +60,23 @@ inoremap =>{ => {<cr>})<esc>O
 
 let mapleader=" "
 
-nnoremap <leader>11 :e $MYVIMRC<cr>
-nnoremap <leader>12 :vs $MYVIMRC<cr>
-nnoremap <leader>13 :tab sp $MYVIMRC<cr>
-nnoremap <leader>2 :so $MYVIMRC<cr>
-nnoremap <leader>9 :PlugInstall<cr>
-nnoremap <leader>0 :PlugClean<cr>
+" telescope
+nnoremap <leader><leader> <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>bb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ee :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<cr><cr>
+nnoremap <C-f> :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<cr>
+nnoremap <C-e> <cmd>Telescope coc mru<cr>
+nnoremap <leader>cc <cmd>Telescope coc code_actions<cr>
+nnoremap <leader>pp <cmd>lua require('telescope').extensions.project.project{}<cr>
+nnoremap <leader>11 <cmd>lua require('nam.telescope').search_dotfiles()<cr>
+nnoremap <leader>22 :so $MYVIMRC<cr>
 nnoremap <leader>rp yiw<esc>:%s/<C-r>+//gc<left><left><left>
 nnoremap <leader>nn :noh<cr>
+
+nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>gs :tab G<cr>
 nnoremap <leader>gc :tabc<cr>
-
-" telescope
-nnoremap <C-p> <cmd>lua require('telescope.builtin').git_files()<cr>
-nnoremap <C-f> <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <C-e> <cmd>lua require('telescope.builtin').oldfiles()<cr>
-nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>ee <cmd>lua require('telescope.builtin').grep_string()<cr>
-nnoremap <leader>pp <cmd>lua require('telescope').extensions.project.project{}<cr>
 
 " dirvish
 nmap <C-n> <Plug>(dirvish_vsplit_up)
@@ -91,10 +90,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> g1d :sp<cr> <Plug>(coc-definition)
 nmap <silent> g2d :vs<cr> <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>cc <Plug>(coc-codeaction)
-xmap <leader>ff <Plug>(coc-format-selected)
-nnoremap <leader>cs :CocSearch <C-R>=expand('<cword>')<cr><cr>
+nmap <leader>rr <Plug>(coc-rename)
 
 autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
 autocmd WinEnter * set colorcolumn=81 cursorline cursorcolumn
@@ -120,4 +116,5 @@ require('telescope').setup {
   }
 require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('project')
+require('telescope').load_extension('coc')
 EOF
