@@ -27,7 +27,7 @@ alias tn='tmux new -s'
 alias dp='docker ps'
 alias dpa='docker ps -a'
 alias dr='docker restart'
-alias dl='docker logs'
+alias dl='docker logs -f'
 alias dcd='docker-compose down'
 alias dcu='docker-compose up -d --build'
 
