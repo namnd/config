@@ -18,6 +18,7 @@ alias gp='git pull'
 alias gd='git diff'
 alias gb='git branch'
 alias gl='git log'
+alias ga='git log --all --branches --remotes --tags --graph --oneline --decorate'
 
 alias ta='tmux attach'
 alias tat='tmux attach -t'

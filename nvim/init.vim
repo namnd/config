@@ -1,4 +1,3 @@
-filetype plugin on
 set clipboard=unnamed
 set mouse=nv
 set number relativenumber
@@ -8,7 +7,8 @@ set cursorline cursorcolumn colorcolumn=81 signcolumn=yes
 set noswapfile nobackup nowritebackup
 set undodir=~/.vim/undodir undofile
 set splitbelow splitright
-set foldmethod=expr
+set foldmethod=expr nofoldenable
+set ignorecase smartcase
 set foldexpr=nvim_treesitter#foldexpr()
 set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%l,%-10.c
 set expandtab
@@ -19,7 +19,7 @@ set scrolloff=8
 
 call plug#begin()
 Plug 'tweekmonster/startuptime.vim'
-Plug 'jacoborus/tender.vim'
+Plug 'projekt0n/github-nvim-theme'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -35,10 +35,11 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'fannheyward/telescope-coc.nvim'
 Plug 'hashivim/vim-terraform'
+Plug 'jparise/vim-graphql'
+Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}
-colorscheme tender
 
 vnoremap v $h
 nnoremap Y y$
@@ -52,11 +53,6 @@ nnoremap <C-k> :wincmd k<cr>
 nnoremap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
 nnoremap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
 nnoremap <silent> g3f :wincmd F<cr> :wincmd T<cr>
-inoremap {<cr> {<cr>}<esc>O
-inoremap (<cr> (<cr>)<esc>O
-inoremap [<cr> [<cr>]<esc>O
-inoremap ({<cr> ({<cr>})<esc>O
-inoremap =>{ => {<cr>})<esc>O
 
 let mapleader=" "
 
@@ -80,6 +76,7 @@ nnoremap <leader>gc :tabc<cr>
 
 " dirvish
 nmap <C-n> <Plug>(dirvish_vsplit_up)
+nmap <C-m> <Plug>(dirvish_split_up)
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
 " coc
@@ -114,6 +111,8 @@ require('telescope').setup {
       }
     }
   }
+require('github-theme').setup()
+require('nvim-autopairs').setup()
 require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('project')
 require('telescope').load_extension('coc')

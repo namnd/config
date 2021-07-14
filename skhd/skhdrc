@@ -1,32 +1,29 @@
 # restart yabai
-hyper - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 # open terminal, blazingly fast compared to iTerm/Hyper
 cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 cmd - p : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
 
-# display focus
-hyper - d : yabai -m display --focus recent
-
 # window focus
 # hyper - w : yabai -m window --focus recent
-hyper - h : yabai -m window --focus west
-hyper - l : yabai -m window --focus east
-hyper - j : yabai -m window --focus south
-hyper - k : yabai -m window --focus north
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
 
 # window toggle
-hyper - space : yabai -m window --toggle zoom-parent
-hyper - s : yabai -m window --toggle split
-hyper - f : yabai -m window --toggle float
+alt - space : yabai -m window --toggle zoom-parent
+alt - s : yabai -m window --toggle split
+alt - f : yabai -m window --toggle float
 
 # swap window
-hyper - p : yabai -m window --swap first
-hyper - o : yabai -m window --swap recent
+alt - p : yabai -m window --swap first
+alt - o : yabai -m window --swap recent
 
 # move to another space
-hyper - 1 : yabai -m window --space 1
-hyper - 2 : yabai -m window --space 2
-hyper - 3 : yabai -m window --space 3
-hyper - 4 : yabai -m window --space 4
-hyper - 5 : yabai -m window --space 5
+alt - 1 : yabai -m window --space 1
+alt - 2 : yabai -m window --space 2
+alt - 3 : yabai -m window --space 3
+alt - 4 : yabai -m window --space 4
+alt - 5 : yabai -m window --space 5
