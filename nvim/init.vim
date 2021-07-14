@@ -37,9 +37,11 @@ Plug 'fannheyward/telescope-coc.nvim'
 Plug 'hashivim/vim-terraform'
 Plug 'jparise/vim-graphql'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
 
-set statusline+=%{FugitiveStatusline()}%{coc#status()}
+set statusline+=%{FugitiveStatusline()}%{coc#status()}%{get(b:,'gitsigns_status','')}
 
 vnoremap v $h
 nnoremap Y y$
@@ -99,6 +101,7 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup { 
   highlight = { enable = true },
   indent = { enable = true },
+  autotag = { enable = true },
   }
 require('telescope').setup {
   defaults = {
@@ -113,6 +116,7 @@ require('telescope').setup {
   }
 require('github-theme').setup()
 require('nvim-autopairs').setup()
+require('gitsigns').setup()
 require('telescope').load_extension('fzy_native')
 require('telescope').load_extension('project')
 require('telescope').load_extension('coc')
