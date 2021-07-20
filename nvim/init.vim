@@ -19,7 +19,7 @@ set scrolloff=8
 
 call plug#begin()
 Plug 'tweekmonster/startuptime.vim'
-Plug 'projekt0n/github-nvim-theme'
+Plug 'jacoborus/tender.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -42,19 +42,16 @@ Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
 
 set statusline+=%{FugitiveStatusline()}%{coc#status()}%{get(b:,'gitsigns_status','')}
+colorscheme tender
 
 vnoremap v $h
 nnoremap Y y$
-nnoremap cw caw
 nnoremap E ea
 nnoremap <C-t> :tabnew<cr>
 nnoremap <C-h> :wincmd h<cr>
 nnoremap <C-j> :wincmd j<cr>
 nnoremap <C-l> :wincmd l<cr>
 nnoremap <C-k> :wincmd k<cr>
-nnoremap <silent> g1f :wincmd F<cr> :wincmd K<cr> :wincmd r<cr>
-nnoremap <silent> g2f :wincmd F<cr> :wincmd H<cr> :wincmd r<cr>
-nnoremap <silent> g3f :wincmd F<cr> :wincmd T<cr>
 
 let mapleader=" "
 
@@ -114,7 +111,6 @@ require('telescope').setup {
       }
     }
   }
-require('github-theme').setup()
 require('nvim-autopairs').setup()
 require('gitsigns').setup()
 require('telescope').load_extension('fzy_native')
