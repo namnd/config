@@ -10,6 +10,7 @@ return require('packer').startup(function()
 	use 'tpope/vim-surround'
 	use 'tpope/vim-fugitive'
 	use 'neovim/nvim-lspconfig'
+  use 'folke/lsp-colors.nvim'
 	use {
 		'hoob3rt/lualine.nvim',
 		requires = {'kyazdani42/nvim-web-devicons', opt = true}
