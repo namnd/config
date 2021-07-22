@@ -45,11 +45,7 @@ end
 
 local check_back_space = function()
 	local col = vim.fn.col '.' - 1
-	if col == 0 or vim.fn.getline('.'):sub(col, col):match '%' then
-		return true
-	else
-		return false
-	end
+	return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
 
 -- Use (s-)tab to:
@@ -84,3 +80,5 @@ require('nvim-treesitter.configs').setup ({
   indent = { enable = true },
   autotag = { enable = true },
 })
+
+require('gitsigns').setup()

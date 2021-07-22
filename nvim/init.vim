@@ -10,6 +10,7 @@ set smartindent
 set completeopt=menuone,noselect
 set noswapfile nobackup nowritebackup
 set undodir=~/.vim/undodir undofile
+set shortmess+=c
 
 let mapleader=","
 lua require 'init'

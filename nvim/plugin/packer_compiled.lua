@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim"
