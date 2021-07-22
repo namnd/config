@@ -19,5 +19,11 @@ return require('packer').startup(function()
 		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
 	}
 	use 'windwp/nvim-autopairs'
+	use 'windwp/nvim-ts-autotag'
 	use 'hrsh7th/nvim-compe'
+	use 'L3MON4D3/LuaSnip'
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = ':TSUpdate'
+	}
 end)
