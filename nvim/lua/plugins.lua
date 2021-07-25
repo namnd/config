@@ -24,7 +24,6 @@ return require('packer').startup(function()
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'}
   }
-  -- use 'cohama/lexima.vim'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'

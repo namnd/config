@@ -3,25 +3,28 @@ vim.api.nvim_set_keymap("v", ";", ":", { noremap = true })
 vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
 vim.api.nvim_set_keymap("v", "v", "$h", { noremap = true })
+vim.api.nvim_set_keymap("n", "E", "ea", { noremap = true })
 
--- window navigation
+-- window/tab navigation
 vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-t>', ':tabnew<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-x>', ':tabc<cr>', {noremap = true})
 
 -- fugitive
 vim.api.nvim_set_keymap('n', '<leader>gs', ':tab G<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gc', ':tabc<cr>', {noremap = true})
 
 -- dirvish
-vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>(dirvish_vsplit_up)', {})
+vim.api.nvim_set_keymap('n', '<C-\\>', '<Plug>(dirvish_vsplit_up)', {})
+vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>(dirvish_split_up)', {})
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<space><space>', '<cmd>Telescope find_files<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gc', '<cmd>Telescope git_commits<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>hh', '<cmd>Telescope search_history<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>pp', '<cmd>Telescope registers<cr>', {noremap = true})
