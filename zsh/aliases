@@ -2,6 +2,8 @@
 
 export CLICOLOR=1
 
+alias vi='nvim'
+
 alias ll='ls -l'
 alias all='ls -al'
 alias .2='cd ../..'
