@@ -113,6 +113,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/startuptime.vim"
   },
+  ["telescope-project.nvim"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/telescope-project.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/telescope.nvim"

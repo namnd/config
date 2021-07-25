@@ -30,7 +30,7 @@ vim.api.nvim_set_keymap('n', '<leader>hh', '<cmd>Telescope search_history<cr>', 
 vim.api.nvim_set_keymap('n', '<leader>pp', '<cmd>Telescope registers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-f>', ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Rg> ")})<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-e>', ':lua require("telescope.builtin").grep_string { search = vim.fn.expand("<cword>") }<cr><cr>', {noremap = true})
--- vim.api.nvim_set_keymap('n', '<leader>11', '<cmd>lua require("telescope").extensions.project.project{}<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>11', '<cmd>lua require("telescope").extensions.project.project{}<cr>', {noremap = true})
 
 -- compe
 -- Map tab to the above tab complete functions

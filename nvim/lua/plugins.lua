@@ -16,7 +16,7 @@ return require('packer').startup(function()
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
   -- use 'nvim-telescope/telescope-fzy-native.nvim'
-  -- use 'nvim-telescope/telescope-project.nvim'
+  use 'nvim-telescope/telescope-project.nvim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-colors.nvim'
   use 'hrsh7th/nvim-compe'
