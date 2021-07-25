@@ -1,6 +1,9 @@
 export PATH="/opt/homebrew/opt/ncurses/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+export GOPATH="$HOME/go"
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 
 setopt AUTO_CD                  # auto cd into path
 setopt SHARE_HISTORY            # share history file across the sessions
