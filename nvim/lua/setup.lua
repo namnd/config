@@ -1,16 +1,32 @@
-require('lualine').setup()
-require('nvim-autopairs').setup()
-require('nvim-autopairs.completion.compe').setup({
-	map_cr = true,
-	map_complete = true
+require('gitsigns').setup()
+
+require('lualine').setup({
+  options = {
+    section_separators = '',
+    component_separators = ''
+  }
 })
+
+-- require('telescope').setup {
+--   defaults = {
+--     file_sorter = require('telescope.sorters').get_fzy_sorter,
+--   },
+--   extensions = {
+--     fzy_native = {
+--       override_generic_sorter = false,
+--       override_file_sorter = true,
+--     }
+--   }
+-- }
+-- require('telescope').load_extension('fzy_native')
+-- require('telescope').load_extension('project')
 
 local nvim_lsp = require('lspconfig')
 local on_attach = function(_, bufnr)
 	local opts = { noremap=true, silent=true }
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gc', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>tt', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ff', '<cmd>lua vim.lsp.buf.formatting()<cr>', opts)
 	vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
 end
@@ -29,9 +45,9 @@ end
 require('compe').setup {
   source = {
     path = true,
-    nvim_lsp = true,
-    luasnip = true,
     buffer = true,
+    nvim_lsp = true,
+    luasnip = false,
     calc = false,
     nvim_lua = false,
     vsnip = false,
@@ -44,20 +60,16 @@ local t = function(str)
 end
 
 local check_back_space = function()
-	local col = vim.fn.col '.' - 1
+	local col = vim.fn.col('.') - 1
 	return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
 
 -- Use (s-)tab to:
 -- - move to prev/next item in completion menu
 -- - jump to prev/next snippet's placeholder
-local luasnip = require 'luasnip'
-
 _G.tab_complete = function()
 	if vim.fn.pumvisible() == 1 then
 		return t '<C-n>'
-	elseif luasnip.expand_or_jumpable() then
-		return t '<Plug>luasnip-expand-or-jump'
 	elseif check_back_space() then
 		return t '<Tab>'
 	else
@@ -68,8 +80,6 @@ end
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t '<C-p>'
-  elseif luasnip.jumpable(-1) then
-    return t '<Plug>luasnip-jump-prev'
   else
     return t '<S-Tab>'
   end
@@ -78,7 +88,7 @@ end
 require('nvim-treesitter.configs').setup ({
 	highlight = { enable = true },
   indent = { enable = true },
-  autotag = { enable = true },
+  -- autotag = { enable = true },
 })
 
-require('gitsigns').setup()
+

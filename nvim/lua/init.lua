@@ -9,6 +9,7 @@ require('bindings')
 vim.cmd [[
 set undodir=~/.vim/undodir undofile
 set noswapfile nobackup nowritebackup
+set foldexpr=nvim_treesitter#foldexpr()
 
 nmap <leader>p "0p
 nmap <leader>P "0P

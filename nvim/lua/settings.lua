@@ -15,5 +15,7 @@ vim.o.expandtab = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
+vim.wo.foldmethod = 'expr'
+vim.wo.foldenable = false
 
 vim.g.mapleader = ','

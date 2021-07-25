@@ -69,10 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/LuaSnip"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
@@ -85,10 +81,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
-  ["nvim-autopairs"] = {
-    loaded = true,
-    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
-  },
   ["nvim-compe"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/nvim-compe"
@@ -100,10 +92,6 @@ _G.packer_plugins = {
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
-  },
-  ["nvim-ts-autotag"] = {
-    loaded = true,
-    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -148,6 +136,10 @@ _G.packer_plugins = {
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+  },
+  ["vim-graphql"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-graphql"
   },
   ["vim-surround"] = {
     loaded = true,
