@@ -45,6 +45,20 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
+require'lspconfig'.gopls.setup{
+  on_attach=on_attach,
+  capabilities = capabilities,
+  cmd = {"gopls", "serve"},
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
+
 require('compe').setup {
   source = {
     path = true,
