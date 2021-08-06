@@ -3,6 +3,7 @@
 export CLICOLOR=1
 
 alias vi='nvim'
+alias vim='nvim'
 
 alias ll='ls -l'
 alias all='ls -al'

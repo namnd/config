@@ -1,10 +1,6 @@
 # restart yabai
 alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
-# open terminal, blazingly fast compared to iTerm/Hyper
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-cmd - p : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
-
 # window focus
 # hyper - w : yabai -m window --focus recent
 alt - h : yabai -m window --focus west

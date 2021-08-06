@@ -23,6 +23,7 @@ yabai -m rule --add app="^MongoDB Compass$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Mail$" sticky=on layer=above manage=off
 yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Calendar$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Robo 3T$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Microsoft Teams$" sticky=on layer=above manage=off
 
 # display
