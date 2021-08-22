@@ -8,7 +8,7 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-fugitive'
   use {
-    'hoob3rt/lualine.nvim',
+    'shadmansaleh/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
   use {
