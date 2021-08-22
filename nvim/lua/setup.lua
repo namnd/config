@@ -46,7 +46,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local servers = {'tsserver', 'terraformls'}
+local servers = {'tsserver', 'terraformls', 'pyright'}
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
 		on_attach = on_attach,
