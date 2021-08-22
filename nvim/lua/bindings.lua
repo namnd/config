@@ -25,7 +25,6 @@ vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-t>', ':tabnew<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-x>', ':tabc<cr>', {noremap = true})
 
 -- fugitive
 vim.api.nvim_set_keymap('n', '<leader>gg', ':tab G<cr>', {noremap = true})
@@ -36,13 +35,11 @@ vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>(dirvish_split_up)', {})
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<space><space>', '<cmd>Telescope find_files<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gf', '<cmd>Telescope git_files<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gc', '<cmd>Telescope git_commits<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>hh', '<cmd>Telescope search_history<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>pp', '<cmd>Telescope registers<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-e>', '<cmd>Telescope oldfiles<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-e>', ':lua require("telescope.builtin").oldfiles({cwd_only = true})<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-f>', ':lua require("telescope.builtin").grep_string({ search = vim.fn.input("Rg> ")})<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-p>', ':lua require("telescope.builtin").grep_string { search = vim.fn.expand("<cword>") }<cr><cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>11', '<cmd>lua require("telescope").extensions.project.project{}<cr>', {noremap = true})

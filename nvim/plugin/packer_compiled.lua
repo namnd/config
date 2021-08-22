@@ -109,9 +109,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["preview-markdown.vim"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/preview-markdown.vim"
+  },
   ["startuptime.vim"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/startuptime.vim"
+  },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
   },
   ["telescope-project.nvim"] = {
     loaded = true,
@@ -145,9 +153,25 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-graphql"
   },
+  ["vim-repeat"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-repeat"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-test"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-test"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+  },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ"
   }
 }
 
