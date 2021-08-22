@@ -21,6 +21,8 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-colors.nvim'
   use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
   use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'}
