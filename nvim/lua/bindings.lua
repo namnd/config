@@ -56,3 +56,10 @@ vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true 
 -- Map compe confirm and complete functions
 vim.api.nvim_set_keymap('i', '<CR>', "compe#confirm({'keys': '<CR>', 'select': v:true })", { expr = true })
 vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
+
+--vim-test
+vim.api.nvim_set_keymap('n', '<leader>tn', ':TestNearest<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>ts', ':TestSuite<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<cr>', {noremap = true})

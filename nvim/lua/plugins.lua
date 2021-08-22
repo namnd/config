@@ -32,4 +32,6 @@ return require('packer').startup(function()
     run = ':TSUpdate'
   }
   use 'jparise/vim-graphql'
+  use 'vim-test/vim-test'
+  use 'skanehira/preview-markdown.vim'
 end)
