@@ -12,18 +12,17 @@ require('lualine').setup({
   }
 })
 
--- require('telescope').setup {
---   defaults = {
---     file_sorter = require('telescope.sorters').get_fzy_sorter,
---   },
---   extensions = {
---     fzy_native = {
---       override_generic_sorter = false,
---       override_file_sorter = true,
---     }
---   }
--- }
--- require('telescope').load_extension('fzy_native')
+require('telescope').setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = false,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    }
+  }
+}
+require('telescope').load_extension('fzf')
 -- require('telescope').load_extension('project')
 
 local nvim_lsp = require('lspconfig')
