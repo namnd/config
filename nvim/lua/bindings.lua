@@ -24,7 +24,7 @@ vim.api.nvim_set_keymap('n', '<C-t>', ':tabnew<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-x>', ':tabc<cr>', {noremap = true})
 
 -- fugitive
-vim.api.nvim_set_keymap('n', '<leader>gs', ':tab G<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gg', ':tab G<cr>', {noremap = true})
 
 -- dirvish
 vim.api.nvim_set_keymap('n', '<C-\\>', '<Plug>(dirvish_vsplit_up)', {})
