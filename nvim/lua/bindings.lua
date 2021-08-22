@@ -14,6 +14,10 @@ vim.api.nvim_set_keymap("i", "?", "?<C-g>u", { noremap = true })
 vim.api.nvim_set_keymap("i", "{<cr>", "{<cr>}<esc>Vk=o", { noremap = true })
 vim.api.nvim_set_keymap("i", "(<cr>", "(<cr>)<esc>O", { noremap = true })
 vim.api.nvim_set_keymap("i", "[<cr>", "[<cr>]<esc>O", { noremap = true })
+vim.api.nvim_set_keymap("i", "({<cr>", "({<cr>})<esc>O", { noremap = true })
+vim.api.nvim_set_keymap("i", "({<space>", "({<space><space>})<left><left><left>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>nn', ':noh<cr>', {noremap = true})
 
 -- window/tab navigation
 vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<cr>', {noremap = true})
