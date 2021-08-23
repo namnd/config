@@ -19,3 +19,7 @@
 [alias]
   undo = !git reset HEAD~1 --mixed
   up = "!f() { git fetch --all; git pull origin HEAD; for upstream in $(git remote); do git remote prune "${upstream}"; done }; f"
+  graph = "!f() { git log --oneline --abbrev-commit --graph --decorate; }; f"
+
+[format]
+  pretty = %C(bold yellow)%h%Creset %s %C(bold blue)[%aN]%Creset %Cblue{%aE}%Creset %Cgreen(%cr)%Creset
