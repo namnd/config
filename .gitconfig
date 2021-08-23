@@ -1,0 +1,21 @@
+[init]
+	defaultBranch = master
+[user]
+	email = nnguyen@pay.com.au
+	name = Nam Nguyen
+	signingkey = A4294CEAA68C27A6C062C2E7CA4F58616835DEBE
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[push]
+	default = current
+[color]
+  ui = true
+  diff = true
+  status = true
+  branch = true
+  interactive = true
+[alias]
+  undo = !git reset HEAD~1 --mixed
+  up = "!f() { git fetch --all; git pull origin HEAD; for upstream in $(git remote); do git remote prune "${upstream}"; done }; f"
