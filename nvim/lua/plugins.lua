@@ -8,6 +8,7 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
+  use 'junegunn/gv.vim'
   use {
     'shadmansaleh/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
