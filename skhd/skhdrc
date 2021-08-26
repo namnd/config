@@ -1,22 +1,6 @@
 # restart yabai
 alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
-# window focus
-# hyper - w : yabai -m window --focus recent
-alt - h : yabai -m window --focus west
-alt - l : yabai -m window --focus east
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-
-# window toggle
-alt - space : yabai -m window --toggle zoom-parent
-alt - s : yabai -m window --toggle split
-alt - f : yabai -m window --toggle float
-
-# swap window
-alt - p : yabai -m window --swap first
-alt - o : yabai -m window --swap recent
-
 # move to another space
 alt - 1 : yabai -m window --space 1
 alt - 2 : yabai -m window --space 2
