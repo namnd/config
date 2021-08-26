@@ -36,7 +36,6 @@ vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>(dirvish_split_up)', {})
 -- telescope
 vim.api.nvim_set_keymap('n', '<space><space>', '<cmd>Telescope find_files<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gc', '<cmd>Telescope git_commits<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>pp', '<cmd>Telescope registers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-e>', ':lua require("telescope.builtin").oldfiles({cwd_only = true})<cr>', {noremap = true})
