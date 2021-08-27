@@ -17,7 +17,8 @@ setopt HIST_REDUCE_BLANKS       # remove blank lines from histody
 bindkey -v
 autoload -U edit-command-line
 zle -N edit-command-line
-export VISUAL=vim
+export VISUAL=nvim
+export EDITOR=nvim
 bindkey -M vicmd v edit-command-line
 VIMODE='[I]'
 function zle-keymap-select {
