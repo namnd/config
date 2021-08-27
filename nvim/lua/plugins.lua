@@ -13,12 +13,10 @@ return require('packer').startup(function()
     'shadmansaleh/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-  }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'nvim-telescope/telescope-project.nvim'
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
+  use 'pbogut/fzf-mru.vim'
+  use 'stsewd/fzf-checkout.vim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-colors.nvim'
   use 'hrsh7th/nvim-compe'

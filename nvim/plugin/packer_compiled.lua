@@ -69,6 +69,22 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  fzf = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/fzf"
+  },
+  ["fzf-checkout.vim"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/fzf-checkout.vim"
+  },
+  ["fzf-mru.vim"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/fzf-mru.vim"
+  },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/fzf.vim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
@@ -109,10 +125,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/popup.nvim"
-  },
   ["preview-markdown.vim"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/preview-markdown.vim"
@@ -120,18 +132,6 @@ _G.packer_plugins = {
   ["startuptime.vim"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/startuptime.vim"
-  },
-  ["telescope-fzf-native.nvim"] = {
-    loaded = true,
-    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
-  },
-  ["telescope-project.nvim"] = {
-    loaded = true,
-    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/telescope-project.nvim"
-  },
-  ["telescope.nvim"] = {
-    loaded = true,
-    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["tender.vim"] = {
     loaded = true,
