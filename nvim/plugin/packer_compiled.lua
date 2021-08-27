@@ -161,6 +161,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-repeat"
   },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-rhubarb"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/nam/.local/share/nvim/site/pack/packer/start/vim-surround"
