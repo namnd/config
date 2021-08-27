@@ -28,6 +28,7 @@ vim.api.nvim_set_keymap('n', '<C-t>', ':tabnew<cr>', {noremap = true})
 
 -- fugitive
 vim.api.nvim_set_keymap('n', '<leader>gg', ':tab G<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gb', ':G blame<cr>', {noremap = true})
 
 -- dirvish
 vim.api.nvim_set_keymap('n', '<C-\\>', '<Plug>(dirvish_vsplit_up)', {})
@@ -35,7 +36,7 @@ vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>(dirvish_split_up)', {})
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<space><space>', '<cmd>Telescope find_files<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>ga', '<cmd>Telescope git_branches<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>pp', '<cmd>Telescope registers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-e>', ':lua require("telescope.builtin").oldfiles({cwd_only = true})<cr>', {noremap = true})
