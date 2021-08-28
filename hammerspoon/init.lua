@@ -13,8 +13,16 @@ hs.alert.show("Config reload")
 hs.loadSpoon("SpoonInstall")
 
 -- clipboard history
-spoon.SpoonInstall:andUse("TextClipboardHistory")
-hs.hotkey.bind(miniHyper, "v", function() spoon.TextClipboardHistory:toggleClipboard() end)
+spoon.SpoonInstall:andUse("TextClipboardHistory", {
+  config = {
+    hist_size = 1000,
+    paste_on_select = true,
+    show_in_menubar = false,
+  },
+  hotkeys = {
+    show_clipboard = {miniHyper, "v"}
+  }
+})
 spoon.TextClipboardHistory:start()
 
 -- window management
