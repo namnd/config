@@ -1,7 +1,7 @@
 require('settings')
 require('plugins')
 
-vim.cmd('colorscheme tender')
+vim.cmd('colorscheme PaperColor')
 
 require('setup')
 require('bindings')
