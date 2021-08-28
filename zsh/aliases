@@ -15,13 +15,14 @@ chpwd() { ll }                          # always list upon pwd changed
 mcd () { mkdir -p "$1" && cd "$1"; }    # make new dir and cd into it
 
 # git aliases
-alias gs='git status'
-alias gc='git checkout'
-alias gp='git pull'
-alias gd='git diff'
-alias gb='git branch'
-alias gl='git log'
-alias ga='git log --all --branches --remotes --tags --graph --oneline --decorate'
+alias g='git'
+alias gs='g status'
+alias gc='g checkout'
+alias gp='g pull'
+alias gd='g diff'
+alias gb='g branch'
+alias gl='g log'
+alias gg='g graph'
 
 alias ta='tmux attach'
 alias tat='tmux attach -t'
@@ -36,3 +37,4 @@ alias dcd='docker-compose down'
 alias dcu='docker-compose up -d --build'
 
 alias tf='terraform'
+alias cat='bat'
