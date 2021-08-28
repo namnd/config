@@ -41,23 +41,19 @@ spoon.SpoonInstall:andUse("MiroWindowsManager", {
   }
 })
 
-menubar = hs.menubar.new()
-menubar:setIcon(hs.image.imageFromName("NSActionTemplate"))
-
 function code()
-  local screen = hs.screen.allScreens()[1]:name()
+  local screen = hs.screen.allScreens()[1]
+  local screenWidth = screen:fullFrame().w
+  local screenHeight = screen:fullFrame().h
+  local width = screenWidth * 3/5
+  local x = screenWidth - width
   local windowLayout = {
-    {"kitty", nil, screen, hs.layout.right70, nil, nil},
-    {"Brave Browser", nil, screen, hs.layout.left30, nil, nil},
+    {"kitty", nil, screen:name(), nil, hs.geometry.rect(x, 0, width, screenHeight), nil},
+    {"Google Chrome", nil, screen:name(), nil, hs.geometry.rect(0, 0, x, screenHeight), nil},
   }
   hs.layout.apply(windowLayout)
 end
-
-if menubar then
-  menubar:setMenu({
-    { title = "Code", fn = code },
-  })
-end
+hs.hotkey.bind(miniHyper, "return", code)
 
 -- sleep/awake menu item
 caffeine = hs.menubar.new()
