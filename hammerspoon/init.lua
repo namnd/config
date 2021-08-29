@@ -1,3 +1,5 @@
+spaces = require("hs._asm.undocumented.spaces")
+
 local hyper = {'ctrl', 'alt', 'cmd', 'shift'}
 local miniHyper = {'cmd', 'shift'}
 
@@ -73,3 +75,26 @@ if caffeine then
   caffeine:setClickCallback(caffeineClicked)
   setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 end
+
+-- workspaces menu
+local workspaces = {}
+function workspaceLabel(index)
+  if index == spaces.currentSpace() then
+    return index .. "°"
+  end
+  return index
+end
+function setWorkspaceMenu()
+  local allSpaces = spaces.query()
+  local spacesCount = spaces.count()
+  for k,v in pairs(allSpaces) do
+    local i = spacesCount - k + 1
+    if workspaces[i] == nil then
+      workspaces[i] = hs.menubar.new()
+    end
+    workspaces[i]:setTitle(workspaceLabel(i))
+  end
+end
+setWorkspaceMenu()
+spacesWatcher = hs.spaces.watcher.new(setWorkspaceMenu)
+spacesWatcher:start()
