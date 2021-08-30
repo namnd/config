@@ -38,3 +38,8 @@ alias dcu='docker-compose up -d --build'
 
 alias tf='terraform'
 alias cat='bat'
+
+hash -d payapp=~/Projects/payau/pay-app
+hash -d nn-nextjs=~/Projects/nguoinghe/nextjs
+hash -d nn-graph=~/Projects/nguoinghe/graphql
+hash -d namnd=~/Projects/namnd.github.com
