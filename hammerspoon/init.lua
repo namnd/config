@@ -28,6 +28,18 @@ spoon.SpoonInstall:andUse("TextClipboardHistory", {
 })
 spoon.TextClipboardHistory:start()
 
+spoon.SpoonInstall:andUse("PasswordGenerator", {
+  config = {
+    password_style = 'xkcd',
+    word_separators = '$',
+    word_uppercase = 2,
+    word_count = 2,
+  },
+  hotkeys = {
+    copy = {hyper, "g"}
+  }
+})
+
 -- window management
 hs.window.animationDuration = 0
 spoon.SpoonInstall:andUse("MiroWindowsManager", {
