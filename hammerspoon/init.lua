@@ -3,11 +3,8 @@ spaces = require("hs._asm.undocumented.spaces")
 local hyper = {'ctrl', 'alt', 'cmd', 'shift'}
 local miniHyper = {'cmd', 'shift'}
 
-hs.hotkey.bind(hyper, "1", function() print(hs.application.launchOrFocus('kitty')) end)
-hs.hotkey.bind(hyper, "2", function() print(hs.application.launchOrFocus('Google Chrome')) end)
-hs.hotkey.bind(hyper, "3", function() print(hs.application.launchOrFocus('Slack')) end)
-hs.hotkey.bind(hyper, "0", function() print(hs.application.launchOrFocus('Finder')) end)
-hs.hotkey.bind(hyper, "9", function() print(hs.application.launchOrFocus('Brave Browser')) end)
+hs.hotkey.bind(miniHyper, "return", function() print(hs.application.launchOrFocus('kitty')) end)
+hs.hotkey.bind(miniHyper, "g", function() print(hs.application.launchOrFocus('Google Chrome')) end)
 hs.hotkey.bind(hyper, "r", function() hs.reload() end)
 
 hs.alert.show("Config reload")
@@ -55,11 +52,11 @@ spoon.SpoonInstall:andUse("MiroWindowsManager", {
   }
 })
 
-function code()
+function code(ratio)
   local screen = hs.screen.allScreens()[1]
   local screenWidth = screen:fullFrame().w
   local screenHeight = screen:fullFrame().h
-  local width = screenWidth * 3/5
+  local width = screenWidth * ratio
   local x = screenWidth - width
   local windowLayout = {
     {"kitty", nil, screen:name(), nil, hs.geometry.rect(x, 0, width, screenHeight), nil},
@@ -67,7 +64,8 @@ function code()
   }
   hs.layout.apply(windowLayout)
 end
-hs.hotkey.bind(miniHyper, "return", code)
+hs.hotkey.bind(hyper, "2", function() code(1/2) end)
+hs.hotkey.bind(hyper, "3", function() code(3/5) end)
 
 -- sleep/awake menu item
 caffeine = hs.menubar.new()
