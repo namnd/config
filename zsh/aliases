@@ -16,6 +16,7 @@ mcd () { mkdir -p "$1" && cd "$1"; }    # make new dir and cd into it
 
 # git aliases
 alias g='git'
+alias ga='git add --patch'
 alias gs='g status'
 alias gc='g checkout'
 alias gp='g pull'
