@@ -21,7 +21,7 @@ alias gs='g status'
 alias gc='g checkout'
 alias gp='g pull'
 alias gd='g diff'
-alias gb='g branch'
+alias gb="g branch | fzf | sed 's/\* //g' | xargs -I '{}' git checkout {}"
 alias gl='g log'
 alias gg='g graph'
 
