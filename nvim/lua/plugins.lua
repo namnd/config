@@ -1,7 +1,6 @@
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
   use 'tweekmonster/startuptime.vim'
-  use 'jacoborus/tender.vim'
   use 'NLKNguyen/papercolor-theme'
   use 'justinmk/vim-dirvish'
   use 'roginfarrer/vim-dirvish-dovish'

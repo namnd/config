@@ -1,12 +1,11 @@
 require('settings')
 require('plugins')
 
-vim.cmd('colorscheme PaperColor')
-
 require('setup')
 require('bindings')
 
 vim.cmd [[
+colorscheme PaperColor
 set undodir=~/.vim/undodir undofile
 set noswapfile nobackup nowritebackup
 set hidden
@@ -19,7 +18,6 @@ let test#strategy = 'neovim'
 let g:preview_markdown_parser = 'glow'
 let $FZF_DEFAULT_OPTS = '--reverse'
 let g:fzf_layout = {'down': '~40%'}
-let g:fzf_preview_window = []
 let g:fzf_mru_relative = 1
 let g:fzf_mru_no_sort = 1
 let g:fzf_checkout_git_options = '--sort=-committerdate'
