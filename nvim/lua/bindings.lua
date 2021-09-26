@@ -28,7 +28,7 @@ vim.api.nvim_set_keymap('n', '<C-t>', ':tabnew<cr>', {noremap = true})
 
 -- fugitive
 vim.api.nvim_set_keymap('n', '<leader>gg', ':tab G<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>cc', ':tabclose<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>zz', ':tabclose<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', ':G blame<cr>', {noremap = true})
 
 -- dirvish
