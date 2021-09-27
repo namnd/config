@@ -11,7 +11,7 @@ require('lualine').setup({
     section_separators = '',
     component_separators = '',
     icons_enabled = false,
-    theme = 'material'
+    theme = 'onedark'
   },
   sections = {
     lualine_c = {'filename', 'b:gitsigns_status'}

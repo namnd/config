@@ -5,7 +5,8 @@ require('setup')
 require('bindings')
 
 vim.cmd [[
-colorscheme PaperColor
+set termguicolors
+colorscheme enfocado
 set undodir=~/.vim/undodir undofile
 set noswapfile nobackup nowritebackup
 set hidden
