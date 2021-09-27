@@ -9,6 +9,8 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-repeat'
+  use 'tpope/vim-endwise'
+  use 'jiangmiao/auto-pairs'
   use 'junegunn/gv.vim'
   use {
     'shadmansaleh/lualine.nvim',
