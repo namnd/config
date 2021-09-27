@@ -20,9 +20,11 @@ return require('packer').startup(function()
   use 'stsewd/fzf-checkout.vim'
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-colors.nvim'
-  use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
   use {
     'lewis6991/gitsigns.nvim',
     requires = {'nvim-lua/plenary.nvim'}

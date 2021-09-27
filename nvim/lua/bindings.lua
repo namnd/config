@@ -43,16 +43,6 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':Rg <C-R>=expand("<cword>")<cr><cr>', {no
 vim.api.nvim_set_keymap('n', '<leader>bb', ':Buffers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ga', ':GBranches<cr>', {noremap = true})
 
--- compe
--- Map tab to the above tab complete functions
-vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', { expr = true })
-vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', { expr = true })
-vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
-vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', { expr = true })
--- Map compe confirm and complete functions
-vim.api.nvim_set_keymap('i', '<CR>', "compe#confirm({'keys': '<CR>', 'select': v:true })", { expr = true })
-vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
-
 --vim-test
 vim.api.nvim_set_keymap('n', '<leader>tn', ':TestNearest<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<cr>', {noremap = true})

@@ -4,7 +4,7 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.wo.list = true
 vim.o.listchars = 'tab:|_,trail:·,eol:↵'
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.shortmess = vim.o.shortmess .. 'c'
 
 vim.o.tabstop = 2
