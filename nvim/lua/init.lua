@@ -15,6 +15,7 @@ set wildmode=longest:full,full
 
 let g:dirvish_mode = ':sort ,^.*[\/],'
 let g:test#javascript#runner = 'jest'
+let g:test#go#runner = 'gotest'
 let test#strategy = 'neovim'
 let g:preview_markdown_parser = 'glow'
 let $FZF_DEFAULT_OPTS = '--reverse'
