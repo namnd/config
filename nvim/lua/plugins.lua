@@ -11,6 +11,8 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-endwise'
   use 'jiangmiao/auto-pairs'
+  use 'wellle/targets.vim'
+  use 'mbbill/undotree'
   use 'junegunn/gv.vim'
   use {
     'shadmansaleh/lualine.nvim',
@@ -37,5 +39,4 @@ return require('packer').startup(function()
   }
   use 'jparise/vim-graphql'
   use 'vim-test/vim-test'
-  use 'skanehira/preview-markdown.vim'
 end)

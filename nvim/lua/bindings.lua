@@ -29,6 +29,7 @@ vim.api.nvim_set_keymap('n', '<leader>gb', ':G blame<cr>', {noremap = true})
 -- dirvish
 vim.api.nvim_set_keymap('n', '<C-\\>', '<Plug>(dirvish_vsplit_up)', {})
 vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>(dirvish_split_up)', {})
+vim.api.nvim_set_keymap('n', '<leader>uu', ':UndotreeToggle<cr>', { noremap = true })
 
 -- fzf
 vim.api.nvim_set_keymap('n', '<space><space>', ':GFiles<cr>', {noremap = true})
