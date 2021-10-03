@@ -39,9 +39,15 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':Rg <C-R>=expand("<cword>")<cr><cr>', {no
 vim.api.nvim_set_keymap('n', '<leader>bb', ':Buffers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ga', ':GBranches<cr>', {noremap = true})
 
---vim-test
+-- vim-test
 vim.api.nvim_set_keymap('n', '<leader>tn', ':TestNearest<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ts', ':TestSuite<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<cr>', {noremap = true})
+
+-- vim-snip
+vim.api.nvim_set_keymap('i', '<Tab>', 'vsnip#jumpable(1) ? "<Plug>(vsnip-jump-next)" : "<Tab>"', { expr = true, noremap = false })
+vim.api.nvim_set_keymap('s', '<Tab>', 'vsnip#jumpable(1) ? "<Plug>(vsnip-jump-next)" : "<Tab>"', { expr = true, noremap = false })
+vim.api.nvim_set_keymap('i', '<S-Tab>', 'vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"', { expr = true, noremap = false })
+vim.api.nvim_set_keymap('s', '<S-Tab>', 'vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"', { expr = true, noremap = false })
