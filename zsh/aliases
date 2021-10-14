@@ -24,6 +24,7 @@ alias gd='g diff'
 alias gb="g branch | fzf | sed 's/\* //g' | xargs -I '{}' git checkout {}"
 alias gl='g log'
 alias gg='g graph'
+alias gr='g fetch origin master:master; git rebase master'
 
 alias ta='tmux attach'
 alias tat='tmux attach -t'
