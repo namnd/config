@@ -2,5 +2,17 @@
 alt - 1 : yabai -m window --space 1
 alt - 2 : yabai -m window --space 2
 alt - 3 : yabai -m window --space 3
-alt - 4 : yabai -m window --space 4
-alt - 5 : yabai -m window --space 5
+alt - 9 : yabai -m window --space 9
+alt - 0 : yabai -m window --space 0
+# spaces focus
+cmd - 1: yabai -m space --focus 1
+cmd - 2: yabai -m space --focus 2
+cmd - 3: yabai -m space --focus 3
+cmd - 9: yabai -m space --focus 9
+cmd - 0: yabai -m space --focus 0
+
+# windows
+cmd - return : ~/dotfiles/bin/cycle_clockwise.sh
+cmd - z : yabai -m window --toggle zoom-parent
+cmd - j : yabai -m window --focus west
+cmd - k : yabai -m window --focus east
