@@ -6,18 +6,6 @@ require('gitsigns').setup{
   },
 }
 
-require('lualine').setup({
-  options = {
-    section_separators = '',
-    component_separators = '',
-    icons_enabled = false,
-    theme = 'onedark'
-  },
-  sections = {
-    lualine_c = {'filename', 'b:gitsigns_status'}
-  }
-})
-
 local nvim_lsp = require('lspconfig')
 local on_attach = function(_, bufnr)
   local opts = { noremap=true, silent=true }

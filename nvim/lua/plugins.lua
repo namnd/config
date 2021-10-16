@@ -14,10 +14,6 @@ return require('packer').startup(function()
   use 'wellle/targets.vim'
   use 'mbbill/undotree'
   use 'junegunn/gv.vim'
-  use {
-    'shadmansaleh/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'pbogut/fzf-mru.vim'

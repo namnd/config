@@ -12,6 +12,8 @@ set noswapfile nobackup nowritebackup
 set hidden
 set foldexpr=nvim_treesitter#foldexpr()
 set wildmode=longest:full,full
+set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%l,%-10.c
+set statusline+=%{FugitiveStatusline()}%{get(b:,'gitsigns_status','')}
 
 let g:dirvish_mode = ':sort ,^.*[\/],'
 let g:test#javascript#runner = 'jest'
