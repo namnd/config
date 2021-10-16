@@ -1,11 +1,8 @@
 [init]
   defaultBranch = master
 [user]
-  email = nnguyen@pay.com.au
+  email = namnd86@gmail.com
   name = Nam Nguyen
-  signingkey = A4294CEAA68C27A6C062C2E7CA4F58616835DEBE
-[commit]
-  gpgsign = true
 [pull]
   rebase = true
 [push]
