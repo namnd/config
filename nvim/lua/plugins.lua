@@ -36,4 +36,5 @@ return require('packer').startup(function()
   use 'jparise/vim-graphql'
   use 'vim-test/vim-test'
   use 'https://gitlab.com/yorickpeterse/nvim-pqf'
+  use 'Vimjas/vim-python-pep8-indent'
 end)
