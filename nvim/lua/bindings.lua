@@ -38,6 +38,8 @@ vim.api.nvim_set_keymap('n', '<C-f>', ':Rg<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-p>', ':Rg <C-R>=expand("<cword>")<cr><cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bb', ':Buffers<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ga', ':GBranches<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-Space>', ":call fzf#run(fzf#wrap({'source': 'find $HOME/Code/daidec -maxdepth 1 -type d'}))<cr>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>cd', ':cd %:p:h<cr>', {noremap = true})
 
 -- vim-test
 vim.api.nvim_set_keymap('n', '<leader>tn', ':TestNearest<cr>', {noremap = true})
@@ -45,9 +47,3 @@ vim.api.nvim_set_keymap('n', '<leader>tf', ':TestFile<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ts', ':TestSuite<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>tl', ':TestLast<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>tv', ':TestVisit<cr>', {noremap = true})
-
--- vim-snip
-vim.api.nvim_set_keymap('i', '<Tab>', 'vsnip#jumpable(1) ? "<Plug>(vsnip-jump-next)" : "<Tab>"', { expr = true, noremap = false })
-vim.api.nvim_set_keymap('s', '<Tab>', 'vsnip#jumpable(1) ? "<Plug>(vsnip-jump-next)" : "<Tab>"', { expr = true, noremap = false })
-vim.api.nvim_set_keymap('i', '<S-Tab>', 'vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"', { expr = true, noremap = false })
-vim.api.nvim_set_keymap('s', '<S-Tab>', 'vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)" : "<S-Tab>"', { expr = true, noremap = false })
