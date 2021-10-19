@@ -37,4 +37,6 @@ return require('packer').startup(function()
   use 'vim-test/vim-test'
   use 'https://gitlab.com/yorickpeterse/nvim-pqf'
   use 'Vimjas/vim-python-pep8-indent'
+  use 'pedrohdz/vim-yaml-folds'
+  use 'mhartington/formatter.nvim'
 end)
