@@ -1,6 +1,6 @@
 local modifier = {'cmd', 'shift'}
 
-hs.hotkey.bind(modifier, "return", function() print(hs.application.launchOrFocus('kitty')) end)
+hs.hotkey.bind(modifier, "k", function() print(hs.application.launchOrFocus('kitty')) end)
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
 
 -- Install spoons
