@@ -92,6 +92,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{n
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --preview "cat {}"'
 
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
