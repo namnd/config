@@ -1,10 +1,7 @@
-local hyper = {'ctrl', 'alt', 'cmd', 'shift'}
-local miniHyper = {'cmd', 'shift'}
+local modifier = {'cmd', 'shift'}
 
-hs.hotkey.bind(miniHyper, "return", function() print(hs.application.launchOrFocus('kitty')) end)
-hs.hotkey.bind(hyper, "r", function() hs.reload() end)
-
-hs.alert.show("Config reload")
+hs.hotkey.bind(modifier, "return", function() print(hs.application.launchOrFocus('kitty')) end)
+hs.hotkey.bind(modifier, "r", function() hs.reload() end)
 
 -- Install spoons
 hs.loadSpoon("SpoonInstall")
@@ -17,7 +14,7 @@ spoon.SpoonInstall:andUse("TextClipboardHistory", {
     show_in_menubar = false,
   },
   hotkeys = {
-    show_clipboard = {miniHyper, "v"}
+    show_clipboard = {modifier, "v"}
   }
 })
 spoon.TextClipboardHistory:start()
@@ -30,7 +27,7 @@ spoon.SpoonInstall:andUse("PasswordGenerator", {
     word_count = 2,
   },
   hotkeys = {
-    copy = {hyper, "g"}
+    copy = {modifier, "g"}
   }
 })
 
@@ -53,3 +50,6 @@ if caffeine then
   setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
 end
 caffeineClicked()
+
+hs.alert.show("Config reloaded")
+
