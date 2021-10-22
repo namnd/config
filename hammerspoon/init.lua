@@ -1,6 +1,6 @@
 local modifier = {'cmd', 'shift'}
 
-hs.hotkey.bind(modifier, "k", function() print(hs.application.launchOrFocus('kitty')) end)
+hs.hotkey.bind('cmd', "return", function() print(hs.application.launchOrFocus('kitty')) end)
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
 
 -- Install spoons
@@ -27,7 +27,7 @@ spoon.SpoonInstall:andUse("PasswordGenerator", {
     word_count = 2,
   },
   hotkeys = {
-    copy = {modifier, "g"}
+    copy = {modifier, "p"}
   }
 })
 

@@ -19,7 +19,6 @@ return require('packer').startup(function()
   use 'pbogut/fzf-mru.vim'
   use 'stsewd/fzf-checkout.vim'
   use 'neovim/nvim-lspconfig'
-  use 'folke/lsp-colors.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
