@@ -1,7 +1,8 @@
 local modifier = {'cmd', 'shift'}
 
-hs.hotkey.bind('cmd', "return", function() print(hs.application.launchOrFocus('kitty')) end)
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
+hs.hotkey.bind(modifier, "return", function() print(hs.application.launchOrFocus('kitty')) end)
+hs.hotkey.bind(modifier, "g", function() print(hs.application.launchOrFocus('Google Chrome')) end)
 
 -- Install spoons
 hs.loadSpoon("SpoonInstall")
@@ -9,7 +10,7 @@ hs.loadSpoon("SpoonInstall")
 -- clipboard history
 spoon.SpoonInstall:andUse("TextClipboardHistory", {
   config = {
-    hist_size = 1000,
+    hist_size = 10000,
     paste_on_select = true,
     show_in_menubar = false,
   },
@@ -19,6 +20,7 @@ spoon.SpoonInstall:andUse("TextClipboardHistory", {
 })
 spoon.TextClipboardHistory:start()
 
+-- password generator
 spoon.SpoonInstall:andUse("PasswordGenerator", {
   config = {
     password_style = 'xkcd',
@@ -52,4 +54,3 @@ end
 caffeineClicked()
 
 hs.alert.show("Config reloaded")
-
