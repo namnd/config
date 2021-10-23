@@ -11,3 +11,6 @@ cmd + shift - z : yabai -m window --toggle zoom-parent
 cmd + shift - s : yabai -m window --toggle split
 cmd + shift - j : yabai -m window --focus west
 cmd + shift - k : yabai -m window --focus east
+
+# displays
+cmd + shift - d : yabai -m display --focus recent
