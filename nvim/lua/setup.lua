@@ -1,10 +1,4 @@
-require('gitsigns').setup{
-  signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-  },
-}
+require('gitsigns').setup()
 
 local nvim_lsp = require('lspconfig')
 local on_attach = function(_, bufnr)
@@ -46,6 +40,9 @@ require'lspconfig'.gopls.setup{
 
 local cmp = require'cmp'
 cmp.setup({
+  completion = {
+    autocomplete = false
+  },
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
@@ -56,14 +53,16 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    }),
   },
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'vsnip' },
-    { name = 'buffer' },
+    { name = 'buffer', keyword_length = 5 },
   }
 })
 
@@ -75,17 +74,16 @@ require('nvim-treesitter.configs').setup ({
   },
 })
 
-require('pqf').setup()
-local prettier = function()
-  return {
-    exe = "prettierd",
-    args = {vim.api.nvim_buf_get_name(0)},
-    stdin = true
-  }
-end
-require('formatter').setup({
-  filetype = {
-    typescript = { prettier },
-    typescriptreact = { prettier },
-  }
-})
+-- local prettier = function()
+--   return {
+--     exe = "prettierd",
+--     args = {vim.api.nvim_buf_get_name(0)},
+--     stdin = true
+--   }
+-- end
+-- require('formatter').setup({
+--   filetype = {
+--     typescript = { prettier },
+--     typescriptreact = { prettier },
+--   }
+-- })
