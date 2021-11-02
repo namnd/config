@@ -82,16 +82,16 @@ require('nvim-treesitter.configs').setup ({
   },
 })
 
--- local prettier = function()
---   return {
---     exe = "prettierd",
---     args = {vim.api.nvim_buf_get_name(0)},
---     stdin = true
---   }
--- end
--- require('formatter').setup({
---   filetype = {
---     typescript = { prettier },
---     typescriptreact = { prettier },
---   }
--- })
+local prettier = function()
+  return {
+    exe = "prettierd",
+    args = {vim.api.nvim_buf_get_name(0)},
+    stdin = true
+  }
+end
+require('formatter').setup({
+  filetype = {
+    typescript = { prettier },
+    typescriptreact = { prettier },
+  }
+})

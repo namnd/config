@@ -34,5 +34,5 @@ return require('packer').startup(function()
   --  use 'jparise/vim-graphql'
   --  use 'Vimjas/vim-python-pep8-indent'
   --  use 'pedrohdz/vim-yaml-folds'
-  --  use 'mhartington/formatter.nvim'
+  use 'mhartington/formatter.nvim'
 end)
