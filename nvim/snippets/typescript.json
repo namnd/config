@@ -1,0 +1,41 @@
+{
+  "Console log": {
+    "prefix": "cl",
+    "body": [
+      "console.log($1)"
+    ],
+    "description": "console log"
+  },
+  "Console log variable": {
+    "prefix": "clv",
+    "body": [
+      "console.log('$1 >>> ', $1)"
+    ],
+    "description": "console log variable"
+  },
+  "Import": {
+    "prefix": "imp",
+    "body": [
+      "import { $2 } from '$1'"
+    ],
+    "description": "import modules"
+  },
+  "Describe": {
+    "prefix": "descf",
+    "body": [
+      "describe('$TM_FILENAME_BASE', () => {",
+      "\t$1",
+      "})"
+    ],
+    "description": "describe file"
+  },
+  "It": {
+    "prefix": "it",
+    "body": [
+      "it('$1', () => {", 
+      "\t$2",
+      "})"
+    ],
+    "description": "test case"
+  }
+}
