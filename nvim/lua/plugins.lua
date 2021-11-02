@@ -30,9 +30,10 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'mhartington/formatter.nvim'
   --  use 'wellle/targets.vim'
   --  use 'jparise/vim-graphql'
   --  use 'Vimjas/vim-python-pep8-indent'
   --  use 'pedrohdz/vim-yaml-folds'
-  use 'mhartington/formatter.nvim'
 end)
