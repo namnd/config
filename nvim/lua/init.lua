@@ -7,8 +7,6 @@ vim.cmd [[
 colorscheme tender
 set undodir=~/.vim/undodir undofile
 set noswapfile nobackup nowritebackup
-set laststatus=2 statusline=\%n%m\ %t\ %r%y%=%w%l,%-10.c
-set statusline+=%{FugitiveStatusline()}%{get(b:,'gitsigns_status','')}
 
 let g:dirvish_mode=':sort ,^.*[\/],'
 let g:vsnip_snippet_dir='~/.config/nvim/snippets'

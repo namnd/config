@@ -1,4 +1,12 @@
 require('gitsigns').setup()
+require('lualine').setup({
+  options = {
+    section_separators = '',
+    component_separators = '',
+    icons_enabled = false,
+    theme = 'wombat'
+  },
+})
 
 local nvim_lsp = require('lspconfig')
 local on_attach = function(_, bufnr)
