@@ -1,6 +1,7 @@
 require('plugins')
 require('setup')
 require('settings')
+require('utils')
 require('bindings')
 
 vim.cmd [[

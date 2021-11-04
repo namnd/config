@@ -12,10 +12,10 @@ vim.api.nvim_set_keymap("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><l
 vim.api.nvim_set_keymap('n', '<leader>nn', ':noh<cr>', {noremap = true})
 
 -- window/tab navigation
-vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-h>', "<cmd>lua require'utils'.moveWindow('h')<cr>", {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-j>', "<cmd>lua require'utils'.moveWindow('j')<cr>", {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-l>', "<cmd>lua require'utils'.moveWindow('l')<cr>", {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-k>', "<cmd>lua require'utils'.moveWindow('k')<cr>", {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-t>', ':tabnew<cr>', {noremap = true})
 
 -- fugitive
