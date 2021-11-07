@@ -80,6 +80,9 @@ require('nvim-treesitter.configs').setup ({
     enable = true,
     disable = {"python", },
   },
+  autotag = {
+    enable = true,
+  },
 })
 
 local prettier = function()
