@@ -29,7 +29,7 @@ vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>(dirvish_split_up)', {})
 
 -- fzf
 vim.api.nvim_set_keymap('n', '<space><space>', ':GFiles<cr>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-e>', ':History<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-e>', ':FZFMru<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-f>', ':Rg<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-p>', ':Rg <C-R>=expand("<cword>")<cr><cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>bb', ':Buffers<cr>', {noremap = true})

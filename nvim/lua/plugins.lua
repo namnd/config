@@ -15,6 +15,7 @@ return require('packer').startup(function()
   use 'junegunn/gv.vim'
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
+  use 'pbogut/fzf-mru.vim'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
