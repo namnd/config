@@ -3,6 +3,7 @@ require('setup')
 require('settings')
 require('utils')
 require('bindings')
+require('lua_lsp')
 
 vim.cmd [[
 colorscheme tender
@@ -18,4 +19,5 @@ autocmd WinEnter * set colorcolumn=81 cursorline cursorcolumn
 autocmd WinLeave * set colorcolumn=0 nocursorline nocursorcolumn
 autocmd VimResized * :wincmd =
 autocmd FileType git,gitcommit setlocal foldmethod=syntax foldenable
+autocmd FileType yml,yaml setlocal foldmethod=indent
 ]]

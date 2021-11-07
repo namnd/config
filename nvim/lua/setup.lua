@@ -48,9 +48,9 @@ require'lspconfig'.gopls.setup{
 
 local cmp = require'cmp'
 cmp.setup({
-  completion = {
-    autocomplete = false
-  },
+  -- completion = {
+  --   autocomplete = false
+  -- },
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
