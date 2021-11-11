@@ -10,6 +10,7 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-repeat'
+  use 'tpope/vim-dispatch'
   use 'tpope/vim-endwise'
   use 'windwp/nvim-ts-autotag'
   use 'jiangmiao/auto-pairs'

@@ -94,7 +94,9 @@ local prettier = function()
 end
 require('formatter').setup({
   filetype = {
+    javascript = { prettier },
     typescript = { prettier },
+    javascriptreact = { prettier },
     typescriptreact = { prettier },
   }
 })
