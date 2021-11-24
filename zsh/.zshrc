@@ -69,6 +69,7 @@ bindkey '^Z' fg-bg
 
 function preexec() {
   cmd_start=$(($(print -P %D{%s%6.}) / 1000))
+  inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 }
 
 function precmd() {
@@ -93,7 +94,10 @@ function precmd() {
     # Clear previous result when hitting Return with no command to execute
     unset cmd_time
   fi
-  vcs_info
+
+  if [ $inside_git_repo ]; then
+    vcs_info
+  fi
 }
 
 RPROMPT='%F{cyan}$(if [ $cmd_time ]; then echo "($cmd_time) "; fi)%F{none}${vcs_info_msg_0_}'

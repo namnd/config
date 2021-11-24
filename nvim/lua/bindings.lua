@@ -13,6 +13,7 @@ vim.api.nvim_set_keymap("i", ".", ".<C-g>u", { noremap = true })
 vim.api.nvim_set_keymap("i", "?", "?<C-g>u", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>nn', ':noh<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'ca=', '/=<cr>l:noh<cr>C', {noremap = true})
 
 -- window/tab navigation
 vim.api.nvim_set_keymap('n', '<C-h>', "<cmd>lua require'utils'.moveWindow('h')<cr>", {noremap = true})
