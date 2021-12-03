@@ -3,7 +3,7 @@ return require('packer').startup(function()
 
   -- enhancement
   use 'tweekmonster/startuptime.vim'
-  -- use 'lewis6991/impatient.nvim'
+  use 'lewis6991/impatient.nvim'
 
   -- navigation
   use 'justinmk/vim-dirvish'
