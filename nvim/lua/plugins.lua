@@ -56,5 +56,6 @@ return require('packer').startup(function()
   -- use 'tpope/vim-dispatch'
   use 'wellle/targets.vim'
   use 'jiangmiao/auto-pairs'
+  use 'junegunn/vim-easy-align'
 
 end)
