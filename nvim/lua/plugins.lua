@@ -49,7 +49,7 @@ return require('packer').startup(function()
 
   -- others
   use 'mtth/scratch.vim'
-  use 'tpope/vim-commentary'
+  use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-endwise'

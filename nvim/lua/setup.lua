@@ -22,6 +22,8 @@ require('nvim-treesitter.configs').setup ({
   },
 })
 
+require('Comment').setup()
+
 -- require'nvim-treesitter.configs'.setup {
 --   context_commentstring = {
 --     enable = true,
