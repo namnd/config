@@ -24,9 +24,6 @@ hi DiagnosticWarn ctermfg=DarkYellow
 hi FoldColumn     ctermbg=DarkGrey   ctermfg=LightGrey
 hi Folded         ctermbg=DarkGrey   ctermfg=LightGrey
 
-hi StatusLine     term=bold,reverse  ctermbg=Grey ctermfg=Black cterm=none
-hi StatusLineNC   term=none          cterm=none   ctermfg=LightGrey
-
 hi DiffAdd        ctermbg=DarkGreen  ctermfg=fg
 hi DiffChange     ctermbg=Brown      ctermfg=fg
 hi DiffDelete     ctermbg=DarkRed    ctermfg=fg
@@ -41,3 +38,9 @@ hi TabLine        cterm=none         ctermbg=none ctermfg=DarkGrey
 
 hi Pmenu          ctermfg=0          ctermbg=Grey
 hi Directory      ctermfg=Blue
+
+hi StatusLine     term=bold,reverse  ctermbg=Grey ctermfg=Black cterm=none
+hi StatusLineNC   term=none          cterm=none   ctermfg=LightGrey
+
+au InsertEnter * hi StatusLine ctermbg=White
+au InsertLeave * hi StatusLine ctermbg=Grey
