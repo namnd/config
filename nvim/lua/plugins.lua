@@ -44,8 +44,10 @@ return require('packer').startup(function()
   -- use 'JoosepAlviste/nvim-ts-context-commentstring'
   -- use 'mhartington/formatter.nvim'
   -- use 'github/copilot.vim'
-  -- use 'Vimjas/vim-python-pep8-indent'
   -- use 'petobens/poet-v'
+
+  -- python
+  use 'Vimjas/vim-python-pep8-indent'
 
   -- others
   use 'mtth/scratch.vim'
