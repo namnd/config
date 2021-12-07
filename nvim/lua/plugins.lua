@@ -53,7 +53,7 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-endwise'
-  -- use 'tpope/vim-dispatch'
+  use 'tpope/vim-dispatch'
   use 'wellle/targets.vim'
   use 'jiangmiao/auto-pairs'
   use 'junegunn/vim-easy-align'

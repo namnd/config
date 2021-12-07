@@ -8,7 +8,7 @@ hi Statement      ctermfg=Grey
 hi Identifier     cterm=none         ctermfg=LightBlue
 hi Visual         ctermfg=bg         ctermbg=fg
 
-hi MatchParen     ctermbg=none       ctermfg=Magenta
+hi MatchParen     ctermbg=none       ctermfg=Magenta  cterm=bold
 hi Special        ctermfg=DarkCyan
 hi Delimiter      ctermfg=DarkCyan
 
@@ -16,7 +16,7 @@ hi LineNr         ctermfg=DarkGrey   ctermbg=Black
 hi CursorLineNr   cterm=none         ctermfg=White
 hi CursorLine     cterm=none
 hi SignColumn     ctermbg=Black
-hi ColorColumn    ctermbg=DarkMagenta
+hi ColorColumn    ctermbg=DarkGrey
 hi VertSplit      cterm=none         ctermfg=DarkGrey
 
 hi DiagnosticWarn ctermfg=DarkYellow
