@@ -98,6 +98,11 @@ function precmd() {
   if [ $inside_git_repo ]; then
     vcs_info
   fi
+
+  if [ "$TERM_PROGRAM" = tmux ]; then
+    re_path=$(realpath --relative-to=/Users/namnguyen $(pwd))
+    tmux set -qg status-right "#h: ~/${re_path} "
+  fi
 }
 
 RPROMPT='%F{cyan}$(if [ $cmd_time ]; then echo "($cmd_time) "; fi)%F{none}${vcs_info_msg_0_}'
