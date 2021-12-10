@@ -4,6 +4,9 @@ hi Normal         ctermfg=White      ctermbg=Black
 hi NonText        ctermfg=DarkGrey
 hi Constant       ctermfg=LightGrey
 hi Comment        ctermfg=DarkGrey   cterm=italic
+hi Todo           ctermfg=Yellow     cterm=bold     ctermbg=none
+hi WarningMsg     ctermfg=Red        cterm=bold     ctermbg=none
+
 hi Statement      ctermfg=Grey
 hi Identifier     cterm=none         ctermfg=LightBlue
 hi Visual         ctermfg=bg         ctermbg=fg
