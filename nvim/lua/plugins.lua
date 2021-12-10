@@ -11,6 +11,7 @@ return require('packer').startup(function()
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
   use 'pbogut/fzf-mru.vim'
+  use 'tpope/vim-unimpaired'
 
   -- git
   use 'tpope/vim-fugitive'
