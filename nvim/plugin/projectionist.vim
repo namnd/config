@@ -9,13 +9,11 @@ let g:projectionist_heuristics = {
       \       'type': 'header'
       \     },
       \     '*.ts': {
-      \       'alternate': [
-      \         '{dirname}/{basename}.test.ts',
-      \       ],
+      \       'alternate': '{}.test.ts',
       \       'type': 'source'
       \     },
       \     '*.test.ts': {
-      \       'alternate': '{basename}.ts',
+      \       'alternate': '{}.ts',
       \       'type': 'test',
       \     },
       \     '*.go': {
