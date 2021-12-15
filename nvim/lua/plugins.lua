@@ -46,10 +46,10 @@ return require('packer').startup(function()
   -- use 'JoosepAlviste/nvim-ts-context-commentstring'
   -- use 'mhartington/formatter.nvim'
   -- use 'github/copilot.vim'
-  -- use 'petobens/poet-v'
 
   -- python
-  use 'Vimjas/vim-python-pep8-indent'
+  use { 'Vimjas/vim-python-pep8-indent', ft = {'python'} }
+  use { 'petobens/poet-v', ft = {'python'} }
 
   -- others
   use 'mtth/scratch.vim'
