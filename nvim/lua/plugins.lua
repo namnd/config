@@ -61,5 +61,6 @@ return require('packer').startup(function()
   use 'wellle/targets.vim'
   use 'jiangmiao/auto-pairs'
   use 'junegunn/vim-easy-align'
+  use 'dbeniamine/cheat.sh-vim'
 
 end)
