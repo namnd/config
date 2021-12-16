@@ -11,5 +11,5 @@ syn match        TestError     "\v(failed|✕)"
 syn match        TestFail      "\v(FAIL)"
 syn match        TestPass      "\v(PASS)"
 
-syn region TestExpected start=/-/ end=/\n/
-syn region TestReceived start=/+/ end=/\n/
+syn region TestExpected start=/- Expected/ end=/\n/
+syn region TestReceived start=/+ Received/ end=/\n/
