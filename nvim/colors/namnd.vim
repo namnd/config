@@ -39,8 +39,9 @@ hi TabLineFill    cterm=none
 hi TabLineSel     cterm=none         ctermfg=White
 hi TabLine        cterm=none         ctermbg=none ctermfg=DarkGrey
 
-hi Pmenu          ctermfg=0          ctermbg=Grey
+hi Pmenu          ctermfg=0          ctermbg=DarkGrey
 hi Directory      ctermfg=Blue
+hi PmenuSel       ctermfg=Black      ctermbg=White
 
 hi StatusLine     term=bold,reverse  ctermbg=Grey ctermfg=Black cterm=none
 hi StatusLineNC   term=none          cterm=none   ctermfg=LightGrey

@@ -33,3 +33,4 @@ vim.api.nvim_set_keymap('s', '<S-Tab>', 'vsnip#jumpable(-1) ? "<Plug>(vsnip-jump
 
 -- dispatch
 vim.api.nvim_set_keymap('n', '<leader>1', ':Dispatch ', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>2', ':copen<cr> ', {noremap = true})
