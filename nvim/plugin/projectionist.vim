@@ -30,7 +30,7 @@ let g:projectionist_heuristics = {
       \     },
       \     'src/*.py': {
       \       'alternate': [
-      \         'tests/test_{}.go',
+      \         'tests/test_{}.py',
       \       ],
       \       'type': 'source'
       \     },
