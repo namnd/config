@@ -1,3 +1,10 @@
+.blacklist [
+   "kitty"
+   "terminal"
+   "Google Chrome"
+   "Safari"
+]
+
 # move to another space
 alt - 1 : yabai -m window --space 1
 alt - 2 : yabai -m window --space 2
@@ -14,3 +21,6 @@ cmd + shift - k : yabai -m window --focus east
 
 # displays
 cmd + shift - d : yabai -m display --focus recent
+
+# restart yabai
+cmd + shift - p : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
