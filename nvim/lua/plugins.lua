@@ -60,5 +60,9 @@ return require('packer').startup(function()
   use 'jiangmiao/auto-pairs'
   use 'junegunn/vim-easy-align'
   use 'dbeniamine/cheat.sh-vim'
+  use {
+    'Julian/vim-textobj-variable-segment',
+    requires = {'kana/vim-textobj-user'}
+  }
 
 end)
