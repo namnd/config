@@ -123,3 +123,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 complete -C /usr/local/bin/aws_completer
 eval "$(direnv hook zsh)"
+export GPG_TTY=$(tty)
