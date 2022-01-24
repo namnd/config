@@ -2,7 +2,7 @@ let colors_name = "namnd"
 
 hi Normal         ctermfg=White      ctermbg=Black
 hi NonText        ctermfg=DarkGrey
-hi Constant       ctermfg=LightGrey
+hi Constant       ctermfg=Grey
 hi Comment        ctermfg=DarkGrey   cterm=italic
 hi Todo           ctermfg=Yellow     cterm=bold     ctermbg=none
 hi WarningMsg     ctermfg=Red        cterm=bold     ctermbg=none
