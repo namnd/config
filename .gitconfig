@@ -1,7 +1,7 @@
 [init]
   defaultBranch = master
 [user]
-  email = nam.nguyen@daidec.com
+  email = nam.nguyen@indebted.co
   name = Nam Nguyen
 [pull]
   rebase = true
