@@ -18,3 +18,6 @@ yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Terminal$" manage=off
 yabai -m rule --add app="^Discord$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Front$" manage=off
+yabai -m rule --add app="^zoom.us$" manage=off
+yabai -m rule --add app="^Notes$" manage=off

@@ -40,12 +40,5 @@ alias dcd='docker-compose down'
 alias dcu='docker-compose up -d --build'
 
 alias tf='terraform'
-alias luamake=/Users/namnguyen/Downloads/lua-language-server/3rd/luamake/luamake
 
-hash -d portal=~/Code/daidec/portal
-hash -d common=~/Code/daidec/react-common
-hash -d api=~/Code/daidec/api
-hash -d mobile=~/Code/daidec/mobile
-hash -d nn-nextjs=~/Projects/nguoinghe/nextjs
-hash -d nn-graph=~/Projects/nguoinghe/graphql
-hash -d namnd=~/Projects/namnd.github.com
+hash -d work=~/workspaces/indebted
