@@ -6,7 +6,8 @@ alt - 4 : yabai -m window --space 4
 alt - 5 : yabai -m window --space 5
 
 # windows
-cmd + shift - o : ~/dotfiles/bin/cycle_clockwise.sh
+cmd + shift - i : ~/dotfiles/bin/cycle_clockwise.sh
+cmd + shift - o : ~/dotfiles/bin/cycle_counterclockwise.sh
 cmd + shift - f : yabai -m window --toggle zoom-parent
 cmd + shift - s : yabai -m window --toggle split
 cmd + shift - j : yabai -m window --focus west
