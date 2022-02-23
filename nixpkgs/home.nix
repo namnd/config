@@ -6,15 +6,21 @@
 
   home.stateVersion = "22.05";
 
-  home.packages = [
-    pkgs.direnv
-    pkgs.jq
-    pkgs.fzf
-    pkgs.go
-    pkgs.gopls
-    pkgs.gvproxy
-    pkgs.podman
-    pkgs.podman-compose
+  home.packages = with pkgs; [
+    direnv
+    fzf
+    jq
+    go
+    gopls
+    gvproxy
+    kitty
+    neovim
+    podman
+    podman-compose
+    ripgrep
+    tmux
+    trash-cli
+    tree-sitter
   ];
 
   programs.home-manager.enable = true;

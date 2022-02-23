@@ -29,7 +29,7 @@ spoon.SpoonInstall:andUse("PasswordGenerator", {
     word_count = 2,
   },
   hotkeys = {
-    copy = {modifier, "p"}
+    copy = {modifier, "8"}
   }
 })
 
