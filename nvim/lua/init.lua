@@ -4,6 +4,7 @@ require('setup')
 require('bindings')
 require('lsp')
 require('autocompletion')
+require('snippets')
 
 vim.cmd [[
 colorscheme namnd
@@ -15,7 +16,6 @@ set statusline+=%{FugitiveStatusline()}%{get(b:,'gitsigns_status','')}
 set statusline+=%=%w%l,%-10.c%L
 
 let g:dirvish_mode=':sort ,^.*[\/],'
-let g:vsnip_snippet_dir='~/.config/nvim/snippets'
 let g:fzf_mru_relative=1
 
 autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
