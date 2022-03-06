@@ -15,6 +15,7 @@
     gvproxy
     kitty
     neovim
+    rnix-lsp
     podman
     podman-compose
     ripgrep

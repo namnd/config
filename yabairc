@@ -22,3 +22,4 @@ yabai -m rule --add app="^Front$" manage=off
 yabai -m rule --add app="^zoom.us$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Tuple$" manage=off
+yabai -m rule --add app="^Xcode$" manage=off
