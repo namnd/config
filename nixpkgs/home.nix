@@ -6,18 +6,24 @@
 
   home.stateVersion = "22.05";
 
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+             url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+             }))
+  ];
+
   home.packages = with pkgs; [
     direnv
     fzf
     jq
+    gh
     go
     gopls
     gvproxy
     kitty
-    neovim
+    neovim-nightly
     rnix-lsp
-    podman
-    podman-compose
+    nodejs
     ripgrep
     tmux
     trash-cli
