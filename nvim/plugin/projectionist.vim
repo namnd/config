@@ -16,6 +16,14 @@ let g:projectionist_heuristics = {
       \       'alternate': '{}.ts',
       \       'type': 'test',
       \     },
+      \     '*.tsx': {
+      \       'alternate': '{}.test.tsx',
+      \       'type': 'source'
+      \     },
+      \     '*.test.tsx': {
+      \       'alternate': '{}.tsx',
+      \       'type': 'test',
+      \     },
       \     '*.go': {
       \       'alternate': [
       \         '{}_test.go',
