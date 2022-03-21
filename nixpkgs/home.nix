@@ -19,6 +19,7 @@
     rnix-lsp
     nodejs
     ripgrep
+    tailscale
     tmux
     trash-cli
     tree-sitter
