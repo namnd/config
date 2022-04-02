@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let 
+  unstable = import <nixpkgs-unstable> {};
+in
 {
   home.username = "namnguyen";
   home.homeDirectory = "/Users/namnguyen";
@@ -7,6 +10,7 @@
   home.stateVersion = "22.05";
 
   home.packages = with pkgs; [
+    black
     direnv
     fzf
     jq
@@ -17,9 +21,10 @@
     kitty
     neovim
     rnix-lsp
+    nmap
     nodejs
     ripgrep
-    tailscale
+    unstable.tailscale
     tmux
     trash-cli
     tree-sitter
