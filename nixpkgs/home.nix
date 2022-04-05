@@ -11,6 +11,7 @@ in
 
   home.packages = with pkgs; [
     black
+    csvkit
     direnv
     fzf
     jq
@@ -18,7 +19,6 @@ in
     go
     gopls
     gvproxy
-    kitty
     neovim
     rnix-lsp
     nmap

@@ -18,4 +18,4 @@ cmd + shift - d : yabai -m display --focus recent
 
 # restart yabai
 cmd + shift - p : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
-cmd + shift - return : /Users/namnguyen/.nix-profile/bin/kitty --single-instance -d ~
+cmd + shift - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
