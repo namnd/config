@@ -19,7 +19,7 @@ in
     go
     gopls
     gvproxy
-    neovim
+    unstable.neovim
     rnix-lsp
     nmap
     nodejs
