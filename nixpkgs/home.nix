@@ -23,6 +23,7 @@ in
     rnix-lsp
     nmap
     nodejs
+    pgcli
     ripgrep
     unstable.tailscale
     tmux
