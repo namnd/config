@@ -6,32 +6,6 @@ hs.hotkey.bind(modifier, "g", function() print(hs.application.launchOrFocus('Fir
 -- Install spoons
 hs.loadSpoon("SpoonInstall")
 
--- clipboard history
-spoon.SpoonInstall:andUse("TextClipboardHistory", {
-  config = {
-    hist_size = 10000,
-    paste_on_select = true,
-    show_in_menubar = false,
-  },
-  hotkeys = {
-    show_clipboard = {modifier, "v"}
-  }
-})
-spoon.TextClipboardHistory:start()
-
--- password generator
-spoon.SpoonInstall:andUse("PasswordGenerator", {
-  config = {
-    password_style = 'xkcd',
-    word_separators = '$',
-    word_uppercase = 2,
-    word_count = 2,
-  },
-  hotkeys = {
-    copy = {modifier, "8"}
-  }
-})
-
 -- sleep/awake menu item
 caffeine = hs.menubar.new()
 function setCaffeineDisplay(state)
