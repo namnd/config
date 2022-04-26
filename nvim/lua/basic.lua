@@ -1,4 +1,4 @@
-vim.o.clipboard = 'unnamed'
+vim.o.clipboard = 'unnamedplus'
 vim.o.mouse = 'nv'
 vim.o.splitright = true
 vim.o.splitbelow = true
