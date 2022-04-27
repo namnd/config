@@ -16,7 +16,6 @@ vim.api.nvim_set_keymap('n', '<leader>gg', ':tab G<cr>', {noremap = true})
 
 -- navigation
 vim.api.nvim_set_keymap('n', '<C-\\>', '<Plug>(dirvish_vsplit_up)', {})
-vim.api.nvim_set_keymap('n', '<C-n>', '<Plug>(dirvish_split_up)', {})
 vim.api.nvim_set_keymap('n', '<space><space>', ':GFiles<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-e>', ':FZFMru<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-f>', ':Rg<cr>', {noremap = true})

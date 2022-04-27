@@ -48,7 +48,6 @@ return require('packer').startup(function()
   use 'tpope/vim-endwise'
   use 'tpope/vim-dispatch'
   use 'wellle/targets.vim'
-  use 'jiangmiao/auto-pairs'
   use 'junegunn/vim-easy-align'
   use 'dbeniamine/cheat.sh-vim'
   use 'junegunn/goyo.vim'
