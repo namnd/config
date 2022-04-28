@@ -17,5 +17,5 @@ cmd + shift - k : yabai -m window --focus east
 cmd + shift - d : yabai -m display --focus recent
 
 # restart yabai
-cmd + shift - p : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+cmd + shift - y : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 cmd + shift - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
