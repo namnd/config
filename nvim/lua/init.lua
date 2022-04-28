@@ -4,7 +4,7 @@ require('setup')
 require('bindings')
 require('lsp')
 require('autocompletion')
-require('snippets')
+require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
 
 vim.cmd [[
 colorscheme namnd
