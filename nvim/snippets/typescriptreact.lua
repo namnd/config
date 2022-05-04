@@ -1,4 +1,5 @@
 return {
+  s("imp", fmt([[import {{ }} from '{1}']], { i(1) } )),
   s("imr", fmt("import React from 'react'", {})),
   s("imrc", fmt([[
     import React from 'react'
@@ -39,4 +40,11 @@ return {
       {2}
     }}, [{3}])
     ]], { i(1), i(2), i(3) })),
+  s("tryc", fmt([[
+  try {{
+    {}
+  }} catch (error) {{
+    console.log(error)
+  }}
+  ]], { i(0) })),
 }
