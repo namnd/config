@@ -30,4 +30,5 @@ alias tn='tmux new -s'
 
 alias tf='terraform'
 
-hash -d work=~/workspaces/indebted
+hash -d platform=~/workspaces/indebted/platform
+hash -d infra=~/workspaces/indebted/infra
