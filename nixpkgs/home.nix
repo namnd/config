@@ -16,7 +16,7 @@ in
     fzf
     jq
     gh
-    go
+    unstable.go_1_18
     gopls
     gvproxy
     unstable.neovim
@@ -25,7 +25,6 @@ in
     nodejs
     pgcli
     ripgrep
-    unstable.tailscale
     tmux
     trash-cli
     tree-sitter
