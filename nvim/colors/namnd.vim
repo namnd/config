@@ -23,6 +23,7 @@ hi ColorColumn    ctermbg=DarkGrey
 hi VertSplit      cterm=none         ctermfg=DarkGrey
 
 hi DiagnosticWarn ctermfg=DarkYellow
+hi DiagnosticFloatingError ctermfg=LightRed
 
 hi FoldColumn     ctermbg=DarkGrey   ctermfg=LightGrey
 hi Folded         ctermbg=DarkGrey   ctermfg=LightGrey
