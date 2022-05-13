@@ -4,7 +4,7 @@ return {
     {}
   }}
   ]], { i(0) })),
-  s("types", fmt([[
+  s("typest", fmt([[
   type {1} struct {{
     {}
   }}
@@ -29,5 +29,10 @@ return {
     {}
   }}
   ]], { i(1), i(2), i(0) })),
+  s("er", fmt([[
+  if err != nil {{
+    {}
+  }}
+  ]], { i(0) })),
 }
 
