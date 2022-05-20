@@ -13,6 +13,8 @@ in
     black
     csvkit
     direnv
+    emacs
+    fd
     fzf
     jq
     gh
