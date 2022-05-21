@@ -33,7 +33,11 @@ require('gitsigns').setup{
 }
 
 require('nvim-treesitter.configs').setup ({
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    disable = {'org'},
+    additional_vim_regex_highlighting = {'org'},
+  },
   indent = {
     enable = true,
     disable = { "python" },
@@ -53,3 +57,8 @@ require('nvim-treesitter.configs').setup ({
 })
 
 require('Comment').setup()
+require('orgmode').setup_ts_grammar()
+require('orgmode').setup({
+  org_agenda_files = {'~/org/*' },
+  org_default_notes_file = '~/org/refile.org',
+})
