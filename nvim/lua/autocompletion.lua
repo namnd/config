@@ -48,7 +48,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
-    { name = 'orgmode' },
   }, {
     { name = 'buffer', keyword_length = 3 },
   })

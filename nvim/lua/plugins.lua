@@ -40,9 +40,6 @@ return require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
   use { 'saadparwaiz1/cmp_luasnip' }
 
-  -- org mode
-  use 'nvim-orgmode/orgmode'
-
   -- others
   use 'mtth/scratch.vim'
   use 'numToStr/Comment.nvim'
