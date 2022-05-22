@@ -13,6 +13,7 @@ in
     black
     csvkit
     direnv
+    unstable.emacs
     fzf
     jq
     gh
