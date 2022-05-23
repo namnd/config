@@ -33,3 +33,9 @@
   (setq evil-want-C-u-scroll t)
   :config
   (evil-mode 1))
+
+(use-package org
+  :hook ((org-mode . visual-line-mode)
+         (org-mode . org-indent-mode))
+  :config
+  (use-package org-bullets :hook (org-mode . org-bullets-mode)))
