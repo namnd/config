@@ -34,6 +34,11 @@
   :config
   (evil-mode 1))
 
+(unless (display-graphic-p)
+  (require 'evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate) ; or (etcc-on)
+  )
+
 (use-package org
   :hook ((org-mode . visual-line-mode)
          (org-mode . org-indent-mode))
