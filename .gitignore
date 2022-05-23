@@ -3,3 +3,4 @@ nvim/plugin/packer_compiled.lua
 karabiner/automatic_backups
 hammerspoon/Spoons
 emacs/elpa
+emacs/auto-save-list
