@@ -27,3 +27,9 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
+
+(use-package evil
+  :init
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode 1))
