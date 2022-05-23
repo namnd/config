@@ -5,6 +5,8 @@
 (tooltip-mode -1)
 (menu-bar-mode -1)
 (set-fringe-mode 10)
+(column-number-mode)
+(global-display-line-numbers-mode t)
 
 (set-face-attribute 'default nil :font "NanumGothicCoding" :height 200)
 
