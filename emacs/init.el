@@ -16,7 +16,9 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")))
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
+
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -44,3 +46,26 @@
          (org-mode . org-indent-mode))
   :config
   (use-package org-bullets :hook (org-mode . org-bullets-mode)))
+
+;; Autocompletion
+(use-package vertico
+  :ensure t
+  :bind (:map vertico-map
+        ("C-j" . vertico-next)
+        ("C-k" . vertico-previous))
+  :custom
+  (vertico-cycle t)
+  :init
+  (vertico-mode))
+
+(use-package savehist
+  :init
+  (savehist-mode))
+
+(use-package marginalia
+  :after vertico
+  :ensure t
+  :custom
+  (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+  :init
+  (marginalia-mode))
