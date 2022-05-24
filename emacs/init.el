@@ -1,4 +1,5 @@
 (setq inhibit-startup-message t)
+(setq backup-directory-alist `(("." . "~/notes/.backup")))
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -8,9 +9,8 @@
 (column-number-mode)
 (global-display-line-numbers-mode t)
 
-(set-face-attribute 'default nil :font "NanumGothicCoding" :height 200)
-
 (load-theme 'wombat)
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ; make escape quit prompts
 
 ;; Initialize package sources
 (require 'package)
