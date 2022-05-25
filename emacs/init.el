@@ -49,9 +49,12 @@
   )
 
 (use-package org
+  :bind (:map org-mode-map
+         ("C-c a" . org-agenda ))
   :hook ((org-mode . visual-line-mode)
          (org-mode . org-indent-mode))
   :config
+  (setq org-agenda-files '("~/notes/"))
   (use-package org-bullets :hook (org-mode . org-bullets-mode)))
 
 ;; Autocompletion
