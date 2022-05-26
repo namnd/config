@@ -40,7 +40,6 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 function expand-alias() {
-    zle _expand_alias
     zle self-insert
 }
 zle -N expand-alias
