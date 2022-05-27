@@ -10,7 +10,6 @@ in
   home.stateVersion = "22.05";
 
   home.packages = with pkgs; [
-    black
     csvkit
     direnv
     unstable.emacs
@@ -19,7 +18,6 @@ in
     gh
     unstable.go_1_18
     gopls
-    gvproxy
     unstable.neovim
     rnix-lsp
     nmap
