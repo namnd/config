@@ -34,6 +34,7 @@
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-want-Y-yank-to-eol t)
+  (setq evil-toggle-key "C-m")
   (setq evil-undo-system 'undo-redo)
   :config
   (evil-mode 1))
