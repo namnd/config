@@ -30,7 +30,7 @@ are included.")
 (let ((class '((class color) (min-colors 89))))
   (custom-theme-set-faces
    'wombat
-   `(default ((,class (:background "#242424" :foreground "#f6f3e8"))))
+   `(default ((,class (:background "#000000" :foreground "#f6f3e8"))))
    `(cursor ((,class (:background "#656565"))))
    ;; Highlighting faces
    `(fringe ((,class (:background "#303030"))))
@@ -41,8 +41,8 @@ are included.")
    `(isearch ((,class (:background "#343434" :foreground "#857b6f"))))
    `(lazy-highlight ((,class (:background "#384048" :foreground "#a0a8b0"))))
    ;; Mode line faces
-   `(mode-line ((,class (:background "#444444" :foreground "#f6f3e8"))))
-   `(mode-line-inactive ((,class (:background "#444444" :foreground "#857b6f"))))
+   `(mode-line ((,class (:background "#a8a8a8" :foreground "#000000"))))
+   `(mode-line-inactive ((,class (:background "#000000" :foreground "#a8a8a8"))))
    ;; Escape and prompt faces
    `(minibuffer-prompt ((,class (:foreground "#e5786d"))))
    `(escape-glyph ((,class (:foreground "#ddaa6f" :weight bold))))
