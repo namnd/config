@@ -6,6 +6,11 @@ alias vi='nvim'
 alias vim='nvim'
 alias e="emacsclient -a ''"
 
+function fzf_fg() {
+  fg %$(jobs | fzf |awk -F'[][]' '{print ($2)}')
+}
+alias fg='fzf_fg'
+
 alias ll='ls -l'
 alias all='ls -al'
 alias .2='cd ../..'
