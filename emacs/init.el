@@ -10,7 +10,7 @@
 (global-display-line-numbers-mode t)
 
 (setq custom-safe-themes t)
-(load-theme 'aanila)
+(load-theme 'wombat)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ; make escape quit prompts
 
 ;; Initialize package sources
