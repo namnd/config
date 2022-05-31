@@ -9,7 +9,8 @@
 (column-number-mode)
 (global-display-line-numbers-mode t)
 
-(load-theme 'wombat)
+(setq custom-safe-themes t)
+(load-theme 'aanila)
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ; make escape quit prompts
 
 ;; Initialize package sources
