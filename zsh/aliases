@@ -16,7 +16,7 @@ alias e='start_emacs'
 function fzf_fg() {
   fg %$(jobs | fzf |awk -F'[][]' '{print ($2)}')
 }
-alias fg='fzf_fg'
+alias ff='fzf_fg'
 
 alias ll='ls -l'
 alias all='ls -al'
