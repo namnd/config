@@ -4,7 +4,14 @@ export CLICOLOR=1
 
 alias vi='nvim'
 alias vim='nvim'
-alias e="emacsclient -a ''"
+function start_emacs() {
+  if [ "$1" != "" ]; then
+    emacsclient -a '' $1
+  else
+    emacsclient -a '' -nw
+  fi
+}
+alias e='start_emacs'
 
 function fzf_fg() {
   fg %$(jobs | fzf |awk -F'[][]' '{print ($2)}')
