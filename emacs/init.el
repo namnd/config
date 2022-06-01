@@ -59,6 +59,10 @@
   (setq org-agenda-files '("~/notes/"))
   (use-package org-bullets :hook (org-mode . org-bullets-mode)))
 
+(define-key global-map "\C-cc" 'org-capture)
+(define-key evil-normal-state-map (kbd "zc") 'org-hide-entry)
+(define-key evil-normal-state-map (kbd "zo") 'org-show-entry)
+
 ;; Autocompletion
 (use-package vertico
   :ensure t
