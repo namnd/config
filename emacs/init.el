@@ -47,19 +47,24 @@
 
 (unless (display-graphic-p)
   (require 'evil-terminal-cursor-changer)
-  (evil-terminal-cursor-changer-activate) ; or (etcc-on)
+  (evil-terminal-cursor-changer-activate)
   )
 
 (use-package org
-  :bind (:map org-mode-map
-         ("C-c a" . org-agenda ))
   :hook ((org-mode . visual-line-mode)
          (org-mode . org-indent-mode))
   :config
   (setq org-agenda-files '("~/notes/"))
+  (setq org-capture-templates
+    '(
+      ("t" "Todo" entry (file "~/notes/task.org")
+       "* TODO %?\n  %i %t %a")
+     )
+  )
   (use-package org-bullets :hook (org-mode . org-bullets-mode)))
 
 (define-key global-map "\C-cc" 'org-capture)
+(define-key global-map "\C-ca" 'org-agenda-list)
 (define-key evil-normal-state-map (kbd "zc") 'org-hide-entry)
 (define-key evil-normal-state-map (kbd "zo") 'org-show-entry)
 

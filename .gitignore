@@ -6,3 +6,5 @@ emacs/elpa
 emacs/auto-save-list
 emacs/history
 emacs/org-roam.db
+emacs/bookmarks
+emacs/.org-id-locations
