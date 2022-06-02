@@ -2,6 +2,11 @@ local modifier = {'cmd', 'shift'}
 
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
 hs.hotkey.bind(modifier, "g", function() print(hs.application.launchOrFocus('Firefox')) end)
+function startNote()
+  hs.execute("~/dotfiles/bin/start_note.sh", true)
+  hs.application.launchOrFocus('kitty')
+end
+hs.hotkey.bind(modifier, "n", function() startNote() end)
 
 -- Install spoons
 hs.loadSpoon("SpoonInstall")
