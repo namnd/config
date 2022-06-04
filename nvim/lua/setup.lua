@@ -62,7 +62,20 @@ require('nvim-treesitter.configs').setup ({
 
 require('Comment').setup()
 require('dap-go').setup()
-require('dapui').setup()
+require('dapui').setup({
+  sidebar = {
+    elements = {
+      { id = "breakpoints", size = 0.25 },
+      { id = "stacks", size = 0.75 },
+    }
+  },
+  tray = {
+    elements = {
+      { id = "scopes", size = 0.5 },
+      { id = "watches", size = 0.5 },
+    },
+  },
+})
 require("nvim-dap-virtual-text").setup()
 
 local dap, dapui = require("dap"), require("dapui")
