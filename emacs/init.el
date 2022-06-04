@@ -47,6 +47,9 @@
       (process-send-eof proc))))
 
 (setq interprogram-cut-function 'paste-to-osx)
+(defun copy-from-osx ()
+  (shell-command-to-string "pbpaste"))
+(setq interprogram-paste-function 'copy-from-osx)
 
 (use-package evil-surround
   :ensure t
