@@ -24,6 +24,3 @@ vim.api.nvim_set_keymap('n', '<C-Space>', ":call fzf#run(fzf#wrap({'source': 'fi
 vim.api.nvim_set_keymap('n', '<leader>cd', ':cd %:p:h<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>zz', ':tabclose<cr>', {noremap = true})
 
--- dispatch
-vim.api.nvim_set_keymap('n', '<leader>1', ':Dispatch ', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>2', ':copen<cr> ', {noremap = true})
