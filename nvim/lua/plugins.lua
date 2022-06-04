@@ -33,6 +33,11 @@ return require('packer').startup(function()
   -- lsp
   use 'neovim/nvim-lspconfig'
 
+  -- dap
+  use 'mfussenegger/nvim-dap'
+  use 'leoluz/nvim-dap-go'
+  use 'rcarriga/nvim-dap-ui'
+
   -- autocompletion
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
