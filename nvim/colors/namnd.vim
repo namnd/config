@@ -47,5 +47,28 @@ hi PmenuSel       ctermfg=Black      ctermbg=White
 hi StatusLine     term=bold,reverse  ctermbg=Grey ctermfg=Black cterm=none
 hi StatusLineNC   term=none          cterm=none   ctermfg=LightGrey
 
+hi DapUIBreakpointsCurrentLine ctermfg=Green
+" hi DanUIBreakbointsDisabledLine ctermfg=Grey
+" hi DapUIBreakpointsInfo ctermfg=Green
+hi link DapUIBreakpointsLine DapUIBreakpointsCurrentLine
+hi DapUIBreakpointsPath ctermfg=Yellow
+hi DapUIDecoration ctermfg=Green
+" hi DapUIFloatBorder ctermbg=Blue
+" hi link DapUIFrameName Normal
+hi DapUILineNumber ctermfg=DarkGrey
+hi DapUIModifiedValue ctermfg=Yellow
+hi DapUIScope ctermfg=Blue
+hi DapUISource ctermfg=Yellow
+hi DapUIStoppedThread ctermfg=Blue
+hi DapUIThread ctermfg=Blue
+hi DapUIType ctermfg=DarkGrey
+hi DapUIValue ctermfg=DarkGrey
+" hi link DapUIVariable Normal
+hi DapUIWatchesHeader ctermfg=Blue
+hi DapUIWatchesEmpty ctermfg=DarkGrey
+hi DapUIWatchesValue ctermfg=Green
+hi DapUIWatchesError ctermfg=Red
+" hi DapUIWatchesFrame ctermfg=Green
+
 au InsertEnter * hi StatusLine ctermbg=White
 au InsertLeave * hi StatusLine ctermbg=Grey

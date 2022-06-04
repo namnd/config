@@ -5,8 +5,6 @@ require('bindings')
 require('lsp')
 require('autocompletion')
 require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
-require('dap-go').setup()
-require('dapui').setup()
 
 vim.cmd [[
 colorscheme namnd
