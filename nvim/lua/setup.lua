@@ -88,8 +88,10 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
-vim.highlight.create('DapBreakpoint', { ctermfg=1 }, false)
+vim.highlight.create('DapBreakpoint', { ctermfg=3 }, false)
 vim.highlight.create('DapStoppedText', { ctermfg=2 }, false)
 vim.highlight.create('DapStoppedLine', { ctermbg=2, ctermfg=0 }, false)
-vim.fn.sign_define('DapBreakpoint', { text='B', texthl='DapBreakpoint', linehl='', numhl='' })
-vim.fn.sign_define('DapStopped', { text='S', texthl='DapStoppedText', linehl='DapStoppedLine', numhl= 'DapStoppedLine' })
+vim.highlight.create('DapBreakpointRejected', { ctermfg=1 }, false)
+vim.fn.sign_define('DapBreakpoint', { text='●', texthl='DapBreakpoint', linehl='', numhl='' })
+vim.fn.sign_define('DapStopped', { text='▶', texthl='DapStoppedText', linehl='DapStoppedLine', numhl= 'DapStoppedLine' })
+vim.fn.sign_define('DapBreakpointRejected', { text='x', texthl='DapBreakpointRejected', linehl='', numhl='' })
