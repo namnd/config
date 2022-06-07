@@ -1,7 +1,16 @@
-local modifier = {'cmd', 'shift'}
+local modifier = {'cmd', 'shift', 'alt', 'ctrl'}
 
+local apps = {
+  f = "Firefox",
+  k = "kitty",
+  s = "Safari",
+  m = "Slack",
+  z = "zoom.us",
+}
+for k,v in pairs(apps) do
+  hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
+end
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
-hs.hotkey.bind(modifier, "g", function() print(hs.application.launchOrFocus('Firefox')) end)
 function startNote()
   hs.execute("~/dotfiles/bin/start_note.sh", true)
   hs.application.launchOrFocus('kitty')
