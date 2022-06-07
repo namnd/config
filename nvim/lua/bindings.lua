@@ -8,8 +8,6 @@ vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 vim.api.nvim_set_keymap("n", "E", "ea", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
-vim.api.nvim_set_keymap("n", 'ga', '<Plug>(EasyAlign)', {})
-vim.api.nvim_set_keymap("x", 'ga', '<Plug>(EasyAlign)', {})
 
 -- git
 vim.api.nvim_set_keymap('n', '<leader>gg', ':tab G<cr>', {noremap = true})

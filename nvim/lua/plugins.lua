@@ -53,7 +53,6 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-endwise'
   use 'wellle/targets.vim'
-  use 'junegunn/vim-easy-align'
   use 'dbeniamine/cheat.sh-vim'
   use 'junegunn/goyo.vim'
   use 'junegunn/limelight.vim'
