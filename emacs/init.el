@@ -65,6 +65,7 @@
   :hook ((org-mode . visual-line-mode)
          (org-mode . org-indent-mode))
   :config
+  (setq org-hide-emphasis-markers t)
   (setq org-agenda-files '("~/notes/"))
   (setq org-capture-templates
     '(
