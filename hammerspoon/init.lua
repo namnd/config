@@ -1,11 +1,10 @@
 local modifier = {'cmd', 'shift', 'alt', 'ctrl'}
 
 local apps = {
-  f = "Firefox",
-  k = "kitty",
-  s = "Safari",
-  m = "Slack",
-  z = "zoom.us",
+  ["1"] = "kitty",
+  ["2"] = "qutebrowser",
+  ["3"] = "Slack",
+  ["4"] = "zoom.us",
 }
 for k,v in pairs(apps) do
   hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
