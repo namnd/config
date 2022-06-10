@@ -26,6 +26,19 @@ c.url.searchengines = {
         'r': 'https://www.reddit.com/search/?q={}',
         'y': 'https://www.youtube.com/results?search_query={}'
         }
+c.bindings.key_mappings = {
+        '<Ctrl-j>': '<Tab>',
+        }
+config.bind('<Super-w>', 'tab-close')
+config.bind('<Super-t>', 'set-cmd-text -s :open -t')
+config.bind('<Super-1>', 'tab-focus 1')
+config.bind('<Super-2>', 'tab-focus 2')
+config.bind('<Super-3>', 'tab-focus 3')
+config.bind('<Super-4>', 'tab-focus 4')
+config.bind('<Super-5>', 'tab-focus 5')
+config.bind('<Super-6>', 'tab-focus 6')
+config.bind('<Super-7>', 'tab-focus 7')
+config.bind('<Super-8>', 'tab-focus 8')
 
 c.auto_save.session = True
 c.auto_save.interval = 15000
