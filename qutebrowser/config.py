@@ -42,3 +42,11 @@ config.bind('<Super-8>', 'tab-focus 8')
 
 c.auto_save.session = True
 c.auto_save.interval = 15000
+
+c.completion.cmd_history_max_items = -1
+c.completion.web_history.max_items = -1
+c.completion.show = 'always'
+c.completion.shrink = True
+c.completion.use_best_match = True
+c.confirm_quit = ['downloads']
+c.content.autoplay = False
