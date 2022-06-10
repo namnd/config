@@ -26,3 +26,6 @@ c.url.searchengines = {
         'r': 'https://www.reddit.com/search/?q={}',
         'y': 'https://www.youtube.com/results?search_query={}'
         }
+
+c.auto_save.session = True
+c.auto_save.interval = 15000
