@@ -1,17 +1,2 @@
-# move to another space
-shift + alt - 1 : yabai -m window --space 1
-shift + alt - 2 : yabai -m window --space 2
-shift + alt - 3 : yabai -m window --space 3
-shift + alt - 4 : yabai -m window --space 4
-shift + alt - 5 : yabai -m window --space 5
-
-# windows
-shift + alt - i : ~/dotfiles/bin/cycle_clockwise.sh
-shift + alt - o : ~/dotfiles/bin/cycle_counterclockwise.sh
-shift + alt - f : yabai -m window --toggle zoom-parent
-shift + alt - s : yabai -m window --toggle split
-shift + alt - j : yabai -m window --focus west
-shift + alt - k : yabai -m window --focus east
-
 # restart yabai
-shift + alt - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+cmd + shift - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"

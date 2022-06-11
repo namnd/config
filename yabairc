@@ -1,8 +1,8 @@
 # default layout
-yabai -m config layout bsp
+yabai -m config layout float
 
-# override default layout for space 4 only
-yabai -m config --space 4 layout float
+# override layout for space 1
+yabai -m config --space 1 layout stack
 
 # float applications
 yabai -m rule --add app="^Calendar$" manage=off

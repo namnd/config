@@ -5,6 +5,7 @@ local apps = {
   ["2"] = "qutebrowser",
   ["3"] = "Slack",
   ["4"] = "zoom.us",
+  ["0"] = "Finder",
 }
 for k,v in pairs(apps) do
   hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
@@ -15,6 +16,16 @@ function startNote()
   hs.application.launchOrFocus('kitty')
 end
 hs.hotkey.bind(modifier, "n", function() startNote() end)
+
+function moveToOtherSpace()
+  hs.execute("~/dotfiles/bin/move_to_other_space.sh", true)
+end
+hs.hotkey.bind({'cmd', 'shift'}, "m", function() moveToOtherSpace() end)
+
+function focusMode()
+  hs.execute("~/dotfiles/bin/focus_mode.sh", true)
+end
+hs.hotkey.bind({'cmd', 'shift'}, "f", function() focusMode() end)
 
 -- Install spoons
 hs.loadSpoon("SpoonInstall")
