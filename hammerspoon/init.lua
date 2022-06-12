@@ -1,3 +1,4 @@
+local miniModifier = {'cmd', 'shift'}
 local modifier = {'cmd', 'shift', 'alt', 'ctrl'}
 
 local apps = {
@@ -15,17 +16,17 @@ function startNote()
   hs.execute("~/dotfiles/bin/start_note.sh", true)
   hs.application.launchOrFocus('kitty')
 end
-hs.hotkey.bind(modifier, "n", function() startNote() end)
+hs.hotkey.bind(modifier, "9", function() startNote() end)
 
 function moveToOtherSpace()
   hs.execute("~/dotfiles/bin/move_to_other_space.sh", true)
 end
-hs.hotkey.bind({'cmd', 'shift'}, "m", function() moveToOtherSpace() end)
+hs.hotkey.bind(miniModifier, "m", function() moveToOtherSpace() end)
 
 function focusMode()
   hs.execute("~/dotfiles/bin/focus_mode.sh", true)
 end
-hs.hotkey.bind({'cmd', 'shift'}, "f", function() focusMode() end)
+hs.hotkey.bind(miniModifier, "f", function() focusMode() end)
 
 -- Install spoons
 hs.loadSpoon("SpoonInstall")
