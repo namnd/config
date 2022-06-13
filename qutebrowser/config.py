@@ -43,6 +43,15 @@ config.bind('<Super-6>', 'tab-focus 6')
 config.bind('<Super-7>', 'tab-focus 7')
 config.bind('<Super-8>', 'tab-focus 8')
 config.bind('<Super-9>', 'tab-focus 9')
+config.bind('<Ctrl-u>', 'fake-key <Ctrl-Backspace>', mode='insert')
+config.bind('<Ctrl-w>', 'fake-key <Alt-Backspace>', mode='insert')
+config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
+config.bind('<Ctrl-f>', 'rl-forward-word', mode='command')
+config.bind('<Ctrl-j>', 'prompt-item-focus next', mode='prompt')
+config.bind('<Ctrl-k>', 'prompt-item-focus prev', mode='prompt')
+config.bind('<Ctrl-w>', 'rl-filename-rubout', mode='prompt')
+config.bind('<Ctrl-u>', 'rl-rubout " "', mode='prompt')
 
 c.auto_save.session = True
 c.auto_save.interval = 15000
@@ -54,3 +63,9 @@ c.completion.shrink = True
 c.completion.use_best_match = True
 c.confirm_quit = ['downloads']
 c.content.autoplay = False
+c.tabs.show = 'multiple' # hide the tab bar if only one tab is open
+c.downloads.location.directory = '~/Downloads/'
+c.downloads.location.prompt = True
+c.downloads.location.remember = False
+c.downloads.location.suggestion = 'both'
+c.downloads.position = 'bottom'
