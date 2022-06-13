@@ -15,10 +15,27 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Customized
-c.fonts.default_size = '16pt'
-c.fonts.tabs.selected = '16pt default_family'
-c.fonts.tabs.unselected = '16pt default_family'
+c.fonts.default_family = ['NanumGothicCoding']
+c.fonts.default_size = '18pt'
+c.fonts.tabs.selected = '18pt default_family'
+c.fonts.tabs.unselected = '18pt default_family'
 c.fonts.web.size.minimum = 16
+c.fonts.hints = 'normal 16pt default_family'
+c.fonts.contextmenu = 'normal 16pt default_family'
+c.fonts.prompts = 'default_size default_family'
+c.colors.completion.category.bg = 'black'
+c.colors.completion.category.fg = 'white'
+c.colors.completion.even.bg = 'black'
+c.colors.completion.odd.bg = 'black'
+c.colors.completion.fg = ['#888888']
+c.colors.completion.item.selected.bg = '#333333'
+c.colors.completion.item.selected.border.bottom = 'black'
+c.colors.completion.item.selected.border.top = 'black'
+c.colors.completion.item.selected.fg = 'white'
+c.colors.completion.match.fg = '#ff4444'
+c.colors.completion.scrollbar.bg = 'black'
+c.colors.completion.scrollbar.fg = '#333333'
+c.colors.contextmenu.menu.bg = '#444444'
 config.set('fonts.web.size.minimum', 18, '*://*.github.com')
 c.url.searchengines = {
         'DEFAULT': 'https://duckduckgo.com/?q={}',
