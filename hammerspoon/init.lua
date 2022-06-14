@@ -1,5 +1,5 @@
 local miniModifier = {'cmd', 'shift'}
-local modifier = {'cmd', 'shift', 'alt', 'ctrl'}
+local modifier = {'ctrl', 'shift'}
 
 local apps = {
   ["1"] = "kitty",
