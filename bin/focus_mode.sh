@@ -1,7 +1,7 @@
 #!/bin/bash
 
 kitty_id=$(yabai -m query --windows | jq -re '.[] | select(."app" == "kitty") | .id')
-web_id=$(yabai -m query --windows | jq -re '.[] | select(."app" == "Vieb") | .id')
+web_id=$(yabai -m query --windows | jq -re '.[] | select(."app" == "qutebrowser") | .id')
 
 if [[ $kitty_id && $web_id ]]; then
   # Move others to secondary

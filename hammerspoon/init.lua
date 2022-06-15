@@ -3,7 +3,7 @@ local modifier = {'ctrl', 'shift'}
 
 local apps = {
   ["1"] = "kitty",
-  ["2"] = "Vieb",
+  ["2"] = "qutebrowser",
   ["3"] = "Slack",
   ["4"] = "zoom.us",
   ["0"] = "Finder",
