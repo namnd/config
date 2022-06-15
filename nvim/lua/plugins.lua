@@ -47,7 +47,6 @@ return require('packer').startup(function()
   use { 'saadparwaiz1/cmp_luasnip' }
 
   -- others
-  use 'mtth/scratch.vim'
   use 'numToStr/Comment.nvim'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
@@ -60,5 +59,6 @@ return require('packer').startup(function()
     'Julian/vim-textobj-variable-segment',
     requires = {'kana/vim-textobj-user'}
   }
+  use 'mizlan/iswap.nvim'
 
 end)
