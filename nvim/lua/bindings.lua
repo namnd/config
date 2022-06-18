@@ -34,3 +34,7 @@ vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dc", ":lua require'dap'.clear_breakpoints()<CR>")
 vim.keymap.set("n", "<leader>dl", ":lua require'dap'.list_breakpoints()<CR>")
 vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
+
+local opts = {noremap = true, silent = true}
+vim.keymap.set("n", "vd", '<cmd>STSSwapCurrentNodeNextNormal<cr>', opts)
+vim.keymap.set("n", "vu", '<cmd>STSSwapCurrentNodePrevNormal<cr>', opts)

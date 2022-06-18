@@ -96,7 +96,4 @@ vim.fn.sign_define('DapBreakpoint', { text='●', texthl='DapBreakpoint', linehl
 vim.fn.sign_define('DapStopped', { text='▶', texthl='DapStoppedText', linehl='DapStoppedLine', numhl= 'DapStoppedLine' })
 vim.fn.sign_define('DapBreakpointRejected', { text='x', texthl='DapBreakpointRejected', linehl='', numhl='' })
 
-require('iswap').setup{
-  grey = 'disable',
-  autoswap = true,
-}
+require('syntax-tree-surfer').setup()

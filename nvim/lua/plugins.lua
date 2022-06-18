@@ -59,6 +59,6 @@ return require('packer').startup(function()
     'Julian/vim-textobj-variable-segment',
     requires = {'kana/vim-textobj-user'}
   }
-  use 'mizlan/iswap.nvim'
+  use 'ziontee113/syntax-tree-surfer'
 
 end)
