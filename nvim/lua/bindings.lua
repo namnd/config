@@ -8,6 +8,7 @@ vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 vim.api.nvim_set_keymap("n", "E", "ea", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
+vim.api.nvim_set_keymap("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 
 -- git
 vim.api.nvim_set_keymap('n', '<leader>gg', ':tab G<cr>', {noremap = true})
@@ -38,3 +39,5 @@ vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
 local opts = {noremap = true, silent = true}
 vim.keymap.set("n", "vd", '<cmd>STSSwapCurrentNodeNextNormal<cr>', opts)
 vim.keymap.set("n", "vu", '<cmd>STSSwapCurrentNodePrevNormal<cr>', opts)
+
+vim.keymap.set("n", 'vs', "T(i<cr><esc>b%i<cr><esc>vi(:s/,/,\\r/g<cr>A,<esc>:noh<cr>:w<cr>")
