@@ -15,9 +15,5 @@ vim.o.expandtab = true
 
 vim.wo.number = true
 vim.wo.signcolumn = 'yes:2'
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.wo.foldenable = false
-vim.wo.foldlevel = 99
 
 vim.g.mapleader = ','

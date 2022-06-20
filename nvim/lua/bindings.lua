@@ -42,3 +42,4 @@ vim.keymap.set("n", "vN", '<cmd>STSSwapCurrentNodePrevNormal<cr>', opts)
 
 vim.keymap.set("n", 'vs', "T(i<cr><esc>b%i<cr><esc>vi(:s/,/,\\r/g<cr>A,<esc>:noh<cr>:w<cr>", opts)
 vim.keymap.set("n", 'vS', "vi(:s/,\\n/,/g<cr>kJt)x:noh<cr>:w<cr>", opts)
+vim.keymap.set("n", "vf", "V%zf", opts)
