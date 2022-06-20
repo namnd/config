@@ -13,6 +13,7 @@ return require('packer').startup(function()
   use 'pbogut/fzf-mru.vim'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-projectionist'
+  use 'kshenoy/vim-signature'
 
   -- git
   use 'tpope/vim-fugitive'
