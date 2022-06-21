@@ -18,6 +18,10 @@ set statusline+=%=%w%l,%-10.c%L
 let g:dirvish_mode=':sort ,^.*[\/],'
 let g:fzf_mru_relative=1
 
+let g:vista#renderer#enable_icon=0
+let g:vista_icon_indent = ["▸ ", ""]
+let g:vista_sidebar_width = 60
+
 autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
 autocmd WinEnter * set colorcolumn=81 cursorline
 autocmd WinLeave * set colorcolumn=0 nocursorline

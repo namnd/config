@@ -27,6 +27,7 @@ in
     tmux
     trash-cli
     tree-sitter
+    universal-ctags
   ];
 
   programs.home-manager.enable = true;

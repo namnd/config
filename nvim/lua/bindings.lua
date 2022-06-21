@@ -22,6 +22,7 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':Rg <C-R>=expand("<cword>")<cr><cr>', {no
 vim.api.nvim_set_keymap('n', '<C-Space>', ":call fzf#run(fzf#wrap({'source': 'find $HOME/workspaces/indebted -maxdepth 1 -type d', 'options': '--no-preview'}))<cr>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>cd', ':cd %:p:h<cr>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>zz', ':tabclose<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>ta', ':Vista nvim_lsp<cr>', {noremap = true})
 
 -- debug
 vim.keymap.set("n", "<leader>1", ":lua require'dap'.continue()<CR>")
