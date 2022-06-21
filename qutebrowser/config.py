@@ -42,12 +42,12 @@ c.url.searchengines = {
         'g': 'https://google.com/search?q={}',
         'gh': 'https://github.com/search?q={}',
         'r': 'https://www.reddit.com/search/?q={}',
-        'y': 'https://www.youtube.com/results?search_query={}'
-        }
-c.bindings.key_mappings = {
-        '<Ctrl-j>': '<Tab>',
+        'y': 'https://www.youtube.com/results?search_query={}',
+        'vd': 'https://vdict.com/{},1,0,0.html'
         }
 config.bind('<Super-w>', 'tab-close')
+config.bind('<Super-l>', 'set-cmd-text :open {url:pretty}')
+config.bind('<Super-Shift-L>', 'set-cmd-text -s :tab-focus')
 config.bind('<Super-]>', 'tab-next')
 config.bind('<Super-[>', 'tab-prev')
 config.bind('<Super-t>', 'set-cmd-text -s :open -t')
