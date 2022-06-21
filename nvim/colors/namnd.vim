@@ -25,15 +25,16 @@ hi VertSplit      cterm=none         ctermfg=DarkGrey
 hi DiagnosticWarn ctermfg=DarkYellow
 hi DiagnosticFloatingError ctermfg=LightRed
 
+hi FoldColumn     ctermbg=Black      ctermfg=LightGrey
 hi Folded         ctermbg=DarkGrey   ctermfg=LightGrey
 
 hi DiffAdd        ctermbg=DarkGreen  ctermfg=fg
 hi DiffChange     ctermbg=Brown      ctermfg=fg
 hi DiffDelete     ctermbg=DarkRed    ctermfg=fg
 
-hi GitSignsAdd    ctermbg=DarkGreen  ctermfg=DarkGreen
-hi GitSignsChange ctermbg=Brown      ctermfg=Brown
-hi GitSignsDelete ctermbg=DarkRed    ctermfg=DarkRed
+hi GitSignsAdd    ctermfg=DarkGreen
+hi GitSignsChange ctermfg=Brown
+hi GitSignsDelete ctermfg=DarkRed
 
 hi TabLineFill    cterm=none
 hi TabLineSel     cterm=none         ctermfg=White
