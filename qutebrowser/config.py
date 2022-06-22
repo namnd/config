@@ -42,6 +42,7 @@ c.url.searchengines = {
         'g': 'https://google.com/search?q={}',
         'gh': 'https://github.com/search?q={}',
         'r': 'https://www.reddit.com/search/?q={}',
+        't': 'https://twitter.com/search?q={}',
         'y': 'https://www.youtube.com/results?search_query={}',
         'vd': 'https://vdict.com/{},1,0,0.html'
         }
