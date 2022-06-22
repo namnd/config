@@ -103,3 +103,4 @@ vim.fn.sign_define('DapStopped', { text='▶', texthl='DapStoppedText', linehl='
 vim.fn.sign_define('DapBreakpointRejected', { text='x', texthl='DapBreakpointRejected', linehl='', numhl='' })
 
 require('syntax-tree-surfer').setup()
+require('pqf').setup()
