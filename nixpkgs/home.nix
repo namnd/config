@@ -24,6 +24,7 @@ in
     nodejs
     pgcli
     ripgrep
+    tldr
     tmux
     trash-cli
     tree-sitter
