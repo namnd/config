@@ -2,8 +2,12 @@
 
 export CLICOLOR=1
 
+# vim
 alias vi='nvim'
 alias vim='nvim'
+alias v='nvim'
+
+# emacs
 function start_emacs() {
   if [ "$1" != "" ]; then
     emacsclient -a '' $1
@@ -36,6 +40,7 @@ function start_note() {
 }
 alias note='start_note'
 
+# background jobs
 function fzf_fg() {
   fg %$(jobs | fzf |awk -F'[][]' '{print ($2)}')
 }
@@ -68,3 +73,17 @@ alias tf='terraform'
 
 hash -d platform=~/workspaces/indebted/platform
 hash -d infra=~/workspaces/indebted/infra
+
+function start_aws_vault() {
+  duration=1h
+  env=dev
+
+  if [ ! -z "$1" ]; then
+    env=$1
+  fi
+  if [ ! -z "$2" ]; then
+    duration=$2
+  fi
+  aws-vault exec --debug --duration=$duration $env
+}
+alias av='start_aws_vault'
