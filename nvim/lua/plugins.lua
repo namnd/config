@@ -57,10 +57,7 @@ return require('packer').startup(function()
   use 'dbeniamine/cheat.sh-vim'
   use 'junegunn/goyo.vim'
   use 'junegunn/limelight.vim'
-  use {
-    'Julian/vim-textobj-variable-segment',
-    requires = {'kana/vim-textobj-user'}
-  }
+  use 'tpope/vim-abolish'
   use 'ziontee113/syntax-tree-surfer'
   use 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
