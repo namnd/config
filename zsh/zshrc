@@ -113,7 +113,8 @@ if [ -n "${AWS_VAULT}" ]; then
       color=magenta
       ;;
   esac
-  AWS_VAULT_PROMP="%{%F{$color}%}($AWS_VAULT)%{$reset_color%} "
+  date=$(gdate --date $AWS_SESSION_EXPIRATION +%H:%M)
+  AWS_VAULT_PROMP="%{%F{$color}%}($AWS_VAULT) %F{grey}% $date%{$reset_color%} "
 fi
 
 RPROMPT='%F{cyan}$(if [ $cmd_time ]; then echo "($cmd_time) "; fi)%F{none}${vcs_info_msg_0_}'
