@@ -18,16 +18,13 @@ set statusline+=%=%w%l,%-10.c%L
 let g:dirvish_mode=':sort ,^.*[\/],'
 let g:fzf_mru_relative=1
 
-let g:vista#renderer#enable_icon=0
-let g:vista_icon_indent = ["▸ ", ""]
-let g:vista_sidebar_width = 60
-
 autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
 autocmd WinEnter * set colorcolumn=81 cursorline
 autocmd WinLeave * set colorcolumn=0 nocursorline
 autocmd VimResized * :wincmd =
 autocmd FileType git,gitcommit setlocal foldmethod=syntax foldenable
 autocmd FileType yml,yaml setlocal foldmethod=indent
+autocmd FileType Outline set wrap!
 autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)
 ]]

@@ -14,8 +14,8 @@ return require('packer').startup(function()
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-projectionist'
   use 'kshenoy/vim-signature'
-  use 'liuchengxu/vista.vim'
   use 'tpope/vim-dispatch'
+  use 'namnd/symbols-outline.nvim'
 
   -- git
   use 'tpope/vim-fugitive'

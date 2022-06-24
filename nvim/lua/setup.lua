@@ -104,3 +104,29 @@ vim.fn.sign_define('DapBreakpointRejected', { text='x', texthl='DapBreakpointRej
 
 require('syntax-tree-surfer').setup()
 require('pqf').setup()
+
+vim.g.symbols_outline = {
+  highlight_hovered_item = false,
+  position = 'left',
+  relative_width = false,
+  width = 60,
+  auto_preview = false,
+  show_symbol_details = false,
+  preview_bg_highlight = 'SignColumn',
+  symbol_blacklist = {
+    'Field'
+  },
+  symbols = {
+    File = {icon = "F", hl = "TSURI"},
+    Module = {icon = "M", hl = "TSNamespace"},
+    Package = {icon = "P", hl = "TSNamespace"},
+    Method = {icon = "m", hl = "TSMethod"},
+    Property = {icon = "p", hl = "TSMethod"},
+    -- Field = {icon = "*", hl = "TSField"},
+    Interface = {icon = "i", hl = "TSType"},
+    Function = {icon = "f", hl = "TSFunction"},
+    Variable = {icon = "v", hl = "TSConstant"},
+    Constant = {icon = "c", hl = "TSConstant"},
+    Struct = {icon = "s", hl = "TSType"},
+  }
+}

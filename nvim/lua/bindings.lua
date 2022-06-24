@@ -24,7 +24,7 @@ vim.keymap.set('v', '<C-p>', 'y<esc>:Rg <C-R>+<cr>', {noremap = true})
 vim.keymap.set('n', '<C-Space>', ":call fzf#run(fzf#wrap({'source': 'find $HOME/workspaces/indebted -maxdepth 1 -type d', 'options': '--no-preview'}))<cr>", {noremap = true, silent = true})
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>zz', ':tabclose<cr>', {noremap = true})
-vim.keymap.set('n', '<leader>vv', ':Vista nvim_lsp<cr>', {noremap = true})
+vim.keymap.set('n', '<leader><leader>', ':SymbolsOutline<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>1', ':Dispatch ', {noremap = true})
 vim.keymap.set('n', '<leader>2', ':copen<cr>', {noremap = true})
 
