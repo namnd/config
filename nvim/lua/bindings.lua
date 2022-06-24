@@ -9,7 +9,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 vim.keymap.set("n", "E", "ea", { noremap = true })
 vim.keymap.set("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
-vim.keymap.set("n", "<C-g>", ':let @+=expand("%")<CR>', {noremap = true})
+vim.keymap.set("n", "<leader>yy", ':let @+=expand("%")<CR>', {noremap = true})
 
 -- git
 vim.keymap.set('n', '<leader>gg', ':tab G<cr>', {noremap = true})
