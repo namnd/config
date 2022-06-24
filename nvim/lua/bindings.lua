@@ -25,12 +25,14 @@ vim.keymap.set('n', '<C-Space>', ":call fzf#run(fzf#wrap({'source': 'find $HOME/
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>zz', ':tabclose<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>vv', ':Vista nvim_lsp<cr>', {noremap = true})
+vim.keymap.set('n', '<leader>1', ':Dispatch ', {noremap = true})
+vim.keymap.set('n', '<leader>2', ':copen<cr>', {noremap = true})
 
 -- debug
-vim.keymap.set("n", "<leader>1", ":lua require'dap'.continue()<CR>")
-vim.keymap.set("n", "<leader>2", ":lua require'dap'.step_over()<CR>")
-vim.keymap.set("n", "<leader>3", ":lua require'dap'.step_into()<CR>")
-vim.keymap.set("n", "<leader>4", ":lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", "<leader>3", ":lua require'dap'.continue()<CR>")
+vim.keymap.set("n", "<leader>4", ":lua require'dap'.step_over()<CR>")
+vim.keymap.set("n", "<leader>5", ":lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", "<leader>6", ":lua require'dap'.step_out()<CR>")
 vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<CR>")
 vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 vim.keymap.set("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
