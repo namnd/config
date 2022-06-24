@@ -40,6 +40,7 @@ return require('packer').startup(function()
   use 'leoluz/nvim-dap-go'
   use 'rcarriga/nvim-dap-ui'
   use 'theHamsta/nvim-dap-virtual-text'
+  use 'tpope/vim-dotenv'
 
   -- autocompletion
   use 'hrsh7th/nvim-cmp'
