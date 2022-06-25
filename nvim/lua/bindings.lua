@@ -49,28 +49,3 @@ vim.keymap.set("n", 'vS', "vi(:s/,\\n/,/g<cr>kJt)x:noh<cr>:w<cr>", opts)
 vim.keymap.set("n", "vb", "V%zf", opts) -- fold a block
 vim.keymap.set("n", "vf", "f{V%zf", opts) -- fold a function
 vim.keymap.set("n", "vp", "vapzf", opts) -- fold a paragraph
-
--- test
-local ts_utils = require'nvim-treesitter.ts_utils'
-function rungSingleTest()
-  local current_node = ts_utils.get_node_at_cursor()
-  if not current_node then return "" end
-  local expr = current_node
-
-  local index = 1
-  while expr do
-    if expr:type() == 'function_declaration' then
-      break
-    elseif expr:type() == 'method_declaration' then
-      index = 2
-      break
-    end
-    expr = expr:parent()
-  end
-
-  if not expr then return "" end
-  local f_name = (ts_utils.get_node_text(expr:child(index)))[1]
-  print(f_name)
-  vim.api.nvim_command(':Dispatch go test -v % -testify.m ' .. f_name)
-end
-vim.keymap.set("n", "<leader>tt", rungSingleTest)
