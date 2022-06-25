@@ -27,4 +27,5 @@ autocmd FileType yml,yaml setlocal foldmethod=indent
 autocmd FileType Outline set wrap!
 autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 ]]
