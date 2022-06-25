@@ -15,7 +15,7 @@ return require('packer').startup(function()
   use 'tpope/vim-projectionist'
   use 'kshenoy/vim-signature'
   use 'tpope/vim-dispatch'
-  use 'namnd/symbols-outline.nvim'
+  use 'simrat39/symbols-outline.nvim'
 
   -- git
   use 'tpope/vim-fugitive'
@@ -35,6 +35,7 @@ return require('packer').startup(function()
 
   -- lsp
   use 'neovim/nvim-lspconfig'
+  use 'folke/lua-dev.nvim'
 
   -- dap
   use 'mfussenegger/nvim-dap'

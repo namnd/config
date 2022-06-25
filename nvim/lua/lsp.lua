@@ -25,7 +25,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-require'lspconfig'.gopls.setup{
+nvim_lsp.gopls.setup{
   on_attach=on_attach,
   capabilities = capabilities,
   cmd = {"gopls", "serve"},
@@ -39,3 +39,11 @@ require'lspconfig'.gopls.setup{
     },
   },
 }
+
+nvim_lsp.sumneko_lua.setup(require("lua-dev").setup({
+  lspconfig = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {"lua-language-server"}
+  }
+}))
