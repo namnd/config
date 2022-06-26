@@ -22,3 +22,11 @@ function RunSingleTest()
 end
 
 vim.keymap.set("n", "<leader>tt", RunSingleTest)
+
+local group = vim.api.nvim_create_augroup("GoGroup", { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = group,
+  callback = function ()
+    vim.lsp.buf.formatting_sync({}, 1000)
+  end
+})
