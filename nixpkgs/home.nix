@@ -22,6 +22,7 @@ in
     rnix-lsp
     nmap
     nodejs
+    nodePackages.typescript-language-server
     pgcli
     ripgrep
     tldr
