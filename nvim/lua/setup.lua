@@ -58,6 +58,24 @@ require('nvim-treesitter.configs').setup ({
       node_decremental = '<s-tab>',
     },
   },
+  textobjects = {
+    select = {
+      enable =  true,
+      lookahead = true,
+      keymaps = {
+        ["if"] = "@function.inner",
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["vn"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["vN"] = "@parameter.inner",
+      },
+    },
+  },
 })
 
 require('Comment').setup()
@@ -102,7 +120,6 @@ vim.fn.sign_define('DapBreakpoint', { text='●', texthl='DapBreakpoint', linehl
 vim.fn.sign_define('DapStopped', { text='▶', texthl='DapStoppedText', linehl='DapStoppedLine', numhl= 'DapStoppedLine' })
 vim.fn.sign_define('DapBreakpointRejected', { text='x', texthl='DapBreakpointRejected', linehl='', numhl='' })
 
-require('syntax-tree-surfer').setup()
 require('pqf').setup()
 
 vim.g.symbols_outline = {

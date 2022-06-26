@@ -32,6 +32,7 @@ return require('packer').startup(function()
     run = ':TSUpdate'
   }
   use 'nvim-treesitter/playground'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   -- lsp
   use 'neovim/nvim-lspconfig'
@@ -61,7 +62,6 @@ return require('packer').startup(function()
   use 'junegunn/goyo.vim'
   use 'junegunn/limelight.vim'
   use 'tpope/vim-abolish'
-  use 'ziontee113/syntax-tree-surfer'
   use 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
 end)
