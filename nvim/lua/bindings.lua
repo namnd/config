@@ -11,8 +11,8 @@ vim.keymap.set("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><left>", { 
 vim.keymap.set("n", "<leader>rc", "yiw<esc>:%s/<C-r>+//gn<cr>", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("v", "<leader>rc", "y<esc>:%s/<C-r>+//gn<cr>", { noremap = true })
-vim.keymap.set("v", "<leader>rf", 'y<esc> :lua require("nvim-treesitter.textobjects.move").goto_previous_start("function.outer")<cr>o<C-r>+<esc>I:= <esc>I', { noremap = true })
-vim.keymap.set("n", "<leader>rf", ':lua require("nvim-treesitter.textobjects.select").select_textobject("@function.outer")<cr>:s/<C-r>+//gc<left><left><left>', { noremap = true })
+vim.keymap.set("v", "<leader>rf", ':lua require("namnd.refactoring").extract_variable()<cr>', { noremap = true })
+vim.keymap.set("n", "<leader>rf", ':%s/<C-r>a//gc<left><left><left>', { noremap = true })
 vim.keymap.set("n", "<leader>yy", ':let @+=expand("%")<CR>', {noremap = true})
 
 -- git
