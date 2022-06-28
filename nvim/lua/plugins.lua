@@ -36,7 +36,6 @@ return require('packer').startup(function()
 
   -- lsp
   use 'neovim/nvim-lspconfig'
-  use 'folke/lua-dev.nvim'
 
   -- dap
   use 'mfussenegger/nvim-dap'

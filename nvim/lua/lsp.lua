@@ -40,10 +40,29 @@ nvim_lsp.gopls.setup{
   },
 }
 
-nvim_lsp.sumneko_lua.setup(require("lua-dev").setup({
-  lspconfig = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = {"lua-language-server"}
-  }
-}))
+USER = vim.fn.expand('$USER')
+local sumneko_root_path = "/Users/" .. USER .. "/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+nvim_lsp.sumneko_lua.setup({
+  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+        path = vim.split(package.path, ';'),
+      },
+      diagnostics = {
+        globals = {'vim'}
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
+        },
+        preloadFileSize = 450
+      }
+    }
+  },
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
