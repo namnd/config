@@ -40,27 +40,27 @@ nvim_lsp.gopls.setup{
   },
 }
 
-USER = vim.fn.expand('$USER')
-local sumneko_root_path = "/Users/" .. USER .. "/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+local library = vim.api.nvim_get_runtime_file("", true)
+table.insert(library, '/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/')
 nvim_lsp.sumneko_lua.setup({
-  cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
   settings = {
     Lua = {
       runtime = {
         version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
+        path = runtime_path,
       },
       diagnostics = {
-        globals = {'vim'}
+        globals = {'vim', 'hs'}
       },
       workspace = {
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true
-        },
-        preloadFileSize = 450
-      }
+        library = library,
+      },
+      telemetry = {
+        enable = false,
+      },
     }
   },
   on_attach = on_attach,
