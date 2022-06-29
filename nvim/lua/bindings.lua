@@ -33,16 +33,12 @@ vim.keymap.set('n', '<leader>1', ':Dispatch ', {noremap = true})
 vim.keymap.set('n', '<leader>2', ':copen<cr>', {noremap = true})
 
 -- debug
-vim.keymap.set("n", "<leader>3", ":lua require'dap'.continue()<CR>")
-vim.keymap.set("n", "<leader>4", ":lua require'dap'.step_over()<CR>")
-vim.keymap.set("n", "<leader>5", ":lua require'dap'.step_into()<CR>")
-vim.keymap.set("n", "<leader>6", ":lua require'dap'.step_out()<CR>")
 vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<CR>")
-vim.keymap.set("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-vim.keymap.set("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+vim.keymap.set("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
+vim.keymap.set("n", "<leader>bl", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
+vim.keymap.set("n", "<leader>ds", ":lua require'dap'.continue()<CR>")
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dc", ":lua require'dap'.clear_breakpoints()<CR>")
-vim.keymap.set("n", "<leader>dl", ":lua require'dap'.list_breakpoints()<CR>")
 
 local opts = {noremap = true, silent = true}
 
