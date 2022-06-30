@@ -1,3 +1,4 @@
+require('namnd.globals')
 require('basic')
 require('plugins')
 require('setup')
