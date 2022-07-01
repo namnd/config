@@ -1,4 +1,4 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- enhancement
@@ -56,10 +56,6 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-endwise'
-  use 'wellle/targets.vim'
-  use 'dbeniamine/cheat.sh-vim'
-  use 'junegunn/goyo.vim'
-  use 'junegunn/limelight.vim'
   use 'tpope/vim-abolish'
   use 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
