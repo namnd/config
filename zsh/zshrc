@@ -8,6 +8,8 @@ export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/
 export KAFKA_HOME="$HOME/kafka"
 export LUA_LSP="$HOME/lua-language-server"
 export PATH="$LUA_LSP/bin:$PATH"
+export ZIG_LSP="$HOME/zls/zig-out"
+export PATH="$ZIG_LSP/bin:$PATH"
 
 setopt AUTO_CD                  # auto cd into path
 setopt SHARE_HISTORY            # share history file across the sessions
