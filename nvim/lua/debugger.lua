@@ -23,9 +23,9 @@ require('dapui').setup({
 require("nvim-dap-virtual-text").setup()
 
 local dap, dapui = require("dap"), require("dapui")
-local utils = require("namnd.utils")
+local stackmap = require("namnd.stackmap")
 dap.listeners.after.event_initialized["dapui_config"] = function()
-  utils.push('debug_mode', {
+  stackmap.push('debug_mode', {
     ["c"] = ":lua require'dap'.continue()<cr>",
     ["n"] = ":lua require'dap'.step_over()<cr>",
     ["i"] = ":lua require'dap'.step_into()<cr>",
@@ -34,11 +34,11 @@ dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-  utils.pop('debug_mode')
+  stackmap.pop('debug_mode')
   dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-  utils.pop('debug_mode')
+  stackmap.pop('debug_mode')
   dapui.close()
 end
 vim.highlight.create('DapBreakpoint', { ctermfg=3 }, false)
