@@ -4,7 +4,7 @@ require('plugins')
 require('setup')
 require('bindings')
 require('lsp')
-require('debug')
+require('debugger')
 require('autocompletion')
 require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
 
