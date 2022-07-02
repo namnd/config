@@ -10,6 +10,7 @@ in
   home.stateVersion = "22.05";
 
   home.packages = with pkgs; [
+    cht-sh
     csvkit
     direnv
     unstable.emacs
