@@ -21,16 +21,10 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = {'nvim-lua/plenary.nvim'}
-  }
+  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
@@ -49,7 +43,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
-  use { 'saadparwaiz1/cmp_luasnip' }
+  use 'saadparwaiz1/cmp_luasnip'
 
   -- others
   use 'numToStr/Comment.nvim'
@@ -57,6 +51,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'tpope/vim-endwise'
   use 'tpope/vim-abolish'
+  use { 'julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
   use 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
 
 end)
