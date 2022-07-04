@@ -20,6 +20,7 @@ in
     unstable.go_1_18
     gopls
     unstable.neovim
+    unstable.git-lfs
     rnix-lsp
     nmap
     nodejs
