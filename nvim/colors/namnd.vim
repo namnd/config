@@ -70,5 +70,8 @@ hi DapUIWatchesValue ctermfg=Green
 hi DapUIWatchesError ctermfg=Red
 " hi DapUIWatchesFrame ctermfg=Green
 
-au InsertEnter * hi StatusLine ctermbg=White
-au InsertLeave * hi StatusLine ctermbg=Grey
+augroup BgStatusLine
+  autocmd!
+  au InsertEnter * hi StatusLine ctermbg=White
+  au InsertLeave * hi StatusLine ctermbg=Grey
+augroup END

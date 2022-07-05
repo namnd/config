@@ -71,6 +71,9 @@ config.bind('<Ctrl-k>', 'prompt-item-focus prev', mode='prompt')
 config.bind('<Ctrl-w>', 'rl-filename-rubout', mode='prompt')
 config.bind('<Ctrl-u>', 'rl-rubout " "', mode='prompt')
 
+# Unbind some keys
+config.unbind('d', mode='normal')
+
 c.auto_save.session = True
 c.auto_save.interval = 15000
 
