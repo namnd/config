@@ -127,3 +127,5 @@ vim.g.symbols_outline = {
     Struct = {icon = "s", hl = "TSType"},
   }
 }
+
+require('nvim-autopairs').setup()
