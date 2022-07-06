@@ -65,10 +65,6 @@ alias gd='g diff'
 alias gl='g log'
 alias gg='g graph'
 
-alias ta='tmux attach'
-alias tl='tmux ls'
-alias tn='tmux new -s'
-
 alias tf='terraform'
 
 hash -d platform=~/workspaces/indebted/platform

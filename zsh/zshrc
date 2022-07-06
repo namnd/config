@@ -95,11 +95,6 @@ function precmd() {
   if [ $inside_git_repo ]; then
     vcs_info
   fi
-
-  if [ "$TERM_PROGRAM" = tmux ]; then
-    re_path=$(realpath --relative-to=/Users/namnguyen $(pwd))
-    tmux set -qg status-right "#h: ~/${re_path} "
-  fi
 }
 
 if [ -n "${AWS_VAULT}" ]; then
