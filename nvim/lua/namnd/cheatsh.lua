@@ -12,6 +12,7 @@ M.prompt_query = function ()
     vim.cmd[[ new ]]
     vim.api.nvim_command('read !CHTSH_QUERY_OPTIONS="T" cht.sh ' .. ft .. ' ' .. query)
     vim.api.nvim_buf_set_option(0, 'filetype', ft)
+    vim.api.nvim_buf_set_option(0, 'buftype', 'nofile')
   end
 end
 
