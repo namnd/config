@@ -12,11 +12,6 @@ for k,v in pairs(apps) do
   hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
 end
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
-function StartNote()
-  hs.execute("~/dotfiles/bin/start_note.sh", true)
-  hs.application.launchOrFocus('kitty')
-end
-hs.hotkey.bind(modifier, "9", function() StartNote() end)
 
 function MoveToOtherSpace()
   hs.execute("~/dotfiles/bin/move_to_other_space.sh", true)
