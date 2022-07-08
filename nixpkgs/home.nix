@@ -26,6 +26,7 @@ in
     nodejs
     nodePackages.typescript-language-server
     pgcli
+    postgresql
     ripgrep
     tldr
     trash-cli
