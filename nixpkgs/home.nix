@@ -25,6 +25,7 @@ in
     nmap
     nodejs
     nodePackages.typescript-language-server
+    nodePackages.pyright
     pgcli
     postgresql
     ripgrep
