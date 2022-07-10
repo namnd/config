@@ -70,6 +70,7 @@ function preexec() {
 }
 
 function precmd() {
+  print -Pn "\e]0;%~\a"
   if [ $cmd_start ]; then
     local now=$(($(print -P %D{%s%6.}) / 1000))
     local d_ms=$(($now - $cmd_start))
