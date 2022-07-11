@@ -46,6 +46,7 @@ c.url.searchengines = {
         'y': 'https://www.youtube.com/results?search_query={}',
         'vd': 'https://vdict.com/{},1,0,0.html'
         }
+config.bind('<Super-r>', 'reload')
 config.bind('<Super-w>', 'tab-close')
 config.bind('<Super-l>', 'set-cmd-text :open {url:pretty}')
 config.bind('<Super-Shift-L>', 'set-cmd-text -s :tab-focus')
@@ -73,6 +74,7 @@ config.bind('<Ctrl-u>', 'rl-rubout " "', mode='prompt')
 
 # Unbind some keys
 config.unbind('d', mode='normal')
+config.unbind('r', mode='normal')
 
 c.auto_save.session = True
 c.auto_save.interval = 15000

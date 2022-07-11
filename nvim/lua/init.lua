@@ -20,8 +20,6 @@ set statusline+=%=\ %{ObsessionStatus('(S)','')}\ %w%l,%-10.c%L
 let g:dirvish_mode=':sort ,^.*[\/],'
 let g:fzf_mru_relative=1
 
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
-
 augroup Personal
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
