@@ -28,7 +28,6 @@ vim.keymap.set('n', '<leader>cd', ':cd %:p:h<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>zz', ':tabclose<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>so', ':SymbolsOutline<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>1', ':Dispatch ', {noremap = true})
-vim.keymap.set('n', '<leader>2', ':copen<cr>', {noremap = true})
 
 -- debug
 vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<CR>")
