@@ -100,7 +100,6 @@ require('nvim-treesitter.configs').setup ({
 })
 
 require('Comment').setup()
-require('pqf').setup()
 
 vim.g.symbols_outline = {
   highlight_hovered_item = false,
@@ -119,7 +118,6 @@ vim.g.symbols_outline = {
     Package = {icon = "P", hl = "TSNamespace"},
     Method = {icon = "m", hl = "TSMethod"},
     Property = {icon = "p", hl = "TSMethod"},
-    -- Field = {icon = "*", hl = "TSField"},
     Interface = {icon = "i", hl = "TSType"},
     Function = {icon = "f", hl = "TSFunction"},
     Variable = {icon = "v", hl = "TSConstant"},

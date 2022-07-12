@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
   use 'kshenoy/vim-signature'
   use 'tpope/vim-dispatch'
   use 'simrat39/symbols-outline.nvim'
+  use "itchyny/vim-qfedit"
 
   -- git
   use 'tpope/vim-fugitive'
@@ -58,7 +59,6 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-abolish'
   use { 'julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
-  use 'https://gitlab.com/yorickpeterse/nvim-pqf.git'
   use 'tpope/vim-obsession'
 
 end)
