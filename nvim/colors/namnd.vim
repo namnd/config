@@ -36,9 +36,9 @@ hi GitSignsAdd    ctermfg=DarkGreen
 hi GitSignsChange ctermfg=Brown
 hi GitSignsDelete ctermfg=DarkRed
 
-hi TabLineFill    cterm=none
+hi TabLineFill    cterm=none         ctermbg=DarkGrey
 hi TabLineSel     cterm=none         ctermfg=White
-hi TabLine        cterm=none         ctermbg=none ctermfg=DarkGrey
+hi TabLine        cterm=none         ctermbg=DarkGrey ctermfg=Black
 
 hi Pmenu          ctermfg=0          ctermbg=DarkGrey
 hi Directory      ctermfg=Blue
