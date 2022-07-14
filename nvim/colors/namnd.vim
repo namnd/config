@@ -6,6 +6,10 @@ hi Constant       ctermfg=Grey
 hi Comment        ctermfg=DarkGrey   cterm=italic
 hi Todo           ctermfg=Yellow     cterm=bold     ctermbg=none
 hi WarningMsg     ctermfg=Red        cterm=bold     ctermbg=none
+hi Type           ctermfg=LightGreen
+hi PreProc        ctermfg=LightBlue
+hi Keyword        ctermfg=Grey
+hi Operator       ctermfg=Grey
 
 hi Statement      ctermfg=Grey
 hi Identifier     cterm=none         ctermfg=LightBlue
@@ -20,7 +24,8 @@ hi CursorLineNr   cterm=none         ctermfg=White
 hi CursorLine     cterm=none
 hi SignColumn     ctermbg=Black
 hi ColorColumn    ctermbg=DarkGrey
-hi VertSplit      cterm=none         ctermfg=DarkGrey
+hi VertSplit      ctermbg=Grey       ctermfg=Black
+hi QuickFixLine   ctermfg=Magenta
 
 hi DiagnosticWarn ctermfg=DarkYellow
 hi DiagnosticFloatingError ctermfg=LightRed
@@ -63,6 +68,10 @@ hi DapUIWatchesHeader ctermfg=Blue
 hi DapUIWatchesEmpty ctermfg=DarkGrey
 hi DapUIWatchesValue ctermfg=Green
 hi DapUIWatchesError ctermfg=Red
+hi DapBreakpoint ctermfg=3
+hi DapStoppedText ctermfg=2
+hi DapStoppedLine ctermbg=2 ctermfg=0
+hi DapBreakpointRejected ctermfg=1
 
 augroup BgStatusLine
   autocmd!
