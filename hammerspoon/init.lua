@@ -12,6 +12,16 @@ for k,v in pairs(apps) do
   hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
 end
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
+hs.hotkey.bind(modifier, "9", function()
+  local allWindows = hs.window.allWindows()
+  for _, win in pairs(allWindows) do
+    local x = win:application():name()
+    if x == "emacs" then
+      win:maximize()
+      win:focus()
+    end
+  end
+end)
 
 function MoveToOtherSpace()
   hs.execute("~/dotfiles/bin/move_to_other_space.sh", true)
