@@ -141,14 +141,24 @@
              (setq visual-fill-column-center-text t
                    visual-fill-column-width 110))
 
+(use-package hide-mode-line)
+
 (defun my/org-present-start ()
-  ;; Center the presentation and wrap lines
+  (hide-mode-line-mode +1)
+  (blink-cursor-mode 0)
+  (org-present-hide-cursor)
+
   (visual-fill-column-mode 1)
+  (display-line-numbers-mode 0)
   (visual-line-mode 1))
 
 (defun my/org-present-end ()
-  ;; Stop centering the document
+  (hide-mode-line-mode -1)
+  (org-present-show-cursor)
+  (blink-cursor-mode 1)
+
   (visual-fill-column-mode 0)
+  (display-line-numbers-mode t)
   (visual-line-mode 0))
 
 ;; Register hooks with org-present
