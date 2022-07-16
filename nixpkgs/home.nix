@@ -14,6 +14,7 @@ in
     csvkit
     direnv
     unstable.emacs
+    fd
     fzf
     jq
     gh
