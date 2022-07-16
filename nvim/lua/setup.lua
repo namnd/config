@@ -157,5 +157,10 @@ require('telescope').setup({
       case_mode = "smart_case",
     }
   },
+  pickers = {
+    find_files = {
+      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+    },
+  },
 })
 require('telescope').load_extension('fzf')
