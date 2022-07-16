@@ -127,3 +127,31 @@ vim.g.symbols_outline = {
 }
 
 require('nvim-autopairs').setup()
+
+require('telescope').setup({
+  defaults = {
+    sorting_strategy = 'ascending',
+    layout_config = {
+      prompt_position = 'top',
+      -- height = 40,
+      width = 170,
+      preview_width = 0.6,
+    },
+    mappings = {
+      i = {
+        ["<C-h>"] = "which_key",
+        ["<C-j>"] = "move_selection_next",
+        ["<C-k>"] = "move_selection_previous",
+      }
+    },
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    }
+  },
+})
+require('telescope').load_extension('fzf')

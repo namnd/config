@@ -18,11 +18,6 @@ vim.keymap.set('n', '<leader>gg', ':tab G<cr>', {noremap = true})
 
 -- navigation
 vim.keymap.set('n', '<C-\\>', '<Plug>(dirvish_vsplit_up)', {})
-vim.keymap.set('n', '<space><space>', ':GFiles<cr>', {noremap = true})
-vim.keymap.set('n', '<C-e>', ':FZFMru<cr>', {noremap = true})
-vim.keymap.set('n', '<leader>e', ':Buffers<cr>', {noremap = true})
-vim.keymap.set('n', '<C-f>', ':Rg<cr>', {noremap = true})
-vim.keymap.set('n', '<C-p>', ':Rg <C-R>=expand("<cword>")<cr><cr>', {noremap = true})
 vim.keymap.set('v', '<C-p>', 'y<esc>:Rg <C-R>+<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>zz', ':tabclose<cr>', {noremap = true})
@@ -31,6 +26,13 @@ vim.keymap.set('n', '<leader>1', ':Dispatch ', {noremap = true})
 vim.keymap.set('n', '<leader>2', ':ToggleQuickFix<cr> ', {noremap = true})
 vim.keymap.set('n', '<<', ':colder<cr>', {noremap = true})
 vim.keymap.set('n', '>>', ':cnewer<cr>', {noremap = true})
+
+-- telescope
+vim.keymap.set('n', '<space><space>', '<cmd>lua require("telescope.builtin").find_files()<cr>', {noremap = true})
+vim.keymap.set('n', '<C-e>', '<cmd>lua require("telescope.builtin").oldfiles()<cr>', {noremap = true})
+vim.keymap.set('n', '<C-f>', '<cmd>lua require("telescope.builtin").live_grep()<cr>', {noremap = true})
+vim.keymap.set('n', '<leader>e', '<cmd>lua require("telescope.builtin").buffers()<cr>', {noremap = true})
+vim.keymap.set('n', '<C-p>', '<cmd>lua require("telescope.builtin").grep_string()<cr>', {noremap = true})
 
 -- debug
 vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<CR>")

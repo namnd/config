@@ -18,7 +18,6 @@ set statusline+=%{FugitiveStatusline()}%{get(b:,'gitsigns_status','')}
 set statusline+=%=\ %{ObsessionStatus('(S)','')}\ %w%l,%-10.c%L
 
 let g:dirvish_mode=':sort ,^.*[\/],'
-let g:fzf_mru_relative=1
 
 augroup Personal
   autocmd!

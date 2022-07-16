@@ -8,15 +8,18 @@ return require('packer').startup(function(use)
   -- navigation
   use 'justinmk/vim-dirvish'
   use 'roginfarrer/vim-dirvish-dovish'
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
-  use 'pbogut/fzf-mru.vim'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-projectionist'
   use 'kshenoy/vim-signature'
   use 'tpope/vim-dispatch'
   use 'simrat39/symbols-outline.nvim'
-  use "itchyny/vim-qfedit"
+
+  -- telescope
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- git
   use 'tpope/vim-fugitive'
