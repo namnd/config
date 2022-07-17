@@ -30,7 +30,7 @@ vim.keymap.set('n', '>>', ':cnewer<cr>', {noremap = true})
 -- telescope
 vim.keymap.set('n', '<space><space>', '<cmd>lua require("telescope.builtin").find_files()<cr>', {noremap = true})
 vim.keymap.set('n', '<C-e>', '<cmd>lua require("telescope.builtin").oldfiles({only_cwd  = true})<cr>', {noremap = true})
-vim.keymap.set('n', '<C-f>', '<cmd>lua require("telescope.builtin").live_grep()<cr>', {noremap = true})
+vim.keymap.set('n', '<C-f>', '<cmd>lua require("telescope").extensions.live_grep_args.live_grep_args()<cr>', {noremap = true})
 vim.keymap.set('n', '<leader>e', '<cmd>lua require("telescope.builtin").buffers()<cr>', {noremap = true})
 vim.keymap.set('n', '<C-p>', '<cmd>lua require("telescope.builtin").grep_string()<cr>', {noremap = true})
 

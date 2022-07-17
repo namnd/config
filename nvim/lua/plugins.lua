@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-live-grep-args.nvim' }
 
   -- git
   use 'tpope/vim-fugitive'
