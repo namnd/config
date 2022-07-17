@@ -10,6 +10,7 @@ syn match        TestOk        "\v(passed|✓)"
 syn match        TestError     "\v(failed|✕)"
 syn match        TestFail      "\v(FAIL)"
 syn match        TestPass      "\v(PASS)"
+syn match        TestOk        "\v(OK)"
 
 syn region TestExpected start=/- Expected/ end=/\n/
 syn region TestReceived start=/+ Received/ end=/\n/
