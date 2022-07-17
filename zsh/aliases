@@ -44,9 +44,6 @@ alias gg='g graph'
 
 alias tf='terraform'
 
-hash -d platform=~/workspaces/indebted/platform
-hash -d infra=~/workspaces/indebted/infra
-
 function start_aws_vault() {
   duration=1h
   env=dev

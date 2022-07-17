@@ -33,6 +33,7 @@ in
     tldr
     trash-cli
     tree-sitter
+    unstable.zoxide
   ];
 
   programs.home-manager.enable = true;
