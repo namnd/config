@@ -7,6 +7,8 @@ require('lsp')
 require('debugger')
 require('autocompletion')
 require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
+require('namnd.telescope')
+require('namnd.treesitter')
 
 vim.cmd [[
 colorscheme namnd

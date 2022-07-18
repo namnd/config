@@ -35,7 +35,6 @@ nvim_lsp.gopls.setup{
         unusedparams = true,
       },
       staticcheck = true,
-      buildFlags = { '-tags', 'integration' },
     },
   },
 }
