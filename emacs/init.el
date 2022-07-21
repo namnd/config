@@ -128,29 +128,3 @@
   :diminish which-key-mode
   :config
   (setq which-key-idle-delay 0.3))
-
-;; Presentation
-(use-package org-present
-             :ensure t
-             :bind (:map org-present-mode-keymap
-                         ("C-j" . org-present-next)
-                         ("C-k" . org-present-prev)))
-
-(use-package visual-fill-column
-             :init
-             (setq visual-fill-column-center-text t
-                   visual-fill-column-width 110))
-
-(defun my/org-present-start ()
-  ;; Center the presentation and wrap lines
-  (visual-fill-column-mode 1)
-  (visual-line-mode 1))
-
-(defun my/org-present-end ()
-  ;; Stop centering the document
-  (visual-fill-column-mode 0)
-  (visual-line-mode 0))
-
-;; Register hooks with org-present
-(add-hook 'org-present-mode-hook 'my/org-present-start)
-(add-hook 'org-present-mode-quit-hook 'my/org-present-end)
