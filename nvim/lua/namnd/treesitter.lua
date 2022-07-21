@@ -25,8 +25,8 @@ require('nvim-treesitter.configs').setup ({
         ["af"] = "@function.outer",
         ["ac"] = "@conditional.outer",
         ["ic"] = "@conditional.inner",
-        ["ip"] = "@parameter.inner",
-        ["ap"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
+        ["aa"] = "@parameter.outer",
       },
     },
     swap = {
