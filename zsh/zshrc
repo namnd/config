@@ -63,6 +63,10 @@ function fg-bg() {
 }
 zle -N fg-bg
 bindkey '^Z' fg-bg
+bindkey "^a" beginning-of-line
+bindkey "^e" end-of-line
+bindkey "^b" backward-word
+bindkey "^f" forward-char
 
 function preexec() {
   cmd_start=$(($(print -P %D{%s%6.}) / 1000))
