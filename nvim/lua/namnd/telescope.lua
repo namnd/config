@@ -16,8 +16,11 @@ require('telescope').setup({
         ["<C-j>"] = "move_selection_next",
         ["<C-k>"] = "move_selection_previous",
         ["<esc>"] = actions.close,
-        ["<M-p>"] = action_layout.toggle_preview,
+        ["<C-p>"] = action_layout.toggle_preview,
       }
+    },
+    preview = {
+      hide_on_startup = true,
     },
   },
   extensions = {
