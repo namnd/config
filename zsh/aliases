@@ -57,3 +57,4 @@ function start_aws_vault() {
   aws-vault exec --debug --duration=$duration $env
 }
 alias av='start_aws_vault'
+alias dev='kitty +kitten ssh -p22 namnguyen@192.168.64.44'
