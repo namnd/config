@@ -11,28 +11,18 @@ in
 
   home.packages = with pkgs; [
     cht-sh
-    csvkit
     direnv
     unstable.emacs
     fd
     fzf
-    jq
-    gh
-    unstable.go_1_18
     gopls
     unstable.neovim
     unstable.git-lfs
     rnix-lsp
     nmap
-    nodejs
-    nodePackages.typescript-language-server
-    nodePackages.pyright
-    pgcli
-    postgresql
     ripgrep
     tldr
     trash-cli
-    tree-sitter
     unstable.zoxide
   ];
 
