@@ -15,10 +15,15 @@ in
     unstable.emacs
     fd
     fzf
-    gopls
-    unstable.neovim
+    jq
+    go_1_18
+    gopls                           # Go LSP
+    rnix-lsp                        # Nix LSP
+    sumneko-lua-language-server     # Lua LSP
+    nodePackages.pyright            # Python LSP
+    zls                             # Zig LSP
+    neovim
     unstable.git-lfs
-    rnix-lsp
     nmap
     ripgrep
     tldr
