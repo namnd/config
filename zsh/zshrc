@@ -102,24 +102,9 @@ function precmd() {
   fi
 }
 
-if [ -n "${AWS_VAULT}" ]; then
-  color=yellow
-  case $AWS_VAULT in
-    stage)
-      color=cyan
-      ;;
-    prod)
-      color=magenta
-      ;;
-  esac
-  date=$(gdate --date $AWS_SESSION_EXPIRATION +%H:%M)
-  AWS_VAULT_PROMP="%{%F{$color}%}($AWS_VAULT) %F{grey}% $date%{$reset_color%} "
-fi
-
 RPROMPT='%F{cyan}$(if [ $cmd_time ]; then echo "($cmd_time) "; fi)%F{none}${vcs_info_msg_0_}'
 if [ -n "$TMUX" ]; then ARROW='%F{green}$%f'; else ARROW='%F{240}$%f'; fi
 PROMPT=$'%(?..%F{red}%?)%f %F{240}%5~\n%F{255}${VIMODE} %(1j.(%j) .)'
-PROMPT="$PROMPT$AWS_VAULT_PROMP"
 PROMPT="$PROMPT%f%(!.#.${ARROW}) " # ARROW/$ sign
 
 
@@ -134,7 +119,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs -g "!{n
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --preview "cat {}" --bind "?:toggle-preview"'
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 export GPG_TTY=$(tty)

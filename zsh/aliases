@@ -42,19 +42,4 @@ alias gd='g diff'
 alias gl='g log'
 alias gg='g graph'
 
-alias tf='terraform'
-
-function start_aws_vault() {
-  duration=1h
-  env=dev
-
-  if [ ! -z "$1" ]; then
-    env=$1
-  fi
-  if [ ! -z "$2" ]; then
-    duration=$2
-  fi
-  aws-vault exec --debug --duration=$duration $env
-}
-alias av='start_aws_vault'
-alias dev='kitty +kitten ssh -p22 namnguyen@192.168.64.44'
+alias dev='kitty +kitten ssh -p22 namnguyen@192.168.64.45'
