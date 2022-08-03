@@ -1,2 +1,0 @@
-# restart yabai
-cmd + shift - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
