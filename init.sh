@@ -26,14 +26,14 @@ fi
 
 mkdir -p $HOME/.config
 
-for file in ${files[*]}
+for app in ${apps[*]}
 do
-  ln -sf $PWD/${file} $HOME/.${file}
+  ln -sfn $PWD/${app} $HOME/.${app}
 done
 
 for c in ${config[*]}
 do
-  ln -sf $PWD/config/${c} $HOME/.config/${c}
+  ln -sfn $PWD/config/${c} $HOME/.config/${c}
 done
 
 # Home-manager
