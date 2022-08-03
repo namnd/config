@@ -61,7 +61,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-endwise'
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-abolish'
-  use { 'julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
+  use { 'Julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
   use 'tpope/vim-obsession'
 
 end)

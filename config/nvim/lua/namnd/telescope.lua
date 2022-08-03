@@ -6,7 +6,6 @@ require('telescope').setup({
     sorting_strategy = 'ascending',
     layout_config = {
       prompt_position = 'top',
-      -- height = 40,
       width = 170,
       preview_width = 0.6,
     },
@@ -42,7 +41,7 @@ require('telescope').setup({
   },
   pickers = {
     find_files = {
-      find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+      find_command = {"rg", "--files", "--hidden", "-g", "!.git"},
     },
   },
 })
