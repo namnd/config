@@ -1,5 +1,4 @@
 [global]
-load_dotenv = true
 warn_timeout = '10m'
 
 [whitelist]

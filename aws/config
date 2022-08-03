@@ -1,0 +1,39 @@
+[profile dev]
+sso_start_url = https://d-976777e8c2.awsapps.com/start
+sso_region = ap-southeast-2
+sso_account_id = 100266628890
+sso_role_name = AdministratorAccess
+region = ap-southeast-2
+output = json
+
+[profile stage]
+sso_start_url = https://d-976777e8c2.awsapps.com/start
+sso_region = ap-southeast-2
+sso_account_id = 760710846269
+sso_role_name = AdministratorAccess
+region = ap-southeast-2
+output = json
+
+[profile prod]
+sso_start_url = https://d-976777e8c2.awsapps.com/start
+sso_region = ap-southeast-2
+sso_account_id = 971449343889
+sso_role_name = AdministratorAccess
+region = ap-southeast-2
+output = json
+
+[profile prod-readonly]
+sso_start_url = https://d-976777e8c2.awsapps.com/start
+sso_region = ap-southeast-2
+sso_account_id = 971449343889
+sso_role_name = ViewOnlyAccess
+region = ap-southeast-2
+output = json
+
+[profile ops]
+sso_start_url = https://d-976777e8c2.awsapps.com/start
+sso_region = ap-southeast-2
+sso_account_id = 994348093014
+sso_role_name = AdministratorAccess
+region = ap-southeast-2
+output = json

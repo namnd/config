@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
 
   -- lsp
   use 'neovim/nvim-lspconfig'
+  use 'j-hui/fidget.nvim'
 
   -- dap
   use 'mfussenegger/nvim-dap'
@@ -63,5 +64,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-abolish'
   use { 'Julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
   use 'tpope/vim-obsession'
+  use 'ojroques/vim-oscyank'
 
 end)
