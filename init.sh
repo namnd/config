@@ -1,7 +1,6 @@
 #!/bin/sh
 
 apps=(
-  "aws"
   "gitconfig"
   "gitignore"
   "zshrc"
