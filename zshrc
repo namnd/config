@@ -103,6 +103,3 @@ _fzf_comprun() {
     *)            fzf "$@" ;;
   esac
 }
-
-# InDebted auto-generated
-source /Users/namnguyen/workspaces/indebted/onboarding-nix/config/zsh/indebted.zsh
