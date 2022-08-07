@@ -12,27 +12,13 @@ export SAVEHIST=10000
 
 export PATH=$PATH:$HOME/go/bin
 
-case "$OSTYPE" in
-  darwin*)
-    export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
-    ;;
-  linux*)
-    export NIX_PATH=$HOME/.nix-defexpr/channels:$NIX_PATH
-    export NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM=1
-  ;;
-esac
-
 function preexec() {
   cmd_start=$(($(print -P %D{%s%6.}) / 1000))
   inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 }
 
 function precmd() {
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    print -Pn "\e]0;%1d\a"
-  else
-    print -Pn "\e]0;%1d(%M)\a"
-  fi
+  print -Pn "\e]0;%1d\a"
   if [ $cmd_start ]; then
     local now=$(($(print -P %D{%s%6.}) / 1000))
     local d_ms=$(($now - $cmd_start))
@@ -75,17 +61,6 @@ PROMPT="$PROMPT${NEWLINE}"
 PROMPT="$PROMPT%n $AWS_VAULT_PROMP%F{240}$ "    # username $
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
-# emacs
-function start_emacs() {
-  if [ "$1" != "" ]; then
-    emacsclient -a '' $1
-  else
-    emacsclient -a '' -nw
-  fi
-}
-
-alias e='start_emacs'
-
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias all='ls -al'
@@ -97,9 +72,7 @@ chpwd() { ll }                          # always list upon pwd changed
 mcd () { mkdir -p "$1" && cd "$1"; }    # make new dir and cd into it
 
 # vim
-alias vi='nvim'
 alias vim='nvim'
-alias v='nvim'
 
 # git aliases
 alias g='git'
@@ -112,8 +85,6 @@ alias gl='g log'
 alias gg='g graph'
 
 alias tf='terraform'
-
-alias dev='kitty +kitten ssh -p22 namnd@192.168.64.54'
 
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
@@ -133,4 +104,5 @@ _fzf_comprun() {
   esac
 }
 
-eval "$(direnv hook zsh)"
+# InDebted auto-generated
+source /Users/namnguyen/workspaces/indebted/onboarding-nix/config/zsh/indebted.zsh

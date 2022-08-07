@@ -6,8 +6,6 @@ apps=(
   "zshrc"
 )
 config=(
-  "direnv"
-  "nixpkgs"
   "nvim"
 )
 
@@ -34,13 +32,6 @@ for c in ${config[*]}
 do
   ln -sfn $PWD/config/${c} $HOME/.config/${c}
 done
-
-# Home-manager
-if [ ! -x "$(command -v home-manager)" ]; then
-  nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz home-manager
-  nix-channel --update
-  nix-shell '<home-manager>' -A install
-fi
 
 # Install nvim plugin manager
 if [ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
