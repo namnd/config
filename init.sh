@@ -34,5 +34,5 @@ fi
 # zsh configuration
 touch $HOME/.zshrc
 if ( ! $(cat $HOME/.zshrc | grep "$PWD/zshrc" > /dev/null) ); then
-  echo "\n# Personal\nsource $PWD/zshrc" >> ~/.zshrc
+  echo "# Personal\nsource $PWD/zshrc" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
 fi
