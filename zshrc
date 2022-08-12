@@ -11,6 +11,7 @@ export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=10000
 
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/zig
 
 function preexec() {
   cmd_start=$(($(print -P %D{%s%6.}) / 1000))

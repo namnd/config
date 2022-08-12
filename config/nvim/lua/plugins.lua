@@ -57,7 +57,7 @@ return require('packer').startup(function(use)
 
   -- others
   use 'numToStr/Comment.nvim'
-  use 'tpope/vim-surround'
+  use 'kylechui/nvim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-endwise'
   use 'windwp/nvim-autopairs'

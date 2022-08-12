@@ -44,7 +44,8 @@ c.url.searchengines = {
         'r': 'https://www.reddit.com/search/?q={}',
         't': 'https://twitter.com/search?q={}',
         'y': 'https://www.youtube.com/results?search_query={}',
-        'vd': 'https://vdict.com/{},1,0,0.html'
+        'vd': 'https://vdict.com/{},1,0,0.html',
+        'n': 'https://search.nixos.org/packages?query={}',
         }
 config.bind('<Super-r>', 'reload')
 config.bind('<Super-w>', 'tab-close')

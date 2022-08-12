@@ -70,3 +70,4 @@ vim.g.symbols_outline = {
 
 require('nvim-autopairs').setup()
 require("fidget").setup()
+require("nvim-surround").setup()
