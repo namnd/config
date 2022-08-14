@@ -59,7 +59,7 @@ PROMPT="%(?..%F{red}%? )"                       # error code
 PROMPT="$PROMPT%F{240}%~%F{255}"                # cwd
 NEWLINE=$'\n'
 PROMPT="$PROMPT${NEWLINE}"
-PROMPT="$PROMPT%n $AWS_VAULT_PROMP%F{240}$ "    # username $
+PROMPT="$PROMPT%n %F{240}$ "                    # username $
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
 alias ls='ls --color=auto'
