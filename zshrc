@@ -9,9 +9,9 @@ setopt INTERACTIVE_COMMENTS
 
 export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=10000
-
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/zig
+export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
 
 function _is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
@@ -64,6 +64,7 @@ PROMPT="$PROMPT${NEWLINE}"
 PROMPT="$PROMPT%n %F{240}$ "                    # username $
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
+alias vim='nvim'
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias all='ls -al'
@@ -74,10 +75,6 @@ alias .5='cd ../../../../..'
 chpwd() { ll }                          # always list upon pwd changed
 mcd () { mkdir -p "$1" && cd "$1"; }    # make new dir and cd into it
 
-alias vim='nvim'
-alias tf='terraform'
-
-export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
@@ -114,12 +111,12 @@ _git_log() {
 
 # git aliases
 alias ga='git add --patch'
-alias gs='g status'
-alias gc='g checkout'
-alias gp='g pull'
-alias gP='g push'
-alias gd='g diff'
-alias gl='g log'
-alias gg='g graph'
+alias gs='git status'
+alias gc='git checkout'
+alias gp='git pull'
+alias gP='git push'
+alias gd='git diff'
+alias gl='git log'
+alias gg='git graph'
 alias gb='_git_branch'
 alias gL='_git_log'
