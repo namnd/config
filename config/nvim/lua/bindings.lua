@@ -23,6 +23,10 @@ vim.keymap.set('n', '<leader>1', ':Dispatch ', {noremap = true})
 vim.keymap.set('n', '<leader>2', ':ToggleQuickFix<cr> ', {noremap = true})
 vim.keymap.set('n', '<<', ':colder<cr>', {noremap = true})
 vim.keymap.set('n', '>>', ':cnewer<cr>', {noremap = true})
+-- folding - Using ufo provider need remap `zR` and `zM`
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+vim.keymap.set('n', '<Tab>', 'za', { noremap = true})
 
 -- telescope
 vim.keymap.set('n', '<space><space>', '<cmd>lua require("telescope.builtin").find_files()<cr>', {noremap = true})

@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-projectionist'
   use 'kshenoy/vim-signature'
   use 'tpope/vim-dispatch'
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
   -- telescope
   use {

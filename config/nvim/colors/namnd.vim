@@ -31,7 +31,7 @@ hi DiagnosticWarn ctermfg=DarkYellow
 hi DiagnosticFloatingError ctermfg=LightRed
 
 hi FoldColumn     ctermbg=Black      ctermfg=LightGrey
-hi Folded         ctermbg=DarkGrey   ctermfg=LightGrey
+hi Folded         ctermbg=Black
 
 hi DiffAdd        ctermbg=DarkGreen  ctermfg=fg
 hi DiffChange     ctermbg=Brown      ctermfg=fg
