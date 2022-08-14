@@ -3,54 +3,54 @@ let colors_name = "namnd"
 hi Normal         ctermfg=White      ctermbg=Black
 hi NonText        ctermfg=DarkGrey
 hi Constant       ctermfg=Grey
-hi Comment        ctermfg=DarkGrey   cterm=italic
-hi Todo           ctermfg=Yellow     cterm=bold     ctermbg=none
-hi WarningMsg     ctermfg=Red        cterm=bold     ctermbg=none
+hi Comment        ctermfg=DarkGrey                    cterm=italic
+hi Todo           ctermfg=Yellow     ctermbg=none     cterm=bold
+hi WarningMsg     ctermfg=Red        ctermbg=none     cterm=bold
 hi Type           ctermfg=LightGreen
 hi PreProc        ctermfg=LightBlue
 hi Keyword        ctermfg=Grey
 hi Operator       ctermfg=Grey
 
 hi Statement      ctermfg=Grey
-hi Identifier     cterm=none         ctermfg=LightBlue
+hi Identifier     ctermfg=LightBlue                   cterm=none
 hi Visual         ctermfg=bg         ctermbg=fg
 
-hi MatchParen     ctermbg=none       ctermfg=Magenta  cterm=bold
+hi MatchParen     ctermfg=Magenta    ctermbg=none     cterm=bold
 hi Special        ctermfg=DarkCyan
 hi Delimiter      ctermfg=DarkCyan
 
 hi LineNr         ctermfg=DarkGrey   ctermbg=Black
-hi CursorLineNr   cterm=none         ctermfg=White
-hi CursorLine     cterm=none
-hi SignColumn     ctermbg=Black
-hi ColorColumn    ctermbg=DarkGrey
-hi VertSplit      ctermbg=Grey       ctermfg=Black
+hi CursorLineNr   ctermfg=White                       cterm=none
+hi CursorLine                                         cterm=none
+hi SignColumn                        ctermbg=Black
+hi ColorColumn                       ctermbg=DarkGrey
+hi VertSplit      ctermfg=Black      ctermbg=Grey
 hi QuickFixLine   ctermfg=Magenta
 
-hi DiagnosticWarn ctermfg=DarkYellow
-hi DiagnosticFloatingError ctermfg=LightRed
+hi FoldColumn     ctermfg=LightGrey  ctermbg=Black
+hi Folded                            ctermbg=Black
 
-hi FoldColumn     ctermbg=Black      ctermfg=LightGrey
-hi Folded         ctermbg=Black
-
-hi DiffAdd        ctermbg=DarkGreen  ctermfg=fg
-hi DiffChange     ctermbg=Brown      ctermfg=fg
-hi DiffDelete     ctermbg=DarkRed    ctermfg=fg
+hi DiffAdd        ctermfg=fg         ctermbg=DarkGreen
+hi DiffChange     ctermfg=fg         ctermbg=Brown
+hi DiffDelete     ctermfg=fg         ctermbg=DarkRed
 
 hi GitSignsAdd    ctermfg=DarkGreen
 hi GitSignsChange ctermfg=Brown
 hi GitSignsDelete ctermfg=DarkRed
 
-hi TabLineFill    cterm=none         ctermbg=DarkGrey
-hi TabLineSel     cterm=none         ctermfg=White
-hi TabLine        cterm=none         ctermbg=DarkGrey ctermfg=Black
+hi TabLineFill                       ctermbg=DarkGrey  cterm=none
+hi TabLineSel     ctermfg=White                        cterm=none
+hi TabLine        ctermfg=Black      ctermbg=DarkGrey  cterm=none
 
-hi Pmenu          ctermfg=0          ctermbg=DarkGrey
+hi Pmenu          ctermfg=Black      ctermbg=DarkGrey
 hi Directory      ctermfg=Blue
 hi PmenuSel       ctermfg=Black      ctermbg=White
 
-hi StatusLine     term=bold,reverse  ctermbg=Grey ctermfg=Black cterm=none
-hi StatusLineNC   term=none          cterm=none   ctermfg=LightGrey
+hi StatusLine     ctermfg=Black      ctermbg=Grey      cterm=none  term=bold,reverse
+hi StatusLineNC   ctermfg=LightGrey                    cterm=none  term=none
+
+hi DiagnosticWarn ctermfg=DarkYellow
+hi DiagnosticFloatingError ctermfg=LightRed
 
 hi DapUIBreakpointsCurrentLine ctermfg=Green
 hi link DapUIBreakpointsLine DapUIBreakpointsCurrentLine
