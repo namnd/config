@@ -13,6 +13,10 @@ export SAVEHIST=10000
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/zig
 
+function _is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
+
 function preexec() {
   cmd_start=$(($(print -P %D{%s%6.}) / 1000))
   inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
@@ -42,9 +46,7 @@ function precmd() {
     unset cmd_time
   fi
 
-  if [ $inside_git_repo ]; then
-    vcs_info
-  fi
+  _is_in_git_repo && vcs_info
 }
 # prompt
 autoload -Uz vcs_info # make sure vcs_info function is available
