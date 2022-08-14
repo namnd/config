@@ -31,6 +31,5 @@ augroup Personal
   autocmd FileType yml,yaml setlocal foldmethod=indent
   autocmd FileType Outline set wrap!
   autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
-  autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 augroup END
 ]]
