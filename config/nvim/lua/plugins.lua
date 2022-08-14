@@ -12,7 +12,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-projectionist'
   use 'kshenoy/vim-signature'
   use 'tpope/vim-dispatch'
-  use 'simrat39/symbols-outline.nvim'
 
   -- telescope
   use {
