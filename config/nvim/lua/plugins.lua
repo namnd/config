@@ -65,5 +65,6 @@ return require('packer').startup(function(use)
   use { 'Julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
   use 'tpope/vim-obsession'
   use 'ojroques/vim-oscyank'
+  use 'AckslD/nvim-trevJ.lua'
 
 end)

@@ -9,7 +9,7 @@ vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { no
 vim.keymap.set("v", "<leader>rc", "y<esc>:%s/<C-r>+//gn<cr>", { noremap = true })
 vim.keymap.set("v", "<leader>rf", ':lua require("namnd.refactoring").extract_variable()<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>rf", ':%s/<C-r>a//gc<left><left><left>', { noremap = true })
-vim.keymap.set("n", "<leader>yy", ':let @+=expand("%")<CR>', {noremap = true})
+vim.keymap.set("n", "<leader>yy", ':let @+=expand("%")<cr>', {noremap = true})
 
 -- git
 vim.keymap.set('n', '<leader>gg', ':tab G<cr>', {noremap = true})
@@ -27,6 +27,8 @@ vim.keymap.set('n', '>>', ':cnewer<cr>', {noremap = true})
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 vim.keymap.set('n', '<Tab>', 'za', { noremap = true})
+-- reverse join
+vim.keymap.set("n", 'vs', ":lua require('trevj').format_at_cursor()<cr>", {noremap = true})
 
 -- telescope
 vim.keymap.set('n', '<space><space>', '<cmd>lua require("telescope.builtin").find_files()<cr>', {noremap = true})
@@ -36,14 +38,9 @@ vim.keymap.set('n', '<leader>e', '<cmd>lua require("telescope.builtin").buffers(
 vim.keymap.set('n', '<C-p>', '<cmd>lua require("telescope.builtin").grep_string()<cr>', {noremap = true})
 
 -- debug
-vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<CR>")
-vim.keymap.set("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-vim.keymap.set("n", "<leader>bl", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
-vim.keymap.set("n", "<leader>ds", ":lua require'dap'.continue()<CR>")
-vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
-vim.keymap.set("n", "<leader>dc", ":lua require'dap'.clear_breakpoints()<CR>")
-
-local opts = {noremap = true, silent = true}
-
-vim.keymap.set("n", 'vs', "T(i<cr><esc>b%i<cr><esc>vi(:s/,/,\\r/g<cr>A,<esc>:noh<cr>:w<cr>", opts)
-vim.keymap.set("n", 'vS', "vi(:s/,\\n/,/g<cr>kJt)x:noh<cr>:w<cr>", opts)
+vim.keymap.set("n", "<leader>bb", ":lua require'dap'.toggle_breakpoint()<cr>")
+vim.keymap.set("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
+vim.keymap.set("n", "<leader>bl", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>")
+vim.keymap.set("n", "<leader>ds", ":lua require'dap'.continue()<cr>")
+vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
+vim.keymap.set("n", "<leader>dc", ":lua require'dap'.clear_breakpoints()<cr>")
