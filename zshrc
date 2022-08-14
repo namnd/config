@@ -74,26 +74,14 @@ alias .5='cd ../../../../..'
 chpwd() { ll }                          # always list upon pwd changed
 mcd () { mkdir -p "$1" && cd "$1"; }    # make new dir and cd into it
 
-# vim
 alias vim='nvim'
-
-# git aliases
-alias g='git'
-alias ga='git add --patch'
-alias gs='g status'
-alias gc='g checkout'
-alias gp='g pull'
-alias gd='g diff'
-alias gl='g log'
-alias gg='g graph'
-
 alias tf='terraform'
 
+export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse'
 
 _fzf_comprun() {
   local command=$1
@@ -101,8 +89,37 @@ _fzf_comprun() {
 
   case "$command" in
     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    export|unset) fzf "$@" --preview "eval 'echo \$'{}" ;;
-    v|vi|vim)     fzf "$@" --preview "cat {}" --bind "?:toggle-preview" ;;
+    vim)          fzf "$@" --preview "cat {}" ;;
     *)            fzf "$@" ;;
   esac
 }
+
+_git_branch() {
+  _is_in_git_repo || return
+  git branch -a --color=always | grep -v '/HEAD\s' | sort |
+  fzf --ansi --multi --tac --preview-window right:70% \
+    --preview 'git log --color=always $(sed s/^..// <<< {} | cut -d" " -f1)' |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##'
+}
+
+_git_log() {
+  _is_in_git_repo || return
+  git log --color=always |
+  fzf --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+    --header 'Press CTRL-S to toggle sort' \
+    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always' |
+  grep -o "[a-f0-9]\{7,\}"
+}
+
+# git aliases
+alias ga='git add --patch'
+alias gs='g status'
+alias gc='g checkout'
+alias gp='g pull'
+alias gP='g push'
+alias gd='g diff'
+alias gl='g log'
+alias gg='g graph'
+alias gb='_git_branch'
+alias gL='_git_log'
