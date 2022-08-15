@@ -22,6 +22,10 @@ let s:lightGreen = { 'cterm': 'LightGreen', 'gui': '#87FFAF' }
 let s:lightBlue = { 'cterm': 'LightBlue', 'gui': '#60D7FF' }
 let s:darkCyan = { 'cterm': 'DarkCyan', 'gui': '#0DCDCD' }
 let s:blue = { 'cterm': 'Blue', 'gui': '#1A8FFF' }
+let s:darkGreen = { 'cterm': 'DarkGreen', 'gui': '#1C4428' }
+let s:brown = { 'cterm': 'Brown', 'gui': '#AF5F00' }
+let s:darkRed = { 'cterm': 'DarkRed', 'gui': '#542426' }
+let s:darkYellow = { 'cterm': 'DarkYellow', 'gui': 'DarkYellow' }
 
 
 call <sid>hi('Normal', s:white, s:black, 'none')
@@ -29,7 +33,7 @@ call <sid>hi('Visual', s:black, s:white, 'none')
 call <sid>hi('CursorLine', {}, s:black, 'none')
 call <sid>hi('CursorLineNr', s:white, {}, 'none')
 call <sid>hi('SignColumn', {}, s:black, 'none')
-call <sid>hi('Folded', {}, { 'cterm': 'Black', 'gui': '#222222'}, 'none')
+call <sid>hi('Folded', {}, {'cterm': 'Black', 'gui': '#222222'}, 'none')
 
 call <sid>hi('TabLineSel', s:white, {}, 'none')
 call <sid>hi('TabLineFill', {}, s:darkGrey, 'none')
@@ -56,19 +60,18 @@ call <sid>hi('Special', s:darkCyan, {}, 'none')
 call <sid>hi('Delimiter', s:darkCyan, {}, 'none')
 call <sid>hi('Directory', s:blue, {}, 'none')
 
-hi Todo           ctermfg=Yellow     ctermbg=none       guifg=Yellow                    cterm=bold  gui=bold
-hi WarningMsg     ctermfg=Red        ctermbg=none       guifg=Red                       cterm=bold  gui=bold
+call <sid>hi('DiffAdd', s:white, s:darkGreen, 'none')
+call <sid>hi('DiffChange', s:white, {'cterm': 'DarkGreen', 'gui': '#12261E'}, 'none')
+call <sid>hi('DiffDelete', s:lightGrey, s:darkRed, 'none')
+call <sid>hi('DiffText', s:white, s:brown, 'none')
+call <sid>hi('GitSignsAdd', s:darkGreen, {}, 'bold')
+call <sid>hi('GitSignsChange', s:brown, {}, 'bold')
+call <sid>hi('GitSignsDelete', s:darkRed, {}, 'bold')
+call <sid>hi('Todo', s:black, s:darkYellow, 'bold')
+call <sid>hi('WarningMsg', s:darkRed, s:black, 'bold')
 
 hi MatchParen     ctermfg=Magenta    ctermbg=none       guifg=Magenta   guibg=none      cterm=bold  gui=bold
 hi QuickFixLine   ctermfg=Magenta                       guifg=Magenta
-
-hi DiffAdd        ctermfg=fg         ctermbg=DarkGreen  guifg=fg        guibg=DarkGreen
-hi DiffChange     ctermfg=fg         ctermbg=Brown      guifg=fg        guibg=Brown
-hi DiffDelete     ctermfg=fg         ctermbg=DarkRed    guifg=fg        guibg=DarkRed
-
-hi GitSignsAdd    ctermfg=DarkGreen                     guifg=DarkGreen
-hi GitSignsChange ctermfg=Brown                         guifg=Brown
-hi GitSignsDelete ctermfg=DarkRed                       guifg=DarkRed
 
 hi DiagnosticWarn ctermfg=DarkYellow guifg=DarkYellow
 hi DiagnosticFloatingError ctermfg=LightRed guifg=LightRed
@@ -91,7 +94,7 @@ hi DapUIWatchesValue ctermfg=Green
 hi DapUIWatchesError ctermfg=Red
 hi DapBreakpoint ctermfg=3 guifg=Yellow
 hi DapStoppedText ctermfg=2 guifg=DarkGreen
-hi DapStoppedLine ctermbg=2 ctermfg=0 guifg=Black guibg=DarkGreen
+hi DaapStoppedLine ctermbg=2 ctermfg=0 guifg=Black guibg=DarkGreen
 hi DapBreakpointRejected ctermfg=1 guifg=DarkBlue
 
 augroup BgStatusLine
@@ -100,4 +103,9 @@ augroup BgStatusLine
   au InsertLeave * hi StatusLine ctermbg=Grey guibg=#A8A8A8
 augroup END
 
-unlet s:black s:white s:darkGrey s:grey s:lightGrey s:lightGreen s:lightBlue s:darkCyan s:blue
+" Remove functions
+delf <sid>hi
+
+" Remove color variables
+unlet s:black s:white s:darkGrey s:grey s:lightGrey 
+unlet s:lightGreen s:lightBlue s:darkCyan s:blue s:darkGreen s:brown s:darkRed
