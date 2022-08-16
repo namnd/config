@@ -64,6 +64,7 @@ PROMPT="$PROMPT${NEWLINE}"
 PROMPT="$PROMPT%n %F{240}$ "                    # username $
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
+alias cat='bat'
 alias vim='nvim'
 alias ls='ls --color=auto'
 alias ll='ls -l'
@@ -86,7 +87,7 @@ _fzf_comprun() {
 
   case "$command" in
     cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    vim)          fzf "$@" --preview "cat {}" ;;
+    vim)          fzf "$@" --preview "bat --color=always {}" ;;
     *)            fzf "$@" ;;
   esac
 }
