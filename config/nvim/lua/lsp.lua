@@ -98,6 +98,14 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
     return newVirtText
 end
 
+local ftMap = {
+  yml = 'indent',
+  go = 'lsp',
+  git = '',
+}
 require('ufo').setup({
   fold_virt_text_handler = handler,
+  provider_selector = function (_, filetype, _)
+    return ftMap[filetype]
+  end
 })
