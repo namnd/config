@@ -15,18 +15,20 @@ endfun
 
 let s:white = { 'cterm': 'White', 'gui': '#FFFFFF' }
 let s:black = { 'cterm': 'Black', 'gui': '#000000' }
-let s:darkGrey = { 'cterm': 'DarkGrey', 'gui': '#6C6C6C' }
 let s:grey = { 'cterm': 'Grey', 'gui': '#A8A8A8' }
 let s:lightGrey = { 'cterm': 'LightGrey', 'gui': '#DDDDDD' }
-let s:lightGreen = { 'cterm': 'LightGreen', 'gui': '#87FFAF' }
-let s:lightBlue = { 'cterm': 'LightBlue', 'gui': '#60D7FF' }
-let s:darkCyan = { 'cterm': 'DarkCyan', 'gui': '#0DCDCD' }
-let s:blue = { 'cterm': 'Blue', 'gui': '#1A8FFF' }
+let s:darkGrey = { 'cterm': 'DarkGrey', 'gui': '#6C6C6C' }
+let s:green = { 'cterm': 'Green', 'gui': 'Green' }
 let s:darkGreen = { 'cterm': 'DarkGreen', 'gui': '#1C4428' }
-let s:brown = { 'cterm': 'Brown', 'gui': '#AF5F00' }
+let s:lightGreen = { 'cterm': 'LightGreen', 'gui': '#87FFAF' }
+let s:blue = { 'cterm': 'Blue', 'gui': '#1A8FFF' }
+let s:darkCyan = { 'cterm': 'DarkCyan', 'gui': '#0DCDCD' }
+let s:red = { 'cterm': 'Red', 'gui': 'Red' }
 let s:darkRed = { 'cterm': 'DarkRed', 'gui': '#542426' }
 let s:darkYellow = { 'cterm': 'DarkYellow', 'gui': 'DarkYellow' }
-
+let s:brown = { 'cterm': 'Brown', 'gui': '#AF5F00' }
+let s:magenta = { 'cterm': 'Magenta', 'gui': 'Magenta' }
+let s:lightBlue = { 'cterm': 'LightBlue', 'gui': '#60D7FF' }
 
 call <sid>hi('Normal', s:white, s:black, 'none')
 call <sid>hi('Visual', s:black, s:white, 'none')
@@ -70,32 +72,34 @@ call <sid>hi('GitSignsDelete', s:darkRed, {}, 'bold')
 call <sid>hi('Todo', s:black, s:darkYellow, 'bold')
 call <sid>hi('WarningMsg', s:darkRed, s:black, 'bold')
 
-hi MatchParen     ctermfg=Magenta    ctermbg=none       guifg=Magenta   guibg=none      cterm=bold  gui=bold
-hi QuickFixLine   ctermfg=Magenta                       guifg=Magenta
+call <sid>hi('MatchParen', s:magenta, {}, 'bold')
+call <sid>hi('QuickFixLine', s:magenta, {}, 'none')
 
-hi DiagnosticWarn ctermfg=DarkYellow guifg=DarkYellow
-hi DiagnosticFloatingError ctermfg=LightRed guifg=LightRed
+call <sid>hi('DiagnosticWarn', s:darkYellow, {}, 'none')
+call <sid>hi('DiagnosticHint', s:darkGrey, {}, 'none')
+call <sid>hi('DiagnosticFloatingError', s:white, {}, 'none')
+call <sid>hi('DiagnosticFloatingHint', s:white, {}, 'none')
 
-hi DapUIBreakpointsCurrentLine ctermfg=Green guifg=Green
-hi link DapUIBreakpointsLine DapUIBreakpointsCurrentLine
-hi DapUIBreakpointsPath ctermfg=Yellow guifg=Yellow
-hi DapUIDecoration ctermfg=Green guifg=Green
-hi DapUILineNumber ctermfg=DarkGrey guifg=#6C6C6C
-hi DapUIModifiedValue ctermfg=Yellow guifg=Yellow
-hi DapUIScope ctermfg=Blue guifg=#1A8FFF
-hi DapUISource ctermfg=Yellow guifg=Yellow
-hi DapUIStoppedThread ctermfg=Blue guifg=#1A8FFF
-hi DapUIThread ctermfg=Blue guifg=#1A8FFF
-hi DapUIType ctermfg=DarkGrey guifg=#6C6C6C
-hi DapUIValue ctermfg=DarkGrey guifg=#6C6C6C
-hi DapUIWatchesHeader ctermfg=Blue guifg=#1A8FFF
-hi DapUIWatchesEmpty ctermfg=DarkGrey guifg=#6C6C6C
-hi DapUIWatchesValue ctermfg=Green 
-hi DapUIWatchesError ctermfg=Red
-hi DapBreakpoint ctermfg=3 guifg=Yellow
-hi DapStoppedText ctermfg=2 guifg=DarkGreen
-hi DaapStoppedLine ctermbg=2 ctermfg=0 guifg=Black guibg=DarkGreen
-hi DapBreakpointRejected ctermfg=1 guifg=DarkBlue
+call <sid>hi('DapBreakpoint', s:darkYellow, {}, 'none')
+call <sid>hi('DapStoppedText', s:green, {}, 'none')
+call <sid>hi('DapStoppedLine', s:white, s:green, 'none')
+call <sid>hi('DapBreakpointRejected', s:red, {}, 'none')
+call <sid>hi('DapUIType', s:darkGrey, {}, 'none')
+call <sid>hi('DapUIValue', s:darkGrey, {}, 'none')
+call <sid>hi('DapUILineNumber', s:darkGrey, {}, 'none')
+call <sid>hi('DapUIWatchesEmpty', s:darkGrey, {}, 'none')
+call <sid>hi('DapUIWatchesHeader', s:blue, {}, 'none')
+call <sid>hi('DapUIWatchesValue', s:green, {}, 'none')
+call <sid>hi('DapUIWatchesError', s:red, {}, 'none')
+call <sid>hi('DapUIScope', s:blue, {}, 'none')
+call <sid>hi('DapUIThread', s:blue, {}, 'none')
+call <sid>hi('DapUIStoppedThread', s:blue, {}, 'none')
+call <sid>hi('DapUISource', s:darkYellow, {}, 'none')
+call <sid>hi('DapUIModifiedValue', s:darkYellow, {}, 'none')
+call <sid>hi('DapUIBreakpointsPath', s:darkYellow, {}, 'none')
+call <sid>hi('DapUIDecoration', s:green, {}, 'none')
+call <sid>hi('DapUIBreakpointsLine', s:green, {}, 'none')
+call <sid>hi('DapUIBreakpointsCurrentLine', s:green, {}, 'none')
 
 augroup BgStatusLine
   autocmd!
@@ -107,5 +111,5 @@ augroup END
 delf <sid>hi
 
 " Remove color variables
-unlet s:black s:white s:darkGrey s:grey s:lightGrey 
-unlet s:lightGreen s:lightBlue s:darkCyan s:blue s:darkGreen s:brown s:darkRed
+unlet s:white s:black s:grey s:lightGrey s:darkGrey s:green s:darkGreen s:lightGreen
+unlet s:blue s:darkCyan s:red s:darkRed s:darkYellow s:brown s:magenta s:lightBlue
