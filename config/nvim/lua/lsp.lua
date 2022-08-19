@@ -1,6 +1,6 @@
 local nvim_lsp = require('lspconfig')
 local on_attach = function(_, bufnr)
-  local opts = { noremap=true, silent=true, buffer = bufnr }
+  local opts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
   vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
   vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
@@ -21,7 +21,7 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true
 }
 
-local servers = {'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright'}
+local servers = { 'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -29,10 +29,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-nvim_lsp.gopls.setup{
-  on_attach=on_attach,
+nvim_lsp.gopls.setup({
+  on_attach = on_attach,
   capabilities = capabilities,
-  cmd = {"gopls", "serve"},
+  cmd = { "gopls", "serve" },
   settings = {
     gopls = {
       analyses = {
@@ -41,7 +41,7 @@ nvim_lsp.gopls.setup{
       staticcheck = true,
     },
   },
-}
+})
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
@@ -56,7 +56,7 @@ nvim_lsp.sumneko_lua.setup({
         path = runtime_path,
       },
       diagnostics = {
-        globals = {'vim', 'hs'}
+        globals = { 'vim', 'hs' }
       },
       workspace = {
         library = library,
@@ -71,31 +71,31 @@ nvim_lsp.sumneko_lua.setup({
 })
 
 local handler = function(virtText, lnum, endLnum, width, truncate)
-    local newVirtText = {}
-    local suffix = (' ... %d'):format(endLnum - lnum)
-    local sufWidth = vim.fn.strdisplaywidth(suffix)
-    local targetWidth = width - sufWidth
-    local curWidth = 0
-    for _, chunk in ipairs(virtText) do
-        local chunkText = chunk[1]
-        local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-        if targetWidth > curWidth + chunkWidth then
-            table.insert(newVirtText, chunk)
-        else
-            chunkText = truncate(chunkText, targetWidth - curWidth)
-            local hlGroup = chunk[2]
-            table.insert(newVirtText, {chunkText, hlGroup})
-            chunkWidth = vim.fn.strdisplaywidth(chunkText)
-            -- str width returned from truncate() may less than 2nd argument, need padding
-            if curWidth + chunkWidth < targetWidth then
-                suffix = suffix .. (' '):rep(targetWidth.toInt() - curWidth - chunkWidth)
-            end
-            break
-        end
-        curWidth = curWidth + chunkWidth
+  local newVirtText = {}
+  local suffix = (' ... %d'):format(endLnum - lnum)
+  local sufWidth = vim.fn.strdisplaywidth(suffix)
+  local targetWidth = width - sufWidth
+  local curWidth = 0
+  for _, chunk in ipairs(virtText) do
+    local chunkText = chunk[1]
+    local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+    if targetWidth > curWidth + chunkWidth then
+      table.insert(newVirtText, chunk)
+    else
+      chunkText = truncate(chunkText, targetWidth - curWidth)
+      local hlGroup = chunk[2]
+      table.insert(newVirtText, { chunkText, hlGroup })
+      chunkWidth = vim.fn.strdisplaywidth(chunkText)
+      -- str width returned from truncate() may less than 2nd argument, need padding
+      if curWidth + chunkWidth < targetWidth then
+        suffix = suffix .. (' '):rep(targetWidth.toInt() - curWidth - chunkWidth)
+      end
+      break
     end
-    table.insert(newVirtText, {suffix, 'MoreMsg'})
-    return newVirtText
+    curWidth = curWidth + chunkWidth
+  end
+  table.insert(newVirtText, { suffix, 'MoreMsg' })
+  return newVirtText
 end
 
 local ftMap = {
@@ -105,7 +105,7 @@ local ftMap = {
 }
 require('ufo').setup({
   fold_virt_text_handler = handler,
-  provider_selector = function (_, filetype, _)
+  provider_selector = function(_, filetype, _)
     return ftMap[filetype]
   end
 })
