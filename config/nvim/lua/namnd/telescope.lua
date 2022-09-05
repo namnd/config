@@ -38,6 +38,9 @@ require('telescope').setup({
         },
       },
     },
+    recent_files = {
+      only_cwd = true,
+    },
   },
   pickers = {
     find_files = {
@@ -47,3 +50,4 @@ require('telescope').setup({
 })
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('live_grep_args')
+require("telescope").load_extension('recent_files')
