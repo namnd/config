@@ -1,0 +1,32 @@
+#!/bin/sh
+
+alias ls='ls --color=auto'
+
+alias ll='ls -l'
+alias all='ls -al'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+chpwd() { ll }                          # always list upon pwd changed
+mcd () { mkdir -p "$1" && cd "$1"; }    # make new dir and cd into it
+
+# git aliases
+alias gs='git status'
+alias gc='git checkout'
+alias gp='git pull'
+alias gd='git diff'
+alias gb='git branch'
+alias gl='git log'
+
+alias ns='node-switch.sh'
+
+alias ta='tmux attach'
+alias tat='tmux attach -t'
+alias tl='tmux ls'
+alias tn='tmux new -s'
+
+alias dps='docker ps'
+alias dpa='docker ps -a'
+alias dcd='docker-compose down'
+alias dcu='docker-compose up -d --build'
