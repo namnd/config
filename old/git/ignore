@@ -1,9 +1,0 @@
-.DS_Store
-*.pyc
-__pycache__
-.idea
-.coverage
-tags
-**/.netrwhist
-*.swp
-.python-version
