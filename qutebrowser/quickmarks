@@ -1,5 +1,6 @@
 g https://gmail.com
-j https://indebted.atlassian.net/jira/software/c/projects/RD/boards/50
+j https://indebted.atlassian.net/jira/software/c/projects/RD/boards/36
+b https://buildkite.com/indebted
 z https://zing.vn
 v https://vnexpress.net
 n https://search.nixos.org/packages
