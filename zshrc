@@ -77,7 +77,6 @@ chpwd() { ll }                          # always list upon pwd changed
 mcd () { mkdir -p "$1" && cd "$1"; }    # make new dir and cd into it
 
 if [ -n "${commands[fzf-share]}" ]; then
-  source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
 
