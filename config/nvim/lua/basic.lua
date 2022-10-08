@@ -6,7 +6,7 @@ vim.wo.list = true
 vim.o.listchars = 'tab:| ,trail:·,eol:↵'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.shortmess = vim.o.shortmess .. 'c'
-vim.o.wildmode= 'longest:full,full'
+vim.o.wildmode = 'longest:full,full'
 
 vim.o.tabstop = 2
 vim.o.softtabstop = 2

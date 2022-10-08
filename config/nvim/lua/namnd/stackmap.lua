@@ -13,7 +13,7 @@ end
 
 M._stack = {}
 
-M.push = function (name, mappings)
+M.push = function(name, mappings)
   local before = {}
   -- back up the before mappings
   for lhs in pairs(mappings) do
@@ -35,7 +35,7 @@ M.push = function (name, mappings)
   }
 end
 
-M.pop = function (name)
+M.pop = function(name)
   local state = M._stack[name]
   M._stack[name] = nil
 

@@ -12,14 +12,14 @@ return require('packer').startup(function(use)
   use 'tpope/vim-projectionist'
   use 'kshenoy/vim-signature'
   use 'tpope/vim-dispatch'
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
   -- telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope-live-grep-args.nvim' }
   use 'smartpde/telescope-recent-files'
 
@@ -70,5 +70,4 @@ return require('packer').startup(function(use)
   use 'dhruvasagar/vim-prosession'
   use 'ojroques/vim-oscyank'
   use 'AckslD/nvim-trevJ.lua'
-
 end)

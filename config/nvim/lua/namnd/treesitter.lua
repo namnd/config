@@ -1,4 +1,4 @@
-require('nvim-treesitter.configs').setup ({
+require('nvim-treesitter.configs').setup({
   highlight = { enable = true },
   indent = {
     enable = true,
@@ -18,7 +18,7 @@ require('nvim-treesitter.configs').setup ({
   },
   textobjects = {
     select = {
-      enable =  true,
+      enable = true,
       lookahead = true,
       keymaps = {
         ["if"] = "@function.inner",

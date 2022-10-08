@@ -1,4 +1,4 @@
-P = function (x)
+P = function(x)
   print(vim.inspect(x))
 end
 
