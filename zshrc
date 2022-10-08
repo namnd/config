@@ -7,6 +7,9 @@ setopt HIST_FIND_NO_DUPS                # ignore duplicate when searching
 setopt HIST_REDUCE_BLANKS               # remove blank lines from histody
 setopt INTERACTIVE_COMMENTS
 
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=10000
 export PATH=$PATH:$HOME/go/bin
