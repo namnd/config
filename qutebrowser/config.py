@@ -38,8 +38,7 @@ c.colors.completion.scrollbar.fg = '#333333'
 c.colors.contextmenu.menu.bg = '#444444'
 config.set('fonts.web.size.minimum', 18, '*://*.github.com')
 c.url.searchengines = {
-        'DEFAULT': 'https://duckduckgo.com/?q={}',
-        'g': 'https://google.com/search?q={}',
+        'DEFAULT': 'https://google.com/search?q={}',
         'gh': 'https://github.com/search?q={}',
         'r': 'https://www.reddit.com/search/?q={}',
         't': 'https://twitter.com/search?q={}',
