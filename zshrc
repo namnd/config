@@ -12,6 +12,7 @@ bindkey "^[[1;3D" backward-word
 
 export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=10000
+export HISTSIZE=10000
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/zig
 export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
