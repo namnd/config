@@ -31,5 +31,7 @@ augroup Personal
   autocmd FileType yml,yaml setlocal foldmethod=indent
   autocmd FileType Outline set wrap!
   autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
+  autocmd BufNewFile,BufRead *.tfvars set filetype=terraform
+  autocmd BufNewFile,BufRead *.hujson set filetype=json
 augroup END
 ]]
