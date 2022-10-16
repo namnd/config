@@ -10,6 +10,26 @@ for k,v in pairs(apps) do
   hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
 end
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
+hs.hotkey.bind(modifier, "s", function()
+  local screen = hs.screen'mi'
+  if screen:name() == "Mi Monitor" then
+    hs.grid.setGrid(hs.geometry.size(2,2), screen)
+
+    local allWindows = hs.window.allWindows()
+    local terminal, browser
+    for _, win in pairs(allWindows) do
+      local winName = win:application():name()
+      if winName == "kitty" then
+        terminal = win
+      end
+      if winName == "qutebrowser" then
+        browser = win
+      end
+    end
+    hs.grid.pushWindowLeft(browser)
+    hs.grid.pushWindowRight(terminal)
+  end
+end)
 
 -- Install spoons
 hs.loadSpoon("SpoonInstall")
