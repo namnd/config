@@ -10,10 +10,12 @@ for k,v in pairs(apps) do
   hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
 end
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
+
+local direction = true
 hs.hotkey.bind(modifier, "s", function()
   local screen = hs.screen'mi'
   if screen:name() == "Mi Monitor" then
-    hs.grid.setGrid(hs.geometry.size(2,2), screen)
+    hs.grid.setGrid(hs.geometry.size(2,1), screen)
 
     local allWindows = hs.window.allWindows()
     local terminal, browser
@@ -26,8 +28,15 @@ hs.hotkey.bind(modifier, "s", function()
         browser = win
       end
     end
-    hs.grid.pushWindowLeft(browser)
-    hs.grid.pushWindowRight(terminal)
+    if direction then
+      hs.grid.pushWindowLeft(browser)
+      hs.grid.pushWindowRight(terminal)
+      direction = false
+    else
+      hs.grid.pushWindowLeft(terminal)
+      hs.grid.pushWindowRight(browser)
+      direction = true
+    end
   end
 end)
 
