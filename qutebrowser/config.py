@@ -1,4 +1,4 @@
-config.load_autoconfig(True)
+config.load_autoconfig(False)
 
 # Default settings
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
@@ -36,7 +36,9 @@ c.colors.completion.match.fg = '#ff4444'
 c.colors.completion.scrollbar.bg = 'black'
 c.colors.completion.scrollbar.fg = '#333333'
 c.colors.contextmenu.menu.bg = '#444444'
+c.tabs.position = "left"
 config.set('fonts.web.size.minimum', 18, '*://*.github.com')
+c.url.start_pages = ['https://google.com']
 c.url.searchengines = {
         'DEFAULT': 'https://google.com/search?q={}',
         'gh': 'https://github.com/search?q={}',
@@ -62,6 +64,7 @@ config.bind('<Super-6>', 'tab-focus 6')
 config.bind('<Super-7>', 'tab-focus 7')
 config.bind('<Super-8>', 'tab-focus 8')
 config.bind('<Super-9>', 'tab-focus 9')
+config.bind('<Ctrl-r>', 'history -t')
 config.bind('<Ctrl-u>', 'fake-key <Ctrl-Backspace>', mode='insert')
 config.bind('<Ctrl-w>', 'fake-key <Alt-Backspace>', mode='insert')
 config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
