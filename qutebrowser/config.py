@@ -13,6 +13,7 @@ config.set('content.javascript.enabled', True, 'chrome-devtools://*')
 config.set('content.javascript.enabled', True, 'devtools://*')
 config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
+config.set('content.javascript.can_access_clipboard', True)
 
 # Customized
 c.fonts.default_family = ['NanumGothicCoding']
