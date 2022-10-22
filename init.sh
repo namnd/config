@@ -3,14 +3,21 @@
 apps=(
   "gitconfig"
   "gitignore"
-  "hammerspoon"
-  "qutebrowser"
 )
 config=(
-  "karabiner"
-  "kitty"
   "nvim"
 )
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  apps+=(
+    "hammerspoon"
+    "qutebrowser"
+  ) 
+  config+=(
+    "karabiner"
+    "kitty"
+  )
+fi
 
 for app in ${apps[*]}
 do
