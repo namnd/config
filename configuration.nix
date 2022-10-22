@@ -22,7 +22,7 @@
     xkbVariant = "";
   };
 
-  users.users.namnd = {
+  users.users.namnguyen = {
     isNormalUser = true;
     description = "Nam Nguyen";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
