@@ -36,6 +36,7 @@
 
   environment.systemPackages = with pkgs; [
     git
+    gnumake
     vim
   ];
   services.openssh.enable = true;
