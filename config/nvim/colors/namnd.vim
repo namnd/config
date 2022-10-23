@@ -54,6 +54,8 @@ call <sid>hi('Operator', s:grey, {}, 'none')
 call <sid>hi('Statement', s:grey, {}, 'none')
 call <sid>hi('StatusLine', s:black, s:grey, 'none')
 call <sid>hi('StatusLineNC', s:lightGrey, {}, 'none')
+call <sid>hi('WinBar', s:lightGrey, s:black, 'none')
+call <sid>hi('WinBarNC', s:darkGrey, s:black, 'none')
 
 call <sid>hi('Type', s:lightGreen, {}, 'none')
 call <sid>hi('PreProc', s:lightBlue, {}, 'none')

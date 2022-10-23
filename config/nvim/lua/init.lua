@@ -14,6 +14,7 @@ vim.cmd [[
 colorscheme namnd
 set undodir=~/.vim/undodir undofile
 set noswapfile nobackup nowritebackup
+set winbar=%f
 set laststatus=2
 set statusline=\%n%m\ %t\ %r%y
 set statusline+=%{FugitiveStatusline()}%{get(b:,'gitsigns_status','')}
