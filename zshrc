@@ -26,8 +26,10 @@ function preexec() {
   inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 }
 
+hostname=$(cat /etc/hostname)
+
 function precmd() {
-  print -Pn "\e]0;%1d(%M)\a"
+  print -Pn "\e]0;%1d($hostname)\a"
   if [ $cmd_start ]; then
     local now=$(($(print -P %D{%s%6.}) / 1000))
     local d_ms=$(($now - $cmd_start))
@@ -65,7 +67,7 @@ PROMPT="%(?..%F{red}%? )"                       # error code
 PROMPT="$PROMPT%F{240}%~%F{255}"                # cwd
 NEWLINE=$'\n'
 PROMPT="$PROMPT${NEWLINE}"
-PROMPT="$PROMPT%n%F{240}@%M$ "                  # username@hostname$
+PROMPT="$PROMPT%n%F{240}@${hostname}$ "         # username@hostname$
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
 alias cat='bat'
