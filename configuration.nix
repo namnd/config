@@ -38,6 +38,7 @@
     git
     gnumake
     vim
+    xclip
   ];
   services.openssh.enable = true;
 
