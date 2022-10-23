@@ -46,3 +46,6 @@ vim.keymap.set("n", "<leader>bl", ":lua require'dap'.set_breakpoint(nil, nil, vi
 vim.keymap.set("n", "<leader>ds", ":lua require'dap'.continue()<cr>")
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
 vim.keymap.set("n", "<leader>dc", ":lua require'dap'.clear_breakpoints()<cr>")
+
+-- lsp
+vim.keymap.set('n', '<leader>ff', '<cmd>lua vim.lsp.buf.format()<cr>', { noremap = true, silent = true })
