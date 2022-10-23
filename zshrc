@@ -27,7 +27,7 @@ function preexec() {
 }
 
 function precmd() {
-  print -Pn "\e]0;%1d\a"
+  print -Pn "\e]0;%1d(%M)\a"
   if [ $cmd_start ]; then
     local now=$(($(print -P %D{%s%6.}) / 1000))
     local d_ms=$(($now - $cmd_start))
@@ -65,7 +65,7 @@ PROMPT="%(?..%F{red}%? )"                       # error code
 PROMPT="$PROMPT%F{240}%~%F{255}"                # cwd
 NEWLINE=$'\n'
 PROMPT="$PROMPT${NEWLINE}"
-PROMPT="$PROMPT%n %F{240}$ "                    # username $
+PROMPT="$PROMPT%n%F{240}@%M$ "                  # username@hostname$
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
 alias cat='bat'
