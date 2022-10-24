@@ -5,23 +5,21 @@ in
 {
   # Your custom configuration
   home.packages = with pkgs; [
-    # Neovim
+    # Nix LSP
+    rnix-lsp
+
+    # Neovim related
     unstable.neovim
     trash-cli
     cht-sh
+    lemonade # remote clipboard over TCP
 
-    delve
-    gopls
-    rnix-lsp
-    sumneko-lua-language-server
-    zls
-
+    # Other CLI tools
     bat
     difftastic
     fd
     fzf
     tldr
     tree
-    lemonade # remote clipboard over TCP
   ];
 }

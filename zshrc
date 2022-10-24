@@ -13,8 +13,7 @@ bindkey "^[[1;3D" backward-word
 export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=10000
 export HISTSIZE=10000
-export PATH=$PATH:$HOME/go/bin
-export PATH=$PATH:$HOME/zig
+export PATH=$PATH:$HOME/.local/bin
 export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
 
 function _is_in_git_repo() {
