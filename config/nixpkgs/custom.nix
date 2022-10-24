@@ -22,5 +22,6 @@ in
     fzf
     tldr
     tree
+    lemonade # remote clipboard over TCP
   ];
 }
