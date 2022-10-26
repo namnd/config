@@ -1,0 +1,2 @@
+NIXUSER = namnguyen
+SSH_KEY = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKqsFOesSlXn6hnDo/zVO4znA/vpd7oXdnu9qcEb3xHf
