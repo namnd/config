@@ -54,7 +54,6 @@ bootstrap:
 		sh /etc/nixos/build.sh $(NIXUSER) $(SSH_KEY); \
 		"
 	$(MAKE) secrets
-	$(MAKE) switch
 
 # copy our secrets into the VM
 secrets:
