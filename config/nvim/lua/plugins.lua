@@ -66,7 +66,6 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-abolish'
   use { 'Julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
-  use 'tpope/vim-obsession'
-  use 'dhruvasagar/vim-prosession'
+  use 'rmagatti/auto-session'
   use 'AckslD/nvim-trevJ.lua'
 end)
