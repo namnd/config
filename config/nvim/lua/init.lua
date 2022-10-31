@@ -17,7 +17,7 @@ set noswapfile nobackup nowritebackup
 set laststatus=2
 set statusline=\%n%m\ %t\ %r%y
 set statusline+=%{FugitiveStatusline()}%{get(b:,'gitsigns_status','')}
-set statusline+=%=%w%l,%-10.c%L
+set statusline+=%=\ %{ObsessionStatus('(S)','')}\ %w%l,%-10.c%L
 
 let g:dirvish_mode=':sort ,^.*[\/],'
 

@@ -10,6 +10,7 @@ vim.keymap.set("v", "<leader>rc", "y<esc>:%s/<C-r>+//gn<cr>", { noremap = true }
 vim.keymap.set("v", "<leader>rf", ':lua require("namnd.refactoring").extract_variable()<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>rf", ':%s/<C-r>a//gc<left><left><left>', { noremap = true })
 vim.keymap.set("n", "<leader>yy", ':let @+=expand("%")<cr>', { noremap = true })
+vim.keymap.set("n", "<C-s>", ':Obsession<cr>', { noremap = true })
 
 -- git
 vim.keymap.set('n', '<leader>gg', ':tab G<cr>', { noremap = true })
