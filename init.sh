@@ -32,12 +32,6 @@ do
   ln -sfn $PWD/config/${c} $HOME/.config/${c}
 done
 
-# nvim plugin manager
-if [ ! -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-    $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
-
 # zsh configuration
 touch $HOME/.zshrc
 if ( ! $(cat $HOME/.zshrc | grep "$PWD/zshrc" > /dev/null) ); then
