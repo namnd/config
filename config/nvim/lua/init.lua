@@ -17,7 +17,7 @@ set noswapfile nobackup nowritebackup
 set laststatus=2
 set statusline=\%n%m\ %t\ %r%y
 set statusline+=%{FugitiveStatusline()}%{get(b:,'gitsigns_status','')}
-set statusline+=%=\ %{ObsessionStatus('(S)','')}\ %w%l,%-10.c%L
+set statusline+=%=\ %{ObsessionStatus()}\ %w%l,%-10.c%L
 
 let g:dirvish_mode=':sort ,^.*[\/],'
 
@@ -35,3 +35,14 @@ augroup Personal
   autocmd BufNewFile,BufRead *.hujson set filetype=json
 augroup END
 ]]
+
+vim.api.nvim_create_augroup("ObsessionCheck", { clear = true })
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  group = "ObsessionCheck",
+  callback = function()
+    local status = vim.api.nvim_exec([[ echo ObsessionStatus() ]], true)
+    if status ~= "[$]" then
+      vim.api.nvim_command('Obsession')
+    end
+  end
+})
