@@ -53,9 +53,8 @@ call <sid>hi('Keyword', s:grey, {}, 'none')
 call <sid>hi('Operator', s:grey, {}, 'none')
 call <sid>hi('Statement', s:grey, {}, 'none')
 call <sid>hi('StatusLine', s:black, s:grey, 'none')
-call <sid>hi('StatusLineNC', s:lightGrey, {}, 'none')
-call <sid>hi('WinBar', s:lightGrey, s:black, 'none')
-call <sid>hi('WinBarNC', s:darkGrey, s:black, 'none')
+call <sid>hi('WinBar', s:magenta, s:black, 'none')
+call <sid>hi('WinBarNC', s:grey, s:black, 'none')
 
 call <sid>hi('Type', s:lightGreen, {}, 'none')
 call <sid>hi('PreProc', s:lightBlue, {}, 'none')
@@ -102,12 +101,6 @@ call <sid>hi('DapUIBreakpointsPath', s:darkYellow, {}, 'none')
 call <sid>hi('DapUIDecoration', s:green, {}, 'none')
 call <sid>hi('DapUIBreakpointsLine', s:green, {}, 'none')
 call <sid>hi('DapUIBreakpointsCurrentLine', s:green, {}, 'none')
-
-augroup BgStatusLine
-  autocmd!
-  au InsertEnter * hi StatusLine ctermbg=White guibg=#FFFFFF
-  au InsertLeave * hi StatusLine ctermbg=Grey guibg=#A8A8A8
-augroup END
 
 " Remove functions
 delf <sid>hi

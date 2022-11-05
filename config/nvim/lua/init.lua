@@ -14,10 +14,9 @@ vim.cmd [[
 colorscheme namnd
 set undodir=~/.vim/undodir undofile
 set noswapfile nobackup nowritebackup
-set laststatus=2
-set statusline=\%n%m\ %t\ %r%y
-set statusline+=%{FugitiveStatusline()}%{get(b:,'gitsigns_status','')}
-set statusline+=%=\ %{ObsessionStatus()}\ %w%l,%-10.c%L
+set winbar=%m\ %f\ (%n)%=%r%y
+set laststatus=3
+set statusline=%!v:lua.require('namnd.statusline').global()
 
 let g:dirvish_mode=':sort ,^.*[\/],'
 
@@ -42,7 +41,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function()
     local status = vim.api.nvim_exec([[ echo ObsessionStatus() ]], true)
     if status ~= "[$]" then
-      vim.api.nvim_command('Obsession')
+      vim.api.nvim_command('silent! Obsession')
     end
   end
 })
