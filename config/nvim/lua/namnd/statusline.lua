@@ -83,7 +83,7 @@ M.global = function()
     vim.fn.fnamemodify(vim.api.nvim_eval('getcwd()'), ":~"), " ",
     git_signs(),
     "%=",
-    "%#StatusLine#%w%l,%-10.c%L", " ",
+    "%#StatusLine#%{'Line: '}%l, %{'Col: '}%-10.c%L", " ",
   }
 end
 

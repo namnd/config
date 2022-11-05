@@ -14,7 +14,7 @@ vim.cmd [[
 colorscheme namnd
 set undodir=~/.vim/undodir undofile
 set noswapfile nobackup nowritebackup
-set winbar=%m\ %f\ (%n)%=%r%y
+set winbar=%m\ %f\ (%n)%=%P\ %r%y
 set laststatus=3
 set statusline=%!v:lua.require('namnd.statusline').global()
 
