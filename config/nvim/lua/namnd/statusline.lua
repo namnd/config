@@ -80,7 +80,7 @@ local M = {}
 M.global = function()
   return table.concat {
     get_mode(), " ",
-    vim.api.nvim_eval('getcwd()'), " ",
+    vim.fn.fnamemodify(vim.api.nvim_eval('getcwd()'), ":~"), " ",
     git_signs(),
     "%=",
     "%#StatusLine#%w%l,%-10.c%L", " ",
