@@ -50,8 +50,7 @@ return require('packer').startup(function(use)
 
   -- lsp
   use 'neovim/nvim-lspconfig'
-  use 'j-hui/fidget.nvim'
-  use 'folke/trouble.nvim'
+  use 'nvim-lua/lsp-status.nvim'
 
   -- dap
   use 'mfussenegger/nvim-dap'

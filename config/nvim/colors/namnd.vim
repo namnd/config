@@ -70,7 +70,7 @@ call <sid>hi('DiffDelete', s:lightGrey, s:darkRed, 'none')
 call <sid>hi('DiffText', s:white, s:brown, 'none')
 call <sid>hi('GitSignsAdd', s:green, {}, 'bold')
 call <sid>hi('GitSignsChange', s:brown, {}, 'bold')
-call <sid>hi('GitSignsDelete', s:darkRed, {}, 'bold')
+call <sid>hi('GitSignsDelete', s:red, {}, 'bold')
 call <sid>hi('Todo', s:black, s:darkYellow, 'bold')
 call <sid>hi('WarningMsg', s:darkRed, s:black, 'bold')
 

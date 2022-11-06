@@ -1,4 +1,15 @@
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
+local lsp_status = require('lsp-status')
+lsp_status.config({
+  status_symbol = '',
+  indicator_errors = 'E',
+  indicator_warnings = 'W',
+  indicator_info = 'i',
+  indicator_hint = '?',
+  indicator_ok = 'OK',
+})
+lsp_status.register_progress()
+
 local on_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
@@ -22,13 +33,13 @@ capabilities.textDocument.foldingRange = {
 
 local servers = { 'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright' }
 for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+  lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
 
-nvim_lsp.gopls.setup({
+lspconfig.gopls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "gopls", "serve" },
@@ -47,7 +58,7 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 local library = vim.api.nvim_get_runtime_file("", true)
 table.insert(library, '/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/')
-nvim_lsp.sumneko_lua.setup({
+lspconfig.sumneko_lua.setup({
   settings = {
     Lua = {
       runtime = {
@@ -107,20 +118,4 @@ require('ufo').setup({
   provider_selector = function(_, filetype, _)
     return ftMap[filetype]
   end
-})
-
-require('trouble').setup({
-  icons = false,
-  fold_open = "-", -- icon used for open folds
-  fold_closed = "+", -- icon used for closed folds
-  indent_lines = false, -- add an indent guide below the fold icons
-  signs = {
-    -- icons / text used for a diagnostic
-    error = "error",
-    warning = "warn",
-    hint = "hint",
-    information = "info",
-    other = "info",
-  },
-  use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 })

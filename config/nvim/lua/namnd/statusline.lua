@@ -11,13 +11,14 @@ vim.api.nvim_set_hl(0, 'StatusLineGitChange', git_change_color)
 vim.api.nvim_set_hl(0, 'StatusLineGitDelete', git_delete_color)
 
 local statusline_mode_color = {
-  ["bg"] = "black",
+  ["bg"] = "white",
+  ["fg"] = "black",
   ["bold"] = true,
 }
 vim.api.nvim_set_hl(0, 'StatusLineNormal', statusline_mode_color)
-statusline_mode_color.fg = "green"
+statusline_mode_color.bg = "LightGreen"
 vim.api.nvim_set_hl(0, 'StatusLineInsert', statusline_mode_color)
-statusline_mode_color.fg = "yellow"
+statusline_mode_color.bg = "LightMagenta"
 vim.api.nvim_set_hl(0, 'StatusLineVisual', statusline_mode_color)
 
 local modes_map = {
@@ -75,6 +76,15 @@ local function git_signs()
   }
 end
 
+local function get_lsp_clients()
+  local clients = vim.lsp.get_active_clients()
+  local client_names = {}
+  for _, client in ipairs(clients) do
+    table.insert(client_names, client.name)
+  end
+  return table.concat(client_names, ",")
+end
+
 local M = {}
 
 M.global = function()
@@ -82,8 +92,11 @@ M.global = function()
     get_mode(), " ",
     vim.fn.fnamemodify(vim.api.nvim_eval('getcwd()'), ":~"), " ",
     git_signs(),
+    "%#StatusLine#%{'Line: '}%l/%L, %{'Col: '}%c",
+    " %{ObsessionStatus()}",
     "%=",
-    "%#StatusLine#%{'Line: '}%l, %{'Col: '}%-10.c%L", " ",
+    require('lsp-status').status(), " ",
+    "[", get_lsp_clients(), "] ",
   }
 end
 
