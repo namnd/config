@@ -20,6 +20,10 @@ statusline_mode_color.bg = "LightGreen"
 vim.api.nvim_set_hl(0, 'StatusLineInsert', statusline_mode_color)
 statusline_mode_color.bg = "LightMagenta"
 vim.api.nvim_set_hl(0, 'StatusLineVisual', statusline_mode_color)
+vim.api.nvim_set_hl(0, 'StatusLineLsp', {
+  ["fg"] = "white",
+  ["bg"] = statusline_color.background,
+})
 
 local modes_map = {
   ["n"] = "NORMAL",
@@ -96,7 +100,7 @@ M.global = function()
     " %{ObsessionStatus()}",
     "%=",
     require('lsp-status').status(), " ",
-    "[", get_lsp_clients(), "] ",
+    "%#StatusLineLsp#[", get_lsp_clients(), "] ",
   }
 end
 
