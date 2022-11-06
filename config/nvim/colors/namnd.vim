@@ -18,6 +18,7 @@ let s:black = { 'cterm': 'Black', 'gui': '#000000' }
 let s:grey = { 'cterm': 'Grey', 'gui': '#A8A8A8' }
 let s:lightGrey = { 'cterm': 'LightGrey', 'gui': '#DDDDDD' }
 let s:darkGrey = { 'cterm': 'DarkGrey', 'gui': '#6C6C6C' }
+let s:superDarkGrey = { 'cterm': 'DarkGrey', 'gui': '#222222' }
 let s:green = { 'cterm': 'Green', 'gui': 'Green' }
 let s:darkGreen = { 'cterm': 'DarkGreen', 'gui': '#1C4428' }
 let s:lightGreen = { 'cterm': 'LightGreen', 'gui': '#87FFAF' }
@@ -32,7 +33,7 @@ let s:lightBlue = { 'cterm': 'LightBlue', 'gui': '#60D7FF' }
 
 call <sid>hi('Normal', s:white, s:black, 'none')
 call <sid>hi('Visual', s:black, s:white, 'none')
-call <sid>hi('CursorLine', {}, s:black, 'none')
+call <sid>hi('CursorLine',  {}, s:superDarkGrey, 'none')
 call <sid>hi('CursorLineNr', s:white, {}, 'none')
 call <sid>hi('SignColumn', {}, s:black, 'none')
 call <sid>hi('Folded', {}, {'cterm': 'Black', 'gui': '#222222'}, 'none')
@@ -52,9 +53,9 @@ call <sid>hi('Constant', s:grey, {}, 'none')
 call <sid>hi('Keyword', s:grey, {}, 'none')
 call <sid>hi('Operator', s:grey, {}, 'none')
 call <sid>hi('Statement', s:grey, {}, 'none')
-call <sid>hi('StatusLine', s:black, s:grey, 'none')
-call <sid>hi('WinBar', s:magenta, s:black, 'none')
-call <sid>hi('WinBarNC', s:grey, s:black, 'none')
+call <sid>hi('StatusLine', s:grey, s:superDarkGrey, 'none')
+call <sid>hi('WinBar', s:magenta, s:superDarkGrey, 'none')
+call <sid>hi('WinBarNC', s:grey, s:superDarkGrey, 'none')
 
 call <sid>hi('Type', s:lightGreen, {}, 'none')
 call <sid>hi('PreProc', s:lightBlue, {}, 'none')
@@ -67,7 +68,7 @@ call <sid>hi('DiffAdd', s:white, s:darkGreen, 'none')
 call <sid>hi('DiffChange', s:white, {'cterm': 'DarkGreen', 'gui': '#12261E'}, 'none')
 call <sid>hi('DiffDelete', s:lightGrey, s:darkRed, 'none')
 call <sid>hi('DiffText', s:white, s:brown, 'none')
-call <sid>hi('GitSignsAdd', s:darkGreen, {}, 'bold')
+call <sid>hi('GitSignsAdd', s:green, {}, 'bold')
 call <sid>hi('GitSignsChange', s:brown, {}, 'bold')
 call <sid>hi('GitSignsDelete', s:darkRed, {}, 'bold')
 call <sid>hi('Todo', s:black, s:darkYellow, 'bold')
@@ -108,3 +109,4 @@ delf <sid>hi
 " Remove color variables
 unlet s:white s:black s:grey s:lightGrey s:darkGrey s:green s:darkGreen s:lightGreen
 unlet s:blue s:darkCyan s:red s:darkRed s:darkYellow s:brown s:magenta s:lightBlue
+unlet s:superDarkGrey
