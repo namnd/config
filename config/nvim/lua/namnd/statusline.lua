@@ -48,7 +48,7 @@ local function get_mode()
   local current_mode = vim.api.nvim_get_mode().mode
   return table.concat {
     get_mode_color(),
-    " ", modes_map[current_mode], " ",
+    " ", modes_map[current_mode] or "", " ",
     "%#StatusLine#",
   }
 end
