@@ -82,11 +82,13 @@ end
 
 local function get_lsp_clients()
   local clients = vim.lsp.get_active_clients()
-  local client_names = {}
   for _, client in ipairs(clients) do
-    table.insert(client_names, client.name)
+    local filetypes = client.config.filetypes
+    if filetypes and vim.fn.index(filetypes, vim.bo.filetype) ~= -1 then
+      return "[" .. client.name  .. "]"
+    end
   end
-  return table.concat(client_names, ",")
+  return ""
 end
 
 local M = {}
@@ -100,7 +102,7 @@ M.global = function()
     " %{ObsessionStatus()}",
     "%=",
     require('lsp-status').status(), " ",
-    "%#StatusLineLsp#[", get_lsp_clients(), "] ",
+    "%#StatusLineLsp#", get_lsp_clients(), " ",
   }
 end
 
