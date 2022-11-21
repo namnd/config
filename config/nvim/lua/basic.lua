@@ -17,7 +17,7 @@ vim.o.expandtab = true
 vim.wo.number = true
 vim.wo.signcolumn = 'yes:2'
 
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 vim.o.foldlevel = 15 -- Using ufo provider need a large value
 vim.o.foldlevelstart = 15
 vim.o.foldenable = true
