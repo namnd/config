@@ -2,6 +2,11 @@ local lspconfig = require('lspconfig')
 local lsp_status = require('lsp-status')
 lsp_status.config({
   status_symbol = '',
+  indicator_errors = 'E',
+  indicator_warnings = 'W',
+  indicator_info = 'I',
+  indicator_hint = '?',
+  indicator_ok = 'OK',
 })
 lsp_status.register_progress()
 
