@@ -21,5 +21,6 @@ in
     fzf
     tldr
     tree
+    pass
   ];
 }
