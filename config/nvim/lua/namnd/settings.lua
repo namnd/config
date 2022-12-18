@@ -7,7 +7,6 @@ vim.o.listchars = 'tab:| ,trail:·,eol:↵'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.wildmode = 'longest:full,full'
-vim.o.ch = 0
 
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
@@ -21,3 +20,10 @@ vim.g.mapleader = ' '
 vim.o.foldlevel = 15 -- Using ufo provider need a large value
 vim.o.foldlevelstart = 15
 vim.o.foldenable = true
+
+vim.cmd.colorscheme("namnd")
+
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true

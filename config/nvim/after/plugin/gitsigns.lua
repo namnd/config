@@ -1,10 +1,9 @@
-require('impatient')
-require('Comment').setup()
-require('nvim-autopairs').setup()
-require("nvim-surround").setup()
-require("trevj").setup()
+local has_gitsigns, gitsigns = pcall(require, "gitsigns")
+if not has_gitsigns then
+  return
+end
 
-require('gitsigns').setup {
+gitsigns.setup {
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
     local function map(mode, l, r, opts)

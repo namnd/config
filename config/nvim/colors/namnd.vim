@@ -110,3 +110,9 @@ delf <sid>hi
 unlet s:white s:black s:grey s:lightGrey s:darkGrey s:green s:darkGreen s:lightGreen
 unlet s:blue s:darkCyan s:red s:darkRed s:darkYellow s:brown s:magenta s:lightBlue
 unlet s:superDarkGrey
+
+augroup ColorColumnHighlight
+  autocmd!
+  autocmd WinEnter * set colorcolumn=81 cursorline
+  autocmd WinLeave * set colorcolumn=0 nocursorline
+augroup END

@@ -1,7 +1,13 @@
+local has_telescope, telescope = pcall(require,"telescope")
+
+if not has_telescope then
+  return
+end
+
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
-local lga_actions = require("telescope-live-grep-args.actions")
-require('telescope').setup({
+
+telescope.setup({
   defaults = {
     sorting_strategy = 'ascending',
     layout_config = {
@@ -29,15 +35,6 @@ require('telescope').setup({
       override_file_sorter = true,
       case_mode = "smart_case",
     },
-    live_grep_args = {
-      auto_quoting = true, -- enable/disable auto-quoting
-      mappings = {
-        i = {
-          ["<C-k>"] = "move_selection_previous", -- override default mapping
-          ["<C-l>q"] = lga_actions.quote_prompt(),
-        },
-      },
-    },
     recent_files = {
       only_cwd = true,
     },
@@ -48,6 +45,14 @@ require('telescope').setup({
     },
   },
 })
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('live_grep_args')
-require("telescope").load_extension('recent_files')
+
+local builtin = require("telescope.builtin")
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
+
+pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'recent_files')
+
+vim.keymap.set('n', '<leader>fr', '<cmd>lua require("telescope").extensions.recent_files.pick()<cr>', { noremap = true })
