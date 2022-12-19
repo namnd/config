@@ -15,7 +15,6 @@ in
     lemonade # remote clipboard over TCP
 
     # Other CLI tools
-    bat
     fd
     fzf
     tldr

@@ -69,7 +69,6 @@ PROMPT="$PROMPT${NEWLINE}"
 PROMPT="$PROMPT%n%F{240}@${hostname}$ "         # username@hostname$
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
-alias cat='bat'
 alias vim='nvim'
 alias ls='ls --color=auto'
 alias ll='ls -l'
