@@ -25,5 +25,3 @@
   gpgsign = true
 [core]
   excludesfile = ~/.gitignore
-[diff]
-  external = difft

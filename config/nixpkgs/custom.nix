@@ -16,7 +16,6 @@ in
 
     # Other CLI tools
     bat
-    difftastic
     fd
     fzf
     tldr
