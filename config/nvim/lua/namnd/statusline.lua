@@ -85,7 +85,7 @@ local function get_lsp_clients()
   for _, client in ipairs(clients) do
     local filetypes = client.config.filetypes
     if filetypes and vim.fn.index(filetypes, vim.bo.filetype) ~= -1 then
-      return "[" .. client.name  .. "]"
+      return "[" .. client.name .. "]"
     end
   end
   return ""

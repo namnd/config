@@ -46,13 +46,11 @@ telescope.setup({
   },
 })
 
+pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'recent_files')
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fs', builtin.grep_string, {})
-
-pcall(require('telescope').load_extension, 'fzf')
-pcall(require('telescope').load_extension, 'recent_files')
-
 vim.keymap.set('n', '<leader>fr', '<cmd>lua require("telescope").extensions.recent_files.pick()<cr>', { noremap = true })

@@ -1,1 +1,173 @@
-require("namnd")
+-- Install packer
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local is_bootstrap = false
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  is_bootstrap = true
+  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  vim.cmd [[packadd packer.nvim]]
+end
+
+require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim' -- plugin manager
+  use 'tweekmonster/startuptime.vim'
+  use 'lewis6991/impatient.nvim' -- improve startup time
+  use 'mbbill/undotree' -- local file history
+  use 'tpope/vim-vinegar' -- file explorer
+  use 'tpope/vim-obsession' -- session manager
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb' -- github
+  use 'junegunn/gv.vim' -- git commit browser
+  use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-abolish' -- fooBar into foo_bar or FooBar
+  use 'tpope/vim-unimpaired'
+  use 'tpope/vim-dispatch'
+  use 'tpope/vim-endwise'
+  use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
+  use { 'Julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
+  use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+
+  -- ./after/plugin/gitsigns.lua
+  use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  -- ./after/plugin/ufo.lua
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+
+  -- ./after/plugin/telescope.lua
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'smartpde/telescope-recent-files'
+
+  -- ./after/plugin/treesitter.lua
+  use { 'nvim-treesitter/nvim-treesitter',
+    run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end }
+  use 'nvim-treesitter/playground'
+  use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
+  use 'AckslD/nvim-trevJ.lua' -- reverse join-line using treesitter
+
+  -- ./after/plugin/lsp.lua
+  use 'neovim/nvim-lspconfig'
+  use 'nvim-lua/lsp-status.nvim'
+
+  -- ./after/lua/cmp.lua
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  -- -- dap
+  -- use 'mfussenegger/nvim-dap'
+  -- use 'leoluz/nvim-dap-go'
+  -- use 'rcarriga/nvim-dap-ui'
+  -- use 'theHamsta/nvim-dap-virtual-text'
+
+  if is_bootstrap then
+    require('packer').sync()
+  end
+end)
+
+if is_bootstrap then
+  print 'Plugins are about to be installed, please restart neovim once it finished'
+  return
+end
+
+require('impatient')
+-- require("namnd.statusline")
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
+
+vim.cmd.colorscheme("namnd") -- colorscheme
+
+-- Basic settings
+vim.g.mapleader = ' '
+vim.o.clipboard = 'unnamedplus'
+vim.o.mouse = 'nv'
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.wo.list = true
+vim.o.listchars = 'tab:| ,trail:·,eol:↵'
+vim.o.completeopt = 'menu,menuone,noselect'
+vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.wildmode = 'longest:full,full'
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
+vim.wo.number = true
+vim.wo.signcolumn = 'yes:2'
+vim.o.foldlevel = 15 -- Using ufo provider need a large value
+vim.o.foldlevelstart = 15
+vim.o.foldenable = true
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.o.undofile = true
+
+-- Keymaps
+vim.keymap.set("v", "v", "$h", { noremap = true })
+vim.keymap.set("v", "<", "<gv", { noremap = true })
+vim.keymap.set("v", ">", ">gv", { noremap = true })
+vim.keymap.set("n", "E", "ea", { noremap = true })
+vim.keymap.set("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
+vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
+vim.keymap.set("n", "<leader>rc", "yiw<esc>:%s/<C-r>+//gn<cr>", { noremap = true })
+vim.keymap.set("v", "<leader>rc", "y<esc>:%s/<C-r>+//gn<cr>", { noremap = true })
+vim.keymap.set('n', '<leader>cd', ':cd %:p:h<cr>', { noremap = true })
+vim.keymap.set('n', '<leader>1', ':Dispatch ', { noremap = true })
+vim.keymap.set('n', '<leader>2', ':ToggleQuickFix<cr>', { noremap = true })
+vim.keymap.set('n', '<<', ':colder<cr>', { noremap = true })
+vim.keymap.set('n', '>>', ':cnewer<cr>', { noremap = true })
+vim.keymap.set("n", "<leader>ch", '<cmd>lua require("namnd.cheatsh").prompt_query()<cr>', { noremap = true })
+
+vim.cmd [[
+set winbar=%m\ %f\ (%n)%=%P\ %r%y
+set laststatus=3
+set statusline=%!v:lua.require('namnd.statusline').global()
+
+augroup FiletypeGroup
+  autocmd!
+  autocmd FileType git,gitcommit setlocal foldmethod=syntax foldenable
+  autocmd FileType yml,yaml setlocal foldmethod=indent
+  autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
+  autocmd BufNewFile,BufRead *.tfvars set filetype=terraform
+  autocmd BufNewFile,BufRead *.hujson set filetype=json
+augroup END
+]]
+
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
+-- Automatically source and re-compile packer whenever you save this init.lua
+local packer_group = augroup('Packer', { clear = true })
+autocmd('BufWritePost', {
+  command = 'source <afile> | PackerCompile',
+  group = packer_group,
+  pattern = vim.fn.expand '$MYVIMRC',
+})
+
+local highlight_group = augroup('YankHighlight', { clear = true })
+autocmd('TextYankPost', {
+  group = highlight_group,
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank({
+      timeout = 70,
+    })
+  end,
+})
+
+local lspformat_group = augroup('LspFormatGroup', { clear = true })
+autocmd('BufWritePre', {
+  group = lspformat_group,
+  pattern = '*',
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
+local misc_group = augroup('MiscGroup', { clear = true })
+autocmd('VimResized', {
+  group = misc_group,
+  pattern = '*',
+  command = 'wincmd =',
+})
