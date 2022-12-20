@@ -10,7 +10,6 @@ in
 
     # Neovim related
     unstable.neovim
-    trash-cli
     cht-sh
     lemonade # remote clipboard over TCP
 
