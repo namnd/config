@@ -1,21 +1,21 @@
-local modifier = {'ctrl', 'shift'}
+local modifier = { 'cmd', 'shift' }
 
 local apps = {
-  ["1"] = "kitty",
-  ["2"] = "qutebrowser",
-  ["3"] = "Slack",
-  ["0"] = "Finder",
+  ["k"] = "kitty",
+  ["j"] = "qutebrowser",
+  ["l"] = "Slack",
+  ["h"] = "Finder",
 }
-for k,v in pairs(apps) do
+for k, v in pairs(apps) do
   hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
 end
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
 
 local direction = true
 hs.hotkey.bind(modifier, "s", function()
-  local screen = hs.screen'mi'
+  local screen = hs.screen 'mi'
   if screen:name() == "Mi Monitor" then
-    hs.grid.setGrid(hs.geometry.size(2,1), screen)
+    hs.grid.setGrid(hs.geometry.size(5, 1), screen)
 
     local allWindows = hs.window.allWindows()
     local terminal, browser
@@ -37,6 +37,14 @@ hs.hotkey.bind(modifier, "s", function()
       hs.grid.pushWindowRight(browser)
       direction = true
     end
+  end
+end)
+
+hs.hotkey.bind(modifier, "g", function()
+  local screen = hs.screen 'mi'
+  if screen:name() == "Mi Monitor" then
+    hs.grid.setGrid(hs.geometry.size(5, 1), screen)
+    hs.grid.show()
   end
 end)
 
