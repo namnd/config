@@ -1,5 +1,5 @@
-local has_lspconfig, lspconfig = pcall(require,'lspconfig')
-local has_lsp_status, lsp_status = pcall(require,'lsp-status')
+local has_lspconfig, lspconfig = pcall(require, 'lspconfig')
+local has_lsp_status, lsp_status = pcall(require, 'lsp-status')
 
 if has_lsp_status then
   lsp_status.config({

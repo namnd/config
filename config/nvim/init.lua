@@ -49,18 +49,18 @@ require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/lsp-status.nvim'
 
-  -- ./after/lua/cmp.lua
+  -- ./after/plugin/cmp.lua
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
 
-  -- -- dap
-  -- use 'mfussenegger/nvim-dap'
-  -- use 'leoluz/nvim-dap-go'
-  -- use 'rcarriga/nvim-dap-ui'
-  -- use 'theHamsta/nvim-dap-virtual-text'
+  -- ./after/plugin/dap.lua
+  use 'mfussenegger/nvim-dap'
+  use 'leoluz/nvim-dap-go'
+  use 'rcarriga/nvim-dap-ui'
+  use 'theHamsta/nvim-dap-virtual-text'
 
   if is_bootstrap then
     require('packer').sync()
@@ -73,10 +73,9 @@ if is_bootstrap then
 end
 
 require('impatient')
--- require("namnd.statusline")
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
+require("luasnip.loaders.from_lua").load({ paths = os.getenv("HOME") .. "/.config/nvim/snippets" })
 
-vim.cmd.colorscheme("namnd") -- colorscheme
+vim.cmd.colorscheme("namnd")
 
 -- Basic settings
 vim.g.mapleader = ' '
@@ -112,11 +111,11 @@ vim.keymap.set("n", "<leader>rp", "yiw<esc>:%s/<C-r>+//gc<left><left><left>", { 
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("n", "<leader>rc", "yiw<esc>:%s/<C-r>+//gn<cr>", { noremap = true })
 vim.keymap.set("v", "<leader>rc", "y<esc>:%s/<C-r>+//gn<cr>", { noremap = true })
-vim.keymap.set('n', '<leader>cd', ':cd %:p:h<cr>', { noremap = true })
-vim.keymap.set('n', '<leader>1', ':Dispatch ', { noremap = true })
-vim.keymap.set('n', '<leader>2', ':ToggleQuickFix<cr>', { noremap = true })
-vim.keymap.set('n', '<<', ':colder<cr>', { noremap = true })
-vim.keymap.set('n', '>>', ':cnewer<cr>', { noremap = true })
+vim.keymap.set("n", "<leader>cd", ':cd %:p:h<cr>', { noremap = true })
+vim.keymap.set("n", "<leader>1", ':Dispatch ', { noremap = true })
+vim.keymap.set("n", "<leader>2", ':ToggleQuickFix<cr>', { noremap = true })
+vim.keymap.set("n", "<<", ':colder<cr>', { noremap = true })
+vim.keymap.set("n", ">>", ':cnewer<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>ch", '<cmd>lua require("namnd.cheatsh").prompt_query()<cr>', { noremap = true })
 
 vim.cmd [[
@@ -126,6 +125,8 @@ set statusline=%!v:lua.require('namnd.statusline').global()
 
 augroup FiletypeGroup
   autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
+  autocmd VimResized * :wincmd =
   autocmd FileType git,gitcommit setlocal foldmethod=syntax foldenable
   autocmd FileType yml,yaml setlocal foldmethod=indent
   autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
@@ -138,36 +139,14 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 -- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = augroup('Packer', { clear = true })
 autocmd('BufWritePost', {
-  command = 'source <afile> | PackerCompile',
-  group = packer_group,
+  group = augroup('Packer', { clear = true }),
   pattern = vim.fn.expand '$MYVIMRC',
+  command = 'source <afile> | PackerCompile',
 })
 
-local highlight_group = augroup('YankHighlight', { clear = true })
-autocmd('TextYankPost', {
-  group = highlight_group,
-  pattern = '*',
-  callback = function()
-    vim.highlight.on_yank({
-      timeout = 70,
-    })
-  end,
-})
-
-local lspformat_group = augroup('LspFormatGroup', { clear = true })
 autocmd('BufWritePre', {
-  group = lspformat_group,
+  group = augroup('LspFormatGroup', { clear = true }),
   pattern = '*',
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
-
-local misc_group = augroup('MiscGroup', { clear = true })
-autocmd('VimResized', {
-  group = misc_group,
-  pattern = '*',
-  command = 'wincmd =',
+  callback = function() vim.lsp.buf.format() end,
 })
