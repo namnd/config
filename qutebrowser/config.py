@@ -37,7 +37,6 @@ c.colors.completion.match.fg = '#ff4444'
 c.colors.completion.scrollbar.bg = 'black'
 c.colors.completion.scrollbar.fg = '#333333'
 c.colors.contextmenu.menu.bg = '#444444'
-c.tabs.position = "left"
 config.set('fonts.web.size.minimum', 18, '*://*.github.com')
 c.url.start_pages = ['https://google.com']
 c.url.searchengines = {
