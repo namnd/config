@@ -132,6 +132,8 @@ augroup FiletypeGroup
   autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
   autocmd BufNewFile,BufRead *.tfvars set filetype=terraform
   autocmd BufNewFile,BufRead *.hujson set filetype=json
+  autocmd BufNewFile,BufRead *gitconfig set filetype=toml
+  autocmd BufNewFile,BufRead *zshrc set filetype=bash
 augroup END
 ]]
 

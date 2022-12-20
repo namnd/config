@@ -14,7 +14,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     "qutebrowser"
   ) 
   config+=(
-    "karabiner"
     "kitty"
   )
 fi
