@@ -117,6 +117,9 @@ vim.keymap.set("n", "<leader>2", ':ToggleQuickFix<cr>', { noremap = true })
 vim.keymap.set("n", "<<", ':colder<cr>', { noremap = true })
 vim.keymap.set("n", ">>", ':cnewer<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>ch", '<cmd>lua require("namnd.cheatsh").prompt_query()<cr>', { noremap = true })
+vim.keymap.set("n", '<leader>K', '<cmd>lua require("trevj").format_at_cursor()<cr>', { noremap = true })
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true })
+vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
 
 vim.cmd [[
 set winbar=%m\ %f\ (%n)%=%P\ %r%y
@@ -149,6 +152,15 @@ autocmd('BufWritePost', {
 
 autocmd('BufWritePre', {
   group = augroup('LspFormatGroup', { clear = true }),
-  pattern = '*',
   callback = function() vim.lsp.buf.format() end,
+})
+
+autocmd('VimEnter', {
+  group = augroup('ObsessionCheck', { clear = true }),
+  callback = function()
+    local status = vim.api.nvim_exec([[ echo ObsessionStatus() ]], true)
+    if status ~= "[$]" then
+      vim.api.nvim_command('silent! Obsession')
+    end
+  end
 })
