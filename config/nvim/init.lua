@@ -131,7 +131,7 @@ augroup FiletypeGroup
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
   autocmd VimResized * :wincmd =
-  autocmd FileType git,gitcommit setlocal foldmethod=syntax foldenable
+  autocmd FileType git setlocal foldmethod=syntax foldenable
   autocmd FileType yml,yaml setlocal foldmethod=indent
   autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
   autocmd BufNewFile,BufRead *.tfvars set filetype=terraform
