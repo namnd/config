@@ -82,6 +82,9 @@ call <sid>hi('DiagnosticHint', s:darkGrey, {}, 'none')
 call <sid>hi('DiagnosticFloatingError', s:white, {}, 'none')
 call <sid>hi('DiagnosticFloatingHint', s:white, {}, 'none')
 
+call <sid>hi('CmpItemKind', s:lightGreen, {}, 'none')
+call <sid>hi('CmpItemAbbrMatch', s:white, {}, 'none')
+
 call <sid>hi('DapBreakpoint', s:darkYellow, {}, 'none')
 call <sid>hi('DapStoppedText', s:green, {}, 'none')
 call <sid>hi('DapStoppedLine', s:white, s:green, 'none')

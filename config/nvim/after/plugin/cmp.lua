@@ -1,5 +1,6 @@
 local has_cmp, cmp = pcall(require, "cmp")
 local _, luasnip = pcall(require, "luasnip")
+local _, lspkind = pcall(require, 'lspkind')
 
 if not has_cmp then
   return
@@ -53,8 +54,18 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
   }, {
-    { name = 'buffer', keyword_length = 3 },
-  })
+    { name = 'buffer', keyword_length = 5 },
+  }),
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'text',
+      menu = {
+        nvim_lsp = "[LSP]",
+        luasnip = "[snip]",
+        buffer = "[buf]",
+      },
+    }),
+  },
 })
 
 cmp.setup.cmdline('/', {
