@@ -1,4 +1,4 @@
-local ts_utils = require'nvim-treesitter.ts_utils'
+local ts_utils = require 'nvim-treesitter.ts_utils'
 
 function RunSingleTest()
   local current_node = ts_utils.get_node_at_cursor()
@@ -23,11 +23,3 @@ end
 
 vim.keymap.set("n", "<leader>tt", RunSingleTest)
 vim.keymap.set("n", "<leader>ts", ":Dispatch go test -v %<cr>")
-
-local group = vim.api.nvim_create_augroup("GoGroup", { clear = true })
-vim.api.nvim_create_autocmd('BufWritePre', {
-  group = group,
-  callback = function ()
-    vim.lsp.buf.formatting_sync({}, 1000)
-  end
-})
