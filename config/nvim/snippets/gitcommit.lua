@@ -1,3 +1,3 @@
 return {
-  parse("Co", "Co-authored-by:"),
+  parse("Co", "Co-authored-by: "),
 }

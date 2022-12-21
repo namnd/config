@@ -53,6 +53,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' }, -- For luasnip users.
+    { name = 'gh_authors' },
   }, {
     { name = 'buffer', keyword_length = 5 },
   }),
@@ -63,6 +64,7 @@ cmp.setup({
         nvim_lsp = "[LSP]",
         luasnip = "[snip]",
         buffer = "[buf]",
+        gh_authors = "[git]"
       },
     }),
   },
