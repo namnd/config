@@ -121,6 +121,7 @@ vim.keymap.set("n", "<leader>ch", '<cmd>lua require("namnd.cheatsh").prompt_quer
 vim.keymap.set("n", '<leader>K', '<cmd>lua require("trevj").format_at_cursor()<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
+vim.keymap.set('n', '<leader>nn', ":tabedit ~/notes/scratch<cr>", { noremap = true })
 
 vim.cmd [[
 set winbar=%m\ %f\ (%n)%=%P\ %r%y
@@ -138,6 +139,7 @@ augroup FiletypeGroup
   autocmd BufNewFile,BufRead *.hujson set filetype=json
   autocmd BufNewFile,BufRead *gitconfig set filetype=toml
   autocmd BufNewFile,BufRead *zshrc set filetype=bash
+  autocmd BufNewFile,BufRead scratch set filetype=markdown
 augroup END
 ]]
 
