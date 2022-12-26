@@ -16,7 +16,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 config.set('content.javascript.can_access_clipboard', True)
 
 # Customized
-c.fonts.default_family = ['Monaco']
+c.fonts.default_family = ['NanumGothicCoding']
 c.fonts.default_size = '18pt'
 c.fonts.tabs.selected = '18pt default_family'
 c.fonts.tabs.unselected = '18pt default_family'
