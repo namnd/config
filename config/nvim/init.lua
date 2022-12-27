@@ -76,6 +76,7 @@ end
 
 require('impatient')
 require("luasnip.loaders.from_lua").load({ paths = os.getenv("HOME") .. "/.config/nvim/snippets" })
+require("namnd.notes")
 
 vim.cmd.colorscheme("namnd")
 
@@ -119,7 +120,7 @@ vim.keymap.set("n", "<leader>ch", '<cmd>lua require("namnd.cheatsh").prompt_quer
 vim.keymap.set("n", '<leader>K', '<cmd>lua require("trevj").format_at_cursor()<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
-vim.keymap.set('n', '<leader>nn', ":tabedit ~/notes/scratch<cr>", { noremap = true })
+vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
 
 vim.cmd [[
 set winbar=%m\ %f\ (%n)%=%P\ %r%y
