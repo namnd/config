@@ -106,6 +106,10 @@ call <sid>hi('DapUIDecoration', s:green, {}, 'none')
 call <sid>hi('DapUIBreakpointsLine', s:green, {}, 'none')
 call <sid>hi('DapUIBreakpointsCurrentLine', s:green, {}, 'none')
 
+call <sid>hi('TestRunning', s:darkYellow, {}, 'none')
+call <sid>hi('TestPassed', s:green, {}, 'none')
+call <sid>hi('TestFailed', s:red, {}, 'none')
+
 " Remove functions
 delf <sid>hi
 
