@@ -143,11 +143,14 @@ function RunSingleTest()
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>o', '', {
     callback = function()
       vim.cmd.new()
-      -- vim.api.nvim_buf_set_lines(vim.api.nvim_get_current_buf(), 0, -1, false, vim.split(vim.inspect(state), "\n"))
-      -- local line = vim.fn.line "." - 1
+      local test_result_bufnr = vim.api.nvim_get_current_buf()
+      vim.api.nvim_buf_set_option(test_result_bufnr, 'filetype', 'testresult')
+      vim.api.nvim_buf_set_lines(test_result_bufnr, 0, -1, false, { table.concat(command, " "), "" })
+      vim.api.nvim_buf_add_highlight(test_result_bufnr, ns, 'TestRunning', 0, 0, -1)
+      -- vim.api.nvim_buf_set_lines(test_result_bufnr, 0, -1, false, vim.split(vim.inspect(state), "\n"))
       for _, test in pairs(state.tests) do
         if test_suite == nil or vim.startswith(test.name, test_suite) then
-          vim.api.nvim_buf_set_lines(vim.api.nvim_get_current_buf(), -1, -1, false, test.output)
+          vim.api.nvim_buf_set_lines(test_result_bufnr, -1, -1, false, test.output)
         end
       end
     end
@@ -156,48 +159,51 @@ function RunSingleTest()
   vim.fn.jobstart(command, {
     stdout_buffered = true,
     on_stdout = function(_, data)
-      if data then
-        for _, line in ipairs(data) do
-          local decoded = vim.json.decode(line)
-          -- debug test output
-          -- vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, vim.split(vim.inspect(decoded), "\n"))
-          if decoded.Test then
-            if decoded.Action == "run" then
-              add_golang_test(state, decoded, function_details.line)
-            elseif decoded.Action == "output" then
-              add_golang_output(state, decoded)
-            elseif decoded.Action == "pass" or decoded.Action == "fail" then
-              mark_success(state, decoded)
+      if not data then
+        return
+      end
 
-              local test = state.tests[make_key(decoded)]
-              if test.success then
-                vim.api.nvim_buf_set_extmark(bufnr, ns, function_details.line, 0, {
-                  id = function_details.line,
-                  sign_text = " ",
-                  sign_hl_group = "TestPassed",
-                })
-              else
-                vim.api.nvim_buf_set_extmark(bufnr, ns, function_details.line, 0, {
-                  id = function_details.line,
-                  sign_text = " ",
-                  sign_hl_group = "TestFailed",
-                  virt_text = { { " Test failed", "TestFailed" } },
-                })
-              end
-            elseif decoded.Action == "pause" or decoded.Action == "cont" then
-              -- do nothing
+      for _, line in ipairs(data) do
+        local decoded = vim.json.decode(line)
+        -- debug test output
+        -- vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, vim.split(vim.inspect(decoded), "\n"))
+        if decoded.Test then
+          if decoded.Action == "run" then
+            add_golang_test(state, decoded, function_details.line)
+          elseif decoded.Action == "output" then
+            add_golang_output(state, decoded)
+          elseif decoded.Action == "pass" or decoded.Action == "fail" then
+            mark_success(state, decoded)
+
+            local test = state.tests[make_key(decoded)]
+            if test.success then
+              vim.api.nvim_buf_set_extmark(bufnr, ns, function_details.line, 0, {
+                id = function_details.line,
+                sign_text = " ",
+                sign_hl_group = "TestPassed",
+              })
             else
-              error("Failed to handle" .. vim.inspect(data))
+              vim.api.nvim_buf_set_extmark(bufnr, ns, function_details.line, 0, {
+                id = function_details.line,
+                sign_text = " ",
+                sign_hl_group = "TestFailed",
+                virt_text = { { " Test failed", "TestFailed" } },
+              })
             end
+          elseif decoded.Action == "pause" or decoded.Action == "cont" then
+            -- do nothing
+          else
+            error("Failed to handle" .. vim.inspect(data))
           end
         end
       end
     end,
 
     on_stderr = function(_, data)
-      -- if data then
-      --   vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
-      -- end
+      if not data then
+        return
+      end
+      -- vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
     end,
 
     on_exit = function()
