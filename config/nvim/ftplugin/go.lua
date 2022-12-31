@@ -74,13 +74,13 @@ local find_test_suite = function(bufnr)
 
   for id, node in query:iter_captures(root, bufnr, 0, -1) do
     if id == 1 then
-      return (ts_utils.get_node_text(node))[1]
+      return vim.treesitter.query.get_node_text(node, bufnr)
     end
   end
 end
 
 -- get function/method details {name,line,type}
-local get_function_details = function()
+local get_function_at_cursor = function()
   local current_node = ts_utils.get_node_at_cursor()
   if not current_node then return {} end
   local expr = current_node
@@ -99,9 +99,11 @@ local get_function_details = function()
   end
 
   if not expr then return {} end
+  local node = expr:child(index)
+  local line = node:range()
   return {
-    ["name"] = (ts_utils.get_node_text(expr:child(index)))[1],
-    ["line"] = ({ ts_utils.get_node_range(expr) })[1],
+    ["name"] = vim.treesitter.query.get_node_text(node, 0),
+    ["line"] = line,
     ["type"] = type,
   }
 end
@@ -114,7 +116,7 @@ local state = {
 
 function RunSingleTest()
   local bufnr = vim.api.nvim_get_current_buf()
-  local function_details = get_function_details()
+  local function_details = get_function_at_cursor()
   if next(function_details) == nil then
     return
   end
