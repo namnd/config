@@ -1,5 +1,7 @@
 local ts_utils = require 'nvim-treesitter.ts_utils'
 
+local test_result_bufnr = nil
+
 local make_key = function(entry)
   assert(entry.Package, "Must have Package:" .. vim.inspect(entry))
   assert(entry.Test, "Must have Test:" .. vim.inspect(entry))
@@ -46,6 +48,10 @@ local is_integration_test = function(bufnr)
     end
   end
   return false
+end
+
+local is_using_testify_suite = function()
+  return vim.fn.search('testify/suite', 'n') > 0
 end
 
 local test_suite_query_string = [[
@@ -101,8 +107,11 @@ local get_function_at_cursor = function()
   if not expr then return {} end
   local node = expr:child(index)
   local line = node:range()
+  local name = vim.treesitter.query.get_node_text(node, 0)
+  if not vim.startswith(name, "Test") then return {} end
+
   return {
-    ["name"] = vim.treesitter.query.get_node_text(node, 0),
+    ["name"] = name,
     ["line"] = line,
     ["type"] = type,
   }
@@ -110,36 +119,142 @@ end
 
 local ns = vim.api.nvim_create_namespace "go-tests"
 
-local state = {
-  tests = {},
-}
+-- construct command for running test(s) depends on various input
+local build_command = function(bufnr, test_name)
+  local dir = "./..."
+  if is_integration_test(bufnr) then
+    dir = get_go_module_name() .. "/" .. vim.fn.expand('%:h')
+  elseif is_using_testify_suite() then
+    dir = vim.fn.expand('%')
+  end
 
-function RunSingleTest()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local function_details = get_function_at_cursor()
-  if next(function_details) == nil then
+  local command = { "go", "test", "-v", "-json", dir }
+
+  if test_name ~= nil then
+    local arg = is_using_testify_suite() and "-testify.m" or "-run"
+    vim.list_extend(command, { arg, "^" .. test_name .. "$" })
+  end
+
+  -- vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, vim.split(table.concat(command, " "), "\n")) -- debug
+  return command
+end
+
+-- parse command output (json) to state object for displaying once finished
+local parse_output_data = function(state, data, function_details)
+  if not data then return end
+
+  for _, line in ipairs(data) do
+    local decoded = vim.json.decode(line)
+    -- vim.api.nvim_buf_set_lines(vim.api.nvim_get_current_buf(), -1, -1, false, vim.split(vim.inspect(decoded), "\n"))
+    if decoded.Test then
+      if decoded.Action == "run" then
+        add_golang_test(state, decoded, function_details.line)
+      elseif decoded.Action == "output" then
+        add_golang_output(state, decoded)
+      elseif decoded.Action == "pass" or decoded.Action == "fail" then
+        mark_success(state, decoded)
+      elseif decoded.Action == "pause" or decoded.Action == "cont" then
+        -- do nothing
+      else
+        error("Failed to handle" .. vim.inspect(data))
+      end
+    end
+  end
+end
+
+-- display test results based on the state
+local display_test_result = function(bufnr, state)
+  -- vim.api.nvim_buf_set_lines(test_result_bufnr, 0, -1, false, vim.split(vim.inspect(state), "\n"))
+  local test_suite = find_test_suite(bufnr)
+  for _, test in pairs(state.tests) do
+    if test_suite == nil or vim.startswith(test.name, test_suite) --[[ and test.line == function_details.line ]] then
+      vim.api.nvim_buf_set_lines(test_result_bufnr, -1, -1, false, test.output)
+
+      if test.success then
+        vim.api.nvim_buf_set_extmark(bufnr, ns, test.line, 0, {
+          id = test.line,
+          sign_text = " ",
+          sign_hl_group = "TestPassed",
+        })
+      else
+        vim.api.nvim_buf_set_extmark(bufnr, ns, test.line, 0, {
+          id = test.line,
+          sign_text = " ",
+          sign_hl_group = "TestFailed",
+          virt_text = { { " Test failed", "TestFailed" } },
+        })
+
+        if vim.fn.getbufinfo(test_result_bufnr)[1].hidden == 1 then
+          ToggleTestResult()
+        end
+      end
+    end
+  end
+  vim.api.nvim_buf_set_option(test_result_bufnr, 'modifiable', false)
+end
+
+local init_test_result_bufnr = function()
+  if not test_result_bufnr then
+    test_result_bufnr = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_option(test_result_bufnr, 'filetype', 'testresult')
+  end
+  vim.api.nvim_buf_set_option(test_result_bufnr, 'modifiable', true)
+end
+
+function ToggleTestResult()
+  if test_result_bufnr == nil then
     return
   end
 
-  local command = {}
-
-  if is_integration_test(bufnr) then
-    command = { "go", "test", get_go_module_name() .. "/" .. vim.fn.expand('%:h'), "-v", "-testify.m",
-      "^" .. function_details.name .. "$", "-json" }
-  elseif function_details.type == "m" then
-    command = { "go", "test", vim.fn.expand('%'), "-v", "-testify.m", "^" .. function_details.name .. "$", "-json" }
+  if vim.fn.getbufinfo(test_result_bufnr)[1].hidden == 1 then
+    vim.api.nvim_command(':sb' .. test_result_bufnr)
+    vim.api.nvim_command('wincmd k')
   else
-    command = { "go", "test", "./...", "-v", "-run", "^" .. function_details.name .. "$", "-json" }
+    vim.api.nvim_command('wincmd j')
+    vim.api.nvim_command('hide')
+  end
+end
+
+vim.keymap.set('n', '<leader>o', ToggleTestResult, {})
+
+function RunSingleTest()
+  local state = {
+    tests = {},
+  }
+
+  -- step 1) find the nearest test
+  local bufnr = vim.api.nvim_get_current_buf()
+  local function_details = get_function_at_cursor()
+  if next(function_details) == nil then
+    print("Oops, not a test")
+    return
   end
 
-  -- debug test command
-  -- vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, vim.split(table.concat(command, " "), "\n"))
+  -- step 2) construct the command to run
+  local command = build_command(bufnr, function_details.name)
+
+  -- step 3a) start running test
   vim.api.nvim_buf_set_extmark(bufnr, ns, function_details.line, 0, {
     id = function_details.line,
     sign_text = " ●",
     sign_hl_group = "TestRunning",
   })
 
+  -- step 3b) prepare test result buffer
+  init_test_result_bufnr()
+
+  vim.api.nvim_buf_set_lines(test_result_bufnr, 0, -1, false, { table.concat(command, " "), "" })
+  vim.api.nvim_buf_add_highlight(test_result_bufnr, ns, 'TestRunning', 0, 0, -1)
+
+  vim.fn.jobstart(command, {
+    stdout_buffered = true,
+    on_stdout = function(_, data)
+      parse_output_data(state, data, function_details)
+    end,
+    on_exit = function() display_test_result(bufnr, state) end,
+  })
+
+end
   local test_suite = find_test_suite(bufnr)
 
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>o', '', {
