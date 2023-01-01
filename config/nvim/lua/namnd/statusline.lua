@@ -94,6 +94,7 @@ end
 local M = {}
 
 M.global = function()
+  local has_lsp_status, lsp_status = pcall(require, 'lsp-status')
   return table.concat {
     get_mode(), " ",
     vim.fn.fnamemodify(vim.api.nvim_eval('getcwd()'), ":~"), " ",
@@ -101,7 +102,7 @@ M.global = function()
     "%#StatusLine#%{'Line: '}%l/%L, %{'Col: '}%c",
     " %{ObsessionStatus()}",
     "%=",
-    require('lsp-status').status(), " ",
+    has_lsp_status and lsp_status.status() or "", " ",
     "%#StatusLineLsp#", get_lsp_clients(), " ",
   }
 end

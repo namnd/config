@@ -43,7 +43,7 @@ cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   completion = {
@@ -75,3 +75,5 @@ cmp.setup.cmdline('/', {
     { name = 'buffer' }
   }
 })
+
+require("luasnip.loaders.from_lua").load({ paths = os.getenv("HOME") .. "/.config/nvim/snippets" })

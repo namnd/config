@@ -75,7 +75,6 @@ if is_bootstrap then
 end
 
 require('impatient')
-require("luasnip.loaders.from_lua").load({ paths = os.getenv("HOME") .. "/.config/nvim/snippets" })
 require("namnd.notes")
 
 vim.cmd.colorscheme("namnd")
@@ -88,7 +87,7 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.wo.list = true
 vim.o.listchars = 'tab:| ,trail:·,eol:↵'
-vim.o.completeopt = 'menu,menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect' -- for nvim-cmp
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.wildmode = 'longest:full,full'
 vim.o.tabstop = 2
