@@ -120,6 +120,7 @@ vim.keymap.set("n", '<leader>K', '<cmd>lua require("trevj").format_at_cursor()<c
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
+vim.keymap.set('n', '<leader>=', "<cmd>lua vim.lsp.buf.format()<cr>", { noremap = true })
 
 vim.cmd [[
 set winbar=%m\ %f\ (%n)%=%P\ %r%y
@@ -153,6 +154,7 @@ autocmd('BufWritePost', {
 
 autocmd('BufWritePre', {
   group = augroup('LspFormatGroup', { clear = true }),
+  pattern = { '*.go', '*.tf', '*.tfvars' },
   callback = function() vim.lsp.buf.format() end,
 })
 
