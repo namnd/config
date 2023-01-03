@@ -247,29 +247,50 @@ end
 ---@param state table
 local display_test_result = function(bufnr, state)
   -- vim.api.nvim_buf_set_lines(test_result_bufnr, 0, -1, false, vim.split(vim.inspect(state.tests), "\n"))
+  -- first display the suite one (if there is any)
   for _, test in pairs(state.tests) do
+    if vim.endswith(test.name, "Suite") then
+      vim.api.nvim_buf_set_lines(test_result_bufnr, -1, -1, false, test.output)
+    end
+  end
+
+  -- next sort the rest by line number, also excluding the suite
+  local lines = {}
+  local tests_by_line = {}
+  for _, test in pairs(state.tests) do
+    if test.line and not vim.endswith(test.name, "Suite") then
+      table.insert(lines, test.line)
+      tests_by_line[test.line] = test
+    end
+  end
+
+  -- sort by line ascending
+  table.sort(lines)
+  local has_failed_test = false
+
+  for _, line in ipairs(lines) do
+    local test = tests_by_line[line]
     vim.api.nvim_buf_set_lines(test_result_bufnr, -1, -1, false, test.output)
 
-    if test.line then
-      if test.success then
-        vim.api.nvim_buf_set_extmark(bufnr, ns, test.line, 0, {
-          id = test.line,
-          sign_text = " ",
-          sign_hl_group = "TestPassed",
-        })
-      else
-        vim.api.nvim_buf_set_extmark(bufnr, ns, test.line, 0, {
-          id = test.line,
-          sign_text = " ",
-          sign_hl_group = "TestFailed",
-          virt_text = { { " Test failed", "TestFailed" } },
-        })
-
-        if vim.fn.getbufinfo(test_result_bufnr)[1].hidden == 1 then
-          ToggleTestResult()
-        end
-      end
+    if test.success then
+      vim.api.nvim_buf_set_extmark(bufnr, ns, line, 0, {
+        id = line,
+        sign_text = " ",
+        sign_hl_group = "TestPassed",
+      })
+    else
+      vim.api.nvim_buf_set_extmark(bufnr, ns, line, 0, {
+        id = line,
+        sign_text = " ",
+        sign_hl_group = "TestFailed",
+        virt_text = { { " Test failed", "TestFailed" } },
+      })
+      has_failed_test = true
     end
+  end
+
+  if has_failed_test and vim.fn.getbufinfo(test_result_bufnr)[1].hidden == 1 then
+    ToggleTestResult()
   end
   vim.api.nvim_buf_set_option(test_result_bufnr, 'modifiable', false)
 end
