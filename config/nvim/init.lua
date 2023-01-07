@@ -139,6 +139,7 @@ augroup FiletypeGroup
   autocmd BufNewFile,BufRead *gitconfig set filetype=toml
   autocmd BufNewFile,BufRead *zshrc set filetype=bash
   autocmd BufNewFile,BufRead scratch set filetype=markdown
+  autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 augroup END
 ]]
 
