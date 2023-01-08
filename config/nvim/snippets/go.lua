@@ -1,5 +1,5 @@
 return {
-  s("f", fmt([[
+  s("funcm", fmt([[
   func main() {{
     {}
   }}
@@ -9,7 +9,7 @@ return {
     {}
   }}
   ]], { i(1), i(2), i(3), i(0) })),
-  s("me", fmt([[
+  s("fucnr", fmt([[
   func ({1}) {2}({3}) {4} {{
     {}
   }}
@@ -35,15 +35,14 @@ return {
   }}
   ]], { i(1), i(0) })),
 
-  s("er", fmt([[
+  s("ifer", fmt([[
   if err != nil {{
-    {}
+    return nil, err
   }}
-  ]], { i(0) })),
+  ]], {})),
   s("if", fmt([[
   if {1} {{
     {}
   }}
   ]], { i(1), i(0) })),
 }
-
