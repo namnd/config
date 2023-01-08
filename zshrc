@@ -16,6 +16,14 @@ export HISTSIZE=10000
 export PATH=$PATH:$HOME/.local/bin
 export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
 
+function pass() {
+  defaults write org.p0deje.Maccy ignoreEvents true ;
+  sleep 1;
+  /Users/namnguyen/.nix-profile/bin/pass -c "$@" ;
+  sleep 1;
+  defaults write org.p0deje.Maccy ignoreEvents false;
+}
+
 function _is_in_git_repo() {
   git rev-parse HEAD > /dev/null 2>&1
 }
