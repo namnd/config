@@ -16,7 +16,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-obsession' -- session manager
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb' -- github
-  use 'junegunn/gv.vim' -- git commit browser
+  use 'namnd/gv.vim' -- git commit browser
   use 'tpope/vim-projectionist'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
