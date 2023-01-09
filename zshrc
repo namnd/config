@@ -16,7 +16,7 @@ export HISTSIZE=10000
 export PATH=$PATH:$HOME/.local/bin
 export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
 
-function pass() {
+function passc() {
   defaults write org.p0deje.Maccy ignoreEvents true ;
   sleep 1;
   /Users/namnguyen/.nix-profile/bin/pass -c "$@" ;
