@@ -112,7 +112,6 @@ vim.keymap.set("n", "E", "ea", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("n", "<leader>cd", ':cd %:p:h<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>1", ':Dispatch ', { noremap = true })
-vim.keymap.set("n", "<leader>2", ':ToggleQuickFix<cr>', { noremap = true })
 vim.keymap.set("n", "<<", ':colder<cr>', { noremap = true })
 vim.keymap.set("n", ">>", ':cnewer<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>ch", '<cmd>lua require("namnd.cheatsh").prompt_query()<cr>', { noremap = true })
@@ -121,6 +120,13 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>=', "<cmd>lua vim.lsp.buf.format()<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>2", function ()
+  if vim.fn.getqflist({ winid = 0 }).winid == 0 then
+    vim.api.nvim_command('copen')
+  else
+    vim.api.nvim_command('cclose')
+  end
+end, { noremap = true })
 
 vim.cmd [[
 set winbar=%m\ %f\ (%n)%=%P\ %r%y
