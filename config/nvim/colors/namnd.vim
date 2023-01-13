@@ -32,6 +32,7 @@ let s:magenta = { 'cterm': 'Magenta', 'gui': 'Magenta' }
 let s:lightBlue = { 'cterm': 'LightBlue', 'gui': '#60D7FF' }
 
 call <sid>hi('Normal', s:white, s:black, 'none')
+call <sid>hi('Conceal', s:white, s:black, 'none')
 call <sid>hi('Visual', s:black, s:white, 'none')
 call <sid>hi('CursorLine',  {}, s:superDarkGrey, 'none')
 call <sid>hi('CursorLineNr', s:white, {}, 'none')
