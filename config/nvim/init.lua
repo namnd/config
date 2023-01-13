@@ -23,6 +23,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-abolish' -- fooBar into foo_bar or FooBar
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-dispatch'
+  use 'preservim/vim-markdown'
   use 'tpope/vim-endwise'
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
   use { 'Julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
@@ -137,14 +138,15 @@ augroup FiletypeGroup
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
   autocmd VimResized * :wincmd =
-  autocmd FileType git setlocal foldmethod=syntax foldenable
-  autocmd FileType yml,yaml setlocal foldmethod=indent
   autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
   autocmd BufNewFile,BufRead *.tfvars set filetype=terraform
   autocmd BufNewFile,BufRead *.hujson set filetype=json
   autocmd BufNewFile,BufRead *gitconfig set filetype=toml
   autocmd BufNewFile,BufRead *zshrc set filetype=bash
   autocmd BufNewFile,BufRead scratch set filetype=markdown
+  autocmd FileType git setlocal foldmethod=syntax foldenable
+  autocmd FileType yml,yaml setlocal foldmethod=indent
+  autocmd FileType markdown setlocal foldmethod=expr
   autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 augroup END
 ]]
