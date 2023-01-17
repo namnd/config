@@ -3,7 +3,7 @@
 [user]
   email = me@namnd.com
   name = Nam Nguyen
-  signingkey = 8EC343F7
+  signingkey = 3E656F30
 [pull]
   rebase = true
 [push]
