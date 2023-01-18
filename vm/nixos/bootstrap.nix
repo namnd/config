@@ -8,7 +8,7 @@
     openssh.authorizedKeys.keys = [ "ssh_key" ];
   };
 
-  networking.hostName = "nixos-vm";
+  networking.hostName = "vm_hostname";
   time.timeZone = "Australia/Sydney";
   virtualisation.docker.enable = true;
 

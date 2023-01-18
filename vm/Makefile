@@ -1,6 +1,6 @@
 # Forked from https://github.com/mitchellh/nixos-config
 
-include user.mk
+include config.mk
 
 NIXADDR ?= unset
 NIXPORT ?= 22
@@ -51,7 +51,7 @@ bootstrap:
 		$(MAKEFILE_DIR)/nixos/ root@$(NIXADDR):/etc/nixos
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
 		ln -s sh /bin/bash; \
-		sh /etc/nixos/build.sh $(NIXUSER) $(SSH_KEY); \
+		sh /etc/nixos/build.sh $(NIXUSER) $(VM_HOSTNAME) $(SSH_KEY); \
 		"
 	$(MAKE) secrets
 
@@ -61,9 +61,4 @@ secrets:
 	rsync -av -e 'ssh -p$(NIXPORT)' \
 		--exclude='.#*' \
 		--exclude='S.*' \
-		--exclude='*.conf' \
 		$(HOME)/.gnupg/ $(NIXUSER)@$(NIXADDR):~/.gnupg
-	# SSH keys
-	rsync -av -e 'ssh -p$(NIXPORT)' \
-		--exclude='environment' \
-		$(HOME)/.ssh/ $(NIXUSER)@$(NIXADDR):~/.ssh
