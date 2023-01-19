@@ -51,7 +51,7 @@ bootstrap:
 		$(MAKEFILE_DIR)/nixos/ root@$(NIXADDR):/etc/nixos
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
 		ln -s sh /bin/bash; \
-		sh /etc/nixos/build.sh $(NIXUSER) $(VM_HOSTNAME) $(SSH_KEY); \
+		sh /etc/nixos/build.sh $(NIXUSER) $(VM_HOSTNAME); \
 		"
 	$(MAKE) secrets
 	$(MAKE) dotfiles
@@ -65,12 +65,16 @@ secrets:
 		rm -rf ~/.gnupg; \
 		gpg --import ~/gpg-subkeys.txt; \
 		rm ~/gpg-subkeys.txt; \
-		echo $(KEYGRIP) > ~/.gnupg/sshcontrol; \
+		echo ECC7FCDCAB73B03C6DB54DDB04C88772536E20ED > ~/.gnupg/sshcontrol; \
 		"
 
 dotfiles:
 	ssh $(NIXUSER)@$(NIXADDR) " \
 		git clone https://github.com/namnd/dotfiles.git ~/dotfiles; \
+		"
+	rsync -av -e 'ssh -p$(NIXPORT)' \
+	./nixos/custom.nix $(NIXUSER)@$(NIXADDR):~/dotfiles/config/nixpkgs/
+	ssh $(NIXUSER)@$(NIXADDR) " \
 		cd ~/dotfiles; \
 		sh init.sh $(GIT_EMAIL); \
 		"
