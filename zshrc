@@ -133,3 +133,7 @@ alias gl='git log'
 alias gg='git graph'
 alias gb='_git_branch'
 alias gL='_git_log'
+
+if [ -x "$(command -v direnv)" ]; then
+  eval "$(direnv hook zsh)"
+fi
