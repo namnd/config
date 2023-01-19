@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ "$1" ]; then
+  sed -i "s/email/$1/g" $HOME/dotfiles/gitconfig
+fi
+
 apps=(
   "gitconfig"
   "gitignore"
@@ -38,8 +42,10 @@ if ( ! $(cat $HOME/.zshrc | grep "$PWD/zshrc" > /dev/null) ); then
   echo "source $PWD/zshrc # Personal" | cat - ~/.zshrc > temp && mv temp ~/.zshrc
 fi
 
-# install Nix (2.8.1) for multi user
-sh -c "$(curl -L https://releases.nixos.org/nix/nix-2.8.1/install)" --daemon
+# install Nix (2.8.1) for multi user (for Mac only)
+if [ ! -x "$(command -v nix)" ]; then
+  sh -c "$(curl -L https://releases.nixos.org/nix/nix-2.8.1/install)" --daemon
+fi
 
 # install Home manager if not yet installed
 if [ ! -x "$(command -v home-manager)" ]; then
