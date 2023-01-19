@@ -54,6 +54,7 @@ bootstrap:
 		sh /etc/nixos/build.sh $(NIXUSER) $(VM_HOSTNAME) $(SSH_KEY); \
 		"
 	$(MAKE) secrets
+	$(MAKE) dotfiles
 
 # copy our secrets into the VM
 secrets:
@@ -65,4 +66,11 @@ secrets:
 		gpg --import ~/gpg-subkeys.txt; \
 		rm ~/gpg-subkeys.txt; \
 		echo $(KEYGRIP) > ~/.gnupg/sshcontrol; \
+		"
+
+dotfiles:
+	ssh $(NIXUSER)@$(NIXADDR) " \
+		git clone https://github.com/namnd/dotfiles.git ~/dotfiles; \
+		cd ~/dotfiles; \
+		sh init.sh $(GIT_EMAIL); \
 		"
