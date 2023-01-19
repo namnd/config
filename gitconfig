@@ -1,7 +1,7 @@
 [init]
   defaultBranch = master
 [user]
-  email = me@namnd.com
+  email = userEmail
   name = Nam Nguyen
   signingkey = 3E656F30
 [pull]
