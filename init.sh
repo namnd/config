@@ -4,6 +4,8 @@ if [ "$1" ]; then
   sed -i "s/userEmail/$1/g" $HOME/dotfiles/gitconfig
 fi
 
+sed -i "s/https:\/\/github.com\/namnd\/dotfiles.git/git@github.com:namnd\/dotfiles.git/g" $HOME/dotfiles/.git/config
+
 # install Nix (2.8.1) for multi user (for Mac only)
 if [ ! -x "$(command -v nix)" ]; then
   sh -c "$(curl -L https://releases.nixos.org/nix/nix-2.8.1/install)" --daemon
