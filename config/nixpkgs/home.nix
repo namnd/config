@@ -55,4 +55,8 @@ in
       enable = true;
     };
   };
+
+  imports = [
+    ./custom.nix
+  ];
 }

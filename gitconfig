@@ -1,9 +1,5 @@
 [init]
   defaultBranch = master
-[user]
-  email = userEmail
-  name = Nam Nguyen
-  signingkey = 3E656F30
 [pull]
   rebase = true
 [push]
@@ -21,7 +17,5 @@
 
 [format]
   pretty = %C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)
-[commit]
-  gpgsign = true
 [core]
   excludesfile = ~/.gitignore

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$1" ]; then
-  sed -i "s/userEmail/$1/g" $HOME/dotfiles/gitconfig
+  sed -i "s/git_email/$1/g" $HOME/dotfiles/config/nixpkgs/custom.nix
 fi
 
 sed -i "s/https:\/\/github.com\/namnd\/dotfiles.git/git@github.com:namnd\/dotfiles.git/g" $HOME/dotfiles/.git/config
