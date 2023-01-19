@@ -60,7 +60,7 @@ bootstrap:
 secrets:
 	# GPG keyring
 	rsync -av -e 'ssh -p$(NIXPORT)' \
-	$(SUBKEYS_PATH) $(NIXUSER)@$(NIXADDR):~/
+	/Volumes/Subkeys/gpg-subkeys.txt $(NIXUSER)@$(NIXADDR):~/
 	ssh $(NIXUSER)@$(NIXADDR) " \
 		rm -rf ~/.gnupg; \
 		gpg --import ~/gpg-subkeys.txt; \
