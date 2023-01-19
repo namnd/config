@@ -1,4 +1,4 @@
-NIXUSER = namnguyen
+NIXUSER = me
 VM_HOSTNAME = namnd
 SUBKEYS_PATH = /Volumes/Subkeys/gpg-subkeys.txt
 SSH_KEY = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8HjC+29D66x0zOMMwrleHKHN4bD5hBmIqKzc3FALQo
