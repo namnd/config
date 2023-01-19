@@ -59,6 +59,10 @@ bootstrap:
 secrets:
 	# GPG keyring
 	rsync -av -e 'ssh -p$(NIXPORT)' \
-		--exclude='.#*' \
-		--exclude='S.*' \
-		$(HOME)/.gnupg/ $(NIXUSER)@$(NIXADDR):~/.gnupg
+	$(SUBKEYS_PATH) $(NIXUSER)@$(NIXADDR):~/
+	ssh $(NIXUSER)@$(NIXADDR) " \
+		rm -rf ~/.gnupg; \
+		gpg --import ~/gpg-subkeys.txt; \
+		rm ~/gpg-subkeys.txt; \
+		echo $(KEYGRIP) > ~/.gnupg/sshcontrol; \
+		"
