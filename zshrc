@@ -33,10 +33,12 @@ function preexec() {
   inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 }
 
-hostname=$(cat /etc/hostname)
+hostname=$(cat /etc/hostname 2>/dev/null)
 
 function precmd() {
-  print -Pn "\e]0;%1d($hostname)\a"
+  if [ $hostname ]; then
+    print -Pn "\e]0;%1d($hostname)\a"
+  fi
   if [ $cmd_start ]; then
     local now=$(($(print -P %D{%s%6.}) / 1000))
     local d_ms=$(($now - $cmd_start))
