@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  isLinux = pkgs.stdenv.hostPlatform.isLinux;
-  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   unstable = import (fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz) { };
 in
 {
@@ -10,6 +8,8 @@ in
   home.homeDirectory = builtins.getEnv "HOME";
 
   home.stateVersion = "22.05";
+
+  programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
     awscli2
@@ -35,15 +35,10 @@ in
     cloc
     hugo
     ripgrep
-  ] ++ lib.optionals (isLinux) [
     gcc
     unzip
-  ] ++ lib.optionals (isDarwin) [
-    colima
-    docker
   ];
 
-  programs.home-manager.enable = true;
   programs.direnv = {
     enable = true;
     config = {
