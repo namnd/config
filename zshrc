@@ -137,3 +137,23 @@ alias gL='_git_log'
 if [ -x "$(command -v direnv)" ]; then
   eval "$(direnv hook zsh)"
 fi
+
+function cur_aws_vlt() {
+  if [ -n "${AWS_VAULT}" ]; then
+    color=yellow
+    case $AWS_VAULT in
+      stage)
+        color=cyan
+        ;;
+      prod)
+        color=magenta
+        ;;
+    esac
+    date=$(date --date $AWS_SESSION_EXPIRATION +%H:%M)
+    echo "%{%F{$color}%}($AWS_VAULT) %F{grey}% $date%{$reset_color%} "
+  fi
+}
+
+export PROMPT="%{$fg[yellow]%}$(cur_aws_vlt)%{$reset_color%}$PROMPT"
+
+alias v="aws-vault exec --debug --backend=file --duration=1h"
