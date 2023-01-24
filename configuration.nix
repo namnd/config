@@ -27,7 +27,7 @@
     description = "Nam Nguyen";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKqsFOesSlXn6hnDo/zVO4znA/vpd7oXdnu9qcEb3xHf" ];
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8HjC+29D66x0zOMMwrleHKHN4bD5hBmIqKzc3FALQo" ];
  
     packages = with pkgs; [];
   };
