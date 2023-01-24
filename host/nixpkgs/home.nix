@@ -31,18 +31,5 @@
       ssh = "kitty +kitten ssh -R 2489:127.0.0.1:2489";
     };
   };
-
-  programs.direnv = {
-    enable = true;
-    config = {
-      global = {
-        warn_timeout = "10m";
-      };
-    };
-    nix-direnv = {
-      enable = true;
-    };
-  };
-
 }
 
