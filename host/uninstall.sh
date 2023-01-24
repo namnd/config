@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Reference https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos
+
 function main() {
   remove_shell_rc
   remove_daemon_services
