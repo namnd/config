@@ -15,9 +15,12 @@ $ export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/roo
 $ nix-shell '<home-manager>' -A install
 
 # Clone nixos repo
-git clone https://github.com/namnd/nixos
+$ git clone https://github.com/namnd/nixos
 
 # Setup host
-cd nixos/host && sh init.sh
+$ cd nixos/host && sh install.sh
+
+# To uninstall nix
+$ sh uninstall.sh
 ```
 
