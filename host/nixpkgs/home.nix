@@ -26,8 +26,6 @@
   home.packages = with pkgs; [
     pass
     lemonade
-    hugo
-    neovim
   ];
 
   programs.zsh = {
