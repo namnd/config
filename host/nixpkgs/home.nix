@@ -31,5 +31,17 @@
       ssh = "kitty +kitten ssh -R 2489:127.0.0.1:2489";
     };
   };
+
+  home.file.".zshrc".text = ''
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    function passc() {
+      defaults write org.p0deje.Maccy ignoreEvents true ;
+      sleep 1;
+      pass -c "$@" ;
+      sleep 1;
+      defaults write org.p0deje.Maccy ignoreEvents false;
+    }
+  '';
+
 }
 
