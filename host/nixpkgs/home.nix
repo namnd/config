@@ -16,6 +16,11 @@
       key = "3E656F30";
       signByDefault = true;
     };
+    ignores = [ ".DS_Store" "Session.vim"];
+    extraConfig = {
+      pull.rebase = true;
+      push.default = "current";
+    };
   };
 
   home.packages = with pkgs; [
