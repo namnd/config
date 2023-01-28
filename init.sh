@@ -15,26 +15,10 @@ if [ ! -x "$(command -v home-manager)" ]; then
   nix-shell '<home-manager>' -A install
 fi
 
-apps=(
-  "gitconfig"
-  "gitignore"
-  "zshrc"
-)
-for app in ${apps[*]}
-do
-  rm -rf $HOME/.${app}
-  ln -sfn $PWD/${app} $HOME/.${app}
-done
-
-config=(
-  "nvim"
-  "nixpkgs"
-)
 mkdir -p $HOME/.config
-for c in ${config[*]}
-do
-  rm -rf $HOME/.config/${c}
-  ln -sfn $PWD/config/${c} $HOME/.config/${c}
-done
+
+ln -sfn $PWD/zshrc $HOME/.zshrc
+ln -sfn $PWD/config/nixpkgs $HOME/.config/nixpkgs
+ln -sfn $PWD/config/nvim $HOME/.config/nvim
 
 home-manager switch

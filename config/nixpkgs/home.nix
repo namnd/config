@@ -51,6 +51,37 @@ in
     };
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Nam Nguyen";
+    signing = {
+      key = "3E656F30";
+      signByDefault = true;
+    };
+    aliases = {
+      undo = "!git reset HEAD~1 --mixed";
+      graph = "!f()  { git log --graph --abbrev-commit --decorate --all; }; f";
+    };
+    extraConfig = {
+      color = {
+        ui = true;
+        diff = true;
+        status = true;
+        branch = true;
+        interactive = true;
+      };
+      init.defaultBranch = "master";
+      pull.rebase = true;
+      push.default = "current";
+      format.pretty = "%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)";
+    };
+    ignores = [
+      "Session.vim"
+      "packer_compiled.lua"
+      ".direnv"
+    ];
+  };
+
   imports = [
     ./custom.nix
   ];
