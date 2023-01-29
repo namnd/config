@@ -163,7 +163,7 @@ autocmd('BufWritePost', {
 
 autocmd('BufWritePre', {
   group = augroup('LspFormatGroup', { clear = true }),
-  pattern = { '*.go', '*.tf', '*.tfvars' },
+  pattern = { '*.go', '*.tf', '*.tfvars', '*.nix' },
   callback = function() vim.lsp.buf.format() end,
 })
 
