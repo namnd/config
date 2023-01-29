@@ -48,9 +48,6 @@ hs.hotkey.bind(modifier, "g", function()
   end
 end)
 
--- Install spoons
-hs.loadSpoon("SpoonInstall")
-
 -- sleep/awake menu item
 local caffeine = hs.menubar.new()
 function SetCaffeineDisplay(state)
