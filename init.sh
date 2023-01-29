@@ -17,7 +17,6 @@ fi
 
 mkdir -p $HOME/.config
 
-ln -sfn $PWD/zshrc $HOME/.zshrc
 ln -sfn $PWD/config/nixpkgs $HOME/.config/nixpkgs
 ln -sfn $PWD/config/nvim $HOME/.config/nvim
 

@@ -82,6 +82,43 @@ in
     ];
   };
 
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    defaultKeymap = "emacs";
+    dotDir = "./.config/zsh";
+    history = {
+      expireDuplicatesFirst = true;
+      save = 10000;
+      share = true;
+      size = 10000;
+    };
+    initExtra = builtins.readFile ./zshrc;
+    shellAliases = {
+      vim = "nvim";
+      ls = "ls --color=auto";
+      ll = "ls -l";
+      all = "ls -al";
+      ".." = "cd ..";
+      ".2" = "cd ../..";
+      ".3" = "cd ../../..";
+      ".4" = "cd ../../../..";
+      ".5" = "cd ../../../../..";
+      ga = "git add --patch";
+      gs = "git status";
+      gc = "git checkout";
+      gp = "git pull";
+      gP = "git push";
+      gd = "git diff";
+      gl = "git log";
+      gg = "git graph";
+      gb = "_git_branch";
+      gL = "_git_log";
+      mcd = "f() { mkdir -p $1 && cd $1 }; f";
+      v = "aws-vault exec --debug --backend=file --duration=1h";
+    };
+  };
+
   imports = [
     ./custom.nix
   ];
