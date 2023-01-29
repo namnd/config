@@ -48,13 +48,14 @@ install:
 
 bootstrap:
 	rsync -av -e 'ssh $(SSH_OPTIONS)' \
-		$(MAKEFILE_DIR)/nixos/ root@$(NIXADDR):/etc/nixos
+		$(MAKEFILE_DIR)/vm/ root@$(NIXADDR):/etc/nixos
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
 		ln -s sh /bin/bash; \
 		sh /etc/nixos/build.sh $(NIXUSER) $(VM_HOSTNAME); \
 		"
 	$(MAKE) secrets
-	$(MAKE) dotfiles
+	$(MAKE) home-manager
+	$(MAKE) neovim
 
 # copy our secrets into the VM
 secrets:
@@ -68,13 +69,17 @@ secrets:
 		echo ECC7FCDCAB73B03C6DB54DDB04C88772536E20ED > ~/.gnupg/sshcontrol; \
 		"
 
-dotfiles:
+home-manager:
 	ssh $(NIXUSER)@$(NIXADDR) " \
-		git clone https://github.com/namnd/dotfiles.git ~/dotfiles; \
+		git clone https://github.com/namnd/nixpkgs ~/.config/nixpkgs; \
 		"
 	rsync -av -e 'ssh -p$(NIXPORT)' \
-	./nixos/custom.nix $(NIXUSER)@$(NIXADDR):~/dotfiles/config/nixpkgs/
+	./nixpkgs/custom.nix $(NIXUSER)@$(NIXADDR):~/.config/nixpkgs/
 	ssh $(NIXUSER)@$(NIXADDR) " \
-		cd ~/dotfiles; \
-		sh init.sh $(GIT_EMAIL); \
+		sh ./.config/nixpkgs/install.sh $(GIT_EMAIL); \
+		"
+
+neovim:
+	ssh $(NIXUSER)@$(NIXADDR) " \
+		git clone https://github.com/namnd/nvim ~/.config/nvim; \
 		"
