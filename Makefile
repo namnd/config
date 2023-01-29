@@ -5,6 +5,9 @@ include config.mk
 NIXADDR ?= unset
 NIXPORT ?= 22
 
+GPG_SUBKEYS ?= /Volumes/Subkeys/gpg-subkeys.txt
+KEYGRIP ?= ECC7FCDCAB73B03C6DB54DDB04C88772536E20ED
+
 # The block device prefix to use.
 #   - sda for SATA/IDE
 #   - vda for virtio
@@ -61,17 +64,19 @@ bootstrap:
 secrets:
 	# GPG keyring
 	rsync -av -e 'ssh -p$(NIXPORT)' \
-	/Volumes/Subkeys/gpg-subkeys.txt $(NIXUSER)@$(NIXADDR):~/
+	$(GPG_SUBKEYS) $(NIXUSER)@$(NIXADDR):~/
 	ssh $(NIXUSER)@$(NIXADDR) " \
 		rm -rf ~/.gnupg; \
 		gpg --import ~/gpg-subkeys.txt; \
 		rm ~/gpg-subkeys.txt; \
-		echo ECC7FCDCAB73B03C6DB54DDB04C88772536E20ED > ~/.gnupg/sshcontrol; \
+		echo $(KEYGRIP) > ~/.gnupg/sshcontrol; \
 		"
 
 home-manager:
 	ssh $(NIXUSER)@$(NIXADDR) " \
 		git clone https://github.com/namnd/nixpkgs ~/.config/nixpkgs; \
+		sed -i 's/https:\/\/github.com\/namnd\/nixpkgs/git@github.com:namnd\/nixpkgs.git/g' \
+		~/.config/nixpkgs/.git/config; \
 		"
 	rsync -av -e 'ssh -p$(NIXPORT)' \
 	./nixpkgs/custom.nix $(NIXUSER)@$(NIXADDR):~/.config/nixpkgs/
@@ -82,4 +87,6 @@ home-manager:
 neovim:
 	ssh $(NIXUSER)@$(NIXADDR) " \
 		git clone https://github.com/namnd/nvim ~/.config/nvim; \
+		sed -i 's/https:\/\/github.com\/namnd\/nvim/git@github.com:namnd\/nvim.git/g' \
+		~/.config/nvim/.git/config; \
 		"
