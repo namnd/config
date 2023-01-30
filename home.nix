@@ -1,5 +1,9 @@
 { config, pkgs, lib, ... }:
 
+let
+  isVm = pkgs.stdenv.hostPlatform.isLinux;
+  isHost = pkgs.stdenv.hostPlatform.isDarwin;
+in
 {
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
@@ -7,23 +11,19 @@
   home.stateVersion = "22.11";
 
   programs.home-manager.enable = true;
+  programs.gpg.enable = true;
 
   home.packages = with pkgs; [
+    neovim
+    lemonade
+    rnix-lsp
+    cht-sh
+  ] ++ lib.optionals (isVm) [
     awscli2
     aws-vault
     coreutils
     csvkit
     jq
-
-    # Nix LSP
-    rnix-lsp
-
-    # Neovim related
-    neovim
-    lemonade
-    cht-sh
-
-    # Other CLI tools
     fd
     fzf
     tldr
@@ -33,6 +33,8 @@
     ripgrep
     gcc
     unzip
+  ] ++ lib.optionals (isHost) [
+    pass
   ];
 
   programs.direnv = {
@@ -74,6 +76,8 @@
     ignores = [
       "Session.vim"
       ".direnv"
+    ] ++ lib.optionals (isHost) [
+      ".DS_Store"
     ];
   };
 
@@ -111,6 +115,7 @@
       gL = "_git_log";
       mcd = "f() { mkdir -p $1 && cd $1 }; f";
       v = "aws-vault exec --debug --backend=file --duration=1h";
+      ssh = "kitty +kitten ssh -R 2489:127.0.0.1:2489";
     };
   };
 
