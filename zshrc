@@ -86,3 +86,15 @@ function cur_aws_vlt() {
   fi
 }
 PROMPT="%{$fg[yellow]%}$(cur_aws_vlt)%{$reset_color%}$PROMPT"
+
+# specific for mac
+if [[ `uname` == "Darwin" ]]; then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  function passc() {
+    defaults write org.p0deje.Maccy ignoreEvents true ;
+    sleep 1;
+    pass -c "$@" ;
+    sleep 1;
+    defaults write org.p0deje.Maccy ignoreEvents false;
+  }
+fi
