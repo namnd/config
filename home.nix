@@ -20,6 +20,7 @@
 
     # Neovim related
     neovim
+    lemonade
     cht-sh
 
     # Other CLI tools
