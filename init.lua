@@ -7,6 +7,8 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+local ide_enable = true
+
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- plugin manager
   use 'tweekmonster/startuptime.vim'
@@ -33,7 +35,7 @@ require('packer').startup(function(use)
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- ./after/plugin/ufo.lua
-  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', cond = ide_enable }
 
   -- ./after/plugin/telescope.lua
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
@@ -48,22 +50,22 @@ require('packer').startup(function(use)
   use 'AckslD/nvim-trevJ.lua' -- reverse join-line using treesitter
 
   -- ./after/plugin/lsp.lua
-  use 'neovim/nvim-lspconfig'
-  use 'nvim-lua/lsp-status.nvim'
+  use { 'neovim/nvim-lspconfig', cond = ide_enable }
+  use { 'nvim-lua/lsp-status.nvim' , cond = ide_enable }
 
   -- ./after/plugin/cmp.lua
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'onsails/lspkind.nvim'
+  use { 'hrsh7th/nvim-cmp', cond = ide_enable }
+  use { 'hrsh7th/cmp-buffer', cond = ide_enable }
+  use { 'hrsh7th/cmp-nvim-lsp', cond = ide_enable }
+  use { 'L3MON4D3/LuaSnip', cond = ide_enable }
+  use { 'saadparwaiz1/cmp_luasnip', cond = ide_enable }
+  use { 'onsails/lspkind.nvim', cond = ide_enable }
 
   -- ./after/plugin/dap.lua
-  use 'mfussenegger/nvim-dap'
-  use 'leoluz/nvim-dap-go'
-  use 'rcarriga/nvim-dap-ui'
-  use 'theHamsta/nvim-dap-virtual-text'
+  use { 'mfussenegger/nvim-dap', cond = ide_enable }
+  use { 'leoluz/nvim-dap-go', cond = ide_enable }
+  use { 'rcarriga/nvim-dap-ui', cond = ide_enable }
+  use { 'theHamsta/nvim-dap-virtual-text', cond = ide_enable }
 
   if is_bootstrap then
     require('packer').sync()
@@ -164,7 +166,11 @@ autocmd('BufWritePost', {
 autocmd('BufWritePre', {
   group = augroup('LspFormatGroup', { clear = true }),
   pattern = { '*.go', '*.tf', '*.tfvars', '*.nix' },
-  callback = function() vim.lsp.buf.format() end,
+  callback = function()
+    if ide_enable then
+      vim.lsp.buf.format()
+    end
+  end,
 })
 
 autocmd('VimEnter', {
