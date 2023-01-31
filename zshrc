@@ -1,3 +1,5 @@
+setopt INTERACTIVE_COMMENTS
+
 hostname=$(cat /etc/hostname 2>/dev/null)
 
 function _is_in_git_repo() { git rev-parse HEAD > /dev/null 2>&1 }
