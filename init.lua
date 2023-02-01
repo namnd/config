@@ -28,7 +28,6 @@ require('packer').startup(function(use)
   use 'preservim/vim-markdown'
   use 'tpope/vim-endwise'
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
-  use { 'Julian/vim-textobj-variable-segment', requires = 'kana/vim-textobj-user' }
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
   -- ./after/plugin/gitsigns.lua
