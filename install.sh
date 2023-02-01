@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ "$1" ]; then
-  sed -i "s/git_email/$1/g" $HOME/.config/nixpkgs/custom.nix
+if [ ! -x "$(command -v nix)" ]; then
+  sh -c "$(curl -L https://releases.nixos.org/nix/nix-2.13.2/install)" --daemon
 fi
 
 if [ ! -x "$(command -v home-manager)" ]; then
