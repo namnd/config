@@ -77,11 +77,7 @@ home-manager:
 		git clone https://github.com/namnd/nixpkgs ~/.config/nixpkgs; \
 		sed -i 's/https:\/\/github.com\/namnd\/nixpkgs/git@github.com:namnd\/nixpkgs.git/g' \
 		~/.config/nixpkgs/.git/config; \
-		"
-	rsync -av -e 'ssh -p$(NIXPORT)' \
-	./nixpkgs/custom.nix $(NIXUSER)@$(NIXADDR):~/.config/nixpkgs/
-	ssh $(NIXUSER)@$(NIXADDR) " \
-		sh ./.config/nixpkgs/install.sh $(GIT_EMAIL); \
+		cd ~/.config/nixpkgs && sh install.sh; \
 		"
 
 neovim:
