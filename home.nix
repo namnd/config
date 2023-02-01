@@ -16,11 +16,10 @@ in
   home.packages = with pkgs; [
     neovim
     lemonade
-    rnix-lsp
-    cht-sh
   ] ++ lib.optionals (isVm) [
     awscli2
     aws-vault
+    cht-sh
     coreutils
     csvkit
     jq
@@ -28,9 +27,9 @@ in
     fzf
     tldr
     tree
-    cloc
     hugo
     ripgrep
+    rnix-lsp
     gcc
     unzip
   ] ++ lib.optionals (isHost) [
