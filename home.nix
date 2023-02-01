@@ -53,7 +53,7 @@ in
     enable = true;
     userName = "Nam Nguyen";
     signing = {
-      key = "3E656F30";
+      key = "54D86DA33E656F30";
       signByDefault = true;
     };
     aliases = {
