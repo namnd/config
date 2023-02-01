@@ -1,6 +1,6 @@
 # Home manager (Nix) config
 
-Simply clone this repo to your $HOME/.config/nvim and run install script
+Simply clone this repo to your `$HOME/.config/nvim` and run install script
 
 ```bash
 $ git clone https://github.com/namnd/nixpkgs ~/.config/nixpkgs
