@@ -32,6 +32,7 @@ in
     rnix-lsp
     gcc
     unzip
+    gh
   ] ++ lib.optionals (isHost) [
     pass
   ];

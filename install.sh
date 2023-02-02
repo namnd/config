@@ -1,6 +1,6 @@
 #!/bin/sh
-#
-echo '{ config, ... }:{}'  > $PWD/custom.nix
+
+echo '{ config, ... } : {}'  > $PWD/custom.nix
 
 if [ ! -x "$(command -v nix)" ]; then
   sh -c "$(curl -L https://releases.nixos.org/nix/nix-2.13.2/install)" --daemon
