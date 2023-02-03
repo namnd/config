@@ -52,7 +52,11 @@ PROMPT="%(?..%F{red}%? )"                       # error code
 PROMPT="$PROMPT%F{240}%~%F{255}"                # cwd
 NEWLINE=$'\n'
 PROMPT="$PROMPT${NEWLINE}"
-PROMPT="$PROMPT%n%F{240}@${hostname}$ "         # username@hostname$
+PROMPT="$PROMPT%n%F{240}@${hostname}"           # username@hostname
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  PROMPT="$PROMPT%F{green}"
+fi
+PROMPT="$PROMPT $ "
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
 export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
