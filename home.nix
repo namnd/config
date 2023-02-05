@@ -156,6 +156,11 @@ in
     };
   };
 
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   imports = [
     ./custom.nix
   ];
