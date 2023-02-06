@@ -5,7 +5,7 @@ if not has_ts then
 end
 
 ts_config.setup({
-  ensure_installed = { "go", "lua", "vim", "nix", "bash", "terraform", "hcl", "typescript", "tsx", "javascript" },
+  ensure_installed = { "go", "lua", "vim", "nix", "bash", "terraform", "hcl", "typescript", "tsx", "javascript", "c", "zig" },
   highlight = { enable = true },
   indent = {
     enable = true,

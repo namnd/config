@@ -164,7 +164,7 @@ autocmd('BufWritePost', {
 
 autocmd('BufWritePre', {
   group = augroup('LspFormatGroup', { clear = true }),
-  pattern = { '*.go', '*.tf', '*.tfvars', '*.nix' },
+  pattern = { '*.go', '*.tf', '*.tfvars', '*.nix', '*.zig', '*.c' },
   callback = function()
     if ide_enable then
       vim.lsp.buf.format()
