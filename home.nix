@@ -89,7 +89,6 @@ in
     dotDir = "./.config/zsh";
     history = {
       expireDuplicatesFirst = true;
-      path = "$ZDOTDIR/.zsh_history";
       save = 10000;
       share = true;
       size = 10000;
