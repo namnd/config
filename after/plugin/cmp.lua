@@ -55,7 +55,12 @@ cmp.setup({
     { name = 'luasnip' }, -- For luasnip users.
     { name = 'gh_authors' },
   }, {
-    { name = 'buffer', keyword_length = 5 },
+    {
+      name = 'buffer',
+      option = {
+        keyword_length = 5,
+      },
+    },
   }),
   formatting = {
     format = lspkind.cmp_format({
