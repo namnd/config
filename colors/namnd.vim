@@ -75,7 +75,7 @@ call <sid>hi('GitSignsDelete', s:red, {}, 'bold')
 call <sid>hi('Todo', s:black, s:darkYellow, 'bold')
 call <sid>hi('WarningMsg', s:darkRed, s:black, 'bold')
 
-call <sid>hi('MatchParen', s:magenta, {}, 'bold')
+call <sid>hi('MatchParen', s:magenta, s:black, 'bold')
 call <sid>hi('QuickFixLine', s:magenta, {}, 'none')
 
 call <sid>hi('DiagnosticWarn', s:darkYellow, {}, 'none')
