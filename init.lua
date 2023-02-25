@@ -39,6 +39,7 @@ require('packer').startup(function(use)
   -- ./after/plugin/telescope.lua
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'nvim-telescope/telescope-live-grep-args.nvim'
   use 'smartpde/telescope-recent-files'
 
   -- ./after/plugin/treesitter.lua
