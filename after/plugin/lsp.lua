@@ -65,7 +65,7 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 local library = vim.api.nvim_get_runtime_file("", true)
 table.insert(library, '/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/')
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
