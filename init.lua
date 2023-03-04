@@ -10,15 +10,15 @@ end
 local ide_enable = true
 
 require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim' -- plugin manager
+  use 'wbthomason/packer.nvim'   -- plugin manager
   use 'tweekmonster/startuptime.vim'
   use 'lewis6991/impatient.nvim' -- improve startup time
-  use 'mbbill/undotree' -- local file history
-  use 'tpope/vim-vinegar' -- file explorer
-  use 'tpope/vim-obsession' -- session manager
+  use 'mbbill/undotree'          -- local file history
+  use 'tpope/vim-vinegar'        -- file explorer
+  use 'tpope/vim-obsession'      -- session manager
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb' -- github
-  use 'namnd/gv.vim' -- git commit browser
+  use 'tpope/vim-rhubarb'        -- github
+  use 'namnd/gv.vim'             -- git commit browser
   use 'tpope/vim-projectionist'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
@@ -51,7 +51,7 @@ require('packer').startup(function(use)
 
   -- ./after/plugin/lsp.lua
   use { 'neovim/nvim-lspconfig', cond = ide_enable }
-  use { 'nvim-lua/lsp-status.nvim' , cond = ide_enable }
+  use { 'nvim-lua/lsp-status.nvim', cond = ide_enable }
 
   -- ./after/plugin/cmp.lua
   use { 'hrsh7th/nvim-cmp', cond = ide_enable }
@@ -123,7 +123,7 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>=', "<cmd>lua vim.lsp.buf.format()<cr>", { noremap = true })
-vim.keymap.set("n", "<leader>2", function ()
+vim.keymap.set("n", "<leader>2", function()
   if vim.fn.getqflist({ winid = 0 }).winid == 0 then
     vim.api.nvim_command('copen')
   else
@@ -161,16 +161,6 @@ autocmd('BufWritePost', {
   group = augroup('Packer', { clear = true }),
   pattern = vim.fn.expand '$MYVIMRC',
   command = 'source <afile> | PackerCompile',
-})
-
-autocmd('BufWritePre', {
-  group = augroup('LspFormatGroup', { clear = true }),
-  pattern = { '*.go', '*.tf', '*.tfvars', '*.nix', '*.zig', '*.c' },
-  callback = function()
-    if ide_enable then
-      vim.lsp.buf.format()
-    end
-  end,
 })
 
 autocmd('VimEnter', {
