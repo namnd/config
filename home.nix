@@ -35,6 +35,7 @@ in
     gh
   ] ++ lib.optionals (isHost) [
     pass
+    mas
   ];
 
   programs.direnv = {
