@@ -38,7 +38,7 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true
 }
 
-local servers = { 'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright', 'rust_analyzer' }
+local servers = { 'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright', 'rust_analyzer', 'dartls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
