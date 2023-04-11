@@ -15,6 +15,7 @@ in
 
   home.packages = with pkgs; [
     neovim
+    bitwarden-cli
     lemonade
     cht-sh
     fzf
