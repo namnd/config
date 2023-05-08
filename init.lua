@@ -29,6 +29,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-endwise'
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+  use { 'github/copilot.vim'}
 
   -- ./after/plugin/gitsigns.lua
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }

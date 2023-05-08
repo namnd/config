@@ -1,5 +1,6 @@
 local has_lspconfig, lspconfig = pcall(require, 'lspconfig')
 local has_lsp_status, lsp_status = pcall(require, 'lsp-status')
+local has_cmp, cmp = pcall(require, 'cmp_nvim_lsp')
 
 if has_lsp_status then
   lsp_status.config({
@@ -32,7 +33,9 @@ local on_attach = function(_, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities()
+if has_cmp then
+  capabilities = cmp.default_capabilities()
+end
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true
