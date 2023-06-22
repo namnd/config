@@ -8,6 +8,8 @@ function _is_in_git_repo() { git rev-parse HEAD > /dev/null 2>&1 }
 function _overwrite_kitty_tab_title() { 
   if [ $hostname ]; then
     print -Pn "\e]0;%1d($hostname)\a"
+  else
+    print -Pn "\e]0;%1d\a"
   fi
 }
 

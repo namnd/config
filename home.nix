@@ -8,7 +8,7 @@ in
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
 
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
 
   programs.home-manager.enable = true;
   programs.gpg.enable = true;
@@ -21,6 +21,7 @@ in
     fzf
     tldr
     tree
+    jq
     ripgrep
     rnix-lsp
   ] ++ lib.optionals (isVm) [
@@ -28,7 +29,6 @@ in
     aws-vault
     coreutils
     csvkit
-    jq
     fd
     hugo
     gcc
@@ -37,6 +37,7 @@ in
   ] ++ lib.optionals (isHost) [
     pass
     mas
+    postgresql_14
   ];
 
   programs.direnv = {
@@ -75,6 +76,11 @@ in
       rebase.autoStash = true;
       push.default = "current";
       format.pretty = "%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)";
+      merge = {
+        tool = "nvimdiff4";
+        prompt = false;
+      };
+      mergetool.nvimdiff4.cmd = "nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
     };
     ignores = [
       "Session.vim"
@@ -118,7 +124,7 @@ in
       gL = "_git_log";
       mcd = "f() { mkdir -p $1 && cd $1 }; f";
       v = "aws-vault exec --debug --backend=file --duration=1h";
-      ssh = "kitty +kitten ssh -R 2489:127.0.0.1:2489"; # lemonade server
+      ssh = "ssh -R 2489:127.0.0.1:2489"; # lemonade server
     };
   };
 
@@ -154,6 +160,9 @@ in
       "cmd+shift+]" = "next_window";
       "cmd+shift+[" = "previous_window";
       "cmd+shift+t" = "new_tab_with_cwd";
+      "cmd+f" = "show_scrollback";
+      "cmd+j" = "scroll_to_prompt 1";
+      "cmd+k" = "scroll_to_prompt -1";
     };
   };
 
