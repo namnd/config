@@ -51,6 +51,7 @@ c.url.searchengines = {
 config.bind('<Super-r>', 'reload')
 config.bind('<Super-w>', 'tab-close')
 config.bind('<Super-l>', 'set-cmd-text :open {url:pretty}')
+config.bind('<Super-s>', 'spawn /usr/bin/open -a Safari {url}')
 config.bind('<Super-Shift-L>', 'set-cmd-text -s :tab-focus')
 config.bind('<Super-]>', 'tab-next')
 config.bind('<Super-[>', 'tab-prev')
