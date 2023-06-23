@@ -42,8 +42,8 @@ install:
 		nixos-generate-config --root /mnt; \
 		sed --in-place '/system\.stateVersion = .*/a \
 			services.openssh.enable = true;\n \
-			services.openssh.passwordAuthentication = true;\n \
-			services.openssh.permitRootLogin = \"yes\";\n \
+			services.openssh.settings.PasswordAuthentication = true;\n \
+			services.openssh.settings.PermitRootLogin = \"yes\";\n \
 			users.users.root.initialPassword = \"root\";\n \
 		' /mnt/etc/nixos/configuration.nix; \
 		nixos-install --no-root-passwd; \
@@ -74,10 +74,10 @@ secrets:
 
 home-manager:
 	ssh $(NIXUSER)@$(NIXADDR) " \
-		git clone https://github.com/namnd/nixpkgs ~/.config/nixpkgs; \
-		sed -i 's/https:\/\/github.com\/namnd\/nixpkgs/git@github.com:namnd\/nixpkgs.git/g' \
-		~/.config/nixpkgs/.git/config; \
-		cd ~/.config/nixpkgs && sh install.sh; \
+		git clone https://github.com/namnd/home-manager ~/.config/home-manager; \
+		sed -i 's/https:\/\/github.com\/namnd\/home-manager/git@github.com:namnd\/home-manager.git/g' \
+		~/.config/home-manager/.git/config; \
+		cd ~/.config/home-manager && sh install.sh; \
 		"
 
 neovim:

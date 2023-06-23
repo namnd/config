@@ -20,6 +20,7 @@
     gnupg
   ];
 
+  programs.zsh.enable = true;
   programs.ssh.startAgent = false;
   programs.gnupg.agent = {
     enable = true;
