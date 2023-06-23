@@ -36,8 +36,8 @@ in
     gh
   ] ++ lib.optionals (isHost) [
     pass
-    mas
     postgresql_14
+    utm
   ];
 
   programs.direnv = {
