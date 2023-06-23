@@ -50,15 +50,18 @@ install:
 		"
 
 bootstrap:
-	rsync -av -e 'ssh $(SSH_OPTIONS)' \
-		$(MAKEFILE_DIR)/vm/ root@$(NIXADDR):/etc/nixos
-	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
-		ln -s sh /bin/bash; \
-		sh /etc/nixos/build.sh $(NIXUSER) $(VM_HOSTNAME); \
-		"
+	$(MAKE) rebuild
 	$(MAKE) secrets
 	$(MAKE) home-manager
 	$(MAKE) neovim
+
+rebuild:
+	rsync -av -e 'ssh $(SSH_OPTIONS)' \
+		$(MAKEFILE_DIR)/vm/ root@$(NIXADDR):/etc/nixos
+	ssh $(SSH_OPTIONS) -p$(NIXPORT) root@$(NIXADDR) " \
+		ln -sf sh /bin/bash; \
+		sh /etc/nixos/build.sh $(NIXUSER) $(VM_HOSTNAME); \
+		"
 
 # copy our secrets into the VM
 secrets:

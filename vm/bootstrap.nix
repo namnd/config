@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   users.users.username = {
     isNormalUser = true;
@@ -7,6 +7,12 @@
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8HjC+29D66x0zOMMwrleHKHN4bD5hBmIqKzc3FALQo" ];
   };
+
+  # tailscale
+  services.tailscale.enable = true;
+  networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
+  networking.search = [ "tail188aa.ts.net" ];
+  networking.firewall.enable = false;
 
   networking.hostName = "vm_hostname";
   time.timeZone = "Australia/Brisbane";
@@ -27,6 +33,5 @@
     pinentryFlavor = "tty";
     enableSSHSupport = true;
   };
-
 
 }
