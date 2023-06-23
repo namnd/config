@@ -1,6 +1,6 @@
 # Home manager (Nix) config
 
-Simply clone this repo to `$HOME/.config/nvim` and run install script
+Simply clone this repo to `$HOME/.config/home-manager` and run install script
 
 ```bash
 $ git clone https://github.com/namnd/home-manager ~/.config/home-manager
