@@ -65,21 +65,6 @@ PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
 export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
 
-if [ -n "${commands[fzf-share]}" ]; then
-  source "$(fzf-share)/completion.zsh"
-fi
-
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf "$@" --preview 'tree -C {} | head -200' ;;
-    vim)          fzf "$@" --preview "cat -n {}" ;;
-    *)            fzf "$@" ;;
-  esac
-}
-
 function cur_aws_vlt() {
   if [ -n "${AWS_VAULT}" ]; then
     color=yellow

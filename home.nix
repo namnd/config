@@ -18,7 +18,6 @@ in
     bitwarden-cli
     lemonade
     cht-sh
-    fzf
     tldr
     tree
     jq
