@@ -66,8 +66,6 @@ fi
 PROMPT="$PROMPT $ "
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
-export FZF_DEFAULT_OPTS='--height 100% --layout=reverse --bind ctrl-p:toggle-preview'
-
 function cur_aws_vlt() {
   if [ -n "${AWS_VAULT}" ]; then
     color=yellow
