@@ -15,27 +15,25 @@ in
 
   home.packages = with pkgs; [
     neovim
-    bitwarden-cli
     lemonade
-    cht-sh
-    tldr
-    tree
-    jq
     ripgrep
     rnix-lsp
   ] ++ lib.optionals (isVm) [
     awscli2
     aws-vault
+    bitwarden-cli
+    cht-sh
     coreutils
     csvkit
     fd
     hugo
+    jq
     gcc
     unzip
-    gh
+    tldr
+    tree
   ] ++ lib.optionals (isHost) [
     pass
-    postgresql_14
   ];
 
   programs.direnv = {
@@ -122,7 +120,7 @@ in
       gL = "_git_log";
       mcd = "f() { mkdir -p $1 && cd $1 }; f";
       v = "aws-vault exec --debug --backend=file --duration=1h";
-      ssh = "ssh -R 2489:127.0.0.1:2489"; # lemonade server
+      ssh = "kitty +kitten ssh -R 2489:127.0.0.1:2489"; # lemonade server
     };
   };
 
