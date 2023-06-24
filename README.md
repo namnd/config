@@ -1,9 +1,10 @@
 # NixOS
 
-My NixOS configuration.
+## NixOS
 
+WIP
 
-## VM guest
+## Virtual Machine (MacOS host)
 
 TL;DR
 
