@@ -4,6 +4,9 @@ export PATH="$PATH:$HOME/flutter/bin"
 
 hostname=$(cat /etc/hostname 2>/dev/null)
 
+bindkey "^F" forward-word
+bindkey "^B" backward-word
+
 function _is_in_git_repo() { git rev-parse HEAD > /dev/null 2>&1 }
 function _overwrite_kitty_tab_title() { 
   if [ $hostname ]; then
