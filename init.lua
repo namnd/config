@@ -141,6 +141,8 @@ set winbar=%m\ %f\ (%n)%=%P\ %r%y
 set laststatus=3
 set statusline=%!v:lua.require('namnd.statusline').global()
 
+let g:db_ui_win_position = 'right'
+
 augroup FiletypeGroup
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
@@ -155,6 +157,7 @@ augroup FiletypeGroup
   autocmd FileType yml,yaml setlocal foldmethod=indent
   autocmd FileType markdown setlocal foldmethod=expr
   autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+  autocmd FileType dbout :horizontal resize 40
 augroup END
 ]]
 
