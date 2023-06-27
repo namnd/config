@@ -77,7 +77,7 @@ function cur_aws_vlt() {
         color=magenta
         ;;
     esac
-    date=$(date --date $AWS_SESSION_EXPIRATION +%H:%M)
+    date=$(date --date $AWS_CREDENTIAL_EXPIRATION +%H:%M)
     echo "%{%F{$color}%}($AWS_VAULT) %F{grey}% $date%{$reset_color%} "
   fi
 }
