@@ -19,13 +19,13 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'        -- github
   use 'namnd/gv.vim'             -- git commit browser
-  use 'tpope/vim-projectionist'
+  -- use 'tpope/vim-projectionist'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-abolish' -- fooBar into foo_bar or FooBar
   use 'tpope/vim-unimpaired'
-  use 'tpope/vim-dispatch'
-  use 'preservim/vim-markdown'
+  -- use 'tpope/vim-dispatch'
+  -- use 'preservim/vim-markdown'
   use 'tpope/vim-endwise'
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
@@ -50,7 +50,7 @@ require('packer').startup(function(use)
   -- ./after/plugin/treesitter.lua
   use { 'nvim-treesitter/nvim-treesitter',
     run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end }
-  use 'nvim-treesitter/playground'
+  -- use 'nvim-treesitter/playground'
   use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
   use { 'AckslD/nvim-trevJ.lua', config = function() require("trevj").setup() end }   -- reverse join-line using treesitter
 
@@ -118,8 +118,8 @@ vim.keymap.set("v", "<", "<gv", { noremap = true })
 vim.keymap.set("v", ">", ">gv", { noremap = true })
 vim.keymap.set("n", "E", "ea", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
-vim.keymap.set("n", "<leader>cd", ':cd %:p:h<cr>', { noremap = true })
-vim.keymap.set("n", "<leader>1", ':Dispatch ', { noremap = true })
+-- vim.keymap.set("n", "<leader>cd", ':cd %:p:h<cr>', { noremap = true })
+-- vim.keymap.set("n", "<leader>1", ':Dispatch ', { noremap = true })
 vim.keymap.set("n", "<<", ':colder<cr>', { noremap = true })
 vim.keymap.set("n", ">>", ':cnewer<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>ch", '<cmd>lua require("namnd.cheatsh").prompt_query()<cr>', { noremap = true })
