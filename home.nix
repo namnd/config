@@ -121,6 +121,7 @@ in
       mcd = "f() { mkdir -p $1 && cd $1 }; f";
       v = "aws-vault exec --debug --backend=file --duration=1h";
       ssh = "kitty +kitten ssh -R 2489:127.0.0.1:2489"; # lemonade server
+      psql = "PAGER=\"nvim -c 'set nomod nolist nowrap syntax=sql'\" psql";
     };
   };
 
