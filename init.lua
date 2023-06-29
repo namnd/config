@@ -42,10 +42,10 @@ require('packer').startup(function(use)
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', cond = ide_enable }
 
   -- ./after/plugin/telescope.lua
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'nvim-telescope/telescope-live-grep-args.nvim'
-  use 'smartpde/telescope-recent-files'
+  -- use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+  -- use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- use 'nvim-telescope/telescope-live-grep-args.nvim'
+  -- use 'smartpde/telescope-recent-files'
 
   -- ./after/plugin/treesitter.lua
   use { 'nvim-treesitter/nvim-treesitter',
@@ -67,10 +67,10 @@ require('packer').startup(function(use)
   use { 'onsails/lspkind.nvim', cond = ide_enable }
 
   -- ./after/plugin/dap.lua
-  use { 'mfussenegger/nvim-dap', cond = ide_enable }
-  use { 'leoluz/nvim-dap-go', cond = ide_enable }
-  use { 'rcarriga/nvim-dap-ui', cond = ide_enable }
-  use { 'theHamsta/nvim-dap-virtual-text', cond = ide_enable }
+  -- use { 'mfussenegger/nvim-dap', cond = ide_enable }
+  -- use { 'leoluz/nvim-dap-go', cond = ide_enable }
+  -- use { 'rcarriga/nvim-dap-ui', cond = ide_enable }
+  -- use { 'theHamsta/nvim-dap-virtual-text', cond = ide_enable }
 
   if is_bootstrap then
     require('packer').sync()
