@@ -41,13 +41,17 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true
 }
 
-local servers = { 'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright', 'rust_analyzer', 'dartls' }
+local servers = { 'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright', 'rust_analyzer', 'dartls', 'html' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
 end
+
+lspconfig.html.setup({
+  cmd = {"html-languageserver", "--stdio"}
+})
 
 lspconfig.gopls.setup({
   on_attach = on_attach,
