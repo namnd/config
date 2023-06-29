@@ -1,6 +1,7 @@
 setopt INTERACTIVE_COMMENTS
 
 export PATH="$PATH:$HOME/flutter/bin"
+export EDITOR="nvim"
 
 hostname=$(cat /etc/hostname 2>/dev/null)
 
