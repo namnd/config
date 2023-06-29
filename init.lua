@@ -31,9 +31,9 @@ require('packer').startup(function(use)
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
   use { 'github/copilot.vim'}
 
-  use 'tpope/vim-dadbod'
-  use 'kristijanhusak/vim-dadbod-ui'
-  use 'kristijanhusak/vim-dadbod-completion'
+  -- use 'tpope/vim-dadbod'
+  -- use 'kristijanhusak/vim-dadbod-ui'
+  -- use 'kristijanhusak/vim-dadbod-completion'
 
   -- ./after/plugin/gitsigns.lua
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -140,8 +140,7 @@ vim.cmd [[
 set winbar=%m\ %f\ (%n)%=%P\ %r%y
 set laststatus=3
 set statusline=%!v:lua.require('namnd.statusline').global()
-
-let g:db_ui_win_position = 'right'
+" let g:db_ui_win_position = 'right'
 
 augroup FiletypeGroup
   autocmd!
