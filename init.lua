@@ -52,7 +52,7 @@ require('packer').startup(function(use)
     run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end }
   use 'nvim-treesitter/playground'
   use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
-  use { 'namnd/nvim-trevJ.lua', config = function() require("trevj").setup() end }   -- reverse join-line using treesitter
+  use { 'AckslD/nvim-trevJ.lua', config = function() require("trevj").setup() end }   -- reverse join-line using treesitter
 
   -- ./after/plugin/lsp.lua
   use { 'neovim/nvim-lspconfig', cond = ide_enable }
