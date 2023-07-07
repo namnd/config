@@ -48,4 +48,3 @@ ufo.setup({
 -- folding - Using ufo provider need remap `zR` and `zM`
 vim.keymap.set('n', 'zR', ufo.openAllFolds)
 vim.keymap.set('n', 'zM', ufo.closeAllFolds)
-vim.keymap.set('n', '<Tab>', 'za', { noremap = true })
