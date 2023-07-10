@@ -17,13 +17,10 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'        -- github
   use 'namnd/gv.vim'             -- git commit browser
-  -- use 'tpope/vim-projectionist'
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-abolish' -- fooBar into foo_bar or FooBar
+  use 'tpope/vim-abolish'        -- fooBar into foo_bar or FooBar
   use 'tpope/vim-unimpaired'
-  -- use 'tpope/vim-dispatch'
-  -- use 'preservim/vim-markdown'
   use 'tpope/vim-endwise'
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
