@@ -1,4 +1,4 @@
-local notes_path = os.getenv("HOME") .. "/notes"
+local notes_path = vim.fn.getcwd() -- os.getenv("HOME") .. "/notes"
 local scratch = notes_path .. "/scratch"
 
 vim.api.nvim_create_user_command('S', ":edit " .. scratch, {})
