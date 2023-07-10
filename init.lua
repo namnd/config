@@ -138,7 +138,7 @@ augroup FiletypeGroup
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 70})
   autocmd VimResized * :wincmd =
   autocmd BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
-  autocmd BufNewFile,BufRead *.tfvars set filetype=terraform
+  autocmd BufNewFile,BufRead *.tf,*.tfvars set filetype=terraform
   autocmd BufNewFile,BufRead *.hujson set filetype=json
   autocmd BufNewFile,BufRead *gitconfig set filetype=toml
   autocmd BufNewFile,BufRead *zshrc set filetype=bash
