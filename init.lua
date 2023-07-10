@@ -29,10 +29,6 @@ require('packer').startup(function(use)
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
   use { 'github/copilot.vim'}
 
-  -- use 'tpope/vim-dadbod'
-  -- use 'kristijanhusak/vim-dadbod-ui'
-  -- use 'kristijanhusak/vim-dadbod-completion'
-
   -- ./after/plugin/gitsigns.lua
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
 
@@ -115,14 +111,12 @@ vim.keymap.set("v", "v", "$h", { noremap = true })
 vim.keymap.set("v", "<", "<gv", { noremap = true })
 vim.keymap.set("v", ">", ">gv", { noremap = true })
 vim.keymap.set("n", "E", "ea", { noremap = true })
+vim.keymap.set("n", "<leader>rp", "yiwy<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
--- vim.keymap.set("n", "<leader>cd", ':cd %:p:h<cr>', { noremap = true })
--- vim.keymap.set("n", "<leader>1", ':Dispatch ', { noremap = true })
 vim.keymap.set("n", "<<", ':colder<cr>', { noremap = true })
 vim.keymap.set("n", ">>", ':cnewer<cr>', { noremap = true })
 vim.keymap.set("n", "<leader>ch", '<cmd>lua require("namnd.cheatsh").prompt_query()<cr>', { noremap = true })
 vim.keymap.set("n", '<leader>K', '<cmd>lua require("trevj").format_at_cursor()<cr>', { noremap = true })
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>=', "<cmd>lua vim.lsp.buf.format()<cr>", { noremap = true })
@@ -138,7 +132,6 @@ vim.cmd [[
 set winbar=%m\ %f\ (%n)%=%P\ %r%y
 set laststatus=3
 set statusline=%!v:lua.require('namnd.statusline').global()
-" let g:db_ui_win_position = 'right'
 
 augroup FiletypeGroup
   autocmd!
@@ -154,7 +147,6 @@ augroup FiletypeGroup
   autocmd FileType yml,yaml setlocal foldmethod=indent
   autocmd FileType markdown setlocal foldmethod=expr
   autocmd BufRead * autocmd FileType <buffer> ++once if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
-  autocmd FileType dbout :horizontal resize 40
 augroup END
 ]]
 

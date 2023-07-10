@@ -71,9 +71,9 @@ local function git_signs()
     removed = ""
   end
   return table.concat {
-    "(",
+    "[",
     git_info.head,
-    ") ",
+    "] ",
     added,
     changed,
     removed,
