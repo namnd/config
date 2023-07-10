@@ -18,6 +18,7 @@ in
     lemonade
     ripgrep
     rnix-lsp
+    nodejs_18
   ] ++ lib.optionals (isVm) [
     awscli2
     aws-vault
