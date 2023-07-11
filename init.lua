@@ -24,7 +24,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-endwise'
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
-  use { 'github/copilot.vim'}
+  use { 'github/copilot.vim' }
 
   -- ./after/plugin/gitsigns.lua
   use { 'lewis6991/gitsigns.nvim', requires = 'nvim-lua/plenary.nvim' }
@@ -43,7 +43,7 @@ require('packer').startup(function(use)
     run = function() pcall(require('nvim-treesitter.install').update { with_sync = true }) end }
   -- use 'nvim-treesitter/playground'
   use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
-  use { 'AckslD/nvim-trevJ.lua', config = function() require("trevj").setup() end }   -- reverse join-line using treesitter
+  use { 'AckslD/nvim-trevJ.lua', config = function() require("trevj").setup() end } -- reverse join-line using treesitter
 
   -- ./after/plugin/lsp.lua
   use { 'neovim/nvim-lspconfig' }
@@ -117,6 +117,7 @@ vim.keymap.set("n", '<leader>K', '<cmd>lua require("trevj").format_at_cursor()<c
 vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>=', "<cmd>lua vim.lsp.buf.format()<cr>", { noremap = true })
+vim.keymap.set('n', "F6", "<C-i>", { noremap = true })
 vim.keymap.set("n", "<leader>2", function()
   if vim.fn.getqflist({ winid = 0 }).winid == 0 then
     vim.api.nvim_command('copen')
