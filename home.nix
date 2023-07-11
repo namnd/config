@@ -161,6 +161,7 @@ in
       "cmd+f" = "show_scrollback";
       "cmd+j" = "scroll_to_prompt 1";
       "cmd+k" = "scroll_to_prompt -1";
+      "ctrl+i" = "send_text all F6";
     };
   };
 
