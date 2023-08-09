@@ -12,14 +12,24 @@ require('packer').startup(function(use)
   use 'tweekmonster/startuptime.vim'
   use 'lewis6991/impatient.nvim' -- improve startup time
   use 'mbbill/undotree'          -- local file history
-  use 'tpope/vim-vinegar'        -- file explorer
-  use 'tpope/vim-obsession'      -- session manager
+  use { 'stevearc/oil.nvim', config = function()
+    require('oil').setup({
+      skip_confirm_for_simple_edits = true,
+      view_options                  = {
+        show_hidden = true,
+        is_always_hidden = function(name, _)
+          return name == 'Session.vim'
+        end,
+      },
+    })
+  end }
+  use 'tpope/vim-obsession' -- session manager
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'        -- github
-  use 'namnd/gv.vim'             -- git commit browser
+  use 'tpope/vim-rhubarb'   -- github
+  use 'namnd/gv.vim'        -- git commit browser
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
-  use 'tpope/vim-abolish'        -- fooBar into foo_bar or FooBar
+  use 'tpope/vim-abolish' -- fooBar into foo_bar or FooBar
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-endwise'
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
@@ -118,6 +128,7 @@ vim.keymap.set('n', '<leader>gg', ":tab G<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>=', "<cmd>lua vim.lsp.buf.format()<cr>", { noremap = true })
 vim.keymap.set('n', "F6", "<C-i>", { noremap = true })
+vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>2", function()
   if vim.fn.getqflist({ winid = 0 }).winid == 0 then
     vim.api.nvim_command('copen')
