@@ -82,6 +82,7 @@ in
     ignores = [
       "Session.vim"
       ".direnv"
+      "scratch*"
     ] ++ lib.optionals (isHost) [
       ".DS_Store"
     ];
