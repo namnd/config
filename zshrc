@@ -53,7 +53,7 @@ zstyle ':vcs_info:*' check-for-changes true # unsubmitted changes
 zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} ●%{%b%f%}' # staged changes
 zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} ●%{%b%f%}' # unstaged changes
 zstyle ':vcs_info:*' formats '%{%F{green}%}%25>…>%b%<<%{%f%}%{%f%}%c%u'
-RPROMPT='%F{cyan}$(if [ $cmd_time ]; then echo "($cmd_time) "; fi)%F{none}${vcs_info_msg_0_}'
+RPROMPT='%F{cyan}$(if [ $cmd_time ]; then echo "($cmd_time) %D{%L:%M:%S} "; fi)%F{none}${vcs_info_msg_0_}'
 
 # left prompt
 PROMPT="%(?..%F{red}%? )"                       # error code
