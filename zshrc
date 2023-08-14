@@ -52,37 +52,39 @@ setopt prompt_subst # allow dynamic command prompt
 zstyle ':vcs_info:*' check-for-changes true # unsubmitted changes
 zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} ●%{%b%f%}' # staged changes
 zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} ●%{%b%f%}' # unstaged changes
-zstyle ':vcs_info:*' formats '%{%F{green}%}%25>…>%b%<<%{%f%}%{%f%}%c%u'
-RPROMPT='%F{cyan}$(if [ $cmd_time ]; then echo "($cmd_time) %D{%L:%M:%S} "; fi)%F{none}${vcs_info_msg_0_}'
+zstyle ':vcs_info:*' formats '%{(%F{green}%}%25>…>%b%<<%{%f%}%{%f%})%c%u'
+RPROMPT='%F{cyan}%~ %F{none}${vcs_info_msg_0_}'
 
 # left prompt
-PROMPT="%(?..%F{red}%? )"                       # error code
 PROMPT="$PROMPT%F{240}%~%F{255}"                # cwd
+PROMPT='%F{240}$(if [ $cmd_time ]; then echo "%D{%L:%M:%S} %F{cyan}($cmd_time)%F{255}"; fi)'
 NEWLINE=$'\n'
 PROMPT="$PROMPT${NEWLINE}"
-PROMPT="$PROMPT%n%F{240}"                       # username
+PROMPT="$PROMPT%F{255}%n%F{240}"                # username
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  PROMPT="$PROMPT@${hostname}%F{green}"
+  PROMPT="$PROMPT@%F{magenta}${hostname}%F{none}"
 fi
-PROMPT="$PROMPT $ "
-PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
 function cur_aws_vlt() {
   if [ -n "${AWS_VAULT}" ]; then
-    color=yellow
+    color=magenta
     case $AWS_VAULT in
       stage)
         color=cyan
         ;;
-      prod)
-        color=magenta
+      dev)
+        color=yellow
         ;;
     esac
     date=$(date --date $AWS_CREDENTIAL_EXPIRATION +%H:%M)
-    echo "%{%F{$color}%}($AWS_VAULT) %F{grey}% $date%{$reset_color%} "
+    echo " %{%F{$color}%}($AWS_VAULT ~ $date)%{$reset_color%}"
   fi
 }
-PROMPT="%{$fg[yellow]%}$(cur_aws_vlt)%{$reset_color%}$PROMPT"
+
+PROMPT="$PROMPT%{$fg[yellow]%}$(cur_aws_vlt)%F{none}"
+PROMPT="$PROMPT %F{240}$"
+PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
+PROMPT="$PROMPT%(?..%F{red} %?)%F{none}"        # error code
 
 # specific for mac
 if [[ `uname` == "Darwin" ]]; then
