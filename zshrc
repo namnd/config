@@ -52,12 +52,13 @@ setopt prompt_subst # allow dynamic command prompt
 zstyle ':vcs_info:*' check-for-changes true # unsubmitted changes
 zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} ●%{%b%f%}' # staged changes
 zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} ●%{%b%f%}' # unstaged changes
-zstyle ':vcs_info:*' formats '%{(%F{green}%}%25>…>%b%<<%{%f%}%{%f%})%c%u'
+zstyle ':vcs_info:*' formats '%{%F{green}%}%25>…>%b%<<%{%f%}%{%f%}%c%u'
 RPROMPT='%F{cyan}%~ %F{none}${vcs_info_msg_0_}'
 
 # left prompt
 PROMPT="$PROMPT%F{240}%~%F{255}"                # cwd
 PROMPT='%F{240}$(if [ $cmd_time ]; then echo "%D{%L:%M:%S} %F{cyan}($cmd_time)%F{255}"; fi)'
+PROMPT="$PROMPT%(?..%F{red}%?)%F{none}"        # error code
 NEWLINE=$'\n'
 PROMPT="$PROMPT${NEWLINE}"
 PROMPT="$PROMPT%F{255}%n%F{240}"                # username
@@ -84,7 +85,6 @@ function cur_aws_vlt() {
 PROMPT="$PROMPT%{$fg[yellow]%}$(cur_aws_vlt)%F{none}"
 PROMPT="$PROMPT %F{240}$ "
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
-PROMPT="$PROMPT%(?..%F{red} %?)%F{none}"        # error code
 
 # specific for mac
 if [[ `uname` == "Darwin" ]]; then
