@@ -82,7 +82,7 @@ function cur_aws_vlt() {
 }
 
 PROMPT="$PROMPT%{$fg[yellow]%}$(cur_aws_vlt)%F{none}"
-PROMPT="$PROMPT %F{240}$"
+PROMPT="$PROMPT %F{240}$ "
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 PROMPT="$PROMPT%(?..%F{red} %?)%F{none}"        # error code
 
