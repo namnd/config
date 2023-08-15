@@ -61,7 +61,6 @@ PROMPT='%F{240}$(if [ $cmd_time ]; then echo "%D{%L:%M:%S} ($cmd_time)%F{255}"; 
 NEWLINE=$'\n'
 PROMPT="$PROMPT %F{cyan}%~%F{none}${NEWLINE}"
 PROMPT="$PROMPT%F{255}%n%F{240}"                # username
-PROMPT="$PROMPT%(?..%F{red} %?)%F{none}"        # error code
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   PROMPT="$PROMPT@%F{magenta}${hostname}%F{none}"
 fi
@@ -83,6 +82,7 @@ function cur_aws_vlt() {
 }
 
 PROMPT="$PROMPT%{$fg[yellow]%}$(cur_aws_vlt)%F{none}"
+PROMPT="$PROMPT%(?..%F{red} %?)%F{none}"        # error code
 PROMPT="$PROMPT %F{240}$ "
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
