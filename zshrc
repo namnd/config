@@ -53,15 +53,15 @@ zstyle ':vcs_info:*' check-for-changes true # unsubmitted changes
 zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%} ●%{%b%f%}' # staged changes
 zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%} ●%{%b%f%}' # unstaged changes
 zstyle ':vcs_info:*' formats '%{%F{green}%}%25>…>%b%<<%{%f%}%{%f%}%c%u'
-RPROMPT='%F{cyan}%~ %F{none}${vcs_info_msg_0_}'
+RPROMPT='${vcs_info_msg_0_}'
 
 # left prompt
 PROMPT="$PROMPT%F{240}%~%F{255}"                # cwd
-PROMPT='%F{240}$(if [ $cmd_time ]; then echo "%D{%L:%M:%S} %F{cyan}($cmd_time)%F{255}"; fi)'
-PROMPT="$PROMPT%(?..%F{red}%?)%F{none}"        # error code
+PROMPT='%F{240}$(if [ $cmd_time ]; then echo "%D{%L:%M:%S} ($cmd_time)%F{255}"; fi)'
 NEWLINE=$'\n'
-PROMPT="$PROMPT${NEWLINE}"
+PROMPT="$PROMPT %F{cyan}%~%F{none}${NEWLINE}"
 PROMPT="$PROMPT%F{255}%n%F{240}"                # username
+PROMPT="$PROMPT%(?..%F{red} %?)%F{none}"        # error code
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   PROMPT="$PROMPT@%F{magenta}${hostname}%F{none}"
 fi
