@@ -12,7 +12,7 @@ require('packer').startup(function(use)
   use 'tweekmonster/startuptime.vim'
   use 'lewis6991/impatient.nvim' -- improve startup time
   use 'mbbill/undotree'          -- local file history
-  use { 'stevearc/oil.nvim', config = function()
+  use { 'namnd/oil.nvim', config = function()
     require('oil').setup({
       skip_confirm_for_simple_edits = true,
       view_options                  = {
