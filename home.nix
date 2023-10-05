@@ -7,6 +7,7 @@ in
 {
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
+  manual.manpages.enable = false;
 
   home.stateVersion = "23.05";
 
@@ -19,10 +20,10 @@ in
     ripgrep
     rnix-lsp
     nodejs_18
-  ] ++ lib.optionals (isVm) [
-    awscli2
     aws-vault
     bitwarden-cli
+  ] ++ lib.optionals (isVm) [
+    awscli2
     cht-sh
     coreutils
     csvkit
@@ -35,6 +36,8 @@ in
     tree
   ] ++ lib.optionals (isHost) [
     pass
+    docker
+    colima
   ];
 
   programs.direnv = {
