@@ -17,6 +17,7 @@ in
   home.packages = with pkgs; [
     neovim
     lemonade
+    fzf
     ripgrep
     rnix-lsp
     nodejs_18

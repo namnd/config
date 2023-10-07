@@ -3,6 +3,13 @@ setopt INTERACTIVE_COMMENTS
 export PATH="$PATH:$HOME/.opt/flutter/bin"
 export EDITOR="nvim"
 
+export FZF_DEFAULT_OPTS='--color=fg:#9e9e9e,hl:#ab5c5c,hl+:#fb4934'
+
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
+
 hostname=$(cat /etc/hostname 2>/dev/null)
 
 bindkey "^F" forward-word
