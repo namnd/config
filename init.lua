@@ -32,6 +32,8 @@ require('packer').startup(function(use)
   use 'tpope/vim-abolish' -- fooBar into foo_bar or FooBar
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-endwise'
+  use { 'junegunn/fzf.vim' }
+  use { 'pbogut/fzf-mru.vim' }
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end }
   use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
   use { 'github/copilot.vim' }
@@ -41,12 +43,6 @@ require('packer').startup(function(use)
 
   -- ./after/plugin/ufo.lua
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
-
-  -- ./after/plugin/telescope.lua
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'nvim-telescope/telescope-live-grep-args.nvim'
-  use 'smartpde/telescope-recent-files'
 
   -- ./after/plugin/treesitter.lua
   use { 'nvim-treesitter/nvim-treesitter',
@@ -129,6 +125,9 @@ vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
 vim.keymap.set('n', '<leader>=', "<cmd>lua vim.lsp.buf.format()<cr>", { noremap = true })
 vim.keymap.set('n', "F6", "<C-i>", { noremap = true })
 vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+vim.keymap.set('n', '<leader>ff', ':FZF<cr>', {})
+vim.keymap.set('n', '<leader>fb', ':Buffers<cr>', {})
+vim.keymap.set('n', '<leader>fr', ':FZFMru<cr>', {})
 vim.keymap.set("n", "<leader>2", function()
   if vim.fn.getqflist({ winid = 0 }).winid == 0 then
     vim.api.nvim_command('copen')
@@ -141,6 +140,11 @@ vim.cmd [[
 set winbar=%m\ %f\ (%n)%=%P\ %r%y
 set laststatus=3
 set statusline=%!v:lua.require('namnd.statusline').global()
+
+let g:fzf_layout = { 'down': '40%' }
+let g:fzf_mru_relative = 1
+let g:fzf_mru_no_sort = 1
+let g:fzf_preview_window = ['right:hidden', 'ctrl-/']
 
 augroup FiletypeGroup
   autocmd!
