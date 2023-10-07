@@ -144,7 +144,6 @@ set statusline=%!v:lua.require('namnd.statusline').global()
 let g:fzf_layout = { 'down': '40%' }
 let g:fzf_mru_relative = 1
 let g:fzf_mru_no_sort = 1
-let g:fzf_preview_window = ['right:hidden', 'ctrl-/']
 
 augroup FiletypeGroup
   autocmd!
