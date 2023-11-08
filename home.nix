@@ -23,6 +23,7 @@ in
     nodejs_18
     aws-vault
     bitwarden-cli
+    wget
   ] ++ lib.optionals (isVm) [
     awscli2
     cht-sh
