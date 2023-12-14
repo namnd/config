@@ -155,6 +155,7 @@ augroup FiletypeGroup
   autocmd BufNewFile,BufRead *gitconfig set filetype=toml
   autocmd BufNewFile,BufRead *zshrc set filetype=bash
   autocmd BufNewFile,BufRead scratch set filetype=markdown
+  autocmd BufNewFile,BufRead *.hujson setlocal filetype=jsonc
   autocmd FileType git setlocal foldmethod=syntax foldenable
   autocmd FileType yml,yaml setlocal foldmethod=indent
   autocmd FileType markdown setlocal foldmethod=expr

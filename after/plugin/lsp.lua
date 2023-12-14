@@ -41,7 +41,7 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true
 }
 
-local servers = { 'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright', 'rust_analyzer', 'dartls', 'html' }
+local servers = { 'tsserver', 'terraformls', 'clangd', 'rnix', 'zls', 'pyright', 'rust_analyzer', 'dartls', 'html', 'jsonls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -51,6 +51,10 @@ end
 
 lspconfig.html.setup({
   cmd = {"html-languageserver", "--stdio"}
+})
+
+lspconfig.jsonls.setup({
+  filetypes = {"json", "jsonc"}
 })
 
 lspconfig.gopls.setup({
