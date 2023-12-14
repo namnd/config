@@ -9,7 +9,7 @@ in
   home.homeDirectory = builtins.getEnv "HOME";
   manual.manpages.enable = false;
 
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
   programs.home-manager.enable = true;
   programs.gpg.enable = true;
