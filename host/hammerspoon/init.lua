@@ -4,7 +4,6 @@ local apps = {
   ["k"] = "kitty",
   ["j"] = "Thorium",
   ["l"] = "Slack",
-  ["h"] = "Finder",
 }
 for k, v in pairs(apps) do
   hs.hotkey.bind(modifier, k, function() print(hs.application.launchOrFocus(v)) end)
