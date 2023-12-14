@@ -63,6 +63,10 @@ require('packer').startup(function(use)
   use { 'saadparwaiz1/cmp_luasnip' }
   use { 'onsails/lspkind.nvim' }
 
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
+  use 'kristijanhusak/vim-dadbod-completion'
+
   -- ./after/plugin/dap.lua
   -- use { 'mfussenegger/nvim-dap' }
   -- use { 'leoluz/nvim-dap-go' }
