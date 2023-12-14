@@ -157,6 +157,9 @@ in
       "cmd+4" = "goto_tab 4";
       "cmd+5" = "goto_tab 5";
       "cmd+6" = "goto_tab 6";
+      "cmd+7" = "goto_tab 7";
+      "cmd+8" = "goto_tab 8";
+      "cmd+9" = "goto_tab 9";
       "cmd+]" = "next_tab";
       "cmd+[" = "previous_tab";
       "cmd+shift+]" = "next_window";
