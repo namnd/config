@@ -5,7 +5,7 @@ include config.mk
 NIXADDR ?= unset
 NIXPORT ?= 22
 
-GPG_SUBKEYS ?= /Volumes/Subkeys/gpg-subkeys.txt
+GPG_SUBKEYS ?= /Volumes/namnd/gpg-subkeys.txt
 KEYGRIP ?= ECC7FCDCAB73B03C6DB54DDB04C88772536E20ED
 
 # The block device prefix to use.
