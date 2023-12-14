@@ -7,6 +7,10 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+if vim.loader then
+  vim.loader.enable()
+end
+
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'   -- plugin manager
   use 'tweekmonster/startuptime.vim'
