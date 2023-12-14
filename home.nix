@@ -16,6 +16,7 @@ in
 
   home.packages = with pkgs; [
     neovim
+    pass
     lemonade
     fzf
     ripgrep
@@ -37,7 +38,6 @@ in
     tldr
     tree
   ] ++ lib.optionals (isHost) [
-    pass
     docker
     colima
   ];
