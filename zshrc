@@ -1,6 +1,6 @@
 setopt INTERACTIVE_COMMENTS
 
-export PATH="$PATH:$HOME/.opt/flutter/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export EDITOR="nvim"
 
 export FZF_DEFAULT_OPTS='--color=fg:#9e9e9e,hl:#ab5c5c,hl+:#fb4934'
