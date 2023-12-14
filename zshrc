@@ -94,7 +94,7 @@ PROMPT="$PROMPT %F{240}$ "
 PROMPT="$PROMPT%F{yellow}%(1j.(%j) .)%f"        # jobs in background
 
 # specific for mac
-if [[ `uname` == "Darwin" ]]; then
+if [ `uname` == "Darwin" ] && [ -x "$(command -v gpgconf)" ]; then
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   function pc() {
     defaults write org.p0deje.Maccy ignoreEvents true ;
