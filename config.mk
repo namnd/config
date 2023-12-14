@@ -1,2 +1,2 @@
-NIXUSER = me
-VM_HOSTNAME = namnd
+NIXUSER = namnguyen
+VM_HOSTNAME = indebted
