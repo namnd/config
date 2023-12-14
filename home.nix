@@ -15,28 +15,28 @@ in
   programs.gpg.enable = true;
 
   home.packages = with pkgs; [
+    awscli2
     neovim
     pass
     lemonade
     fzf
+    fd
     ripgrep
     rnix-lsp
     nodejs_18
+    tldr
+    tree
+    jq
     aws-vault
     bitwarden-cli
     wget
   ] ++ lib.optionals (isVm) [
-    awscli2
     cht-sh
     coreutils
     csvkit
-    fd
     hugo
-    jq
     gcc
     unzip
-    tldr
-    tree
   ] ++ lib.optionals (isHost) [
     docker
     colima
