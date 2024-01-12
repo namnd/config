@@ -5,9 +5,8 @@ vim.api.nvim_create_user_command('S', ":edit " .. scratch, {})
 vim.api.nvim_create_user_command('SS', ":split " .. scratch, {})
 vim.api.nvim_create_user_command('SV', ":vsplit " .. scratch, {})
 vim.api.nvim_create_user_command('ST', ":tabedit " .. scratch, {})
-vim.api.nvim_create_user_command('SG', function()
-  require("telescope.builtin").live_grep {
-    cwd = notes_path,
-    prompt_title = "Search for notes",
-  }
-end, {})
+
+vim.cmd [[
+command! -bang -nargs=* SG
+  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --glob 'scratch' ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '~/'}), <bang>0)
+]]
