@@ -118,6 +118,11 @@ vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 
+vim.filetype.add({
+  extension = {
+    templ = "templ",
+  },
+})
 -- Keymaps
 vim.keymap.set("v", "v", "$h", { noremap = true })
 vim.keymap.set("v", "<", "<gv", { noremap = true })
