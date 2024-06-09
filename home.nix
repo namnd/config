@@ -5,11 +5,12 @@ let
   isHost = pkgs.stdenv.hostPlatform.isDarwin;
 in
 {
+  home.enableNixpkgsReleaseCheck = false;
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
   manual.manpages.enable = false;
 
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   programs.home-manager.enable = true;
   programs.gpg.enable = true;
@@ -22,13 +23,11 @@ in
     fzf
     fd
     ripgrep
-    rnix-lsp
     nodejs_18
     tldr
     tree
     jq
     aws-vault
-    bitwarden-cli
     wget
   ] ++ lib.optionals (isVm) [
     cht-sh
@@ -40,6 +39,7 @@ in
   ] ++ lib.optionals (isHost) [
     docker
     colima
+    procps # watch cmd
   ];
 
   programs.direnv = {
@@ -125,7 +125,8 @@ in
       gg = "git graph";
       mcd = "f() { mkdir -p $1 && cd $1 }; f";
       v = "aws-vault exec --debug --backend=file --duration=1h";
-      ssh = "kitty +kitten ssh -R 2489:127.0.0.1:2489"; # lemonade server
+      ssh = "ssh -R 2489:127.0.0.1:2489"; # lemonade server
+      work = "ssh namnguyen@192.168.71.3";
       psql = "PAGER=\"nvim -c 'set nomod nolist nowrap syntax=sql'\" psql";
     };
   };

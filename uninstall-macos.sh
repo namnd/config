@@ -7,6 +7,8 @@ function main() {
   remove_daemon_services
   remove_nixbld
   remove_the_rest
+  rm /Users/namnguyen/.local/state/home-manager/gcroots/current-home
+  rm /Users/namnguyen/.local/state/nix/profiles/home-manager*
 }
 
 # Remove (backup) shell config
