@@ -1,7 +1,7 @@
 local modifier = { 'cmd', 'shift' }
 
 local apps = {
-  ["k"] = "kitty",
+  ["k"] = "Ghostty",
   ["j"] = "Thorium",
   ["l"] = "Slack",
 }
