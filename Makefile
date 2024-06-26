@@ -88,3 +88,6 @@ neovim:
 		sed -i 's/https:\/\/github.com\/namnd\/nvim/git@github.com:namnd\/nvim.git/g' \
 		~/.config/nvim/.git/config; \
 		"
+
+ghostty:
+	infocmp -x | ssh $(NIXADDR) -- tic -x -
