@@ -131,48 +131,6 @@ in
     };
   };
 
-  programs.kitty = {
-    enable = lib.mkDefault false;
-    font = {
-      name = "Monaco";
-      size = 18;
-    };
-    settings = {
-      tab_bar_edge = "top";
-      tab_bar_style = "custom";
-      tab_title_template = "{index}: {title}";
-      inactive_tab_background = "#666";
-      inactive_tab_foreground = "#333";
-      shell_integration = "no-title";
-      macos_option_as_alt = true;
-      enabled_layouts = "tall,fat,stack";
-    };
-    keybindings = {
-      "cmd+n" = "launch --cwd=current";
-      "cmd+l" = "next_layout";
-      "cmd+z" = "toggle_layout stack";
-      "cmd+w" = "close_window";
-      "cmd+1" = "goto_tab 1";
-      "cmd+2" = "goto_tab 2";
-      "cmd+3" = "goto_tab 3";
-      "cmd+4" = "goto_tab 4";
-      "cmd+5" = "goto_tab 5";
-      "cmd+6" = "goto_tab 6";
-      "cmd+7" = "goto_tab 7";
-      "cmd+8" = "goto_tab 8";
-      "cmd+9" = "goto_tab 9";
-      "cmd+]" = "next_tab";
-      "cmd+[" = "previous_tab";
-      "cmd+shift+]" = "next_window";
-      "cmd+shift+[" = "previous_window";
-      "cmd+shift+t" = "new_tab_with_cwd";
-      "cmd+f" = "show_scrollback";
-      "cmd+j" = "scroll_to_prompt 1";
-      "cmd+k" = "scroll_to_prompt -1";
-      "ctrl+i" = "send_text all F6";
-    };
-  };
-
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;

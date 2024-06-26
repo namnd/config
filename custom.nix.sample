@@ -2,5 +2,4 @@
 {
   programs.git.userEmail = "git_email";
   programs.direnv.enable = false;
-  programs.kitty.enable = false;
 }
