@@ -69,7 +69,6 @@ secrets:
 	rsync -av -e 'ssh -p$(NIXPORT)' \
 	$(GPG_SUBKEYS) $(NIXUSER)@$(NIXADDR):~/
 	ssh $(NIXUSER)@$(NIXADDR) " \
-		rm -rf ~/.gnupg; \
 		gpg --import ~/gpg-subkeys.txt; \
 		rm ~/gpg-subkeys.txt; \
 		echo $(KEYGRIP) > ~/.gnupg/sshcontrol; \
