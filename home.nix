@@ -116,6 +116,7 @@ in
       ".4" = "cd ../../../..";
       ".5" = "cd ../../../../..";
       ga = "git add --patch";
+      gb = "git branch";
       gs = "git status";
       gc = "git checkout";
       gp = "git pull";
