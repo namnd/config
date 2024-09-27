@@ -28,10 +28,10 @@ in
     tree
     jq
     aws-vault
+    coreutils
     wget
   ] ++ lib.optionals (isVm) [
     cht-sh
-    coreutils
     csvkit
     hugo
     gcc
