@@ -39,7 +39,6 @@ in
   ] ++ lib.optionals (isHost) [
     docker
     colima
-    procps # watch cmd
   ];
 
   programs.direnv = {
