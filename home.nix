@@ -3,6 +3,7 @@
 let
   isVm = pkgs.stdenv.hostPlatform.isLinux;
   isHost = pkgs.stdenv.hostPlatform.isDarwin;
+  unstable = import <nixos-unstable> {};
 in
 {
   home.enableNixpkgsReleaseCheck = false;
@@ -20,7 +21,7 @@ in
     neovim
     pass
     lemonade
-    fzf
+    unstable.fzf
     fd
     ripgrep
     nodejs_18
