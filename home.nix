@@ -37,6 +37,7 @@ in
     hugo
     gcc
     unzip
+    btop
   ] ++ lib.optionals (isHost) [
     docker
     colima
