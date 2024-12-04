@@ -2,7 +2,7 @@ local modifier = { 'cmd', 'shift' }
 
 local apps = {
   ["k"] = "Ghostty",
-  ["j"] = "Thorium",
+  ["j"] = "zen Browser",
   ["l"] = "Slack",
 }
 for k, v in pairs(apps) do
