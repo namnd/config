@@ -21,6 +21,9 @@ require('packer').startup(function(use)
       skip_confirm_for_simple_edits = true,
       view_options                  = {
         show_hidden = true,
+        sort = {
+          {"name", "asc"}
+        },
         is_always_hidden = function(name, _)
           return name == 'Session.vim'
         end,
