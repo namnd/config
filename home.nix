@@ -125,6 +125,7 @@ in
       gl = "git log";
       gg = "git graph";
       gw = "git worktree";
+      gwa = "f() { git worktree add $1 && cd $1}; f";
       mcd = "f() { mkdir -p $1 && cd $1 }; f";
       v = "aws-vault exec --debug --backend=file --duration=1h";
       ssh = "ssh -R 2489:127.0.0.1:2489"; # lemonade server
