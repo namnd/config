@@ -71,6 +71,8 @@ require('packer').startup(function(use)
   use 'kristijanhusak/vim-dadbod-ui'
   use 'kristijanhusak/vim-dadbod-completion'
 
+  use 'alligator/accent.vim'
+
   -- ./after/plugin/dap.lua
   -- use { 'mfussenegger/nvim-dap' }
   -- use { 'leoluz/nvim-dap-go' }
@@ -90,7 +92,12 @@ end
 require('impatient')
 require("namnd.notes")
 
-vim.cmd.colorscheme("namnd")
+vim.cmd [[
+let g:accent_colour = 'blue'
+let g:accent_darken = 1
+let g:accent_no_bg = 1
+colorscheme accent
+]]
 
 -- Basic settings
 vim.g.mapleader = ' '
