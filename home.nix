@@ -107,7 +107,7 @@ in
     initExtra = builtins.readFile ./zshrc;
     shellAliases = {
       vim = "nvim";
-      ls = "ls --color=auto";
+      ls = "LC_ALL=C ls --color=auto --group-directories-first";
       ll = "ls -l";
       all = "ls -al";
       ".." = "cd ..";
