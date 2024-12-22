@@ -117,6 +117,7 @@ vim.o.expandtab = true
 vim.wo.cursorline = true
 vim.wo.number = true
 vim.wo.signcolumn = 'yes:2'
+vim.wo.conceallevel = 0
 vim.o.foldlevel = 99 -- Using ufo provider need a large value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
