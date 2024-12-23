@@ -24,6 +24,8 @@ in
     fd
     ripgrep
     nodejs_18
+    nixd
+    lua-language-server
     tldr
     tree
     jq
