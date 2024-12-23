@@ -5,7 +5,7 @@ if [ ! -f "$PWD/custom.nix" ]; then
 fi
 
 if [ ! -x "$(command -v nix)" ]; then
-  sh -c "$(curl -L https://releases.nixos.org/nix/nix-2.22.1/install)" --daemon
+  sh -c "$(curl -L https://releases.nixos.org/nix/nix-2.25.3/install)" --daemon
   exit
 fi
 
