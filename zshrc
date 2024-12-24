@@ -67,13 +67,23 @@ fi
 function cur_aws_vlt() {
   if [ -n "${AWS_VAULT}" ]; then
     color=magenta
+    flag=
     case $AWS_VAULT in
       dev)
         color=yellow
         ;;
+      prod)
+        flag=🇦🇺
+        ;;
+      produs)
+        flag=🇺🇸
+        ;;
+      prodae)
+        flag=🇦🇪
+        ;;
     esac
     date=$(date --date $AWS_CREDENTIAL_EXPIRATION +%H:%M)
-    echo " %{%F{$color}%}($AWS_VAULT ~ $date)%{$reset_color%}"
+    echo " %{%F{$color}%}($AWS_VAULT $flag ~ $date)%{$reset_color%}"
   fi
 }
 
