@@ -10,19 +10,10 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/completion.zsh"
 fi
 
-hostname=$(cat /etc/hostname 2>/dev/null)
-
 bindkey "^F" forward-word
 bindkey "^B" backward-word
 
 function _is_in_git_repo() { git rev-parse HEAD > /dev/null 2>&1 }
-function _overwrite_kitty_tab_title() { 
-  if [ $hostname ]; then
-    print -Pn "\e]0;%1d($hostname)\a"
-  else
-    print -Pn "\e]0;%1d\a"
-  fi
-}
 
 function chpwd() { ls -l --color=auto } # always list upon pwd changed
 function preexec() { cmd_start=$(($(print -P %D{%s%6.}) / 1000)) }
@@ -50,7 +41,6 @@ function precmd() {
   fi
 
   vcs_info
-  _overwrite_kitty_tab_title
 }
 
 # right prompt
@@ -68,6 +58,8 @@ PROMPT='%F{240}$(if [ $cmd_time ]; then echo "%D{%L:%M:%S} ($cmd_time)%F{255}"; 
 NEWLINE=$'\n'
 PROMPT="$PROMPT %F{cyan}%~%F{none}${NEWLINE}"
 PROMPT="$PROMPT%F{255}%n%F{240}"                # username
+
+hostname=$(cat /etc/hostname 2>/dev/null)
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   PROMPT="$PROMPT@%F{magenta}${hostname}%F{none}"
 fi
