@@ -68,9 +68,6 @@ function cur_aws_vlt() {
   if [ -n "${AWS_VAULT}" ]; then
     color=magenta
     case $AWS_VAULT in
-      stage)
-        color=cyan
-        ;;
       dev)
         color=yellow
         ;;
