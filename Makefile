@@ -1,8 +1,8 @@
 # Forked from https://github.com/mitchellh/nixos-config
 
-include config.mk
-
-NIXADDR ?= unset
+VM_HOSTNAME = indebted
+NIXUSER = namnguyen
+NIXADDR ?= 127.0.0.1 # For Emulated VLAN network mode only
 NIXPORT ?= 22
 
 GPG_SUBKEYS ?= /Volumes/namnd/gpg-subkeys.txt
@@ -54,6 +54,7 @@ bootstrap:
 	$(MAKE) secrets
 	$(MAKE) home-manager
 	$(MAKE) neovim
+	$(MAKE) ghostty
 
 rebuild:
 	rsync -av -e 'ssh $(SSH_OPTIONS)' \
