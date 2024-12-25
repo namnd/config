@@ -10,35 +10,6 @@ for k, v in pairs(apps) do
 end
 hs.hotkey.bind(modifier, "r", function() hs.reload() end)
 
-local direction = true
-hs.hotkey.bind(modifier, "s", function()
-  local screen = hs.screen 'mi'
-  if screen:name() == "Mi Monitor" then
-    hs.grid.setGrid(hs.geometry.size(5, 1), screen)
-
-    local allWindows = hs.window.allWindows()
-    local terminal, browser
-    for _, win in pairs(allWindows) do
-      local winName = win:application():name()
-      if winName == "kitty" then
-        terminal = win
-      end
-      if winName == "qutebrowser" then
-        browser = win
-      end
-    end
-    if direction then
-      hs.grid.pushWindowLeft(browser)
-      hs.grid.pushWindowRight(terminal)
-      direction = false
-    else
-      hs.grid.pushWindowLeft(terminal)
-      hs.grid.pushWindowRight(browser)
-      direction = true
-    end
-  end
-end)
-
 hs.hotkey.bind(modifier, "g", function()
   local screen = hs.screen 'mi'
   if screen:name() == "Mi Monitor" then
