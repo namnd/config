@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   isVm = pkgs.stdenv.hostPlatform.isLinux;
@@ -32,14 +32,14 @@ in
     aws-vault
     coreutils
     wget
-  ] ++ lib.optionals (isVm) [
+  ] ++ lib.optionals isVm [
     cht-sh
     csvkit
     hugo
     gcc
     unzip
     btop
-  ] ++ lib.optionals (isHost) [
+  ] ++ lib.optionals isHost [
     docker
     colima
   ];
@@ -90,7 +90,7 @@ in
       "Session.vim"
       ".direnv"
       "scratch*"
-    ] ++ lib.optionals (isHost) [
+    ] ++ lib.optionals isHost [
       ".DS_Store"
     ];
   };
