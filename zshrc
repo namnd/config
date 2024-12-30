@@ -15,7 +15,7 @@ bindkey "^B" backward-word
 
 function _is_in_git_repo() { git rev-parse HEAD > /dev/null 2>&1 }
 
-function chpwd() { ls -l --color=auto } # always list upon pwd changed
+function chpwd() { LC_ALL=C ls -l --color=auto --group-directories-first } # always list upon pwd changed
 function preexec() { cmd_start=$(($(print -P %D{%s%6.}) / 1000)) }
 function precmd() {
   if [ $cmd_start ]; then
