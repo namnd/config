@@ -2,7 +2,8 @@
 
 VM_HOSTNAME = indebted
 NIXUSER = namnguyen
-NIXADDR ?= 127.0.0.1 # For Emulated VLAN network mode only
+# For Emulated VLAN network mode only
+NIXADDR ?= 127.0.0.1
 NIXPORT ?= 22
 
 GPG_SUBKEYS ?= /Volumes/namnd/gpg-subkeys.txt
