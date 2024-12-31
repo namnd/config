@@ -41,6 +41,8 @@ function precmd() {
   fi
 
   vcs_info
+
+  print -Pn "\e]2;%n@%M $ %~\a"
 }
 
 # right prompt
@@ -59,9 +61,8 @@ NEWLINE=$'\n'
 PROMPT="$PROMPT %F{cyan}%~%F{none}${NEWLINE}"
 PROMPT="$PROMPT%F{255}%n%F{240}"                # username
 
-hostname=$(cat /etc/hostname 2>/dev/null)
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  PROMPT="$PROMPT@%F{magenta}${hostname}%F{none}"
+  PROMPT="$PROMPT@%F{magenta}%M%F{none}"
 fi
 
 function cur_aws_vlt() {
