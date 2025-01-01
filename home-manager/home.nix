@@ -49,7 +49,7 @@ in
   ];
 
   programs.direnv = {
-    enable = lib.mkDefault false;
+    enable = lib.mkDefault true;
     config = {
       global = {
         warn_timeout = "10m";

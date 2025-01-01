@@ -53,8 +53,7 @@ install:
 bootstrap:
 	$(MAKE) rebuild
 	$(MAKE) secrets
-	$(MAKE) home-manager
-	$(MAKE) neovim
+	$(MAKE) copy
 	$(MAKE) ghostty
 
 rebuild:
@@ -69,26 +68,19 @@ rebuild:
 secrets:
 	# GPG keyring
 	rsync -av -e 'ssh -p$(NIXPORT)' \
-	$(GPG_SUBKEYS) $(NIXUSER)@$(NIXADDR):~/
+		$(GPG_SUBKEYS) $(NIXUSER)@$(NIXADDR):~/
 	ssh $(NIXUSER)@$(NIXADDR) " \
 		gpg --import ~/gpg-subkeys.txt; \
 		rm ~/gpg-subkeys.txt; \
 		echo $(KEYGRIP) > ~/.gnupg/sshcontrol; \
 		"
 
-home-manager:
+copy:
+	rsync -av -e 'ssh -p$(NIXPORT)' \
+	$(MAKEFILE_DIR)/ $(NIXUSER)@$(NIXADDR):~/home
 	ssh $(NIXUSER)@$(NIXADDR) " \
-		git clone https://github.com/namnd/home-manager ~/.config/home-manager; \
-		sed -i 's/https:\/\/github.com\/namnd\/home-manager/git@github.com:namnd\/home-manager.git/g' \
-		~/.config/home-manager/.git/config; \
-		cd ~/.config/home-manager && sh install.sh; \
-		"
-
-neovim:
-	ssh $(NIXUSER)@$(NIXADDR) " \
-		git clone https://github.com/namnd/nvim ~/.config/nvim; \
-		sed -i 's/https:\/\/github.com\/namnd\/nvim/git@github.com:namnd\/nvim.git/g' \
-		~/.config/nvim/.git/config; \
+		(cd ~/home/home-manager/ && sh install.sh); \
+		(cd ~/home/nvim/ && sh install.sh); \
 		"
 
 ghostty:
