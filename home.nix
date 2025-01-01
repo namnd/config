@@ -17,7 +17,6 @@ in
 
   home.packages = with pkgs; [
     awscli2
-    neovim
     pass
     lemonade
     fzf
@@ -42,6 +41,7 @@ in
   ] ++ lib.optionals isHost [
     docker
     colima
+    neovim
   ];
 
   programs.direnv = {
