@@ -1,0 +1,6 @@
+font-family = Monaco
+font-size = 18
+
+theme = Wombat
+cursor-style = block
+unfocused-split-opacity = 0.3
