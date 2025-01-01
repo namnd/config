@@ -24,9 +24,13 @@ in
     ripgrep
     nodejs_18
     nixd
+    bash-language-server
     lua-language-server
+    vscode-langservers-extracted
+    yaml-language-server
     tldr
     tree
+    tree-sitter
     jq
     aws-vault
     coreutils
