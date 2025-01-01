@@ -1,0 +1,5 @@
+{ config, ... }:
+{
+  programs.git.userEmail = "git_email";
+  programs.direnv.enable = false;
+}
