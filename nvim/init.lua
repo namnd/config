@@ -30,6 +30,8 @@ vim.wo.number = true
 vim.wo.signcolumn = 'yes:1'
 vim.wo.conceallevel = 0
 vim.o.foldlevel = 10
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.swapfile = false
 vim.o.backup = false
 vim.loader.enable()
@@ -285,9 +287,8 @@ require("lazy").setup({
                 end,
               })
             end
-            if client:supports_method('textDocument/foldingRange') then
-              vim.o.foldmethod = "expr"
-              vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+            if not client:supports_method('textDocument/foldingRange') then
+              vim.o.foldmethod = "syntax"
             end
           end,
         })
