@@ -34,7 +34,6 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.laststatus = 3
 vim.loader.enable()
 
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
@@ -311,6 +310,7 @@ require("lazy").setup({
             icons_enabled = true,
             section_separators = "",
             component_separators = "",
+            globalstatus = true,
           },
           sections = {
             lualine_c = {},
