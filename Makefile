@@ -77,7 +77,7 @@ secrets:
 
 copy:
 	rsync -av -e 'ssh -p$(NIXPORT)' \
-	$(MAKEFILE_DIR)/ $(NIXUSER)@$(NIXADDR):~/home
+		$(MAKEFILE_DIR)/ $(NIXUSER)@$(NIXADDR):~/home
 	ssh $(NIXUSER)@$(NIXADDR) " \
 		(cd ~/home/home-manager/ && sh install.sh); \
 		(cd ~/home/nvim/ && sh install.sh); \

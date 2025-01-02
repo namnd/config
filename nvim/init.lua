@@ -54,6 +54,7 @@ vim.filetype.add({
 
 -- Notes scratch buffer
 local notes_dir = os.getenv("HOME") .. "/notes"
+os.execute("mkdir -p " .. notes_dir)
 local note_filename = vim.fn.getcwd():gsub("/", "%%")
 local note_file = notes_dir .. "/" .. note_filename .. ".md"
 local scratch_symlink = vim.fn.getcwd() .. "/scratch"
@@ -177,6 +178,7 @@ require("lazy").setup({
 
             map('n', '<leader>hr', gitsigns.reset_hunk)
             map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
+            map('n', '<leader>hp', gitsigns.preview_hunk)
           end,
         }
       end,
