@@ -299,9 +299,6 @@ require("lazy").setup({
                 end,
               })
             end
-            if not client:supports_method('textDocument/foldingRange') then
-              vim.o.foldmethod = "syntax"
-            end
           end,
         })
       end,
