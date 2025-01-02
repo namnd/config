@@ -34,6 +34,7 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.swapfile = false
 vim.o.backup = false
+vim.o.laststatus = 3
 vim.loader.enable()
 
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
@@ -306,11 +307,23 @@ require("lazy").setup({
             component_separators = "",
           },
           sections = {
+            lualine_c = {},
             lualine_x = {
               function()
                 return require('lsp-progress').progress()
               end,
-            }
+            },
+            lualine_y = {},
+            lualine_z = {},
+          },
+          winbar = {
+            lualine_a = { 'filename' },
+            lualine_x = { 'encoding' },
+            lualine_y = { 'progress' },
+            lualine_z = { 'location' }
+          },
+          inactive_winbar = {
+            lualine_a = { 'filename' },
           },
         }
         autocmd('User', {
