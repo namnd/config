@@ -110,6 +110,15 @@ require("lazy").setup({
       lazy = false,
       priority = 1000,
       config = function()
+        require("hybrid").setup({
+          overrides = function(highlights, colors)
+            highlights.Folded = {
+              fg = colors.comment,
+              bg = colors.line,
+              italic = true,
+            }
+          end,
+        })
         vim.cmd([[colorscheme hybrid]])
       end,
     },
