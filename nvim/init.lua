@@ -143,12 +143,14 @@ require("lazy").setup({
     },
     {
       "junegunn/fzf.vim",
+      lazy = false,
       dependencies = "junegunn/fzf",
       init = function() vim.g.fzf_layout = { down = '40%' } end,
       keys = { { "<leader>ff", ":FZF<cr>" } },
     },
     {
       "pbogut/fzf-mru.vim",
+      lazy = false,
       dependencies = "junegunn/fzf",
       init = function()
         vim.g.fzf_mru_relative = 1
