@@ -326,7 +326,7 @@ require("lazy").setup({
             lualine_z = {},
           },
           winbar = {
-            lualine_a = { 'filename' },
+            lualine_a = { '%f' },
             lualine_x = { 'encoding' },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }
