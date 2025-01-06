@@ -66,11 +66,7 @@ vim.api.nvim_create_user_command('SS', ":split " .. scratch_symlink, {})
 vim.api.nvim_create_user_command('SV', ":vsplit " .. scratch_symlink, {})
 vim.api.nvim_create_user_command('ST', ":tabedit " .. scratch_symlink, {})
 
-vim.cmd [[
-command! -bang -nargs=* SG
-  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': '~/notes'}), <bang>0)
-packadd cfilter
-]]
+vim.cmd [[ packadd cfilter ]]
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -142,21 +138,24 @@ require("lazy").setup({
       dependencies = "tpope/vim-fugitive",
     },
     {
-      "junegunn/fzf.vim",
-      lazy = false,
-      dependencies = "junegunn/fzf",
-      init = function() vim.g.fzf_layout = { down = '40%' } end,
-      keys = { { "<leader>ff", ":FZF<cr>" } },
-    },
-    {
-      "pbogut/fzf-mru.vim",
-      lazy = false,
-      dependencies = "junegunn/fzf",
-      init = function()
-        vim.g.fzf_mru_relative = 1
-        vim.g.fzf_mru_no_sort = 1
+      "ibhagwan/fzf-lua",
+      config = function()
+        require("fzf-lua").setup {
+          winopts = {
+            width = 1,
+            height = 0.4,
+            row = 1,
+            border = 'none',
+            backdrop = 50,
+          },
+        }
       end,
-      keys = { { "<leader>fr", ":FZFMru<cr>" } },
+      keys = {
+        { "<leader>ff", ":FzfLua files<cr>" },
+        { "<leader>fg", ":FzfLua live_grep<cr>" },
+        { "<leader>fr", ":FzfLua oldfiles cwd=" .. vim.loop.cwd() .. "<cr>" },
+        { "<leader>fs", ":FzfLua live_grep cwd=~/notes<cr>" },
+      }
     },
     {
       "lewis6991/gitsigns.nvim",
