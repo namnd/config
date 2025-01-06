@@ -134,7 +134,10 @@ require("lazy").setup({
         autocmd('VimEnter', {
           group = augroup('ObsessionCheck', { clear = true }),
           callback = function()
-            vim.api.nvim_command('silent! Obsession')
+            local status = vim.api.nvim_exec2([[ echo ObsessionStatus() ]], { output = true })
+            if status["output"] ~= "[$]" then
+              vim.api.nvim_command('silent! Obsession')
+            end
           end,
         })
       end
@@ -325,6 +328,8 @@ require("lazy").setup({
             component_separators = "",
             globalstatus = true,
             refresh = {
+              statusline = 100,
+              tabline = 1000,
               winbar = 1000,
             },
           },
