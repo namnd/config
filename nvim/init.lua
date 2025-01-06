@@ -128,6 +128,17 @@ require("lazy").setup({
     { "tpope/vim-repeat" },
     { "tpope/vim-rhubarb" },
     { "tpope/vim-abolish" },
+    {
+      "tpope/vim-obsession",
+      config = function()
+        autocmd('VimEnter', {
+          group = augroup('ObsessionCheck', { clear = true }),
+          callback = function()
+            vim.api.nvim_command('silent! Obsession')
+          end,
+        })
+      end
+    },
     { "github/copilot.vim" },
     {
       "tpope/vim-fugitive",
@@ -313,9 +324,12 @@ require("lazy").setup({
             section_separators = "",
             component_separators = "",
             globalstatus = true,
+            refresh = {
+              winbar = 1000,
+            },
           },
           sections = {
-            lualine_c = {},
+            lualine_c = { '%{ObsessionStatus()}' },
             lualine_x = {
               function()
                 return require('lsp-progress').progress()

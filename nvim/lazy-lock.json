@@ -23,6 +23,7 @@
   "vim-dadbod-completion": { "branch": "master", "commit": "71eb73d1f7399be6a56cc43b928276cd5ca27ffd" },
   "vim-dadbod-ui": { "branch": "master", "commit": "0fec59e3e1e619e302198cd491b7d27f8d398b7c" },
   "vim-fugitive": { "branch": "master", "commit": "174230d6a7f2df94705a7ffd8d5413e27ec10a80" },
+  "vim-obsession": { "branch": "master", "commit": "ed9dfc7c2cc917ace8b24f4f9f80a91e05614b63" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-rhubarb": { "branch": "master", "commit": "ee69335de176d9325267b0fd2597a22901d927b1" },
   "vim-startuptime": { "branch": "master", "commit": "ac2cccb5be617672add1f4f3c0a55ce99ba34e01" },
