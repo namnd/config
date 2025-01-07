@@ -34,6 +34,7 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.swapfile = false
 vim.o.backup = false
+vim.o.laststatus = 3
 vim.loader.enable()
 
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
@@ -66,7 +67,11 @@ vim.api.nvim_create_user_command('SS', ":split " .. scratch_symlink, {})
 vim.api.nvim_create_user_command('SV', ":vsplit " .. scratch_symlink, {})
 vim.api.nvim_create_user_command('ST', ":tabedit " .. scratch_symlink, {})
 
-vim.cmd [[ packadd cfilter ]]
+vim.cmd [[
+packadd cfilter
+set winbar=%m\ %f\ (%n)%=%P\ %r%y
+colorscheme namnd
+]]
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
@@ -99,23 +104,6 @@ require("lazy").setup({
       "dstein64/vim-startuptime",
       cmd = "StartupTime",
       init = function() vim.g.startuptime_tries = 10 end,
-    },
-    {
-      "HoNamDuong/hybrid.nvim",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        require("hybrid").setup({
-          overrides = function(highlights, colors)
-            highlights.Folded = {
-              fg = colors.comment,
-              bg = colors.line,
-              italic = true,
-            }
-          end,
-        })
-        vim.cmd([[colorscheme hybrid]])
-      end,
     },
     {
       "mbbill/undotree",
