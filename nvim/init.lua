@@ -44,6 +44,7 @@ vim.keymap.set("v", "v", "$h", { noremap = true })
 vim.keymap.set("n", "E", "ea", { noremap = true })
 vim.keymap.set("n", "<leader>rp", "yiwy<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
+vim.keymap.set("n", "<leader>2", "<cmd>lua vim.diagnostic.setqflist()<cr>", { noremap = true })
 
 vim.filetype.add({
   extension = {
@@ -97,6 +98,13 @@ autocmd("VimResized", {
   callback = function()
     vim.cmd("wincmd =")
   end,
+})
+
+autocmd('DiagnosticChanged', {
+  callback = function(args)
+    local diagnostics = args.data.diagnostics
+    vim.o.statusline = "[" .. #diagnostics .. "]" .. vim.o.statusline
+  end
 })
 
 require("lazy").setup({
