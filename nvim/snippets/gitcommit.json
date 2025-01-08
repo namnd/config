@@ -1,10 +1,10 @@
 {
-	"co": {
-		"prefix": "Co",
-		"body": "Co-authored-by: "
-	},
-	"in": {
-		"prefix": "In",
-		"body": "Initiative: "
-	}
+  "co": {
+    "prefix": "Co",
+    "body": "Co-authored-by: "
+  },
+  "in": {
+    "prefix": "In",
+    "body": "Initiative: "
+  }
 }
