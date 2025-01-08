@@ -19,6 +19,7 @@ hi Function guifg=#60d7ff
 hi WinBar guifg=Magenta gui=none
 hi CursorLine guibg=#222222
 hi ColorColumn guibg=#222222
+hi StatusLine guibg=#222222 guifg=#a8a8a8
 
 augroup ColorColumnHighlight
   autocmd!

@@ -34,7 +34,9 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.swapfile = false
 vim.o.backup = false
+vim.o.statusline = ""
 vim.o.laststatus = 3
+vim.o.winbar = "%r%f%m (%n)%= %l:%c (%p%%) %y"
 vim.loader.enable()
 
 vim.keymap.set('n', '<leader>zz', ":tabclose<cr>", { noremap = true })
@@ -69,7 +71,6 @@ vim.api.nvim_create_user_command('ST', ":tabedit " .. scratch_symlink, {})
 
 vim.cmd [[
 packadd cfilter
-set winbar=%m\ %f\ (%n)%=%P\ %r%y
 colorscheme namnd
 ]]
 
@@ -133,6 +134,9 @@ require("lazy").setup({
     { "github/copilot.vim" },
     {
       "tpope/vim-fugitive",
+      config = function()
+        vim.o.statusline = vim.o.statusline .. "%{FugitiveStatusline()}%="
+      end,
       keys = { { "<leader>gg", ":tab G<cr>" } },
     },
     {
@@ -294,6 +298,10 @@ require("lazy").setup({
             local client = vim.lsp.get_client_by_id(args.data.client_id)
             if not client then return end
 
+            if not string.find(vim.o.statusline, client.name) then
+              vim.o.statusline = vim.o.statusline .. "[" .. client.name .. "] "
+            end
+
             if client:supports_method('textDocument/formatting') then
               autocmd('BufWritePre', {
                 buffer = args.buf,
@@ -303,48 +311,6 @@ require("lazy").setup({
               })
             end
           end,
-        })
-      end,
-    },
-    {
-      'nvim-lualine/lualine.nvim',
-      config = function()
-        require('lualine').setup {
-          options = {
-            icons_enabled = true,
-            section_separators = "",
-            component_separators = "",
-            globalstatus = true,
-            refresh = {
-              statusline = 100,
-              tabline = 1000,
-              winbar = 1000,
-            },
-          },
-          sections = {
-            lualine_c = { '%{ObsessionStatus()}' },
-            lualine_x = {
-              function()
-                return require('lsp-progress').progress()
-              end,
-            },
-            lualine_y = {},
-            lualine_z = {},
-          },
-          winbar = {
-            lualine_a = { '%f' },
-            lualine_x = { 'encoding' },
-            lualine_y = { 'progress' },
-            lualine_z = { 'location' }
-          },
-          inactive_winbar = {
-            lualine_a = { 'filename' },
-          },
-        }
-        autocmd('User', {
-          group = augroup('lualine', { clear = true }),
-          pattern = 'LspProgressStatusUpdated',
-          callback = function() require('lualine').refresh() end,
         })
       end,
     },
