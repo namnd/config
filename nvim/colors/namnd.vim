@@ -14,6 +14,7 @@ hi String guifg=#6c6c6c
 " more important stuff
 hi Identifier guifg=#60d7ff " light blue
 hi Function guifg=#60d7ff
+hi Special guifg=#0dcdcd
 
 " other minor
 hi WinBar guifg=Magenta gui=none
