@@ -34,7 +34,7 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.statusline = ""
+vim.o.statusline = " "
 vim.o.laststatus = 3
 vim.o.winbar = "%r%f%m (%n)%= %l:%c (%p%%) %y"
 vim.loader.enable()
@@ -44,7 +44,13 @@ vim.keymap.set("v", "v", "$h", { noremap = true })
 vim.keymap.set("n", "E", "ea", { noremap = true })
 vim.keymap.set("n", "<leader>rp", "yiwy<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
-vim.keymap.set("n", "<leader>2", "<cmd>lua vim.diagnostic.setqflist()<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>2", function()
+  if vim.fn.getqflist({ winid = 0 }).winid == 0 then
+    vim.api.nvim_command('lua vim.diagnostic.setqflist()')
+  else
+    vim.api.nvim_command('cclose')
+  end
+end, { noremap = true })
 
 vim.filetype.add({
   extension = {
@@ -101,9 +107,22 @@ autocmd("VimResized", {
 })
 
 autocmd('DiagnosticChanged', {
-  callback = function(args)
-    local diagnostics = args.data.diagnostics
-    vim.o.statusline = "[" .. #diagnostics .. "]" .. vim.o.statusline
+  callback = function()
+    local ds = vim.diagnostic.count(0)
+    for i, d in pairs(ds) do
+      if i == vim.diagnostic.severity.ERROR and not string.find(vim.o.statusline, "StatusLineDiagnosticError") then
+        vim.o.statusline = " %#StatusLineDiagnosticError#" .. d .. "%*" .. vim.o.statusline
+      end
+      if i == vim.diagnostic.severity.WARN and not string.find(vim.o.statusline, "StatusLineDiagnosticWarn") then
+        vim.o.statusline = " %#StatusLineDiagnosticWarn#" .. d .. "%*" .. vim.o.statusline
+      end
+      if i == vim.diagnostic.severity.INFO and not string.find(vim.o.statusline, "StatusLineDiagnosticInfo") then
+        vim.o.statusline = " %#StatusLineDiagnosticInfo#" .. d .. "%*" .. vim.o.statusline
+      end
+      if i == vim.diagnostic.severity.HINT and not string.find(vim.o.statusline, "StatusLineDiagnosticHint") then
+        vim.o.statusline = " %#StatusLineDiagnosticHint#" .. d .. "%*" .. vim.o.statusline
+      end
+    end
   end
 })
 

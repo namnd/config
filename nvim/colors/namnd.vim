@@ -20,6 +20,8 @@ hi WinBar guifg=Magenta gui=none
 hi CursorLine guibg=#222222
 hi ColorColumn guibg=#222222
 hi StatusLine guibg=#222222 guifg=#a8a8a8
+hi StatusLineDiagnosticError guifg=Red guibg=#222222
+hi StatusLineDiagnosticWarn guifg=Yellow guibg=#222222
 
 augroup ColorColumnHighlight
   autocmd!
