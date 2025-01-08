@@ -86,7 +86,7 @@ autocmd("BufRead", {
   group = augroup("FiletypeGroup", { clear = true }),
   pattern = "*",
   callback = function()
-    if vim.bo.filetype ~= "commit" and vim.bo.filetype ~= "rebase" and vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+    if vim.bo.filetype ~= "commit" and vim.bo.filetype ~= "gitcommit" and vim.bo.filetype ~= "rebase" and vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
       vim.cmd.normal({ 'g`"', bang = true })
     end
   end,
