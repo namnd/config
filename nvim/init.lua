@@ -102,9 +102,7 @@ autocmd("VimResized", {
 require("lazy").setup({
   spec = {
     {
-      "dstein64/vim-startuptime",
-      cmd = "StartupTime",
-      init = function() vim.g.startuptime_tries = 10 end,
+      "tweekmonster/startuptime.vim",
     },
     {
       "mbbill/undotree",
