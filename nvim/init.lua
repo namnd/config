@@ -34,7 +34,7 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.statusline = " "
+vim.o.statusline = "%#AStart# %#AEnd# %#BStart# %#BEnd# %= %#FarRight#"
 vim.o.laststatus = 3
 vim.o.winbar = "%r%f%m (%n)%= %l:%c (%p%%) %y"
 vim.loader.enable()
@@ -123,6 +123,34 @@ autocmd('DiagnosticChanged', {
         vim.o.statusline = " %#StatusLineDiagnosticHint#" .. d .. "%*" .. vim.o.statusline
       end
     end
+
+autocmd('User', {
+  group = augroup('GitsignsStatusline', { clear = true }),
+  pattern = 'GitSignsUpdate',
+  callback = function(args)
+    local git_statusline = ""
+    local git_status = vim.b[args.buf].gitsigns_status_dict
+    if not git_status then
+      return
+    end
+
+    if git_status.head == "main" or git_status.head == "master" then
+      git_statusline = "%%#MainBranch# [Git(" .. git_status.head .. ")]%%*"
+    else
+      git_statusline = "%%#FeatureBranch#  " .. git_status.head .. "%%*"
+    end
+    if git_status.added and git_status.added > 0 then
+      git_statusline = git_statusline .. "%%#Added# +" .. git_status.added .. "%%*"
+    end
+    if git_status.removed and git_status.removed > 0 then
+      git_statusline = git_statusline .. "%%#Removed# -" .. git_status.removed .. "%%*"
+    end
+    if git_status.changed and git_status.changed > 0 then
+      git_statusline = git_statusline .. "%%#Changed# ~" .. git_status.changed .. "%%*"
+    end
+
+    vim.o.statusline = vim.o.statusline:gsub("%%#AStart#.-%%#AEnd#",
+      "%%#AStart#" .. git_statusline .. "%%#AEnd#")
   end
 })
 
@@ -159,9 +187,6 @@ require("lazy").setup({
     { "github/copilot.vim" },
     {
       "tpope/vim-fugitive",
-      config = function()
-        vim.o.statusline = vim.o.statusline .. "%{FugitiveStatusline()}%="
-      end,
       keys = { { "<leader>gg", ":tab G<cr>" } },
     },
     {

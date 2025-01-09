@@ -23,6 +23,11 @@ hi ColorColumn guibg=#222222
 hi StatusLine guibg=#222222 guifg=#a8a8a8
 hi StatusLineDiagnosticError guifg=Red guibg=#222222
 hi StatusLineDiagnosticWarn guifg=Yellow guibg=#222222
+hi MainBranch guifg=DarkGrey
+hi FeatureBranch guifg=#ffffff gui=italic
+hi Changed guifg=Orange
+hi Removed guifg=Red
+hi Added guifg=Green
 
 augroup ColorColumnHighlight
   autocmd!
