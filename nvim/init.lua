@@ -34,7 +34,7 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.statusline = "%#AStart# %#AEnd# %#BStart# %#BEnd# %= %#FarRight#"
+vim.o.statusline = "%#AStart# %#AEnd# %#BStart# %#BEnd# %= %#YStart# %#YEnd# %#ZStart# %#ZEnd#"
 vim.o.laststatus = 3
 vim.o.winbar = "%r%f%m (%n)%= %l:%c (%p%%) %y"
 vim.loader.enable()
@@ -108,21 +108,30 @@ autocmd("VimResized", {
 
 autocmd('DiagnosticChanged', {
   callback = function()
-    local ds = vim.diagnostic.count(0)
-    for i, d in pairs(ds) do
-      if i == vim.diagnostic.severity.ERROR and not string.find(vim.o.statusline, "StatusLineDiagnosticError") then
-        vim.o.statusline = " %#StatusLineDiagnosticError#" .. d .. "%*" .. vim.o.statusline
+    local dc = vim.diagnostic.count(0)
+    local dt = {}
+    for i, d in ipairs(dc) do
+      if i == vim.diagnostic.severity.ERROR then
+        dt[i] = " %%#StatusLineDiagnosticError#" .. d .. "%%*"
       end
-      if i == vim.diagnostic.severity.WARN and not string.find(vim.o.statusline, "StatusLineDiagnosticWarn") then
-        vim.o.statusline = " %#StatusLineDiagnosticWarn#" .. d .. "%*" .. vim.o.statusline
+      if i == vim.diagnostic.severity.WARN then
+        dt[i] = " %%#StatusLineDiagnosticWarn#" .. d .. "%%*"
       end
-      if i == vim.diagnostic.severity.INFO and not string.find(vim.o.statusline, "StatusLineDiagnosticInfo") then
-        vim.o.statusline = " %#StatusLineDiagnosticInfo#" .. d .. "%*" .. vim.o.statusline
+      if i == vim.diagnostic.severity.INFO then
+        dt[i] = " %%#StatusLineDiagnosticInfo#" .. d .. "%%*"
       end
-      if i == vim.diagnostic.severity.HINT and not string.find(vim.o.statusline, "StatusLineDiagnosticHint") then
-        vim.o.statusline = " %#StatusLineDiagnosticHint#" .. d .. "%*" .. vim.o.statusline
+      if i == vim.diagnostic.severity.HINT then
+        dt[i] = " %%#StatusLineDiagnosticHint#" .. d .. "%%*"
       end
     end
+
+    if #dt > 0 then
+      vim.o.statusline = vim.o.statusline:gsub("%%#YStart#.-%%#YEnd#", "%%#YStart#" .. table.concat(dt) .. "%%#YEnd#")
+    else
+      vim.o.statusline = vim.o.statusline:gsub("%%#YStart#.-%%#YEnd#", "")
+    end
+  end
+})
 
 autocmd('User', {
   group = augroup('GitsignsStatusline', { clear = true }),
@@ -149,8 +158,7 @@ autocmd('User', {
       git_statusline = git_statusline .. "%%#Changed# ~" .. git_status.changed .. "%%*"
     end
 
-    vim.o.statusline = vim.o.statusline:gsub("%%#AStart#.-%%#AEnd#",
-      "%%#AStart#" .. git_statusline .. "%%#AEnd#")
+    vim.o.statusline = vim.o.statusline:gsub("%%#AStart#.-%%#AEnd#", "%%#AStart#" .. git_statusline .. "%%#AEnd#")
   end
 })
 
@@ -345,13 +353,18 @@ require("lazy").setup({
 
         autocmd('LspAttach', {
           callback = function(args)
+            local clients = vim.lsp.get_clients({ bufnr = args.buf })
+
+            local ct = {}
+            for i, c in pairs(clients) do
+              ct[i] = "[" .. c.name .. "]"
+            end
+            local cs = table.concat(ct)
+
+            vim.o.statusline = vim.o.statusline:gsub("%%#ZStart#.-%%#ZEnd#", "%%#ZStart#" .. cs .. "%%#ZEnd#")
+
             local client = vim.lsp.get_client_by_id(args.data.client_id)
             if not client then return end
-
-            if not string.find(vim.o.statusline, client.name) then
-              vim.o.statusline = vim.o.statusline .. "[" .. client.name .. "] "
-            end
-
             if client:supports_method('textDocument/formatting') then
               autocmd('BufWritePre', {
                 buffer = args.buf,
