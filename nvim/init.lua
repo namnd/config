@@ -129,7 +129,8 @@ autocmd('DiagnosticChanged', {
     end
 
     if #dt > 0 then
-      vim.o.statusline = vim.o.statusline:gsub("%%#YStart#.-%%#YEnd#", "%%#YStart#" .. table.concat(dt) .. "%%#YEnd#")
+      local s = table.concat(dt)
+      vim.o.statusline = vim.o.statusline:gsub("%%#YStart#.-%%#YEnd#", "%%#YStart#" .. s .. "%%#YEnd#")
     else
       vim.o.statusline = vim.o.statusline:gsub("%%#YStart#.-%%#YEnd#", "")
     end
