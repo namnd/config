@@ -44,6 +44,9 @@ vim.keymap.set("v", "v", "$h", { noremap = true })
 vim.keymap.set("n", "E", "ea", { noremap = true })
 vim.keymap.set("n", "<leader>rp", "yiwy<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
+vim.keymap.set("n", "<leader>,", ":tabedit " .. os.getenv("HOME") .. "/.config/nvim/init.lua<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>/", ":tabedit " .. os.getenv("HOME") .. "/.config/home-manager/home.nix<cr>",
+  { noremap = true })
 vim.keymap.set("n", "<leader>2", function()
   if vim.fn.getqflist({ winid = 0 }).winid == 0 then
     vim.api.nvim_command('lua vim.diagnostic.setqflist()')
