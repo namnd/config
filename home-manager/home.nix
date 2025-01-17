@@ -25,6 +25,7 @@ in
     nodejs_18
     nixd
     bash-language-server
+    ccls
     lua-language-server
     vscode-langservers-extracted
     yaml-language-server

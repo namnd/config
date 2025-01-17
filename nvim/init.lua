@@ -356,6 +356,19 @@ require("lazy").setup({
           lspconfig[server].setup(config)
         end
 
+        lspconfig.ccls.setup {
+          init_options = {
+            compilationDatabaseDirectory = "build",
+            index = {
+              threads = 0,
+            },
+            clang = {
+              excludeArgs = { "-frounding-math" },
+            },
+          }
+        }
+
+
         autocmd('LspAttach', {
           callback = function(args)
             local clients = vim.lsp.get_clients({ bufnr = args.buf })
