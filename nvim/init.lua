@@ -199,6 +199,15 @@ require("lazy").setup({
     },
     { "github/copilot.vim" },
     {
+      "CopilotC-Nvim/CopilotChat.nvim",
+      dependencies = {
+        { "github/copilot.vim" },
+        { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+      },
+      opts = {
+      },
+    },
+    {
       "tpope/vim-fugitive",
       keys = { { "<leader>gg", ":tab G<cr>" } },
     },
