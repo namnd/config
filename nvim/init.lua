@@ -29,6 +29,7 @@ vim.wo.cursorline = true
 vim.wo.number = true
 vim.wo.signcolumn = 'yes:1'
 vim.wo.conceallevel = 0
+vim.opt.sessionoptions:remove('folds')
 vim.o.foldlevel = 10
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
