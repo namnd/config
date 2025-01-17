@@ -3,6 +3,7 @@
 let
   isVm = pkgs.stdenv.hostPlatform.isLinux;
   isHost = pkgs.stdenv.hostPlatform.isDarwin;
+  unstable = import <nixos-unstable> {};
 in
 {
   home.enableNixpkgsReleaseCheck = false;
@@ -16,7 +17,7 @@ in
   programs.gpg.enable = true;
 
   home.packages = with pkgs; [
-    awscli2
+    unstable.awscli2
     pass
     lemonade
     fzf
