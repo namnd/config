@@ -1,6 +1,6 @@
 # Home
 
-Where everything starts
+WIP
 
 ## Host - MacOS
 
