@@ -47,6 +47,7 @@ in
     pass
     docker
     colima
+    rsync
   ];
 
   programs.direnv = {
