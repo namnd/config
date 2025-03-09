@@ -27,6 +27,7 @@ in
     nixd
     bash-language-server
     ccls
+    zls
     lua-language-server
     vscode-langservers-extracted
     yaml-language-server
