@@ -17,6 +17,7 @@ in
   programs.gpg.enable = true;
 
   home.packages = with pkgs; [
+    unstable.neovim
     unstable.awscli2
     pass
     lemonade
@@ -48,7 +49,6 @@ in
   ] ++ lib.optionals isHost [
     docker
     colima
-    neovim
   ];
 
   programs.direnv = {
