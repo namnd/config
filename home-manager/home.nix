@@ -18,7 +18,6 @@ in
 
   home.packages = with pkgs; [
     unstable.neovim
-    unstable.awscli2
     lemonade
     fzf
     fd
@@ -39,6 +38,7 @@ in
     coreutils
     wget
   ] ++ lib.optionals isVm [
+    unstable.awscli2
     cht-sh
     csvkit
     hugo
