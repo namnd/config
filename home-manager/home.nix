@@ -22,7 +22,6 @@ in
     fzf
     fd
     ripgrep
-    nodejs_18
     nixd
     bash-language-server
     ccls
@@ -33,15 +32,14 @@ in
     tldr
     tree
     tree-sitter
-    jq
-    aws-vault
     coreutils
     wget
   ] ++ lib.optionals isVm [
     unstable.awscli2
-    cht-sh
-    csvkit
-    hugo
+    aws-vault
+    nodejs_22
+    gh
+    jq
     gcc
     unzip
     btop
