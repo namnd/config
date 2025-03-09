@@ -347,6 +347,7 @@ require("lazy").setup({
           gopls = {},
           jsonls = {},
           lua_ls = {},
+          nixd = {},
           terraformls = {},
           yamlls = {},
           zls = {},
