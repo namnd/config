@@ -19,7 +19,6 @@ in
   home.packages = with pkgs; [
     unstable.neovim
     unstable.awscli2
-    pass
     lemonade
     fzf
     fd
@@ -47,6 +46,7 @@ in
     unzip
     btop
   ] ++ lib.optionals isHost [
+    pass
     docker
     colima
   ];
