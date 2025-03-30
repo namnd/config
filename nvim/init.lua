@@ -351,7 +351,6 @@ require("lazy").setup({
           lua_ls = {},
           nixd = {},
           terraformls = {},
-          yamlls = {},
           zls = {},
         },
       },
