@@ -34,6 +34,7 @@ in
     tree-sitter
     coreutils
     wget
+    gh
   ] ++ lib.optionals isVm [
     unstable.awscli2
     aws-vault
