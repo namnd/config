@@ -88,6 +88,8 @@ colorscheme namnd
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
+vim.diagnostic.config({ virtual_text = { current_line = true } })
+
 autocmd('TextYankPost', {
   group = augroup('HighlightYankGroup', { clear = true }),
   callback = function() vim.highlight.on_yank({ timeout = 70 }) end,
