@@ -275,7 +275,7 @@ require("lazy").setup({
         view_options = {
           show_hidden = true,
           is_always_hidden = function(name, _)
-            return name == 'Session.vim' or name == '.direnv'
+            return name == 'Session.vim' or name == '.direnv' or name:match("_templ.go" .. "$") ~= nil
           end,
         },
       },
@@ -339,6 +339,8 @@ require("lazy").setup({
           gopls = {},
           jsonls = {},
           lua_ls = {},
+          -- html = {},
+          templ = {},
           nixd = {},
           terraformls = {},
           zls = {},
@@ -439,5 +441,17 @@ require("lazy").setup({
         signature = { enabled = true },
       },
     },
+    {
+      'stevearc/conform.nvim',
+      opts = {
+        formatters_by_ft = {
+          templ = {
+            "gofumpt",
+            "templ",
+            "injected",
+          },
+        },
+      },
+    }
   },
 })
