@@ -1,0 +1,3 @@
+[submodule "nixos/dwm"]
+	path = nixos/dwm
+	url = git@github.com:namnd/dwm.git
