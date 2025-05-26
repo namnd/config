@@ -11,7 +11,7 @@
   # tailscale
   services.tailscale.enable = true;
   networking.nameservers = [ "100.100.100.100" "8.8.8.8" "1.1.1.1" ];
-  networking.search = [ "tail188aa.ts.net" ];
+  networking.search = [ "tail24c71.ts.net" ];
   networking.firewall.enable = false;
 
   networking.hostName = "vm_hostname";

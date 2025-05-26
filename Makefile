@@ -1,6 +1,6 @@
 # Forked from https://github.com/mitchellh/nixos-config
 
-VM_HOSTNAME = indebted
+VM_HOSTNAME = nixos
 NIXUSER = namnguyen
 # For Emulated VLAN network mode only
 NIXADDR ?= 127.0.0.1
