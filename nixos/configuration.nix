@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -20,7 +20,7 @@
   services.xserver.windowManager.dwm = {
     enable = true;
     package = pkgs.dwm.overrideAttrs {
-      src = /home/namnguyen/dwm;
+      src = ./dwm;
     };
   };
 
@@ -42,16 +42,17 @@
   services.xserver.xkb = {
     layout = "au";
     variant = "";
+    # options = "caps:swapescape"; # only enable if not using external keyboard
   };
+
+  services.clipmenu.enable = true;
 
   users.users.namnguyen = {
     isNormalUser = true;
     description = "Nam Nguyen";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
   programs.ssh.startAgent = false;
 
   programs.gnupg.agent = {
@@ -70,6 +71,8 @@
     fastfetch
     ghostty
     git
+    firefox
+    xclip
   ];
 
   system.stateVersion = "24.11"; # Did you read the comment?

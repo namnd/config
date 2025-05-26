@@ -1,71 +1,59 @@
 { pkgs, lib, ... }:
 
 let
-  isVm = pkgs.stdenv.hostPlatform.isLinux;
-  isHost = pkgs.stdenv.hostPlatform.isDarwin;
   unstable = import <nixos-unstable> {};
+  dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
+    src = /home/namnguyen/workspaces/dwmblocks;
+  });
 in
 {
-  home.enableNixpkgsReleaseCheck = false;
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
-  manual.manpages.enable = false;
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  programs.home-manager.enable = true;
-  programs.gpg.enable = true;
+  xsession.enable = true;
+  xsession.initExtra = ''
+    xset r rate 250 60
+    dwmblocks &!
+  '';
 
   home.packages = with pkgs; [
-    unstable.neovim
-    lemonade
+    unstable.neovim 
+    unstable.awscli2
+    aws-vault
     fzf
     fd
     ripgrep
+    gcc
+    ccls
     nixd
     bash-language-server
-    ccls
-    zls
-    lua-language-server
-    vscode-langservers-extracted
-    yaml-language-server
-    tldr
-    tree
-    tree-sitter
-    coreutils
     wget
-    gh
-  ] ++ lib.optionals isVm [
-    unstable.awscli2
-    aws-vault
-    nodejs_22
-    gh
-    jq
-    gcc
+    udisks
     unzip
+    gnumake
+    scrot
+
+    surf
+    atop
     btop
-  ] ++ lib.optionals isHost [
+    htop
+    scrot
+    pavucontrol
+    pulseaudio
+
     pass
-    docker
-    colima
-    rsync
+
+    dwmblocks
   ];
 
-  programs.direnv = {
-    enable = lib.mkDefault true;
-    config = {
-      global = {
-        warn_timeout = "10m";
-      };
-    };
-    nix-direnv = {
-      enable = true;
-    };
-  };
+  programs.gpg.enable = true;
 
   programs.git = {
     enable = true;
     userName = "Nam Nguyen";
+    userEmail = "me@namnd.com";
     signing = {
       key = "54D86DA33E656F30";
       signByDefault = true;
@@ -97,28 +85,19 @@ in
       "Session.vim"
       ".direnv"
       "scratch*"
-    ] ++ lib.optionals isHost [
-      ".DS_Store"
     ];
   };
 
-  programs.zsh = {
+  programs.bash = {
     enable = true;
-    autocd = true;
-    defaultKeymap = "emacs";
-    dotDir = "./.config/zsh";
-    history = {
-      expireDuplicatesFirst = true;
-      save = 10000;
-      share = true;
-      size = 10000;
-    };
-    initExtra = builtins.readFile ./zshrc;
+    historyControl = ["ignoreboth"];
+    initExtra = builtins.readFile ./bashrc;
     shellAliases = {
       vim = "nvim";
-      ls = "LC_ALL=C ls --color=auto --group-directories-first";
-      ll = "ls -l";
-      all = "ls -al";
+      ls = "ls --color=auto";
+      ll = "ls -alF";
+      la = "ls -A";
+      l = "ls -CF";
       ".." = "cd ..";
       ".2" = "cd ../..";
       ".3" = "cd ../../..";
@@ -133,23 +112,26 @@ in
       gd = "git diff";
       gl = "git log";
       gg = "git graph";
-      gw = "git worktree";
-      gwa = "f() { git worktree add $1 && cd $1}; f";
-      mcd = "f() { mkdir -p $1 && cd $1 }; f";
-      v = "aws-vault exec --debug --backend=file --duration=1h";
-      ssh = "ssh -R 2489:127.0.0.1:2489"; # lemonade server
-      vm = "ssh namnguyen@127.0.0.1";
-      psql = "PAGER=\"nvim -c 'set nomod nolist nowrap syntax=sql'\" psql";
+    };
+
+  };
+
+  programs.direnv = {
+    enable = lib.mkDefault true;
+    config = {
+      global = {
+        warn_timeout = "10m";
+      };
+    };
+    nix-direnv = {
+      enable = true;
     };
   };
 
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
+  home.sessionVariables = {
+    # EDITOR = "emacs";
   };
 
-  imports = [
-    ./custom.nix
-  ];
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
 }
-

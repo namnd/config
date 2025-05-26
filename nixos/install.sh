@@ -1,33 +1,40 @@
 #!/bin/sh
 
 ##########################################################
-# Update /etc/nixos/configuration.nix
+# Bootstrapping NixOS
 ##########################################################
 
-CONFIG=/etc/nixos/configuration.nix
-REMOTE_CONFIG=https://github.com/namnd/home/blob/main/nixos/configuration.nix
-
-curl $REMOTE_CONFIG -o $CONFIG
+sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+sudo ln -s "$PWD"/configuration.nix /etc/nixos/configuration.nix
 
 nixos-rebuild switch
-
-# Now that we have git
-git clone https://github.com/namnd/dwm ~/dwm
 
 ##########################################################
 # Install home-manager
 ##########################################################
 
-HM_PATH=$HOME/.config/home-manager/
-REMOTE_HM_CONFIG=https://github.com/namnd/home/blob/main/nixos/home.nix
-
-mkdir -p "$HM_CONFIG"
-curl $REMOTE_HM_CONFIG -o "$HM_PATH"/home.nix
+mkdir -p "$HOME"/.config
+ln -sfn "$(readlink -f "$PWD"/../home-manager)" "$HOME"/.config/home-manager
 
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 nix-channel --update
-export NIX_PATH="$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}"
 nix-shell '<home-manager>' -A install
 
 home-manager switch
+
+#################################################
+# Fonts
+#################################################
+
+mkdir -p "$HOME"/.local/share
+ln -sfn "$PWD"/fonts "$HOME"/.local/share/fonts
+sudo fc-cache
+
+#################################################
+# Others
+#################################################
+
+ln -sfn "$(readlink -f "$PWD"/../nixpkgs)" "$HOME"/.config/nixpkgs
+ln -sfn "$(readlink -f "$PWD"/../nvim)" "$HOME"/.config/nvim
+ln -sfn "$(readlink -f "$PWD"/../ghostty)" "$HOME"/.config/ghostty
