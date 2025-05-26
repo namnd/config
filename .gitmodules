@@ -1,3 +1,6 @@
 [submodule "nixos/dwm"]
 	path = nixos/dwm
 	url = git@github.com:namnd/dwm.git
+[submodule "nixos/dwmblocks"]
+	path = nixos/dwmblocks
+	url = git@github.com:namnd/dwmblocks.git

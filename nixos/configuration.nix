@@ -1,5 +1,10 @@
 { pkgs, ... }:
 
+let
+  dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
+    src = ./dwmblocks;
+  });
+in
 {
   imports =
     [
@@ -16,11 +21,20 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  services.xserver.enable = true;
-  services.xserver.windowManager.dwm = {
+  services.xserver = {
     enable = true;
-    package = pkgs.dwm.overrideAttrs {
-      src = ./dwm;
+
+    windowManager.dwm = {
+      enable = true;
+      package = pkgs.dwm.overrideAttrs {
+        src = ./dwm;
+      };
+    };
+
+    xkb = {
+      layout = "au";
+      variant = "";
+      # options = "caps:swapescape"; # only enable if not using external keyboard
     };
   };
 
@@ -39,12 +53,6 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  services.xserver.xkb = {
-    layout = "au";
-    variant = "";
-    # options = "caps:swapescape"; # only enable if not using external keyboard
-  };
-
   services.clipmenu.enable = true;
 
   users.users.namnguyen = {
@@ -60,18 +68,18 @@
     enableSSHSupport = true;
   };
 
-
   virtualisation.docker.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    dmenu
     arandr
+    dmenu
+    dwmblocks
     fastfetch
+    firefox
     ghostty
     git
-    firefox
     xclip
   ];
 

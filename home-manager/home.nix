@@ -2,15 +2,10 @@
 
 let
   unstable = import <nixos-unstable> {};
-  dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
-    src = /home/namnguyen/workspaces/dwmblocks;
-  });
 in
 {
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
-
-  home.stateVersion = "24.11"; # Please read the comment before changing.
 
   xsession.enable = true;
   xsession.initExtra = ''
@@ -18,6 +13,7 @@ in
     dwmblocks &!
   '';
 
+  home.stateVersion = "24.11"; # Please read the comment before changing.
   home.packages = with pkgs; [
     unstable.neovim 
     unstable.awscli2
@@ -44,8 +40,6 @@ in
     pulseaudio
 
     pass
-
-    dwmblocks
   ];
 
   programs.gpg.enable = true;
