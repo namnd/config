@@ -4,7 +4,7 @@ Simply clone this repo to `$HOME/.config/home-manager` and run install script
 
 ```bash
 $ git clone https://github.com/namnd/home-manager ~/.config/home-manager
-$ cd ~/.config/nixpkgs && sh install.sh
+$ cd ~/.config/home-manager && sh install.sh
 ```
 
 ## Uninstall (MacOS only)

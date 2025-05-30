@@ -13,6 +13,12 @@ in
     dwmblocks &!
   '';
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   home.stateVersion = "24.11"; # Please read the comment before changing.
   home.packages = with pkgs; [
     unstable.neovim 

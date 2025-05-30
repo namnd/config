@@ -35,6 +35,5 @@ sudo fc-cache
 # Others
 #################################################
 
-ln -sfn "$(readlink -f "$PWD"/../nixpkgs)" "$HOME"/.config/nixpkgs
 ln -sfn "$(readlink -f "$PWD"/../nvim)" "$HOME"/.config/nvim
 ln -sfn "$(readlink -f "$PWD"/../ghostty)" "$HOME"/.config/ghostty

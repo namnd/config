@@ -6,11 +6,6 @@ mkdir -p "$HOME/.config"
 
 ln -sfn "${PWD}" "${HOME}/.config/home-manager"
 
-if [ ! -f "$HOME/.config/nixpkgs/config.nix" ]; then
-  mkdir -p "$HOME/.config/nixpkgs"
-  echo '{ allowUnfree = true; }'  > "$HOME/.config/nixpkgs/config.nix"
-fi
-
 if [ ! -x "$(command -v nix)" ]; then
   sh -c "$(curl -L https://releases.nixos.org/nix/nix-2.25.3/install)" --daemon
   exit
