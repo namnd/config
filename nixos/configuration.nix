@@ -79,7 +79,6 @@ in
     fastfetch
     firefox
     ghostty
-    git
     xclip
   ];
 

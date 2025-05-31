@@ -1,7 +1,7 @@
 bind '"\C-f": forward-word'
 bind '"\C-b": backward-word'
 
-source /run/current-system/sw/share/bash-completion/completions/git-prompt.sh
+source ~/.nix-profile/share/git/contrib/completion/git-prompt.sh
 
 BLUE="\[$(tput setaf 4)\]"
 YELLOW="\[$(tput setaf 3)\]"
