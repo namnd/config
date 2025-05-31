@@ -75,7 +75,6 @@ in
   environment.systemPackages = with pkgs; [
     dmenu
     dwmblocks
-    firefox
     ghostty
     xclip
   ];
