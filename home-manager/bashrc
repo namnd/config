@@ -3,6 +3,7 @@ bind '"\C-b": backward-word'
 
 source ~/.nix-profile/share/git/contrib/completion/git-prompt.sh
 
+GRAY="\[$(tput setaf 240)\]"
 BLUE="\[$(tput setaf 4)\]"
 YELLOW="\[$(tput setaf 3)\]"
 GREEN="\[$(tput setaf 2)\]"
@@ -17,7 +18,7 @@ prompt() {
   PS1="${BLUE}\w${RESET}$(__git_ps1 " ${GREEN}(%s)${RESET}")\n ${RED}\${?#0}${RESET}\$$(__bg_jobs) "
 }
 
-PROMPT_COMMAND=prompt
+PS1="\[\033[1;32m\]\[\e]0;\u@\h: \w\a\]\u@\h:${BLUE}\w${RESET}$(__git_ps1 " ${GREEN}(%s)${RESET}")\n${GRAY}\$${RESET} "
 
 export PATH="$PATH:$HOME/.local/bin"
 
