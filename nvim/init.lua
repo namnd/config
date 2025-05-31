@@ -383,17 +383,6 @@ require("lazy").setup({
             local cs = table.concat(ct)
 
             vim.o.statusline = vim.o.statusline:gsub("%%#ZStart#.-%%#ZEnd#", "%%#ZStart#" .. cs .. "%%#ZEnd#")
-
-            local client = vim.lsp.get_client_by_id(args.data.client_id)
-            if not client then return end
-            if client:supports_method('textDocument/formatting') then
-              autocmd('BufWritePre', {
-                buffer = args.buf,
-                callback = function()
-                  vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-                end,
-              })
-            end
           end,
         })
       end,
@@ -444,7 +433,10 @@ require("lazy").setup({
     {
       'stevearc/conform.nvim',
       opts = {
+        format_on_save = {},
         formatters_by_ft = {
+          lua = { "stylua" },
+          go = { "gofmt", lsp_format = "fallback" },
           templ = {
             "gofumpt",
             "templ",
