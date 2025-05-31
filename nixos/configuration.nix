@@ -73,10 +73,8 @@ in
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    arandr
     dmenu
     dwmblocks
-    fastfetch
     firefox
     ghostty
     xclip

@@ -21,6 +21,9 @@ in
 
   home.stateVersion = "24.11"; # Please read the comment before changing.
   home.packages = with pkgs; [
+    fastfetch
+    arandr
+
     unstable.neovim 
     unstable.awscli2
     aws-vault
