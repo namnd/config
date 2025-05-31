@@ -34,6 +34,7 @@ in
     ccls
     nixd
     bash-language-server
+    lua-language-server
     wget
     udisks
     unzip
@@ -51,6 +52,13 @@ in
     pass
     libnotify
 
+
+    kubectl
+    kubernetes-helm
+    terraform
+    terraform-ls
+    go
+    gopls
   ];
 
   services.dunst = {
