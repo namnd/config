@@ -3,6 +3,9 @@
 let
   dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
     src = ./dwmblocks;
+    nativeBuildInputs = with pkgs; [ #writing once works for both currently, sort of bug and feature
+      pkg-config
+    ];
   });
 in
 {
