@@ -49,7 +49,18 @@ in
     pulseaudio
 
     pass
+    libnotify
+
   ];
+
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        font = "DejaVu Sans 12";
+      };
+    };
+  };
 
   programs.gpg.enable = true;
 
