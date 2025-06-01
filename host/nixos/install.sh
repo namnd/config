@@ -9,12 +9,14 @@ sudo ln -s "$PWD"/configuration.nix /etc/nixos/configuration.nix
 
 nixos-rebuild switch
 
+root_dir=$(readlink -f "$PWD"/../..)
+
 ##########################################################
 # Install home-manager
 ##########################################################
 
 mkdir -p "$HOME"/.config
-ln -sfn "$(readlink -f "$PWD"/../home-manager)" "$HOME"/.config/home-manager
+ln -sfn "$root_dir"/home-manager "$HOME"/.config/home-manager
 
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
@@ -35,5 +37,5 @@ sudo fc-cache
 # Others
 #################################################
 
-ln -sfn "$(readlink -f "$PWD"/../nvim)" "$HOME"/.config/nvim
-ln -sfn "$(readlink -f "$PWD"/../ghostty)" "$HOME"/.config/ghostty
+ln -sfn "$root_dir"/nvim "$HOME"/.config/nvim
+ln -sfn "$root_dir"/ghostty "$HOME"/.config/ghostty
