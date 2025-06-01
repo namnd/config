@@ -1,9 +1,8 @@
 { pkgs, ... }:
 
 let
-  root_dir = "./../..";
   dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
-    src = root_dir + "./dwmblocks";
+    src = ./dwmblocks;
     nativeBuildInputs = with pkgs; [ #writing once works for both currently, sort of bug and feature
       pkg-config
     ];
@@ -31,7 +30,7 @@ in
     windowManager.dwm = {
       enable = true;
       package = pkgs.dwm.overrideAttrs {
-        src = root_dir + "./dwm";
+        src = ./dwm;
       };
     };
 

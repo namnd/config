@@ -30,7 +30,7 @@ home-manager switch
 #################################################
 
 mkdir -p "$HOME"/.local/share
-ln -sfn "$PWD"/fonts "$HOME"/.local/share/fonts
+ln -sfn "$root_dir"/fonts "$HOME"/.local/share/fonts
 sudo fc-cache
 
 #################################################
