@@ -218,6 +218,9 @@ require("lazy").setup({
             border = 'none',
             backdrop = 50,
           },
+          grep = {
+            hidden = true,
+          },
         }
       end,
       keys = {
