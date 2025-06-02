@@ -1,8 +1,5 @@
 { pkgs, lib, ... }:
 
-let
-  unstable = import <nixos-unstable> {};
-in
 {
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
@@ -24,8 +21,8 @@ in
     fastfetch
     arandr
 
-    unstable.neovim 
-    unstable.awscli2
+    neovim 
+    awscli2
     aws-vault
     fzf
     fd
