@@ -21,8 +21,9 @@ root_dir=$(readlink -f "$PWD"/../..)
 mkdir -p "$HOME"/.config
 ln -sfn "$root_dir"/home-manager "$HOME"/.config/home-manager
 
+cp "$root_dir"/home-manager/custom.nixos.nix "$root_dir"/home-manager/custom.nix
+
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
-nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 nix-channel --update
 nix-shell '<home-manager>' -A install
 
