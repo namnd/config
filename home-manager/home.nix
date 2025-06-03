@@ -4,6 +4,7 @@
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
 
+  home.enableNixpkgsReleaseCheck = false;
 
   nixpkgs = {
     config = {
