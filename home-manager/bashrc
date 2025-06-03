@@ -8,15 +8,74 @@ GREEN="\[$(tput setaf 2)\]"
 RED="\[$(tput setaf 1)\]"
 RESET="\[$(tput sgr0)\]"
 
+ENV_1="\[$(tput setaf 226)\]"
+ENV_2="\[$(tput setaf 214)\]"
+ENV_3="\[$(tput setaf 208)\]"
+ENV_4="\[$(tput setaf 124)\]"
+ENV_5="\[$(tput setaf 129)\]"
+
 __bg_jobs() {
-  if [ -n "$(jobs -p)" ]; then echo " ${YELLOW}(\j)${RESET}"; fi
+  if [ -n "$(jobs -p)" ]; then echo " ${YELLOW}(\j)${RESET} "; fi
+}
+
+__aws_vault_ps1() {
+  if [ -z "${AWS_VAULT}" ]; then
+    return
+  fi
+  case $AWS_VAULT in
+    *"prod"*)
+      color=${ENV_5};;
+    *"stress"*)
+      color=${ENV_4};;
+    *"test"*)
+      color=${ENV_3};;
+    *"dev"*)
+      color=${ENV_2};;
+    *"sandpit"*)
+      color=${ENV_1};;
+  esac
+  echo " ${color}($AWS_VAULT)${RESET}"
+}
+
+kc() {
+  if [ -z "$1" ]; then
+    kubectl config unset current-context
+    return 0
+  fi
+
+  case "$1" in
+    # skip sensitive data
+    "something")
+      context=something-else
+      ;;
+    *)
+      echo "Invalid context"
+      return 1
+      ;;
+  esac
+
+  kubectl config use-context "$context"
+}
+
+__kube_ps1() {
+  context=$(grep "current-context:" ~/.kube/config | sed "s/current-context: //" | awk -F'/' '{print $2}' | tr -d '"')
+  if [ -z "${context}" ]; then
+    return
+  fi
+
+  case "$context" in
+    *"prod"*)
+      echo "${MAGENTA} (k8s: ${context})${RESET}";;
+    *)
+      echo " (k8s: ${context})";;
+  esac
 }
 
 prompt() {
-  PS1="${BLUE}\w${RESET}$(__git_ps1 " ${GREEN}(%s)${RESET}")\n ${RED}\${?#0}${RESET}\$$(__bg_jobs) "
+  PS1="${BLUE}\w${RESET}$(__git_ps1 " ${GREEN}(%s)${RESET}")\n\A ${RED}\${?#0}${RESET}$(__bg_jobs)${GRAY}\$${RESET}$(__aws_vault_ps1)$(__kube_ps1) "
 }
 
-PS1="\[\033[1;32m\]\[\e]0;\u@\h: \w\a\]\u@\h:${BLUE}\w${RESET}$(__git_ps1 " ${GREEN}(%s)${RESET}")\n${GRAY}\$${RESET} "
+PROMPT_COMMAND=prompt
 
 export PATH="$PATH:$HOME/.local/bin"
 
