@@ -98,6 +98,7 @@
       gd = "git diff";
       gl = "git log";
       gg = "git graph";
+      v = "aws-vault exec --debug --backend=file --duration=1h";
     };
 
   };
