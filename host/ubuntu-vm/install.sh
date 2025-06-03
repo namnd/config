@@ -4,7 +4,7 @@
 # Install Nix
 #################################################
 export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
-sh <(curl -L https://nixos.org/nix/install) --daemon
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 
 root_dir=$(readlink -f "$PWD"/../..)
 
@@ -18,7 +18,7 @@ mv "$HOME"/.profile "$HOME"/.profile.bak
 mkdir -p "$HOME"/.config
 ln -sfn "$root_dir"/home-manager "$HOME"/.config/home-manager
 
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
 nix-channel --update
 nix-shell '<home-manager>' -A install
 
