@@ -8,9 +8,9 @@ sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo ln -s "$PWD"/configuration.nix /etc/nixos/configuration.nix
 
 sudo mkdir -p /var/local/dwmblocks
-chmod 777 /var/local/dwmblocks
+sudo chmod 777 /var/local/dwmblocks
 
-nixos-rebuild switch
+sudo nixos-rebuild switch
 
 root_dir=$(readlink -f "$PWD"/../..)
 
@@ -21,7 +21,7 @@ root_dir=$(readlink -f "$PWD"/../..)
 mkdir -p "$HOME"/.config
 ln -sfn "$root_dir"/home-manager "$HOME"/.config/home-manager
 
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
 nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 nix-channel --update
 nix-shell '<home-manager>' -A install
