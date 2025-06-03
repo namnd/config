@@ -60,7 +60,7 @@ kc() {
 }
 
 __kube_ps1() {
-  context=$(grep "current-context:" ~/.kube/config | sed "s/current-context: //" | awk -F'/' '{print $2}' | tr -d '"')
+  context=$(grep -s "current-context:" ~/.kube/config | sed "s/current-context: //" | awk -F'/' '{print $2}' | tr -d '"')
   if [ -z "${context}" ]; then
     return
   fi
