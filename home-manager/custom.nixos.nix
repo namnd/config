@@ -46,6 +46,11 @@
 
   programs.qutebrowser = {
     enable = true;
+    searchEngines = {
+      g = "https://www.google.com/search?hl=en&q={}";
+      nix = "https://search.nixos.org/packages?query={}";
+      nio = "https://search.nixos.org/options?query={}";
+    };
     settings = {
       content = {
         blocking.adblock.lists = [
