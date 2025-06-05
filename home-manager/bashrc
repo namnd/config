@@ -11,10 +11,14 @@ RED="\[$(tput setaf 1)\]"
 RESET="\[$(tput sgr0)\]"
 
 ENV_1="\[$(tput setaf 226)\]"
-ENV_2="\[$(tput setaf 214)\]"
-ENV_3="\[$(tput setaf 208)\]"
-ENV_4="\[$(tput setaf 124)\]"
-ENV_5="\[$(tput setaf 129)\]"
+ENV_2="\[$(tput setaf 220)\]"
+ENV_3="\[$(tput setaf 214)\]"
+
+ENV_4="\[$(tput setaf 201)\]"
+ENV_5="\[$(tput setaf 196)\]"
+
+ENV_6="\[$(tput setaf 46)\]"
+ENV_7="\[$(tput setaf 213)\]"
 
 __bg_jobs() {
   if [ -n "$(jobs -p)" ]; then echo " ${YELLOW}(\j)${RESET} "; fi
@@ -25,7 +29,7 @@ __aws_vault_ps1() {
     return
   fi
   case $AWS_VAULT in
-    *"prod"*)
+    "prod")
       color=${ENV_5};;
     *"stress"*)
       color=${ENV_4};;
@@ -35,6 +39,10 @@ __aws_vault_ps1() {
       color=${ENV_2};;
     *"sandpit"*)
       color=${ENV_1};;
+    "build")
+      color=${ENV_6};;
+    "build-prod")
+      color=${ENV_7};;
   esac
   echo " ${color}($AWS_VAULT)${RESET}"
 }
