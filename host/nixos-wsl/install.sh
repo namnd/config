@@ -7,6 +7,8 @@
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo ln -s "$PWD"/configuration.nix /etc/nixos/configuration.nix
 
+sudo nixos-rebuild switch
+
 root_dir=$(readlink -f "$PWD"/../..)
 
 ##########################################################
