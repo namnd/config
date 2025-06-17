@@ -14,6 +14,8 @@ root_dir=$(readlink -f "$PWD"/../..)
 mv "$HOME"/.bashrc "$HOME"/.bashrc.bak
 mv "$HOME"/.profile "$HOME"/.profile.bak
 
+mkdir -p "$HOME"/.config
+
 ln -sfn "$root_dir"/home-manager "$HOME"/.config/home-manager
 ln -sf "$root_dir"/home-manager/custom.ubuntu-wsl.nix "$root_dir"/home-manager/custom.nix
 
