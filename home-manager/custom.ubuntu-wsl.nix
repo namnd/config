@@ -9,6 +9,7 @@
 
   home.packages = with pkgs; [
     gcc
+    xclip
   ];
 
   programs.bash.shellAliases.k = "https_proxy= HTTPS_PROXY= kubectl";
