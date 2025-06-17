@@ -10,4 +10,6 @@
   home.packages = with pkgs; [
     gcc
   ];
+
+  programs.bash.shellAliases.k = "https_proxy= HTTPS_PROXY= kubectl";
 }

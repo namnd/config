@@ -28,6 +28,7 @@
 
     kubectl
     kubernetes-helm
+    k9s
     terraform
     terraform-ls
     go
