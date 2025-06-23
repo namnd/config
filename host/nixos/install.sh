@@ -7,9 +7,6 @@
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo ln -s "$PWD"/configuration.nix /etc/nixos/configuration.nix
 
-sudo mkdir -p /var/local/dwmblocks
-sudo chmod 777 /var/local/dwmblocks
-
 sudo nixos-rebuild switch
 
 root_dir=$(readlink -f "$PWD"/../..)

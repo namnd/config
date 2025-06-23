@@ -1,13 +1,5 @@
 { pkgs, ... }:
 
-let
-  dwmblocks = pkgs.dwmblocks.overrideAttrs (old: {
-    src = ./dwmblocks;
-    nativeBuildInputs = with pkgs; [ #writing once works for both currently, sort of bug and feature
-      pkg-config
-    ];
-  });
-in
 {
   imports =
     [
@@ -24,23 +16,6 @@ in
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  services.xserver = {
-    enable = true;
-
-    windowManager.dwm = {
-      enable = true;
-      package = pkgs.dwm.overrideAttrs {
-        src = ./dwm;
-      };
-    };
-
-    xkb = {
-      layout = "au";
-      variant = "";
-      # options = "caps:swapescape"; # only enable if not using external keyboard
-    };
-  };
-
   time.timeZone = "Australia/Brisbane";
   i18n.defaultLocale = "en_AU.UTF-8";
 
@@ -56,8 +31,6 @@ in
     LC_TIME = "en_AU.UTF-8";
   };
 
-  services.clipmenu.enable = true;
-
   users.users.namnguyen = {
     isNormalUser = true;
     description = "Nam Nguyen";
@@ -71,17 +44,31 @@ in
     enableSSHSupport = true;
   };
 
+  programs.hyprland.enable = true;
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+      };
+      initial_session = {
+        command = "Hyprland";
+        user = "namnguyen";
+      };
+    };
+  };
+
   virtualisation.docker.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    dmenu
-    dwmblocks
     ghostty
-    xclip
+    kitty
+    wl-clipboard
+    cliphist
   ];
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }

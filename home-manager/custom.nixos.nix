@@ -1,11 +1,5 @@
 { pkgs, ... }:
 {
-  xsession.enable = true;
-  xsession.initExtra = ''
-    xset r rate 250 60
-    dwmblocks &!
-  '';
-
   programs.git.userEmail = "me@namnd.com";
   programs.git.signing = {
     key = "54D86DA33E656F30";
@@ -31,6 +25,8 @@
     pulseaudio
     pass
     libnotify
+
+    fuzzel
   ];
 
   gtk = {
@@ -50,6 +46,10 @@
   };
 
   programs.gpg.enable = true;
+
+  programs.waybar = {
+    enable = true;
+  };
 
   programs.qutebrowser = {
     enable = true;
