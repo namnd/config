@@ -1,0 +1,39 @@
+{
+  "layer": "top",
+  "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["network", "cpu", "bluetooth", "pulseaudio", "battery", "clock"],
+  "hyprland/window": {
+    "separate-outputs": true,
+    "max-length": 50
+  },
+  "hyprland/workspaces": {
+  },
+  "network": {
+    "format": "{gwaddr}({essid}) ",
+    "tooltip-format": "{frequency}Ghz ({signalStrength}%)"
+  },
+  "cpu": {
+    "format": "💻 {usage}%"
+  },
+  "disk": {
+    "format": "{percentage_free}%"
+  },
+  "bluetooth": {
+    "format": " ᛒ({num_connections})",
+    "tooltip-format": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}"
+
+  },
+  "pulseaudio": {
+    "format": " 🔊 {volume}%",
+    "scroll-step": 5.0,
+  },
+  "battery": {
+    "format": "🔋 {capacity}%",
+  },
+  "clock": {
+    "format": "🕑 {:%H:%M}",
+    "tooltip-format": "{:%a, %d %b %H:%M}"
+  }
+}
