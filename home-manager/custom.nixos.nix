@@ -27,6 +27,7 @@
     libnotify
 
     fuzzel
+    hyprpaper
   ];
 
   gtk = {
