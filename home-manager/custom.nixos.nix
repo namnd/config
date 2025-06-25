@@ -55,11 +55,19 @@
   programs.qutebrowser = {
     enable = true;
     searchEngines = {
-      g = "https://www.google.com/search?hl=en&q={}";
-      nix = "https://search.nixos.org/packages?query={}";
-      nio = "https://search.nixos.org/options?query={}";
+      DEFAULT = "https://www.google.com/search?hl=en&q={}";
+      y = "https://youtube.com/results?search_query={}";
+      x = "https://x.com/search?q={}";
+      nixp = "https://search.nixos.org/packages?query={}";
+      nixo = "https://search.nixos.org/options?query={}";
+    };
+    quickmarks = {
+      gr = "https://grok.com";
+      gh = "https://github.com";
+      r = "https://reddit.com";
     };
     settings = {
+      url.start_pages = ["https://google.com"];
       content = {
         blocking.adblock.lists = [
           "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters-2024.txt"
