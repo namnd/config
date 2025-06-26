@@ -7,7 +7,6 @@
   };
 
   home.packages = with pkgs; [
-    arandr
     gcc
     ccls
     wget
@@ -27,6 +26,8 @@
     libnotify
 
     fuzzel
+    inotify-tools
+    swaylock
     hyprpaper
   ];
 

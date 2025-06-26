@@ -40,3 +40,4 @@ sudo fc-cache
 
 ln -sfn "$root_dir"/nvim "$HOME"/.config/nvim
 ln -sfn "$root_dir"/ghostty "$HOME"/.config/ghostty
+ln -sfn "$root_dir"/bin "$HOME"/.local/bin
