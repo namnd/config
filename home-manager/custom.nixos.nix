@@ -29,6 +29,8 @@
     inotify-tools
     swaylock
     hyprpaper
+    blueman
+    networkmanagerapplet
   ];
 
   gtk = {
