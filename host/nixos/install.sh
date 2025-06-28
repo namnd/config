@@ -25,19 +25,3 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 
 home-manager switch
-
-#################################################
-# Fonts
-#################################################
-
-mkdir -p "$HOME"/.local/share
-ln -sfn "$root_dir"/fonts "$HOME"/.local/share/fonts
-sudo fc-cache
-
-#################################################
-# Others
-#################################################
-
-ln -sfn "$root_dir"/nvim "$HOME"/.config/nvim
-ln -sfn "$root_dir"/ghostty "$HOME"/.config/ghostty
-ln -sfn "$root_dir"/bin "$HOME"/.local/bin

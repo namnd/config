@@ -86,6 +86,3 @@ prompt() {
 }
 
 PROMPT_COMMAND=prompt
-
-export PATH="$PATH:$HOME/.local/bin"
-

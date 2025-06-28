@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   home.username = builtins.getEnv "USER";
@@ -117,6 +117,10 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.file = {
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ../nvim;
+  };
 
   imports = [
     ./custom.nix
