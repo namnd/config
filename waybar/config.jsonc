@@ -5,36 +5,37 @@
   "modules-right": ["network", "cpu", "bluetooth", "pulseaudio", "battery", "clock"],
   "hyprland/window": {
     "separate-outputs": true,
-    "max-length": 50
+    "max-length": 50,
   },
   "hyprland/workspaces": {
   },
   "network": {
     "format": "{gwaddr}({essid}) ",
     "tooltip-format": "{frequency}Ghz ({signalStrength}%)",
-    "on-click": "nm-connection-editor"
+    "on-click": "nm-connection-editor",
   },
   "cpu": {
-    "format": "💻 {usage}%"
+    "format": "💻 {usage}%",
   },
   "disk": {
-    "format": "{percentage_free}%"
+    "format": "{percentage_free}%",
   },
   "bluetooth": {
     "format": " ᛒ({num_connections})",
     "tooltip-format": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
-    "on-click": "blueman-manager"
+    "on-click": "blueman-manager",
   },
   "pulseaudio": {
     "format": " 🔊 {volume}%",
     "scroll-step": 5.0,
+    "on-click": "pavucontrol",
   },
   "battery": {
     "format": "🔋 {capacity}%",
   },
   "clock": {
     "format": "🕑 {:%H:%M}",
-    "tooltip-format": "{:%a, %d %b %H:%M}"
+    "tooltip-format": "{:%a, %d %b %H:%M}",
   }
 }
