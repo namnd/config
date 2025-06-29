@@ -52,7 +52,7 @@
     enable = true;
     settings = {
       global = {
-        font = "DejaVu Sans 12";
+        font = "Monospace 12";
       };
     };
   };
