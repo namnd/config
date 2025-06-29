@@ -9,6 +9,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # See https://github.com/NixOS/nixpkgs/issues/363887#issuecomment-2536693220
+  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -59,6 +61,8 @@
   };
 
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "namnguyen" ];
 
   nixpkgs.config.allowUnfree = true;
 
