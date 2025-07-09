@@ -20,11 +20,5 @@ ln -sfn "$root_dir"/home-manager "$HOME"/.config/home-manager
 ln -sf "$root_dir"/home-manager/custom.ubuntu-wsl.nix "$root_dir"/home-manager/custom.nix
 
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
-nix-channel --uppdate
+nix-channel --update
 nix-shell '<home-manager>' -A install
-
-#################################################
-# Others
-#################################################
-
-ln -sfn "$root_dir"/nvim "$HOME"/.config/nvim
