@@ -21,6 +21,7 @@
     aws-vault
     fzf
     fd
+    jq
     ripgrep
     nixd
     bash-language-server
