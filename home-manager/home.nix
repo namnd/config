@@ -74,7 +74,6 @@
     enable = true;
     historyControl = ["ignoreboth"];
     initExtra = builtins.readFile ./bashrc;
-    profileExtra = builtins.readFile ./profile;
     shellAliases = {
       vim = "nvim";
       ls = "ls --color=auto";
