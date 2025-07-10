@@ -26,4 +26,5 @@ export NO_PROXY="localhost,127.0.0.*,10.*,192.168.*,172.16.*,172.17.*,172.18.*,1
   ];
 
   programs.bash.shellAliases.k = "https_proxy= HTTPS_PROXY= kubectl";
+  programs.bash.shellAliases.h = "https_proxy= HTTPS_PROXY= helm";
 }
