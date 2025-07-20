@@ -391,14 +391,6 @@ require("lazy").setup({
       end,
     },
     {
-      "kristijanhusak/vim-dadbod-ui",
-      dependencies = {
-        { "tpope/vim-dadbod",                     lazy = true },
-        { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
-      },
-      cmd = { "DBUI", "DBUIAddConnection" },
-    },
-    {
       'saghen/blink.compat',
       version = 'v2.*',
       lazy = true,
@@ -420,9 +412,8 @@ require("lazy").setup({
           nerd_font_variant = 'normal'
         },
         sources = {
-          default = { "lsp", "path", "snippets", "buffer", "dadbod", "gh_authors" },
+          default = { "lsp", "path", "snippets", "buffer", "gh_authors" },
           providers = {
-            dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
             gh_authors = { name = "gh_authors", module = "blink.compat.source" },
           },
         },
