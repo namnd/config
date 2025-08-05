@@ -3,6 +3,8 @@ bind '"\C-b": backward-word'
 
 source ~/.nix-profile/share/git/contrib/completion/git-prompt.sh
 
+export PATH="$PATH:$HOME/.local/bin"
+
 GRAY="\[$(tput setaf 240)\]"
 BLUE="\[$(tput setaf 4)\]"
 YELLOW="\[$(tput setaf 3)\]"

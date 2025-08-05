@@ -127,6 +127,7 @@
 
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink ../nvim;
+    ".local/bin".source = config.lib.file.mkOutOfStoreSymlink ../bin;
   };
 
   imports = [
