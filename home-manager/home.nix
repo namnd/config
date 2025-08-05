@@ -32,6 +32,7 @@
     nixd
     bash-language-server
     lua-language-server
+    stylua
 
     kubectl
     kubernetes-helm
