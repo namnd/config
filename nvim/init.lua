@@ -14,6 +14,9 @@ vim.wo.number = true
 vim.wo.signcolumn = "yes:1"
 vim.wo.conceallevel = 0
 
+vim.o.laststatus = 3
+vim.o.winbar = "%r%f%m (%n)%= %l:%c (%p%%) %y"
+
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -21,7 +24,7 @@ vim.o.undofile = true
 
 vim.cmd([[
 packadd cfilter
-set completeopt+=noselect
+colorscheme namnd
 ]])
 
 vim.pack.add({
