@@ -138,3 +138,5 @@ vim.keymap.set("n", "-", "<cmd>Oil<cr>", { noremap = true }) -- require oil.nvim
 vim.keymap.set("n", "<leader>ff", ":FZF<cr>", { noremap = true }) -- require fzf.vim
 vim.keymap.set("n", "<leader>fr", ":FZFMru<cr>", { noremap = true }) -- require fzf-mru
 vim.keymap.set("n", "<leader>K", "<cmd>lua require('trevj').format_at_cursor()<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>,", ":tabedit ~/.config/nvim/init.lua<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>/", ":tabedit ~/.config/home-manager/home.nix<cr>", { noremap = true })
