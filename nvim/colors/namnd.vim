@@ -14,6 +14,9 @@ hi WinBarNC           guibg=none
 hi DiagnosticError    guifg=red
 hi DiagnosticWarn     guifg=yellow
 hi DiffText           guibg=orange    guifg=black
+hi Changed            guibg=none      guifg=orange
+hi Added              guibg=none      guifg=green
+hi Removed            guibg=none      guifg=red
 
 " less important
 hi Type               guibg=none      guifg=#aaaaaa
