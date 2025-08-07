@@ -79,6 +79,7 @@
     };
     settings = {
       url.start_pages = ["https://google.com"];
+      auto_save.session = true;
       content = {
         blocking.adblock.lists = [
           "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters-2024.txt"
