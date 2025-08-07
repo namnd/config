@@ -38,6 +38,7 @@ vim.pack.add({
 	"https://github.com/tpope/vim-fugitive",
 	"https://github.com/junegunn/gv.vim", -- depends on vim-fugitive
 	"https://github.com/junegunn/fzf.vim",
+	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/pbogut/fzf-mru.vim", -- depends on fzf.vim
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/nvim-treesitter/nvim-treesitter", -- depends on treesitter
@@ -70,6 +71,40 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 	sync_install = false,
 	auto_install = false,
+})
+
+require("gitsigns").setup({
+	on_attach = function(bufnr)
+		local gitsigns = require("gitsigns")
+		local function map(mode, l, r, opts)
+			opts = opts or {}
+			opts.buffer = bufnr
+			vim.keymap.set(mode, l, r, opts)
+		end
+
+		-- Navigation
+		map("n", "]c", function()
+			if vim.wo.diff then
+				vim.cmd.normal({ "]c", bang = true })
+			else
+				gitsigns.nav_hunk("next")
+			end
+		end)
+
+		map("n", "[c", function()
+			if vim.wo.diff then
+				vim.cmd.normal({ "[c", bang = true })
+			else
+				gitsigns.nav_hunk("prev")
+			end
+		end)
+
+		map("n", "<leader>hr", gitsigns.reset_hunk)
+		map("v", "<leader>hr", function()
+			gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+		end)
+		map("n", "<leader>hp", gitsigns.preview_hunk)
+	end,
 })
 
 require("oil").setup({
