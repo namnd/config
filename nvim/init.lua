@@ -53,6 +53,7 @@ vim.g.fzf_mru_relative = 1 -- only list files within current directory
 vim.g.fzf_mru_no_sort = 1 -- keep list sorted by recency while typing
 
 vim.lsp.enable({
+	"bashls",
 	"lua_ls",
 	"gopls",
 	"terraform-ls",
