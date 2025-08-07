@@ -4,15 +4,16 @@
 let colors_name = "namnd"
 
 hi Normal             guibg=#111111 " almost black
+hi Directory          guifg=#1a8fff " blue
 hi CursorLine         guibg=#222222
 hi ColorColumn        guibg=#222222
-hi DiffText           guibg=orange    guifg=black
 hi StatusLine         guibg=#222222   guifg=#a8a8a8
 hi StatusLineNC       guibg=none      guifg=#a8a8a8
-hi Directory          guifg=#1a8fff " blue
+hi WinBar             guibg=none      guifg=magenta
+hi WinBarNC           guibg=none
 hi DiagnosticError    guifg=red
 hi DiagnosticWarn     guifg=yellow
-hi WinBar             guibg=none      guifg=magenta
+hi DiffText           guibg=orange    guifg=black
 
 " less important
 hi Type               guibg=none      guifg=#aaaaaa
