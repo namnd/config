@@ -39,7 +39,7 @@ vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/pbogut/fzf-mru.vim", -- depends on fzf.vim
 	"https://github.com/windwp/nvim-autopairs",
-	"https://github.com/nvim-treesitter/nvim-treesitter", -- depends on treesitter
+	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/AckslD/nvim-trevJ.lua", -- depends on treesitter
 	"https://github.com/mbbill/undotree",
 	"https://github.com/tweekmonster/startuptime.vim",
@@ -58,6 +58,7 @@ vim.lsp.enable({
 	"terraform-ls",
 })
 
+require("lua.notes")
 require("nvim-autopairs").setup()
 require("trevj").setup()
 
