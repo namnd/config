@@ -24,7 +24,7 @@
     "format": " ᛒ({num_connections})",
     "tooltip-format": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
-    "on-click": "blueman-manager",
+    "on-click": "blueberry",
   },
   "pulseaudio": {
     "format": " 🔊 {volume}%",

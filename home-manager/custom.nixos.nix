@@ -37,7 +37,7 @@
     inotify-tools
     swaylock
     hyprpaper
-    blueman
+    blueberry
     networkmanagerapplet
   ];
 
