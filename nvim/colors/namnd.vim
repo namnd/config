@@ -9,8 +9,6 @@ hi CursorLine         guibg=#222222
 hi ColorColumn        guibg=#222222
 hi StatusLine         guibg=#222222   guifg=#a8a8a8
 hi StatusLineNC       guibg=none      guifg=#a8a8a8
-hi WinBar             guibg=none      guifg=magenta
-hi WinBarNC           guibg=none
 hi DiagnosticError    guifg=red
 hi DiagnosticWarn     guifg=yellow
 hi DiffText           guibg=orange    guifg=black

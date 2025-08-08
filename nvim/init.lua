@@ -16,8 +16,6 @@ vim.wo.conceallevel = 0
 vim.o.foldlevel = 10
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
-vim.o.laststatus = 3
-vim.o.winbar = "%r%f%m (%n)%= %l:%c (%p%%) %y"
 
 vim.o.swapfile = false
 vim.o.backup = false
