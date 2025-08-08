@@ -71,40 +71,6 @@ require("nvim-treesitter.configs").setup({
 	auto_install = false,
 })
 
-require("gitsigns").setup({
-	on_attach = function(bufnr)
-		local gitsigns = require("gitsigns")
-		local function map(mode, l, r, opts)
-			opts = opts or {}
-			opts.buffer = bufnr
-			vim.keymap.set(mode, l, r, opts)
-		end
-
-		-- Navigation
-		map("n", "]c", function()
-			if vim.wo.diff then
-				vim.cmd.normal({ "]c", bang = true })
-			else
-				gitsigns.nav_hunk("next")
-			end
-		end)
-
-		map("n", "[c", function()
-			if vim.wo.diff then
-				vim.cmd.normal({ "[c", bang = true })
-			else
-				gitsigns.nav_hunk("prev")
-			end
-		end)
-
-		map("n", "<leader>hr", gitsigns.reset_hunk)
-		map("v", "<leader>hr", function()
-			gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-		end)
-		map("n", "<leader>hp", gitsigns.preview_hunk)
-	end,
-})
-
 require("oil").setup({
 	skip_confirm_for_simple_edits = true,
 	view_options = {
@@ -174,3 +140,7 @@ vim.keymap.set("n", "<leader>fr", ":FZFMru<cr>", { noremap = true }) -- require 
 vim.keymap.set("n", "<leader>K", "<cmd>lua require('trevj').format_at_cursor()<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>,", ":tabedit ~/.config/nvim/init.lua<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>/", ":tabedit ~/.config/home-manager/home.nix<cr>", { noremap = true })
+vim.keymap.set("n", "]c", require("gitsigns").next_hunk, { noremap = true })
+vim.keymap.set("n", "[c", require("gitsigns").prev_hunk, { noremap = true })
+vim.keymap.set("n", "<leader>hr", require("gitsigns").reset_hunk, { noremap = true })
+vim.keymap.set("n", "<leader>hp", require("gitsigns").preview_hunk, { noremap = true })
