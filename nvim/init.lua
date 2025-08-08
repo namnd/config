@@ -16,17 +16,17 @@ vim.wo.conceallevel = 0
 vim.o.foldlevel = 10
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.opt.sessionoptions:remove("folds") -- ignore folds when re-open session
 
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 
-vim.opt.sessionoptions:remove("folds") -- ignore folds when re-open session
-
 vim.cmd([[
 packadd cfilter
 colorscheme namnd
+set completeopt+=noselect
 ]])
 
 vim.pack.add({
