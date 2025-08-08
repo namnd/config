@@ -11,3 +11,9 @@ vim.api.nvim_create_user_command("S", ":edit " .. scratch_symlink, {})
 vim.api.nvim_create_user_command("SS", ":split " .. scratch_symlink, {})
 vim.api.nvim_create_user_command("SV", ":vsplit " .. scratch_symlink, {})
 vim.api.nvim_create_user_command("ST", ":tabedit " .. scratch_symlink, {})
+
+vim.filetype.add({
+	filename = {
+		["scratch"] = "markdown",
+	},
+})

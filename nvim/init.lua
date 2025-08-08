@@ -22,6 +22,8 @@ vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 
+vim.opt.sessionoptions:remove("folds") -- ignore folds when re-open session
+
 vim.cmd([[
 packadd cfilter
 colorscheme namnd
@@ -58,7 +60,9 @@ vim.lsp.enable({
 	"terraform-ls",
 })
 
-require("lua.notes")
+vim.diagnostic.config({ virtual_text = { current_line = true } })
+
+require("notes")
 require("nvim-autopairs").setup()
 require("trevj").setup()
 
@@ -145,3 +149,12 @@ vim.keymap.set("n", "]c", require("gitsigns").next_hunk, { noremap = true })
 vim.keymap.set("n", "[c", require("gitsigns").prev_hunk, { noremap = true })
 vim.keymap.set("n", "<leader>hr", require("gitsigns").reset_hunk, { noremap = true })
 vim.keymap.set("n", "<leader>hp", require("gitsigns").preview_hunk, { noremap = true })
+vim.keymap.set("n", "<leader>rp", "yiwy<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
+vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
+vim.keymap.set("n", "<leader>2", function() -- toggle qflist window
+	if vim.fn.getqflist({ winid = 0 }).winid == 0 then
+		vim.api.nvim_command("copen")
+	else
+		vim.api.nvim_command("cclose")
+	end
+end, { noremap = true })
