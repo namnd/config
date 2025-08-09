@@ -2,7 +2,7 @@
   "layer": "top",
   "modules-left": ["hyprland/workspaces", "hyprland/submap"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "cpu", "bluetooth", "pulseaudio", "battery", "clock"],
+  "modules-right": ["network", "cpu", "memory", "bluetooth", "pulseaudio", "battery", "clock"],
   "hyprland/window": {
     "separate-outputs": true,
     "max-length": 50,
@@ -10,24 +10,30 @@
   "hyprland/workspaces": {
   },
   "network": {
-    "format": "{gwaddr}({essid}) ",
-    "tooltip-format": "{frequency}Ghz ({signalStrength}%)",
+    "format": "  {essid}",
+    "tooltip-format": "{gwaddr} {frequency}Ghz ({signalStrength}%)",
     "on-click": "nm-connection-editor",
   },
   "cpu": {
-    "format": "💻 {usage}%",
+    "format": "  {usage}%",
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {used:0.1f}G/{total:0.1f}G"
   },
   "disk": {
     "format": "{percentage_free}%",
   },
   "bluetooth": {
-    "format": " ᛒ({num_connections})",
+    "format": "󰂯 ",
+    "format-disabled": "󰂲 ",
+    "format-connected": "󰂰 ({num_connections})",
     "tooltip-format": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "on-click": "blueberry",
   },
   "pulseaudio": {
-    "format": " 🔊 {volume}%",
+    "format": "{volume}%  ",
     "scroll-step": 5.0,
     "on-click": "pavucontrol",
   },
@@ -35,7 +41,7 @@
     "format": "🔋 {capacity}%",
   },
   "clock": {
-    "format": "🕑 {:%H:%M}",
+    "format": "{:%H:%M}",
     "tooltip-format": "{:%a, %d %b %H:%M}",
   }
 }

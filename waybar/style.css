@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: monospace;
-    font-size: 20px;
+    font-family: UbuntuMono Nerd Font;
+    font-size: 22px;
     min-height: 0;
 }
 
@@ -32,8 +32,12 @@ tooltip label {
     border-bottom: 3px solid rgba(255, 255, 255, 0.3);
 }
 
-#mode, #clock, #battery {
+#mode, #clock, #battery, #cpu, #memory, #bluetooth, #pulseaudio {
     padding: 5px 10px;
+}
+
+#network {
+  padding-right: 10px;
 }
 
 #mode {
