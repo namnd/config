@@ -83,7 +83,7 @@
     initExtra = builtins.readFile ./bashrc;
     shellAliases = {
       vim = "nvim";
-      ls = "ls --color=auto";
+      ls = "ls -lG -v --color=auto --group-directories-first";
       ll = "ls -alF";
       la = "ls -A";
       l = "ls -CF";
