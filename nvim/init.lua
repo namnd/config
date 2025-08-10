@@ -64,7 +64,6 @@ vim.diagnostic.config({ virtual_text = { current_line = true } })
 
 require("notes")
 require("nvim-autopairs").setup()
-require("trevj").setup()
 
 require("nvim-treesitter.configs").setup({
 	modules = {},
@@ -137,12 +136,12 @@ vim.api.nvim_create_autocmd("BufRead", {
 vim.keymap.set("v", "v", "$h", { noremap = true })
 vim.keymap.set("n", "E", "ea", { noremap = true })
 vim.keymap.set("n", "<leader>zz", ":tabclose<cr>", { noremap = true })
-vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { noremap = true })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true })
 vim.keymap.set("n", "<leader>gg", ":tab G<cr>", { noremap = true }) -- require vim-fugitive
 vim.keymap.set("n", "-", "<cmd>Oil<cr>", { noremap = true }) -- require oil.nvim
 vim.keymap.set("n", "<leader>ff", ":FZF<cr>", { noremap = true }) -- require fzf.vim
 vim.keymap.set("n", "<leader>fr", ":FZFMru<cr>", { noremap = true }) -- require fzf-mru
-vim.keymap.set("n", "<leader>K", "<cmd>lua require('trevj').format_at_cursor()<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>K", require("trevj").format_at_cursor, { noremap = true })
 vim.keymap.set("n", "<leader>,", ":tabedit ~/.config/nvim/init.lua<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>/", ":tabedit ~/.config/home-manager/home.nix<cr>", { noremap = true })
 vim.keymap.set("n", "]c", '<cmd>lua require("gitsigns").nav_hunk("next")<cr>', { noremap = true })
