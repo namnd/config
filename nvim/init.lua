@@ -62,7 +62,6 @@ vim.lsp.enable({
 
 vim.diagnostic.config({ virtual_text = { current_line = true } })
 
-require("notes")
 require("nvim-autopairs").setup()
 
 require("nvim-treesitter.configs").setup({
@@ -132,6 +131,8 @@ vim.api.nvim_create_autocmd("BufRead", {
 		end
 	end,
 })
+
+vim.api.nvim_create_user_command("S", require("notes").edit, {})
 
 vim.keymap.set("v", "v", "$h", { noremap = true })
 vim.keymap.set("n", "E", "ea", { noremap = true })
