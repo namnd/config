@@ -39,6 +39,7 @@
     hyprpaper
     blueberry
     networkmanagerapplet
+    zathura # pdf
   ];
 
   gtk = {
