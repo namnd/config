@@ -39,6 +39,8 @@
     hyprpaper
     blueberry
     networkmanagerapplet
+    slurp # to take screenshot
+    grim # to select what to screenshot
     zathura # pdf
   ];
 
