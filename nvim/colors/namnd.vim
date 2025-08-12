@@ -9,6 +9,7 @@ hi CursorLine         guibg=#222222
 hi ColorColumn        guibg=#222222
 hi StatusLine         guibg=#222222   guifg=#a8a8a8
 hi StatusLineNC       guibg=none      guifg=#a8a8a8
+hi TabLineSel         guibg=white     guifg=black
 hi DiagnosticError    guifg=red
 hi DiagnosticWarn     guifg=yellow
 hi DiffText           guibg=orange    guifg=black
