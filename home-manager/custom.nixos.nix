@@ -41,7 +41,6 @@
     networkmanagerapplet
     slurp # to take screenshot
     grim # to select what to screenshot
-    zathura # pdf
   ];
 
   gtk = {
@@ -104,5 +103,12 @@
     extraConfig = ''
 
     '';
+  };
+
+  programs.zathura = {
+    enable = true;
+    options = {
+      font = "monospace normal 14";
+    };
   };
 }
