@@ -21,7 +21,6 @@
     unzip
     gnumake
 
-    surf
     atop
     btop
     htop
