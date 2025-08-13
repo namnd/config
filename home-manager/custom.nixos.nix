@@ -21,13 +21,11 @@
     udisks
     unzip
     gnumake
-    scrot
 
     surf
     atop
     btop
     htop
-    scrot
     pavucontrol
     pulseaudio
     pass
