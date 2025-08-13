@@ -5,7 +5,6 @@
     ".config/hypr".source = config.lib.file.mkOutOfStoreSymlink ../hypr;
     ".config/waybar".source = config.lib.file.mkOutOfStoreSymlink ../waybar;
     ".config/ghostty".source = config.lib.file.mkOutOfStoreSymlink ../ghostty;
-    ".local/share/fonts".source = config.lib.file.mkOutOfStoreSymlink ../fonts;
   };
 
   programs.git.userEmail = "me@namnd.com";
