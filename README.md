@@ -5,6 +5,7 @@ Over the years, my (day job & personal) workstations have been setup based on 3 
 1. Package manager (Nix)
 1. Coding editor (Neovim)
 1. Terminal emulator (~Kitty~ Ghostty)
+1. Web browser (~Firefox~ qutebrowser)
 
 Everything else kinda comes and goes, so changes are expected. I also prefer functionality & simplicity over look & feel, so there won't be anything fancy in my config. All of them are kept pretty minimal.
 
