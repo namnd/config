@@ -26,7 +26,6 @@ vim.o.undofile = true
 vim.cmd([[
 packadd cfilter
 colorscheme namnd
-set completeopt+=noselect
 ]])
 
 vim.pack.add({
@@ -128,6 +127,20 @@ vim.api.nvim_create_autocmd("BufRead", {
 			and vim.fn.line("'\"") <= vim.fn.line("$")
 		then
 			vim.cmd.normal({ 'g`"', bang = true })
+		end
+	end,
+})
+
+vim.o.complete = ".,o" -- use buffer and omnifunc
+vim.o.completeopt = "fuzzy,menuone,noselect" -- add 'popup' for docs (sometimes)
+vim.o.autocomplete = true
+vim.o.pumheight = 7
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client ~= nil and client:supports_method("textDocument/completion") then
+			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
 		end
 	end,
 })
