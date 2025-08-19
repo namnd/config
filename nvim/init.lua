@@ -86,6 +86,7 @@ require("oil").setup({
 require("conform").setup({
 	format_on_save = {},
 	formatters_by_ft = {
+		go = { lsp_format = "fallback" },
 		lua = { "stylua" },
 		terraform = { lsp_format = "fallback" },
 	},
