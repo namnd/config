@@ -182,7 +182,6 @@ vim.keymap.set("n", "<leader>hr", require("gitsigns").reset_hunk, { noremap = tr
 vim.keymap.set("n", "<leader>hp", require("gitsigns").preview_hunk, { noremap = true })
 vim.keymap.set("n", "<leader>rp", "yiwy<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
 vim.keymap.set("v", "<leader>rp", "y<esc>:%s/<C-r>+//gc<left><left><left>", { noremap = true })
-vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set("n", "<leader>2", function() -- toggle qflist window
 	if vim.fn.getqflist({ winid = 0 }).winid == 0 then
 		vim.api.nvim_command("copen")

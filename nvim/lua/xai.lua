@@ -43,11 +43,18 @@ function M.chat_history()
 			local t_minus = split(line, ")")[1]
 			result = execute_command("xai chat resume " .. t_minus)
 			local lines = split(result.output, "\n")
+			local new_lines = {}
+			for _, l in ipairs(lines) do
+				if l == "---" then
+					table.insert(new_lines, " ")
+				end
+				table.insert(new_lines, l)
+			end
 			local chat_buf = vim.api.nvim_create_buf(true, true)
 			vim.api.nvim_command("vsplit")
 			vim.api.nvim_win_set_buf(0, chat_buf)
 			vim.api.nvim_set_option_value("filetype", "markdown", { buf = chat_buf })
-			vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+			vim.api.nvim_buf_set_lines(0, 0, -1, false, new_lines)
 		end
 	end
 
