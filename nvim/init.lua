@@ -46,6 +46,7 @@ vim.pack.add({
 	"https://github.com/tweekmonster/startuptime.vim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/stevearc/conform.nvim",
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
 })
 
 vim.g.fzf_layout = { down = "40%" }
@@ -66,7 +67,18 @@ require("nvim-autopairs").setup()
 require("nvim-treesitter.configs").setup({
 	modules = {},
 	ignore_install = {},
-	ensure_installed = { "go", "lua", "vim", "markdown", "json", "jsonc", "nix", "bash", "terraform" },
+	ensure_installed = {
+		"bash",
+		"go",
+		"json",
+		"jsonc",
+		"lua",
+		"markdown",
+		"markdown_inline",
+		"nix",
+		"terraform",
+		"vim",
+	},
 	highlight = { enable = true },
 	indent = { enable = true },
 	sync_install = false,
@@ -91,6 +103,11 @@ require("conform").setup({
 		terraform = { lsp_format = "fallback" },
 	},
 })
+
+require("render-markdown").setup({
+	file_types = { "markdown" },
+})
+vim.api.nvim_create_user_command("X", require("xai").chat_history, {})
 
 vim.api.nvim_create_autocmd("VimEnter", { -- require vim-obsession
 	group = vim.api.nvim_create_augroup("ObsessionCheck", { clear = true }),
