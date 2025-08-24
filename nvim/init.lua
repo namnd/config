@@ -23,6 +23,8 @@ vim.o.backup = false
 vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true
 
+vim.g.markdown_fenced_languages = { "go", "python", "ruby", "vim", "c" }
+
 vim.cmd([[
 packadd cfilter
 colorscheme namnd
@@ -107,7 +109,7 @@ require("conform").setup({
 require("render-markdown").setup({
 	file_types = { "markdown" },
 })
-vim.api.nvim_create_user_command("X", require("xai").chat_history, {})
+vim.api.nvim_create_user_command("X", require("xai").Chat, {})
 
 vim.api.nvim_create_autocmd("VimEnter", { -- require vim-obsession
 	group = vim.api.nvim_create_augroup("ObsessionCheck", { clear = true }),
