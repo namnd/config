@@ -89,7 +89,7 @@ local add_transcript_header = function(winnr, bufnr, role, line_num)
 			local is_current = winnr == vim.api.nvim_get_current_win()
 			vim.api.nvim_win_call(winnr, function()
 				vim.cmd("normal! Go")
-				if is_current then
+				if is_current and thread_id == "" then
 					vim.cmd("startinsert!")
 				end
 			end)
