@@ -99,6 +99,10 @@ local add_transcript_header = function(winnr, bufnr, role, line_num)
 end
 
 local init_chat = function()
+	vim.cmd("botright vnew")
+	vim.cmd("set winfixwidth")
+	vim.cmd("vertical resize 60")
+
 	local winnr = vim.api.nvim_get_current_win()
 	local bufnr = vim.api.nvim_get_current_buf()
 	buffer_sync_cursor[bufnr] = true
@@ -189,9 +193,6 @@ local receive_data = function(_, data, _)
 end
 
 function M.Chat()
-	vim.cmd("botright vnew")
-	vim.cmd("set winfixwidth")
-	vim.cmd("vertical resize 60")
 	init_chat()
 end
 
