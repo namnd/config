@@ -242,8 +242,10 @@ function M.ChatBotSubmit()
 		return
 	end
 
-	local user_input = table.concat(last_message, "\n")
-
+	local user_input = table.concat(last_message, "\\n")
+	user_input = string.gsub(user_input, '"', '\\"')
+	user_input = string.gsub(user_input, "`", "\\`")
+	-- vim.print(user_input)
 	local prompt_cmd = 'xai prompt "' .. user_input .. '"'
 	-- vim.print(prompt_cmd)
 	if thread_id ~= nil and thread_id ~= "" then
