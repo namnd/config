@@ -5,7 +5,9 @@ local json = require("json")
 
 M = {}
 
-local thread_id = ""
+local winnr
+local bufnr
+local thread_id
 local is_receiving = false -- a flag to make sure same request not being submitted more than once
 local roles = {
 	user = "🧑 " .. os.getenv("USER"),
@@ -81,7 +83,7 @@ local parse_messages = function()
 	return messages
 end
 
-local add_transcript_header = function(winnr, bufnr, role, line_num)
+local add_transcript_header = function(role, line_num)
 	local line = ((line_num ~= nil) and line_num) or vim.api.nvim_buf_line_count(bufnr)
 	vim.api.nvim_buf_set_lines(bufnr, line, line + 1, false, { roles[role] })
 	if role == "user" and buffer_sync_cursor[bufnr] then
@@ -89,7 +91,7 @@ local add_transcript_header = function(winnr, bufnr, role, line_num)
 			local is_current = winnr == vim.api.nvim_get_current_win()
 			vim.api.nvim_win_call(winnr, function()
 				vim.cmd("normal! Go")
-				if is_current and thread_id == "" then
+				if is_current and thread_id == nil and not is_receiving then
 					vim.cmd("startinsert!")
 				end
 			end)
@@ -103,8 +105,8 @@ local init_chat = function()
 	vim.cmd("set winfixwidth")
 	vim.cmd("vertical resize 60")
 
-	local winnr = vim.api.nvim_get_current_win()
-	local bufnr = vim.api.nvim_get_current_buf()
+	winnr = vim.api.nvim_get_current_win()
+	bufnr = vim.api.nvim_get_current_buf()
 	buffer_sync_cursor[bufnr] = true
 
 	vim.wo.breakindent = true
@@ -116,7 +118,7 @@ local init_chat = function()
 	vim.api.nvim_set_option_value("buflisted", true, { buf = bufnr })
 	vim.api.nvim_set_option_value("modified", false, { buf = bufnr })
 
-	add_transcript_header(winnr, bufnr, "user", 0)
+	add_transcript_header("user", 0)
 	local modes = { "n", "i" }
 	for _, mode in ipairs(modes) do
 		vim.api.nvim_buf_set_keymap(
@@ -167,21 +169,16 @@ local parse_response = function(response)
 end
 
 local done = function()
-	local winnr = vim.api.nvim_get_current_win()
-	local bufnr = vim.api.nvim_get_current_buf()
-
 	vim.api.nvim_set_option_value("modifiable", true, { buf = bufnr }) -- allow user input again
 	is_receiving = false
-	add_transcript_header(winnr, bufnr, "user")
+	add_transcript_header("user")
 end
 
 local receive_data = function(_, data, _)
-	local winnr = vim.api.nvim_get_current_win()
-	local bufnr = vim.api.nvim_get_current_buf()
 	if #data > 1 then
 		local response = json.decode(data[1])
 		local new_lines = parse_response(response)
-		vim.api.nvim_buf_set_lines(0, 0, -1, false, new_lines)
+		vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, new_lines)
 		if buffer_sync_cursor[bufnr] then
 			vim.schedule(function()
 				vim.api.nvim_win_call(winnr, function()
@@ -230,8 +227,6 @@ function M.ChatBotSubmit()
 	end
 
 	vim.cmd("normal! Go")
-	local winnr = vim.api.nvim_get_current_win()
-	local bufnr = vim.api.nvim_get_current_buf()
 	buffer_sync_cursor[bufnr] = true
 
 	local messages = parse_messages()
@@ -248,7 +243,7 @@ function M.ChatBotSubmit()
 	-- vim.print(user_input)
 	local prompt_cmd = 'xai prompt "' .. user_input .. '"'
 	-- vim.print(prompt_cmd)
-	if thread_id ~= nil and thread_id ~= "" then
+	if thread_id ~= nil then
 		-- pass thread to the request
 		prompt_cmd = prompt_cmd .. " --thread-id " .. thread_id
 	end
@@ -262,7 +257,7 @@ function M.ChatBotSubmit()
 
 	if job_id > 0 then
 		is_receiving = true
-		add_transcript_header(winnr, bufnr, "assistant")
+		add_transcript_header("assistant")
 	end
 end
 
