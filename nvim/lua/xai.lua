@@ -193,6 +193,28 @@ function M.Chat()
 	init_chat()
 end
 
+function M.ChatAnalyze()
+	local file_path = vim.fn.expand("%:.")
+	init_chat()
+
+	local analyze_cmd = "xai analyze " .. file_path
+	vim.print(analyze_cmd)
+	vim.api.nvim_buf_set_lines(bufnr, 1, -1, false, { "Analyze file " .. file_path, "" })
+
+	local job_id = vim.fn.jobstart(analyze_cmd, {
+		on_stdout = receive_data,
+		on_exit = done,
+		on_stderr = function(_, _, _)
+			-- vim.print(data)
+		end,
+	})
+
+	if job_id > 0 then
+		is_receiving = true
+		add_transcript_header("assistant")
+	end
+end
+
 function M.ChatHistory()
 	local command = "xai chat history"
 	local result = execute_command(command)
