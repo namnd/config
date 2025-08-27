@@ -109,6 +109,7 @@ vim.api.nvim_create_user_command("X", require("xai").Chat, {})
 vim.api.nvim_create_user_command("XH", require("xai").ChatHistory, {})
 vim.api.nvim_create_user_command("XF", require("xai").ChatAnalyze, {})
 
+---@diagnostic disable: param-type-mismatch
 vim.api.nvim_create_autocmd("VimEnter", { -- require vim-obsession
 	group = vim.api.nvim_create_augroup("ObsessionCheck", { clear = true }),
 	callback = function()

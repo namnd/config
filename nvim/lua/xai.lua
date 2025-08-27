@@ -101,6 +101,12 @@ local add_transcript_header = function(role, line_num)
 end
 
 local init_chat = function()
+	winnr = nil
+	bufnr = nil
+	thread_id = nil
+	is_receiving = false -- a flag to make sure same request not being submitted more than once
+	buffer_sync_cursor = {}
+
 	vim.cmd("botright vnew")
 	vim.cmd("set winfixwidth")
 	vim.cmd("vertical resize 60")
@@ -198,7 +204,7 @@ function M.ChatAnalyze()
 	init_chat()
 
 	local analyze_cmd = "xai analyze " .. file_path
-	vim.print(analyze_cmd)
+	-- vim.print(analyze_cmd)
 	vim.api.nvim_buf_set_lines(bufnr, 1, -1, false, { "Analyze file " .. file_path, "" })
 
 	local job_id = vim.fn.jobstart(analyze_cmd, {
