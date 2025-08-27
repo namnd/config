@@ -199,13 +199,19 @@ function M.Chat()
 	init_chat()
 end
 
-function M.ChatAnalyze()
-	local file_path = vim.fn.expand("%:.")
+function M.ChatAnalyze(args)
+	local analyze_cmd = "xai analyze "
+	if args.args == "" then
+		analyze_cmd = analyze_cmd .. vim.fn.getcwd() -- entire codebase
+	elseif args.args == "%" then
+		analyze_cmd = analyze_cmd .. vim.fn.expand("%:.") -- current buffer
+	else
+		analyze_cmd = analyze_cmd .. args.args
+	end
+
 	init_chat()
 
-	local analyze_cmd = "xai analyze " .. file_path
-	-- vim.print(analyze_cmd)
-	vim.api.nvim_buf_set_lines(bufnr, 1, -1, false, { "Analyze file " .. file_path, "" })
+	vim.api.nvim_buf_set_lines(bufnr, 1, -1, false, { analyze_cmd, "" })
 
 	local job_id = vim.fn.jobstart(analyze_cmd, {
 		on_stdout = receive_data,
