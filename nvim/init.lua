@@ -48,6 +48,7 @@ vim.pack.add({
 	"https://github.com/tweekmonster/startuptime.vim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/stevearc/conform.nvim",
+	"https://github.com/namnd/xai.nvim",
 })
 
 vim.g.fzf_layout = { down = "40%" }
@@ -104,10 +105,6 @@ require("conform").setup({
 		terraform = { lsp_format = "fallback" },
 	},
 })
-
-vim.api.nvim_create_user_command("X", require("xai").Chat, {})
-vim.api.nvim_create_user_command("XH", require("xai").ChatHistory, {})
-vim.api.nvim_create_user_command("XA", require("xai").ChatAnalyze, { nargs = "*" })
 
 ---@diagnostic disable: param-type-mismatch
 vim.api.nvim_create_autocmd("VimEnter", { -- require vim-obsession
