@@ -3,7 +3,12 @@
 #################################################
 # Install Nix
 #################################################
-sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+
+export NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+
+curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install -o /tmp/nix-install
+sh /tmp/nix-install --daemon
+rm /tmp/nix-install
 
 root_dir=$(readlink -f "$PWD"/../..)
 
