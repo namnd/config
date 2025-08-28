@@ -50,6 +50,14 @@ local remove_last_empty = function(l)
 	return r
 end
 
+local capitalize_first = function(str)
+	if str and #str > 0 then
+		return string.upper(string.sub(str, 1, 1)) .. string.sub(str, 2)
+	else
+		return str -- Return original if string is empty or nil
+	end
+end
+
 -- parse buffer to a list of messages
 -- each message has first element as role, and the rest are content
 local parse_messages = function()
@@ -145,13 +153,19 @@ local parse_response = function(response)
 	end
 
 	if response["ChatRequest"] ~= nil and response["ChatRequest"]["messages"] ~= nil then
-		for _, m in ipairs(response["ChatRequest"]["messages"]) do
+		for i, m in ipairs(response["ChatRequest"]["messages"]) do
 			if m["role"] == "user" or m["role"] == "assistant" then
 				table.insert(result, roles[m["role"]])
-				local lines = split(m["content"], "\n")
-				for _, l in ipairs(lines) do
-					table.insert(result, l)
+				-- first one is system prompt
+				if i == 2 and m["content"]:match("Analyze codebase files:") then
+					table.insert(result, response["OriginalPrompt"])
+				else
+					local lines = split(m["content"], "\n")
+					for _, l in ipairs(lines) do
+						table.insert(result, l)
+					end
 				end
+
 				table.insert(result, "")
 			end
 		end
@@ -200,18 +214,20 @@ function M.Chat()
 end
 
 function M.ChatAnalyze(args)
-	local analyze_cmd = "xai analyze "
+	local prompt = "analyze "
 	if args.args == "" then
-		analyze_cmd = analyze_cmd .. vim.fn.getcwd() -- entire codebase
+		prompt = prompt .. vim.fn.getcwd() -- entire codebase
 	elseif args.args == "%" then
-		analyze_cmd = analyze_cmd .. vim.fn.expand("%:.") -- current buffer
+		prompt = prompt .. vim.fn.expand("%:.") -- current buffer
 	else
-		analyze_cmd = analyze_cmd .. args.args
+		prompt = prompt .. args.args
 	end
+
+	local analyze_cmd = "xai " .. prompt
 
 	init_chat()
 
-	vim.api.nvim_buf_set_lines(bufnr, 1, -1, false, { analyze_cmd, "" })
+	vim.api.nvim_buf_set_lines(bufnr, 1, -1, false, { capitalize_first(prompt), "" })
 
 	local job_id = vim.fn.jobstart(analyze_cmd, {
 		on_stdout = receive_data,
