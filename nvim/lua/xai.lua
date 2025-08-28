@@ -138,7 +138,7 @@ local init_chat = function()
 		vim.api.nvim_buf_set_keymap(
 			bufnr,
 			mode,
-			"<C-s>",
+			"<S-CR>",
 			"<ESC>:lua require('xai').ChatBotSubmit()<CR>",
 			{ noremap = true, silent = true }
 		)
