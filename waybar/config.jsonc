@@ -2,7 +2,7 @@
   "layer": "top",
   "modules-left": ["hyprland/workspaces", "hyprland/submap"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "cpu", "memory", "bluetooth", "pulseaudio", "battery", "clock"],
+  "modules-right": ["network", "disk", "disk#data", "cpu", "memory", "bluetooth", "pulseaudio", "battery", "clock"],
   "hyprland/window": {
     "separate-outputs": true,
     "max-length": 50,
@@ -22,7 +22,14 @@
     "format": " {used:0.1f}G/{total:0.1f}G"
   },
   "disk": {
-    "format": "{percentage_free}%",
+    "format": " /({percentage_used}%)",
+    "interval": 3600,
+    "path": "/"
+  },
+  "disk#data": {
+    "format": " /data({percentage_used}%)",
+    "interval": 3600,
+    "path": "/data"
   },
   "bluetooth": {
     "format": "󰂯 ",
