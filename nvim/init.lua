@@ -59,6 +59,7 @@ vim.lsp.enable({
 	"bashls",
 	"lua_ls",
 	"gopls",
+	"templ",
 	"terraform-ls",
 })
 
@@ -103,6 +104,7 @@ require("conform").setup({
 		go = { lsp_format = "fallback" },
 		lua = { "stylua" },
 		terraform = { lsp_format = "fallback" },
+		templ = { "templ" },
 	},
 })
 

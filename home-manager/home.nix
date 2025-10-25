@@ -41,6 +41,7 @@
     terraform-ls
     go
     gopls
+    templ
   ];
 
 
