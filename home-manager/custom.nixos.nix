@@ -37,6 +37,9 @@
     networkmanagerapplet
     slurp # to take screenshot
     grim # to select what to screenshot
+
+    talosctl
+    hugo
   ];
 
   gtk = {
@@ -60,6 +63,8 @@
   programs.waybar = {
     enable = true;
   };
+
+  programs.firefox.enable = true;
 
   programs.qutebrowser = {
     enable = true;
