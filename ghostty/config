@@ -2,7 +2,7 @@ font-family = Cascadia Mono Light
 font-size = 17
 
 theme = Wombat
-unfocused-split-opacity = 0.3
+unfocused-split-opacity = 0.5
 
 keybind = super+t=new_tab
 keybind = super+w=close_tab
