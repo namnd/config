@@ -33,6 +33,9 @@
     bash-language-server
     lua-language-server
     stylua
+    tailwindcss_4
+    tailwindcss-language-server
+
 
     kubectl
     kubernetes-helm
