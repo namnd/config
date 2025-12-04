@@ -46,7 +46,9 @@ __aws_vault_ps1() {
     "build-prod")
       color=${ENV_7};;
   esac
-  echo " ${color}($AWS_VAULT)${RESET}"
+
+  expiry=$(date -d "$AWS_CREDENTIAL_EXPIRATION" +%H:%M)
+  echo " ${color}($AWS_VAULT-$expiry)${RESET}"
 }
 
 kc() {
