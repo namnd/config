@@ -103,7 +103,9 @@ require("conform").setup({
 	formatters_by_ft = {
 		go = { lsp_format = "fallback" },
 		lua = { "stylua" },
-		terraform = { lsp_format = "fallback" },
+		terraform = { "terraform_fmt" },
+		hcl = { "terraform_fmt" },
+		["terraform-vars"] = { "terraform_fmt" },
 		templ = { "templ" },
 	},
 })
