@@ -50,12 +50,14 @@
 
   programs.git = {
     enable = true;
-    userName = "Nam Nguyen";
-    aliases = {
-      undo = "!git reset HEAD~1 --mixed";
-      graph = "!f()  { git log --graph --abbrev-commit --decorate --all; }; f";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Nam Nguyen";
+      };
+      alias = {
+        undo = "!git reset HEAD~1 --mixed";
+        graph = "!f()  { git log --graph --abbrev-commit --decorate --all; }; f";
+      };
       color = {
         ui = true;
         diff = true;
