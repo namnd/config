@@ -5,6 +5,10 @@ source ~/.nix-profile/share/git/contrib/completion/git-prompt.sh
 
 export PATH="$PATH:$HOME/.local/bin"
 
+if [[ `uname` == "Darwin" ]] && [ -x "$(command -v gpgconf)" ]; then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+fi
+
 GRAY="\[$(tput setaf 240)\]"
 BLUE="\[$(tput setaf 4)\]"
 YELLOW="\[$(tput setaf 3)\]"

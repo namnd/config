@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
 
   programs.git.settings.user.email = "me@namnd.com";
@@ -8,6 +8,11 @@
   };
 
   programs.gpg.enable = true;
+
+  home.packages = with pkgs; [
+    pass
+    coreutils
+  ];
 
   home.file = {
     ".config/ghostty".source = config.lib.file.mkOutOfStoreSymlink ../ghostty;
