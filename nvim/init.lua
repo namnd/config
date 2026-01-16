@@ -30,6 +30,14 @@ packadd cfilter
 colorscheme namnd
 ]])
 
+vim.filetype.add({
+	pattern = {
+		[".*.tpl"] = function(_, _, ext)
+			return ext
+		end,
+	},
+})
+
 vim.pack.add({
 	"https://github.com/tpope/vim-surround",
 	"https://github.com/tpope/vim-repeat",
