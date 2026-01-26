@@ -72,6 +72,8 @@
     cliphist
   ];
 
+  services.tailscale.enable = true;
+
   fonts.packages = with pkgs; [
     cascadia-code
     nerd-fonts.ubuntu-mono
