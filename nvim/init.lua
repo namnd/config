@@ -75,7 +75,7 @@ vim.diagnostic.config({ virtual_text = { current_line = true } })
 
 require("nvim-autopairs").setup()
 
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
 	modules = {},
 	ignore_install = {},
 	ensure_installed = {
