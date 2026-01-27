@@ -51,10 +51,8 @@
   programs.git = {
     enable = true;
     settings = {
-      user = {
-        name = "Nam Nguyen";
-      };
-      alias = {
+      user.name = "Nam Nguyen";
+      aliases = {
         undo = "!git reset HEAD~1 --mixed";
         graph = "!f()  { git log --graph --abbrev-commit --decorate --all; }; f";
       };
