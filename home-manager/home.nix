@@ -115,6 +115,7 @@
       gl = "git log";
       gg = "git graph";
       v = "aws-vault exec --debug --backend=file --duration=1h";
+      vr = "eval $(AWS_VAULT=  aws-vault export --backend=file --format=export-env $AWS_VAULT)";
     };
 
   };
