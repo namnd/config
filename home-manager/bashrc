@@ -55,9 +55,13 @@ __aws_vault_ps1() {
   echo " ${color}($AWS_VAULT-$expiry)${RESET}"
 }
 
+kcc() {
+  kc "$AWS_VAULT" "$1"
+}
+
 kc() {
   if [ -z "$1" ]; then
-    kubectl config unset current-context
+    unset KUBECONFIG
     return 0
   fi
 
@@ -71,12 +75,10 @@ kc() {
       return 1
       ;;
   esac
-
-  kubectl config use-context "$context"
 }
 
 __kube_ps1() {
-  context=$(grep -s "current-context:" ~/.kube/config | sed "s/current-context: //" | awk -F'/' '{print $2}' | tr -d '"')
+  context=$(echo "$KUBECONFIG" | awk -F '/' '{print $NF}')
   if [ -z "${context}" ]; then
     return
   fi
