@@ -57,6 +57,7 @@ vim.pack.add({
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/namnd/xai.nvim",
+	"https://github.com/github/copilot.vim",
 })
 
 vim.g.fzf_layout = { down = "40%" }
