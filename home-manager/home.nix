@@ -1,21 +1,6 @@
 { pkgs, lib, config, ... }:
 
 {
-  nixpkgs.config = {
-    packageOverrides = pkgs: let
-      pkgs' = import <nixpkgs-unstable> {
-        inherit (pkgs) system;
-        overlays = [
-          (import (builtins.fetchTarball {
-            url = "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-          }))
-        ];
-      };
-    in {
-      inherit (pkgs') neovim;
-    };
-  };
-
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
 
@@ -27,7 +12,7 @@
     };
   };
 
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.11"; # Please read the comment before changing.
   home.packages = with pkgs; [
     fastfetch
 
