@@ -55,26 +55,18 @@ __aws_vault_ps1() {
   echo " ${color}($AWS_VAULT-$expiry)${RESET}"
 }
 
-kcc() {
-  kc "$AWS_VAULT" "$1"
-}
-
 kc() {
-  if [ -z "$1" ]; then
-    unset KUBECONFIG
-    return 0
+  # First check for aws access
+  # If we have access, then list clusters and select one with fzf
+  # If we don't have access, then just return
+  # Faster to check using env vars than to try and list clusters and handle the error
+  if ! env | grep AWS_ > /dev/null 2>&1; then
+    echo "No AWS access, cannot list clusters"
+    return 1
   fi
-
-  case "$1" in
-    # skip sensitive data
-    "something")
-      context=something-else
-      ;;
-    *)
-      echo "Invalid context"
-      return 1
-      ;;
-  esac
+  cluster_name=$(aws eks list-clusters | jq .clusters[] | tr -d '"' | fzf)
+  aws eks update-kubeconfig --name "$cluster_name" --kubeconfig ~/.kube/config-"$cluster_name"
+  export KUBECONFIG=~/.kube/config-"$cluster_name"
 }
 
 __kube_ps1() {
