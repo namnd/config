@@ -1,5 +1,5 @@
-font-family = Cascadia Mono Light
-font-size = 17
+font-family = Monaco
+font-size = 20
 
 theme = Wombat
 unfocused-split-opacity = 0.5
@@ -14,3 +14,4 @@ keybind = super+right_bracket=goto_split:next
 keybind = super+left_bracket=goto_split:previous
 keybind = super+shift+k=jump_to_prompt:-1
 keybind = super+shift+j=jump_to_prompt:1
+keybind = shift+enter=text:\x1b\r
