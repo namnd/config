@@ -1,5 +1,7 @@
 { pkgs, lib, config, ... }:
-
+let
+  unstable = import <nixpkgs-unstable> {};
+in
 {
   home.username = builtins.getEnv "USER";
   home.homeDirectory = builtins.getEnv "HOME";
@@ -16,7 +18,7 @@
   home.packages = with pkgs; [
     fastfetch
 
-    neovim 
+    unstable.neovim
     awscli2
     aws-vault
     fzf
