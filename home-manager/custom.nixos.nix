@@ -7,7 +7,7 @@
     ".config/ghostty".source = config.lib.file.mkOutOfStoreSymlink ../ghostty;
   };
 
-  programs.git.userEmail = "me@namnd.com";
+  programs.git.settings.user.email = "me@namnd.com";
   programs.git.signing = {
     key = "54D86DA33E656F30";
     signByDefault = true;
