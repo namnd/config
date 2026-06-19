@@ -12,6 +12,8 @@
   home.packages = with pkgs; [
     pass
     coreutils
+    docker
+    colima
   ];
 
   home.file = {
