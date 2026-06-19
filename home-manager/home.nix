@@ -40,6 +40,7 @@ in
     terraform
     terraform-ls
     go
+    golangci-lint
     gopls
     templ
   ];
