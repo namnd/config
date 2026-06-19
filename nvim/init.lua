@@ -76,25 +76,24 @@ vim.diagnostic.config({ virtual_text = { current_line = true } })
 
 require("nvim-autopairs").setup()
 
-require("nvim-treesitter").setup({
-	modules = {},
-	ignore_install = {},
-	ensure_installed = {
-		"bash",
-		"go",
-		"json",
-		"jsonc",
-		"lua",
-		"markdown",
-		"markdown_inline",
-		"nix",
-		"terraform",
-		"vim",
-	},
-	highlight = { enable = true },
-	indent = { enable = true },
-	sync_install = false,
-	auto_install = false,
+require("nvim-treesitter").install({
+	"bash",
+	"go",
+	"json",
+	"jsonc",
+	"lua",
+	"markdown",
+	"markdown_inline",
+	"nix",
+	"terraform",
+	"vim",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "go" },
+	callback = function()
+		vim.treesitter.start()
+	end,
 })
 
 require("oil").setup({

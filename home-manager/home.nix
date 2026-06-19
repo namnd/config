@@ -19,6 +19,7 @@ in
     fastfetch
 
     unstable.neovim
+    tree-sitter
     awscli2
     aws-vault
     fzf
