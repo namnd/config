@@ -1,7 +1,7 @@
 {
   "plugins": {
     "conform.nvim": {
-      "rev": "dca1a190aa85f9065979ef35802fb77131911106",
+      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.vim": {
@@ -13,16 +13,20 @@
       "src": "https://github.com/pbogut/fzf-mru.vim"
     },
     "fzf.vim": {
-      "rev": "b9624aa012ddcbae9e79964bfd30cc1fbe3cf263",
+      "rev": "d2a59a992a2455f609c0fde2ebd84427ea8f919a",
       "src": "https://github.com/junegunn/fzf.vim"
     },
     "gitsigns.nvim": {
-      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
+      "rev": "2038c666bd9d8a0b7349a0b6ee00dc83104b9ecf",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "gv.vim": {
-      "rev": "b6bb6664e2c95aa584059f195eb3a9f3cb133994",
+      "rev": "ed7e9c6a118d92462c7d709c34a92682b60fa9f7",
       "src": "https://github.com/junegunn/gv.vim"
+    },
+    "mini.splitjoin": {
+      "rev": "6b731ce7f38ca4899a575373db93d2de2fc5bbf2",
+      "src": "https://github.com/nvim-mini/mini.splitjoin"
     },
     "nvim-autopairs": {
       "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
@@ -32,12 +36,8 @@
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
-    "nvim-trevJ.lua": {
-      "rev": "db6a428056a7375ec1f1f9782e2cea7c628ab95d",
-      "src": "https://github.com/AckslD/nvim-trevJ.lua"
-    },
     "oil.nvim": {
-      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "startuptime.vim": {

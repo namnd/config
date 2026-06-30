@@ -51,8 +51,8 @@ vim.pack.add({
 	"https://github.com/pbogut/fzf-mru.vim", -- depends on fzf.vim
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/AckslD/nvim-trevJ.lua", -- depends on treesitter
 	"https://github.com/mbbill/undotree",
+	"https://github.com/nvim-mini/mini.splitjoin",
 	"https://github.com/tweekmonster/startuptime.vim",
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/stevearc/conform.nvim",
@@ -75,6 +75,7 @@ vim.lsp.enable({
 vim.diagnostic.config({ virtual_text = { current_line = true } })
 
 require("nvim-autopairs").setup()
+require("mini.splitjoin").setup()
 
 require("nvim-treesitter").install({
 	"bash",
@@ -183,7 +184,6 @@ vim.keymap.set("n", "<leader>gg", ":tab G<cr>", { noremap = true }) -- require v
 vim.keymap.set("n", "-", "<cmd>Oil<cr>", { noremap = true }) -- require oil.nvim
 vim.keymap.set("n", "<leader>ff", ":FZF<cr>", { noremap = true }) -- require fzf.vim
 vim.keymap.set("n", "<leader>fr", ":FZFMru<cr>", { noremap = true }) -- require fzf-mru
-vim.keymap.set("n", "<leader>K", require("trevj").format_at_cursor, { noremap = true })
 vim.keymap.set("n", "<leader>,", ":tabedit ~/.config/nvim/init.lua<cr>", { noremap = true })
 vim.keymap.set("n", "<leader>/", ":tabedit ~/.config/home-manager/home.nix<cr>", { noremap = true })
 vim.keymap.set("n", "]c", '<cmd>lua require("gitsigns").nav_hunk("next")<cr>', { noremap = true })
