@@ -100,12 +100,13 @@ require("nvim-treesitter").install({
 	"markdown",
 	"markdown_inline",
 	"nix",
+	"templ",
 	"terraform",
 	"vim",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "go" },
+	pattern = { "go", "templ" },
 	callback = function()
 		vim.treesitter.start()
 	end,
