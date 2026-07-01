@@ -95,7 +95,6 @@ require("nvim-treesitter").install({
 	"bash",
 	"go",
 	"json",
-	"jsonc",
 	"lua",
 	"markdown",
 	"markdown_inline",
