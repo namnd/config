@@ -72,6 +72,20 @@ vim.lsp.enable({
 	"terraform-ls",
 })
 
+local old_start = vim.lsp.start
+
+---@diagnostic disable-next-line: duplicate-set-field
+vim.lsp.start = function(...)
+	---@diagnostic disable-next-line: deprecated
+	local _, opt = unpack({ ... })
+	if opt and opt.bufnr then
+		if vim.b[opt.bufnr].fugitive_type then
+			return
+		end
+	end
+	old_start(...)
+end
+
 vim.diagnostic.config({ virtual_text = { current_line = true } })
 
 require("nvim-autopairs").setup()
